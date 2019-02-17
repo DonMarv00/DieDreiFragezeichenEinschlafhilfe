@@ -16,37 +16,6 @@ $app_daten_c = $_GET["bewerten"];
 $app_daten_d = $_POST["bewerten"]; 
 
 
-if($app_daten_c != ""){
-	$string_data_eplode = explode(":", $app_daten_c);
-	
-	$string_operator = $string_data_eplode[0];
-	$file_text_file_plus = "folgen_daten/folge_plus_" .$string_data_eplode[1] .".txt";
-	$file_text_file_minus = "folgen_daten/folge_minus_" .$string_data_eplode[1] .".txt";
-	
-	
-	if($string_operator == "opgut:"){
-		echo "gut";
-		if(!file_exists($file_text_file_plus)){
-		 file_put_contents($file_text_file_plus, "0");
-		}
-		
-		$string_old_data = file_get_contents($file_text_file_plus);
-		$string_old_data++;
-		file_put_contents($file_text_file_plus, $string_old_data);
-	}
-	if($string_operator != "opgut"){
-		if(!file_exists($file_text_file_minus)){
-		 file_put_contents($file_text_file_minus, "0");
-		}
-		
-		$string_old_data = file_get_contents($file_text_file_minus);
-		$string_old_data++;
-		file_put_contents($file_text_file_minus, $string_old_data);
-	}
-	
-	
-}
-
 if($app_daten != ""){
 		FolgenAuswählen($app_daten);
 }
