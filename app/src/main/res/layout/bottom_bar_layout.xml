@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:background="@color/colorPrimary"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/relativeLayout">
+
+        <RelativeLayout
+            android:layout_width="35dp"
+            android:background="@color/colorPrimaryDark"
+            android:layout_centerInParent="true"
+            android:layout_alignParentLeft="true"
+            android:layout_height="50dp"
+            android:id="@+id/btn_left">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    app:srcCompat="@drawable/ic_left"
+                    android:contentDescription=""
+                    tools:ignore="ContentDescription" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="35dp"
+            android:id="@+id/btn_right"
+            android:background="@color/colorPrimaryDark"
+            android:layout_centerInParent="true"
+            android:layout_alignParentRight="true"
+            android:layout_height="50dp">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                app:srcCompat="@drawable/ic_right"
+                android:contentDescription=""
+                tools:ignore="ContentDescription" />
+        </RelativeLayout>
+
+        <ViewFlipper
+            android:layout_width="match_parent"
+            android:id="@+id/bottom_bar_view_flipper"
+            android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:text="@string/string_folgen_1_50"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:layout_centerInParent="true"
+                            android:textColor="#FFFFFF"
+                            android:layout_height="wrap_content" />
+                </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="@string/string_folgen_1_100"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_centerInParent="true"
+                    android:textColor="#FFFFFF"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="@string/string_folgen_1_150"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_centerInParent="true"
+                    android:textColor="#FFFFFF"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="@string/string_die_dr3i"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_centerInParent="true"
+                    android:textColor="#FFFFFF"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="@string/string_benutzerdefiniert"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_centerInParent="true"
+                    android:textColor="#FFFFFF"
+                    android:layout_height="wrap_content" />
+        </RelativeLayout>
+
+        </ViewFlipper>
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_marginTop="55dp"
+    android:layout_height="wrap_content">
+
+
+    <RelativeLayout
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="50dp"
+        android:id="@+id/relativeLayout4">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="50dp"
+            android:layout_centerInParent="true"
+            android:layout_alignParentTop="true"
+            android:id="@+id/btn_up_one"
+            android:layout_height="40dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:rotation="90"
+                    android:src="@drawable/ic_left" />
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+        <TextView
+            android:id="@+id/tv_number_one"
+            android:textStyle="bold"
+            android:layout_centerInParent="true"
+            android:textSize="20sp"
+            android:textColor="@color/colorPrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0" />
+
+        <android.support.v7.widget.CardView
+            android:layout_width="50dp"
+            android:layout_centerInParent="true"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/btn_down_one"
+            android:layout_height="40dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:rotation="270"
+                    android:src="@drawable/ic_left" />
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_marginRight="50dp"
+        android:layout_alignParentRight="true"
+        android:id="@+id/relativeLayout5">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="50dp"
+            android:layout_centerInParent="true"
+            android:layout_alignParentTop="true"
+            android:id="@+id/btn_up_two"
+            android:layout_height="40dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:rotation="90"
+                    android:src="@drawable/ic_left" />
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+        <TextView
+            android:id="@+id/tv_number_two"
+            android:textStyle="bold"
+            android:layout_centerInParent="true"
+            android:textSize="20sp"
+            android:textColor="@color/colorPrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0" />
+
+        <android.support.v7.widget.CardView
+            android:layout_width="50dp"
+            android:layout_centerInParent="true"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/btn_down_two"
+            android:layout_height="40dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:rotation="270"
+                    android:src="@drawable/ic_left" />
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>
