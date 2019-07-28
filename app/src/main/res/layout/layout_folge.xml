@@ -1,62 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#000000"
     android:id="@+id/rl_layout_folge"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_height="match_parent">
 
-                <android.support.v7.widget.CardView
-                    xmlns:app="http://schemas.android.com/apk/res-auto"
-                    android:layout_width="match_parent"
-                    android:layout_height="75dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:visibility="gone"
-                    android:id="@+id/btn_information"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@color/colorPrimaryDark">
-
-                        <ImageView
-                            android:layout_width="55dp"
-                            android:layout_height="55dp"
-                            android:layout_alignParentLeft="true"
-                            android:layout_centerInParent="true"
-                            android:layout_marginLeft="5dp"
-                            app:srcCompat="@drawable/ic_info"
-                            android:id="@+id/imageView2" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/string_aktualisierung_verf_gbar"
-                            android:textColor="#FFFFFF"
-                            android:textSize="17sp"
-                            android:textStyle="bold"
-                            android:layout_alignTop="@+id/imageView2"
-                            android:layout_toEndOf="@+id/imageView2" />
-
-                        <TextView
-                            android:id="@+id/textView"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/string_hier_klicken_zstring_um_aktualisieren_der_app"
-                            android:textColor="#FFFFFF"
-                            android:layout_centerVertical="true"
-                            android:layout_toEndOf="@+id/imageView2" />
-
-
-                    </RelativeLayout>
-                </android.support.v7.widget.CardView>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -125,50 +74,63 @@
                         android:layout_below="@+id/tv_heutige_folge"
                         android:layout_toStartOf="@+id/tv_folgen_name" />
 
+                    <android.support.design.widget.FloatingActionButton
+                        android:id="@+id/fab_refresh"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="5dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginBottom="55dp"
+                        android:clickable="true"
+                        app:srcCompat="@drawable/ic_refresh" />
+
+                    <android.support.design.widget.FloatingActionButton
+                        android:id="@+id/fab_favo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginRight="6dp"
+                        android:layout_marginBottom="117dp"
+                        android:clickable="true"
+                        app:srcCompat="@drawable/ic_favorite_border_white_24dp" />
                 </RelativeLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="100dp"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.AppCompatButton
+            android:layout_width="150dp"
+            android:layout_gravity="center"
+            android:id="@+id/btn_beschreibung"
+            android:backgroundTint="@color/colorPrimary"
+            android:layout_height="wrap_content"
+            android:text="Beschreibung anzeigen"
+            android:textColor="#FFF"
+            android:visibility="gone"
+            android:textStyle="bold" />
+        <android.support.v7.widget.AppCompatButton
+            android:layout_width="150dp"
+            android:id="@+id/btn_spotify"
+            android:visibility="gone"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:text="Abspielen auf Spotify"
+            android:backgroundTint="@color/colorPrimary"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            />
 
     </LinearLayout>
 
-    <android.support.v7.widget.CardView
-        android:layout_width="150dp"
-        android:id="@+id/btn_beschreibung"
-        android:visibility="gone"
-        android:layout_height="35dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp">
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:background="@color/colorPrimary"
-                android:layout_height="match_parent">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:text="@string/string_beschreibung_n_anzeigen"
-                        android:textColor="#FFFFFF"
-                        android:textStyle="bold"/>
-            </RelativeLayout>
-    </android.support.v7.widget.CardView>
 
-    <android.support.v7.widget.CardView
-        android:layout_width="150dp"
-        android:id="@+id/btn_spotify"
-        android:visibility="gone"
-        android:layout_height="35dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="140dp">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:background="@color/colorPrimary"
-            android:layout_height="match_parent">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="Abspielen auf Spotify"
-                android:textColor="#FFFFFF"
-                android:textStyle="bold"/>
-        </RelativeLayout>
-    </android.support.v7.widget.CardView>
+
 
 </RelativeLayout>

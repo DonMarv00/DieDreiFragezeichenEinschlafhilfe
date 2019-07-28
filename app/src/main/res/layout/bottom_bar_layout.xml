@@ -113,6 +113,19 @@
                     android:layout_height="wrap_content" />
         </RelativeLayout>
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="Favoriten"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_centerInParent="true"
+                    android:textColor="#FFFFFF"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
         </ViewFlipper>
 
     </RelativeLayout>
