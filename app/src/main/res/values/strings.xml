@@ -1,29 +1,11 @@
 <resources>
     <string name="app_name">Einschlafhilfe</string>
-    <string name="app_name_mainactivity">Die drei ??? - Einschlafhilfe</string>
-    <string name="app_name_einstellungen">Eistellungen</string>
-    <string name="action_settings">Einstellungen</string>
-    <string name="string_bewerten">Bewerten</string>
-    <string name="string_einstellungen">Einstellungen</string>
-    <string name="action_refresh"></string>
-    <string name="string_benutzerdefiniert">Benutzerdefiniert</string>
-    <string name="string_folgen_1_100">Folgen 1-100</string>
-    <string name="string_folgen_1_150">Folgen 1-150</string>
-    <string name="string_folgen_1_50">Folgen 1-50</string>
-    <string name="string_die_dr3i">DIE DR3I</string>
-    <string name="string_kids">Kids</string>
-    <string name="string_fragezeichen">\?</string>
-    <string name="string_about">Über diese App</string>
-    <string name="string_aktualisierung_verf_gbar">Aktualisierung verfügbar!</string>
-    <string name="string_beschreibung_n_anzeigen">Beschreibung anzeigen</string>
-    <string name="string_deine_heutige_folge">Deine heutige Folge:</string>
-    <string name="string_hier_klicken_zstring_um_aktualisieren_der_app">Hier klicken, zum aktualisieren der App.</string>
-    <string name="string_benachrichtigungen_erlauben">Benachrichtigungen erlauben</string>
-    <string name="string_benutzerdefinierte_auswahl">Benutzerdefinierte Auswahl</string>
-    <string name="string_bis_folge">Bis Folge:</string>
-    <string name="string_von_folge">Von Folge:</string>
-    <string name="string_weitere_string_einstellungen_folgen_bald">Weitere Einstellungen folgen bald!</string>
-    <string name="string_ber_diese_app">Über diese App</string>
-    <string name="netzwerk">Netzwerk</string>
-    <string name="dot">. </string>
+    <string name="text_download">Momentan werden Dateien heruntergeladen, die für die funktionalität der App benötigt werden (Circa 10 MB). \nDiese Dateien werden im Hintergrund aktualisiert. \nWenn es zu Fehlern beim herunterladen der Cover kommt, kannst du die App einfach neu starten und alles funktioniert.</string>
+    <string name="uberspringen">Überspringen</string>
+    <string name="error_dialog">Starte die App neu oder drücke den unteren Button. \nWenn dies nicht funktioniert überprüfe deine Internetverbindung</string>
+    <string name="alle_folgen">Alle Folgen</string>
+    <string name="string_folgen_1_150">1 - 150</string>
+    <string name="string_folgen_1_100">1 -100</string>
+    <string name="string_folgen_1_50">1 - 50</string>
+    <string name="die_drei">Die Dr3i</string>
 </resources>
