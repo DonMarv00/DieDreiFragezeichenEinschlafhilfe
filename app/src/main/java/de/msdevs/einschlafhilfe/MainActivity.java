@@ -1,54 +1,35 @@
 package de.msdevs.einschlafhilfe;
 
-import androidx.annotation.NonNull;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-
-import android.Manifest;
 import android.annotation.SuppressLint;
-import android.app.SearchManager;
-import android.content.ComponentName;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.content.res.AssetManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Environment;
-import android.provider.MediaStore;
 import android.util.JsonReader;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ViewFlipper;
-
 import com.bumptech.glide.Glide;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
-
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.MalformedURLException;
-
+import java.io.StringReader;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Random;
-
 import de.msdevs.einschlafhilfe.utils.Folgen;
 
 public class MainActivity extends AppCompatActivity {
 
-    FloatingActionButton fab_refresh, fab_description;
+    FloatingActionButton fab_refresh, fab_description, fab_links;
     String name, beschreibung;
     ImageView iv_cover;
     RelativeLayout rl_root;
@@ -57,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
     String spotify;
     ViewFlipper mViewFlipper;
     int folgen_nummer;
-    final int REQ_CODE_EXTERNAL_STORAGE_PERMISSION = 45;
     RelativeLayout rl_bb;
     Button btn_spotify;
     RelativeLayout left, right;
@@ -65,122 +45,72 @@ public class MainActivity extends AppCompatActivity {
     int end = 51;
     int folgen_nummer_dd;
     int folgen_gesamt;
-    String spotifyStart = "spotify:album:";
-    String spotifyEnd = ":play";
-
+    ArrayList<String> arrayNeuvertonung;
+    Intent i;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getSupportActionBar().setTitle("Die drei ??? - Einschlafhilfe");
+        getSupportActionBar().setTitle(getResources().getString(R.string.app_name_long));
         iniViews();
         iniApp();
         folgenLaden();
 
 
+        fab_refresh.setOnClickListener(v -> folgenLaden());
+        fab_description.setOnClickListener(v -> beschreibungAnzeigen());
+        btn_spotify.setOnClickListener(v -> Spotify(spotify));
+        left.setOnClickListener(v -> {
+            mViewFlipper.setInAnimation(MainActivity.this, R.anim.anim_flipper_item_in_left);
+            mViewFlipper.setOutAnimation(MainActivity.this, R.anim.anim_flipper_item_out_right);
+            mViewFlipper.showPrevious();
 
-
-        fab_refresh.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-              folgenLaden();
+            if (mViewFlipper.getDisplayedChild() == 0) {
+                // 1 - 50
+                start = 0;
+                end = 50;
+            }else if (mViewFlipper.getDisplayedChild() == 1) {
+                // 1 - 100
+                start = 0;
+                end = 100;
+            }else if (mViewFlipper.getDisplayedChild() == 2) {
+                // 1 - 150
+                start = 0;
+                end = 150;
+            }else if (mViewFlipper.getDisplayedChild() == 3) {
+                // 1 - Ende
+                start = 0;
+                end = folgen_gesamt;
             }
+            folgenLaden();
         });
-        fab_description.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                beschreibungAnzeigen();
+        right.setOnClickListener(v -> {
+            mViewFlipper.setInAnimation(MainActivity.this, R.anim.anim_flipper_item_in_right);
+            mViewFlipper.setOutAnimation(MainActivity.this, R.anim.anim_flipper_item_out_left);
+            mViewFlipper.showNext();
+
+            rl_bb.setVisibility(View.VISIBLE);
+            if (mViewFlipper.getDisplayedChild() == 0) {
+                // 1 - 50
+                start = 0;
+                end = 50 - 1;
+            }else if (mViewFlipper.getDisplayedChild() == 1) {
+                // 1 - 100
+                start = 0;
+                end = 100 - 1;
+            }else if (mViewFlipper.getDisplayedChild() == 2) {
+                // 1 - 150
+                start = 0;
+                end = 150 - 1;
+            }else if (mViewFlipper.getDisplayedChild() == 3) {
+                // 1 - Ende
+                start = 0;
+                end = folgen_gesamt - 1;
             }
+            folgenLaden();
         });
-        btn_spotify.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(spotify.length() != 0){
-                    Intent intent = new Intent(MediaStore.INTENT_ACTION_MEDIA_PLAY_FROM_SEARCH);
-                    intent.setData(Uri.parse(
-                            spotifyStart + spotify + spotifyEnd));
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(intent);
-                }else{
-                    if(name.length() != 0) {
-                        try {
-
-                            Intent intent = new Intent(Intent.ACTION_MAIN);
-                            intent.setAction(MediaStore.INTENT_ACTION_MEDIA_PLAY_FROM_SEARCH);
-                            intent.setComponent(new ComponentName(
-                                    "com.spotify.music",
-                                    "com.spotify.music.MainActivity"));
-                            intent.putExtra(SearchManager.QUERY, name + " Teil 1");
-                            startActivity(intent);
-
-                        } catch (Exception e) {
-                            Spotify();
-                        }
-
-                    }else{
-                        RelativeLayout rl_main_snackbar = findViewById(R.id.rl_root);
-                        Snackbar.make(rl_main_snackbar, "Spotify ist nicht installiert.", Snackbar.LENGTH_SHORT).show();
-                    }
-                }
-
-            }
-        });
-        left.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mViewFlipper.setInAnimation(MainActivity.this, R.anim.anim_flipper_item_in_left);
-                mViewFlipper.setOutAnimation(MainActivity.this, R.anim.anim_flipper_item_out_right);
-                mViewFlipper.showPrevious();
-
-                if (mViewFlipper.getDisplayedChild() == 0) {
-                    // 1 - 50
-                    start = 0;
-                    end = 50;
-                }else if (mViewFlipper.getDisplayedChild() == 1) {
-                    // 1 - 100
-                    start = 0;
-                    end = 100;
-                }else if (mViewFlipper.getDisplayedChild() == 2) {
-                    // 1 - 150
-                    start = 0;
-                    end = 150;
-                }else if (mViewFlipper.getDisplayedChild() == 3) {
-                    // 1 - Ende
-                    start = 0;
-                    end = folgen_gesamt;
-                }
-                folgenLaden();
-            }
-        });
-        right.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mViewFlipper.setInAnimation(MainActivity.this, R.anim.anim_flipper_item_in_right);
-                mViewFlipper.setOutAnimation(MainActivity.this, R.anim.anim_flipper_item_out_left);
-                mViewFlipper.showNext();
-
-                rl_bb.setVisibility(View.VISIBLE);
-                if (mViewFlipper.getDisplayedChild() == 0) {
-                    // 1 - 50
-                    start = 0;
-                    end = 50 - 1;
-                }else if (mViewFlipper.getDisplayedChild() == 1) {
-                    // 1 - 100
-                    start = 0;
-                    end = 100 - 1;
-                }else if (mViewFlipper.getDisplayedChild() == 2) {
-                    // 1 - 150
-                    start = 0;
-                    end = 150 - 1;
-                }else if (mViewFlipper.getDisplayedChild() == 3) {
-                    // 1 - Ende
-                    start = 0;
-                    end = folgen_gesamt - 1;
-                }
-                folgenLaden();
-            }
-        });
+        fab_links.setOnClickListener(v -> moreDialog());
     }
     private void iniViews(){
 
@@ -194,39 +124,97 @@ public class MainActivity extends AppCompatActivity {
         left = findViewById(R.id.btn_left);
         right = findViewById(R.id.btn_right);
         rl_bb = findViewById(R.id.rl_bb);
+        fab_links = findViewById(R.id.fab_links);
+
+        arrayNeuvertonung = new ArrayList<>();
+        fillList();
 
     }
     private void iniApp(){
-        SharedPreferences sp_app_prefs = getSharedPreferences("download_prefs",0);
-        if(sp_app_prefs.getString("json","").length() == 0){
-            Intent i = new Intent(MainActivity.this, DownloadActivity.class);
-            startActivity(i);
-            finish();
-        }
+       //Add things later here
     }
+    private void moreDialog(){
+        String[] liste;
 
-    public void Spotify() {
+        if(mViewFlipper.getDisplayedChild() == 4){
+            liste = new String[]{getResources().getString(R.string.informationen)};
+        }else{
+            int neuvertonung = 0;
+            for(int i = 0; i < arrayNeuvertonung.size();i++){
+                if(nummer.equals(arrayNeuvertonung.get(i))){
+                    neuvertonung ++;
+                }
+            }
+            if(neuvertonung != 0){
+                liste = new String[]{getResources().getString(R.string.informationen), getResources().getString(R.string.neuvertonung)};
+            }else{
+                liste = new String[]{getResources().getString(R.string.informationen)};
+            }
+        }
+
+
+        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(MainActivity.this);
+        builder.setTitle("Links:");
+
+        builder.setItems(liste, (dialog, which) -> {
+            switch (which) {
+                case 0:
+                    i = new Intent(Intent.ACTION_VIEW);
+                    i.setData(Uri.parse(getRockyBeachLink(nummer)));
+                    startActivity(i);
+                    break;
+                case 1:
+                    i = new Intent(Intent.ACTION_VIEW);
+                    i.setData(Uri.parse("http://fragezeichen.neuvertonung.de/"));
+                    startActivity(i);
+                    break;
+
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+    private String getRockyBeachLink(String nummer){
+        String url = "";
+        if(nummer.length() == 3){
+            url = "https://www.rocky-beach.com/hoerspiel/folgen/" + nummer + ".html";
+        }else  if(nummer.length() == 2){
+            url = "https://www.rocky-beach.com/hoerspiel/folgen/0" + nummer + ".html";
+        }else  if(nummer.length() == 1){
+            url =  "https://www.rocky-beach.com/hoerspiel/folgen/00" + nummer + ".html";
+        }
+
+        if(mViewFlipper.getDisplayedChild() == 4){
+            url = "https://www.rocky-beach.com/hoerspiel/folgen/50" + nummer + ".html";
+        }
+        return url;
+    }
+    public void Spotify(String id) {
         try {
+            if(id.contains("https://")){
+                String[] separated = id.split("https://open.spotify.com/album/");
+                String pathOneRemoved = separated[1];
+                String[] separatedLastPath = pathOneRemoved.split("\\?si=");
+                id = separatedLastPath[0];
+            }
 
-            Intent intent = new Intent(Intent.ACTION_MAIN);
-            intent.setAction(MediaStore.INTENT_ACTION_MEDIA_PLAY_FROM_SEARCH);
-            intent.setComponent(new ComponentName(
-                    "com.spotify.music",
-                    "com.spotify.music.MainActivity"));
-            intent.putExtra(SearchManager.QUERY, name + " Teil 1");
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse("spotify:album:" + id));
+            intent.putExtra(Intent.EXTRA_REFERRER,
+                    Uri.parse("android-app://" + getPackageName()));
             startActivity(intent);
         } catch (Exception e) {
             e.printStackTrace();
             RelativeLayout rl_main_snackbar = findViewById(R.id.rl_root);
-            Snackbar.make(rl_main_snackbar, "Spotify ist nicht installiert.", Snackbar.LENGTH_SHORT).show();
+            Snackbar.make(rl_main_snackbar, getResources().getString(R.string.not_installed), Snackbar.LENGTH_SHORT).show();
         }
     }
     private void folgenLaden(){
         btn_spotify.setVisibility(View.VISIBLE);
-        if (ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
             if (mViewFlipper.getDisplayedChild() == 4) {
                 Random r = new Random();
-                folgen_nummer_dd = r.nextInt(7 - 0) + 0;
+                folgen_nummer_dd = r.nextInt(7);
                 new folgen_daten_laden_diedrei().execute();
                 btn_spotify.setVisibility(View.GONE);
             }else{
@@ -235,26 +223,24 @@ public class MainActivity extends AppCompatActivity {
                 new folgen_daten_laden().execute();
 
             }
-        } else {
-            ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQ_CODE_EXTERNAL_STORAGE_PERMISSION);
-        }
     }
-    private Bitmap cover(int i, File directory){
 
-        BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inPreferredConfig = Bitmap.Config.ARGB_8888;
-        Bitmap bitmap = BitmapFactory.decodeFile(String.valueOf(directory), options);
-        return bitmap;
-    }
     @SuppressLint("CheckResult")
     private void CoverWithGlide(){
         try{
             iv_cover.setImageBitmap(null);
-            Glide.with(this).load("https://api.citroncode.com/android/ddf/android_api/cover/" + nummer + ".jpg").into(iv_cover);
+
+            if(mViewFlipper.getDisplayedChild() == 4){
+                Glide.with(this).load("https://api.citroncode.com/android/ddf/android_api/cover/dd" + nummer + ".jpg").into(iv_cover);
+            }else {
+                Glide.with(this).load("https://api.citroncode.com/android/ddf/android_api/cover/" + nummer + ".jpg").into(iv_cover);
+            }
+
+
         }catch (Exception e){
             e.printStackTrace();
             RelativeLayout rl_main_snackbar = findViewById(R.id.rl_root);
-            Snackbar.make(rl_main_snackbar, "Fehler beim laden des Covers.", Snackbar.LENGTH_SHORT).show();
+            Snackbar.make(rl_main_snackbar, getResources().getString(R.string.cover_error), Snackbar.LENGTH_SHORT).show();
         }
 
     }
@@ -262,11 +248,7 @@ public class MainActivity extends AppCompatActivity {
         final AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
         alert.setTitle(nummer + ". " + name);
         alert.setMessage(beschreibung);
-        alert.setNeutralButton("Schließen", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dlg, int i) {
-                dlg.dismiss();
-            }
-        });
+        alert.setNeutralButton(getResources().getString(R.string.close), (dlg, i) -> dlg.dismiss());
         alert.show();
     }
     private class folgen_daten_laden extends AsyncTask<String, Object,  ArrayList<Folgen>> {
@@ -277,16 +259,8 @@ public class MainActivity extends AppCompatActivity {
 
             try {
 
-                File storage = Environment.getExternalStorageDirectory();
-                File directory;
-                directory = new File(storage.getAbsolutePath() + "/.ddf/folgen.json");
-                AssetManager am = getApplicationContext().getAssets();
 
-                FileInputStream fileInputStream = new FileInputStream(directory);
-
-                InputStreamReader isReader = new InputStreamReader(fileInputStream);
-
-                JsonReader jsonReader = new JsonReader(isReader);
+                JsonReader jsonReader = new JsonReader(new StringReader(assetsStream(0)));
                 jsonReader.beginObject();
                 jsonReader.nextName();
                 jsonReader.beginArray();
@@ -318,8 +292,6 @@ public class MainActivity extends AppCompatActivity {
                     jsonReader.endObject();
                 }
                 jsonReader.endArray();
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -342,15 +314,8 @@ public class MainActivity extends AppCompatActivity {
                 }catch (Exception e){
 
                 }
+                CoverWithGlide();
 
-                File storage = Environment.getExternalStorageDirectory();
-                File directory = new File(storage.getAbsolutePath() + "/.ddf/cover_" + nummer + ".png");
-
-                if (directory.exists()) {
-                    iv_cover.setImageBitmap(cover(Integer.valueOf(nummer), directory));
-                }else{
-                    CoverWithGlide();
-                }
 
                 tv_details.setText(nummer + ". " + name);
             }catch (Exception e){
@@ -367,16 +332,7 @@ public class MainActivity extends AppCompatActivity {
 
             try {
 
-                File storage = Environment.getExternalStorageDirectory();
-                File directory;
-                directory = new File(storage.getAbsolutePath() + "/.ddf/folgen_diedrei.json");
-                AssetManager am = getApplicationContext().getAssets();
-
-                FileInputStream fileInputStream = new FileInputStream(directory);
-
-                InputStreamReader isReader = new InputStreamReader(fileInputStream);
-
-                JsonReader jsonReader = new JsonReader(isReader);
+                JsonReader jsonReader = new JsonReader(new StringReader(assetsStream(1)));
                 jsonReader.beginObject();
                 jsonReader.nextName();
                 jsonReader.beginArray();
@@ -406,8 +362,6 @@ public class MainActivity extends AppCompatActivity {
                     jsonReader.endObject();
                 }
                 jsonReader.endArray();
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -424,16 +378,7 @@ public class MainActivity extends AppCompatActivity {
                 beschreibung =  folge.get(folgen_nummer_dd).getBeschreibung();
                 name =  folge.get(folgen_nummer_dd).getName();
                 nummer =  folge.get(folgen_nummer_dd).getNummer();
-
-                File storage = Environment.getExternalStorageDirectory();
-                File directory = new File(storage.getAbsolutePath() + "/.ddf/cover_dd_" + nummer + ".png");
-
-                if (directory.exists()) {
-                    iv_cover.setImageBitmap(cover(Integer.valueOf(nummer), directory));
-                }else{
-                    CoverWithGlide();
-                }
-
+                CoverWithGlide();
                 tv_details.setText(nummer + ". " + name);
             }catch (Exception e){
                 folgenLaden();
@@ -441,14 +386,70 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == REQ_CODE_EXTERNAL_STORAGE_PERMISSION && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-           folgenLaden();
-        }else{
-            Toast.makeText(this, "Ohne diese Berechtigung kann die App nicht benutzt werden.", Toast.LENGTH_SHORT).show();
-            finish();
+
+    public String assetsStream(int id) {
+        String json = null;
+        InputStream is;
+        try {
+            is = null;
+            if(id == 0){
+                is = getAssets().open("folgen.json");
+            }else if(id == 1){
+                is = getAssets().open("folgen_diedrei.json");
+            }
+
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, StandardCharsets.UTF_8);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
         }
+        return json;
+    }
+    private void fillList(){
+        arrayNeuvertonung.add("11");
+        arrayNeuvertonung.add("1");
+        arrayNeuvertonung.add("10");
+        arrayNeuvertonung.add("8");
+        arrayNeuvertonung.add("22");
+        arrayNeuvertonung.add("18");
+        arrayNeuvertonung.add("5");
+        arrayNeuvertonung.add("24");
+        arrayNeuvertonung.add("12");
+        arrayNeuvertonung.add("19");
+        arrayNeuvertonung.add("14");
+        arrayNeuvertonung.add("3");
+        arrayNeuvertonung.add("28");
+        arrayNeuvertonung.add("73");
+        arrayNeuvertonung.add("74");
+        arrayNeuvertonung.add("76");
+        arrayNeuvertonung.add("77");
+        arrayNeuvertonung.add("78");
+        arrayNeuvertonung.add("86");
+        arrayNeuvertonung.add("90");
+        arrayNeuvertonung.add("92");
+        arrayNeuvertonung.add("95");
+        arrayNeuvertonung.add("97");
+        arrayNeuvertonung.add("100");
+        arrayNeuvertonung.add("101");
+        arrayNeuvertonung.add("103");
+        arrayNeuvertonung.add("109");
+        arrayNeuvertonung.add("117");
+        arrayNeuvertonung.add("121");
+        arrayNeuvertonung.add("122");
+        arrayNeuvertonung.add("123");
+        arrayNeuvertonung.add("124");
+        arrayNeuvertonung.add("125");
+        arrayNeuvertonung.add("126");
+        arrayNeuvertonung.add("127");
+        arrayNeuvertonung.add("128");
+        arrayNeuvertonung.add("129");
+        arrayNeuvertonung.add("130");
+        arrayNeuvertonung.add("131");
+        arrayNeuvertonung.add("135");
+        arrayNeuvertonung.add("140");
     }
 }
