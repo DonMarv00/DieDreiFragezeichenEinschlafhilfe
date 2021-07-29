@@ -1,0 +1,1 @@
+Angepasst auf die neuen Android 11 Richtlinien. Daten werden nun in einem nicht zugänglichen Ordner gespeichert.
