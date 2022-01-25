@@ -312,7 +312,7 @@ public class MainActivity extends AppCompatActivity {
                 try{
                     spotify = folge.get(folgen_nummer).getSpotify();
                 }catch (Exception e){
-
+                    //TODO Fehler catchen
                 }
                 CoverWithGlide();
 
@@ -410,6 +410,7 @@ public class MainActivity extends AppCompatActivity {
         return json;
     }
     private void fillList(){
+        //Einige Folgen der Hörspiele gibt es als Neuvertonung, der Array dient zum prüfen ob eine Folge als Neuvertonung verfügbar ist.
         arrayNeuvertonung.add("11");
         arrayNeuvertonung.add("1");
         arrayNeuvertonung.add("10");
