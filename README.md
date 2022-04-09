@@ -7,8 +7,8 @@ Der Quellcode darf bearbeitet werden, gerne können Funktionen hinzugefügt werd
 
 <p align="center">
   <img src="https://api.citroncode.com/shared/ddf_1.jpg" width="350" alt="Screenshot 1">
-  <img src="https://api.citroncode.com/shared/ddf__2.jpg" width="350" alt="Screenshot 2">
-  <img src="https://api.citroncode.com/shared/ddf__3.jpg" width="350" alt="Screenshot 3">
+  <img src="https://api.citroncode.com/shared/ddf_2.jpg" width="350" alt="Screenshot 2">
+  <img src="https://api.citroncode.com/shared/ddf_3.jpg" width="350" alt="Screenshot 3">
 </p>
 
 ## Download on Google Play
