@@ -4,6 +4,7 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -26,7 +27,6 @@ class MainActivity : AppCompatActivity() {
     private var urlExtraParameter = "folgen.json"
     private var episodeNumber: Int = 0
     private val episodeList = ArrayList<JsonResponse>()
-
     /*
         Copyright 2022 by Marvin Stelter
      */
@@ -168,17 +168,19 @@ class MainActivity : AppCompatActivity() {
                         Request.Builder().url(getString(R.string.base_url) + urlExtraParameter)
                             .build()
                     val result = client.newCall(request).await().body()?.string()
-                    val jsonObject = JSONObject(result)
+                    val jsonObject = JSONObject(result.toString())
                     val jsonArray = jsonObject.optJSONArray("user")
-                    for (i in 0 until jsonArray.length()) {
-                        val jsonObject = jsonArray.getJSONObject(i)
-                        episodeList.add(
-                            JsonResponse(
-                                name = jsonObject.optString("name"),
-                                beschreibung = jsonObject.optString("beschreibung"),
-                                spotify = jsonObject.optString("spotify")
+                    if (jsonArray != null) {
+                        for (i in 0 until jsonArray.length()) {
+                            val jsonObject = jsonArray.getJSONObject(i)
+                            episodeList.add(
+                                JsonResponse(
+                                    name = jsonObject.optString("name"),
+                                    beschreibung = jsonObject.optString("beschreibung"),
+                                    spotify = jsonObject.optString("spotify")
+                                )
                             )
-                        )
+                        }
                     }
                 }
             }
@@ -210,7 +212,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         } catch (e: IOException) {
-            //TODO Catch errors
+            Toast.makeText(this,getString(R.string.fehler_glide),Toast.LENGTH_SHORT).show()
         }
 
     }
