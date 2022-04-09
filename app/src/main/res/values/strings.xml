@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">Einschlafhilfe</string>
     <string name="alle_folgen">Alle Folgen</string>
-    <string name="string_folgen_1_150">1 - 150</string>
-    <string name="string_folgen_1_100">1 -100</string>
-    <string name="string_folgen_1_50">1 - 50</string>
+    <string name="string_folgen_1_150">1 – 150</string>
+    <string name="string_folgen_1_100">1 – 100</string>
+    <string name="string_folgen_1_50">1 – 50</string>
     <string name="app_name_long">Die drei ??? - Einschlafhilfe</string>
     <string name="die_drei">Die Dr3i</string>
     <string name="neuvertonung">Anhören als Neuvertonung</string>
@@ -19,4 +19,5 @@
     <string name="cover_citroncode_url">https://api.citroncode.com/android/ddf/android_api/cover/</string>
     <string name="cover_citroncode_dd_url">https://api.citroncode.com/android/ddf/android_api/cover/dd</string>
     <string name="external_cover_url">https://www.rocky-beach.com/hoerspiel/cover/</string>
+    <string name="fehler_glide">Ein Fehler ist aufgetreten, bitte versuche es erneut!</string>
 </resources>
