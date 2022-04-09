@@ -6,9 +6,9 @@ Der Quellcode darf bearbeitet werden, gerne können Funktionen hinzugefügt werd
 ## Screenshots
 
 <p align="center">
-  <img src="https://api.citroncode.com/shared/ddf_1.jpg" width="350" alt="Screenshot 1">
-  <img src="https://api.citroncode.com/shared/ddf_2.jpg" width="350" alt="Screenshot 2">
-  <img src="https://api.citroncode.com/shared/ddf_3.jpg" width="350" alt="Screenshot 3">
+  <img src="https://api.citroncode.com/shared/ddf_1.jpg" width="300" alt="Screenshot 1">
+  <img src="https://api.citroncode.com/shared/ddf_2.jpg" width="300" alt="Screenshot 2">
+  <img src="https://api.citroncode.com/shared/ddf_3.jpg" width="300" alt="Screenshot 3">
 </p>
 
 ## Download on Google Play
