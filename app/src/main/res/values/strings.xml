@@ -10,14 +10,26 @@
     <string name="informationen">Informationen auf rocky-beach.com</string>
     <string name="cover_error">Fehler beim laden des Covers.</string>
     <string name="close">Schließen</string>
+    <string name="privacy">Datenschutzerklärung</string>
+    <string name="settings">Einstellungen</string>
+    <string name="use_spotify">Spotify benutzen </string>
+    <string name="welcome">Willkommen</string>
+    <string name="dialog_list">Folgenliste wird aktualisiert...</string>
+    <string name="update_list">Folgenliste automatisch aktualisieren</string>
+    <string name="welcome_text">Bevor es richtig losgehen kann müssen wir ein paar Fragen klären und dich uüber unsere Datenschutzerklärung aufmerksam machen.</string>
     <string name="not_installed">Spotify ist nicht installiert.</string>
     <string name="album_auf_spotify_anzeigen">Album auf Spotify anzeigen</string>
-
-    <string name="base_url">https://api.citroncode.com/android/ddf/v4/</string>
+    <string name="no_internet_dialog_title">Keine Datenverbindung</string>
+    <string name="no_internet_dialog_text">Stelle eine Verbindung zum Internet her und probiere es erneut.</string>
+    <string name="base_url">https://api.citroncode.com/android/ddf/v5/</string>
     <string name="output">%1$s. %2$s</string>
+    <string name="intro_data">Wenn du Spotify oder den Online Modus benutzt werden Daten durch unseren Provider und/oder durch Spotify erhoben.</string>
     <string name="spotify_base_url">https://open.spotify.com/album/</string>
     <string name="cover_citroncode_url">https://api.citroncode.com/android/ddf/android_api/cover/</string>
     <string name="cover_citroncode_dd_url">https://api.citroncode.com/android/ddf/android_api/cover/dd</string>
     <string name="external_cover_url">https://www.rocky-beach.com/hoerspiel/cover/</string>
     <string name="fehler_glide">Ein Fehler ist aufgetreten, bitte versuche es erneut!</string>
+    <string name="dialog_third_party">Bibliotheken von Drittanbietern</string>
+    <string name="glide">Glide</string>
+    <string name="appintro">AppIntro</string>
 </resources>

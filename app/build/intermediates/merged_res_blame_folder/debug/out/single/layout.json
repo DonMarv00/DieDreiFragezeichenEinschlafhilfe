@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "/Users/marvinstelter/.gradle/daemon/7.3.3/de.msdevs.einschlafhilfe.app-mergeDebugResources-28:/layout/intro_custom_layout_2.xml",
+        "source": "/Users/marvinstelter/.gradle/daemon/7.3.3/de.msdevs.einschlafhilfe.app-main-31:/layout/intro_custom_layout_2.xml"
+    },
+    {
+        "merged": "de.msdevs.einschlafhilfe.app-mergeDebugResources-28:/layout/activity_settings.xml",
+        "source": "de.msdevs.einschlafhilfe.app-main-31:/layout/activity_settings.xml"
+    },
+    {
+        "merged": "/Users/marvinstelter/.gradle/daemon/7.3.3/de.msdevs.einschlafhilfe.app-mergeDebugResources-28:/layout/activity_settings.xml",
+        "source": "/Users/marvinstelter/.gradle/daemon/7.3.3/de.msdevs.einschlafhilfe.app-main-31:/layout/activity_settings.xml"
+    },
+    {
+        "merged": "/Users/marvinstelter/.gradle/daemon/7.3.3/de.msdevs.einschlafhilfe.app-mergeDebugResources-28:/layout/fragment_settings.xml",
+        "source": "/Users/marvinstelter/.gradle/daemon/7.3.3/de.msdevs.einschlafhilfe.app-main-31:/layout/fragment_settings.xml"
+    },
+    {
+        "merged": "/Users/marvinstelter/.gradle/daemon/7.3.3/de.msdevs.einschlafhilfe.app-mergeDebugResources-28:/layout/intro_custom_layout.xml",
+        "source": "/Users/marvinstelter/.gradle/daemon/7.3.3/de.msdevs.einschlafhilfe.app-main-31:/layout/intro_custom_layout.xml"
+    },
+    {
+        "merged": "/Users/marvinstelter/.gradle/daemon/7.3.3/de.msdevs.einschlafhilfe.app-mergeDebugResources-28:/layout/fragment_privacy.xml",
+        "source": "/Users/marvinstelter/.gradle/daemon/7.3.3/de.msdevs.einschlafhilfe.app-main-31:/layout/fragment_privacy.xml"
+    },
+    {
+        "merged": "/Users/marvinstelter/.gradle/daemon/7.3.3/de.msdevs.einschlafhilfe.app-mergeDebugResources-28:/layout/activity_main.xml",
+        "source": "/Users/marvinstelter/.gradle/daemon/7.3.3/de.msdevs.einschlafhilfe.app-main-31:/layout/activity_main.xml"
+    }
+]

@@ -1,9 +1,16 @@
 package de.msdevs.einschlafhilfe
 
+import android.annotation.SuppressLint
 import android.content.DialogInterface
 import android.content.Intent
+import android.content.SharedPreferences
+import android.content.pm.PackageManager
+import android.net.ConnectivityManager
 import android.net.Uri
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -19,7 +26,9 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 import org.json.JSONObject
 import ru.gildor.coroutines.okhttp.await
+import java.io.BufferedReader
 import java.io.IOException
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,14 +36,28 @@ class MainActivity : AppCompatActivity() {
     private var urlExtraParameter = "folgen.json"
     private var episodeNumber: Int = 0
     private val episodeList = ArrayList<JsonResponse>()
+    private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var sharedPreferencesEditor: SharedPreferences.Editor
+    private lateinit var folgenListe : String
     /*
-        Copyright 2022 by Marvin Stelter
+       Copyright 2022 by Marvin Stelter
      */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+        sharedPreferences = getSharedPreferences(packageName,0)
+        sharedPreferencesEditor = sharedPreferences.edit()
+        if(sharedPreferences.getInt("first",0) == 0){
+            sharedPreferencesEditor.putBoolean("update_list", true)
+            sharedPreferencesEditor.putBoolean("beta_features", false)
+            sharedPreferencesEditor.putBoolean("spotify", false)
+            sharedPreferencesEditor.apply()
+
+            startActivity(Intent(this@MainActivity, AppIntroActivity::class.java))
+        }
 
         lifecycleScope.launch {
             withContext(Dispatchers.IO) {
@@ -43,6 +66,7 @@ class MainActivity : AppCompatActivity() {
                     1 -> episodeNumber = (1..100).random()
                     2 -> episodeNumber = (1..150).random()
                     3 -> episodeNumber = (1..215).random()
+                    4 -> episodeNumber = (1..7).random()
                 }
                 apiCall()
             }
@@ -52,22 +76,28 @@ class MainActivity : AppCompatActivity() {
             binding.bottomBarViewFlipper.setOutAnimation(this, R.anim.anim_flipper_item_in_right)
             binding.bottomBarViewFlipper.setInAnimation(this, R.anim.anim_flipper_item_out_left)
             binding.bottomBarViewFlipper.showPrevious()
+            refresh()
         }
         binding.btnRight.setOnClickListener {
             binding.bottomBarViewFlipper.setInAnimation(this, R.anim.anim_flipper_item_in_right)
             binding.bottomBarViewFlipper.setOutAnimation(this, R.anim.anim_flipper_item_out_left)
             binding.bottomBarViewFlipper.showNext()
+            refresh()
+        }
+        if(!isSpotifyInstalled()){
+            binding.btnSpotify.visibility = View.GONE
+        }
+        if(!sharedPreferences.getBoolean("spotify",false)){
+            binding.btnSpotify.visibility = View.GONE
         }
         binding.btnSpotify.setOnClickListener {
             try {
                 var id = episodeList[episodeNumber].spotify
                 when {
                     id.contains("https://") -> {
-                        val separated: Array<String> =
-                            id.split(getString(R.string.spotify_base_url).toRegex()).toTypedArray()
+                        val separated: Array<String> = id.split(getString(R.string.spotify_base_url).toRegex()).toTypedArray()
                         val pathOneRemoved = separated[1]
-                        val separatedLastPath =
-                            pathOneRemoved.split("\\?si=".toRegex()).toTypedArray()
+                        val separatedLastPath = pathOneRemoved.split("\\?si=".toRegex()).toTypedArray()
                         id = separatedLastPath[0]
                     }
                 }
@@ -85,17 +115,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
         binding.fabRefresh.setOnClickListener {
-            lifecycleScope.launch {
-                withContext(Dispatchers.IO) {
-                    when (binding.bottomBarViewFlipper.displayedChild) {
-                        0 -> episodeNumber = (1..50).random()
-                        1 -> episodeNumber = (1..100).random()
-                        2 -> episodeNumber = (1..150).random()
-                        3 -> episodeNumber = (1..215).random()
-                    }
-                    apiCall()
-                }
-            }
+           refresh()
         }
         binding.fabDescription.setOnClickListener {
             val alert = AlertDialog.Builder(this)
@@ -158,63 +178,97 @@ class MainActivity : AppCompatActivity() {
     }
 
     private suspend fun apiCall() {
-        urlExtraParameter =
-            if (binding.bottomBarViewFlipper.displayedChild == 4) "folgen_diedrei.json" else "folgen.json"
-        try {
-            when {
-                episodeList.isEmpty() -> {
-                    val client = OkHttpClient.Builder().build()
-                    val request =
-                        Request.Builder().url(getString(R.string.base_url) + urlExtraParameter)
-                            .build()
-                    val result = client.newCall(request).await().body()?.string()
-                    val jsonObject = JSONObject(result.toString())
-                    val jsonArray = jsonObject.optJSONArray("user")
-                    if (jsonArray != null) {
-                        for (i in 0 until jsonArray.length()) {
-                            val jsonObject = jsonArray.getJSONObject(i)
-                            episodeList.add(
-                                JsonResponse(
-                                    name = jsonObject.optString("name"),
-                                    beschreibung = jsonObject.optString("beschreibung"),
-                                    spotify = jsonObject.optString("spotify")
-                                )
-                            )
+        if(binding.bottomBarViewFlipper.displayedChild == 4){
+           binding.btnSpotify.visibility = View.GONE
+        }
+        episodeList.clear()
+        if(isConnected()){
+            urlExtraParameter =
+                if (binding.bottomBarViewFlipper.displayedChild == 4) "folgen_diedrei.json" else "folgen.json"
+            try {
+                when {
+                    episodeList.isEmpty() -> {
+
+                        if(sharedPreferences.getBoolean("update_list",false)){
+                            val client = OkHttpClient.Builder().build()
+                            val request =
+                                Request.Builder().url(getString(R.string.base_url) + urlExtraParameter)
+                                    .build()
+                             folgenListe = client.newCall(request).await().body()?.string().toString()
+                        }else {
+                            if(binding.bottomBarViewFlipper.displayedChild == 4){
+                                folgenListe = assets.open("offline_list_dd.txt").bufferedReader().use(BufferedReader::readText)
+                            }else{
+                                folgenListe = assets.open("offline_list.txt").bufferedReader().use(BufferedReader::readText)
+                            }
+                        }
+
+                        val jsonObject = JSONObject(folgenListe)
+                        val jsonArray = jsonObject.optJSONArray("folgen")
+                        if (jsonArray != null) {
+                            for (i in 0 until jsonArray.length()) {
+                                val jsonObject = jsonArray.getJSONObject(i)
+                                episodeList.add(
+                                    JsonResponse(
+                                        name = jsonObject.optString("name"),
+                                        beschreibung = jsonObject.optString("beschreibung"),
+                                        spotify = jsonObject.optString("nummer")))
+                            }
                         }
                     }
                 }
-            }
-            runOnUiThread {
-                binding.tvDetails.text = getString(
-                    R.string.output,
-                    (episodeNumber + 1).toString(),
-                    episodeList[episodeNumber].name
-                )
-                try {
-                    when {
-                        binding.bottomBarViewFlipper.displayedChild == 4 -> Glide.with(this)
-                            .load(getString(R.string.cover_citroncode_dd_url) + (episodeNumber + 1) + ".jpg")
-                            .into(binding.ivCover)
-                        episodeNumber > 200 -> Glide.with(this)
-                            .load(getString(R.string.external_cover_url) + (episodeNumber + 1) + ".jpg")
-                            .into(binding.ivCover)
-                        else -> Glide.with(this)
-                            .load(getString(R.string.cover_citroncode_url) + (episodeNumber + 1) + ".jpg")
-                            .into(binding.ivCover)
+                runOnUiThread {
+                    binding.tvDetails.text = getString(
+                        R.string.output,
+                        (episodeNumber + 1).toString(),
+                        episodeList[episodeNumber].name
+                    )
+                    try {
+                        when {
+                            binding.bottomBarViewFlipper.displayedChild == 4 -> Glide.with(this)
+                                .load(getString(R.string.cover_citroncode_dd_url) + (episodeNumber + 1) + ".jpg")
+                                .into(binding.ivCover)
+                            episodeNumber > 200 -> Glide.with(this)
+                                .load(getString(R.string.external_cover_url) + (episodeNumber + 1) + ".jpg")
+                                .into(binding.ivCover)
+                            else -> Glide.with(this)
+                                .load(getString(R.string.cover_citroncode_url) + (episodeNumber + 1) + ".jpg")
+                                .into(binding.ivCover)
+                        }
+                    } catch (e: java.lang.Exception) {
+                        e.printStackTrace()
+                        Snackbar.make(
+                            binding.relativeLayout,
+                            getString(R.string.cover_error),
+                            Snackbar.LENGTH_SHORT
+                        ).show()
                     }
-                } catch (e: java.lang.Exception) {
-                    e.printStackTrace()
-                    Snackbar.make(
-                        binding.relativeLayout,
-                        getString(R.string.cover_error),
-                        Snackbar.LENGTH_SHORT
-                    ).show()
                 }
+            } catch (e: IOException) {
+                Toast.makeText(this,getString(R.string.fehler_glide),Toast.LENGTH_SHORT).show()
             }
-        } catch (e: IOException) {
-            Toast.makeText(this,getString(R.string.fehler_glide),Toast.LENGTH_SHORT).show()
-        }
+        }else{
+            runOnUiThread{
+                val builder = AlertDialog.Builder(this)
+                builder.setTitle(R.string.no_internet_dialog_title)
+                builder.setMessage(R.string.no_internet_dialog_text)
+                builder.setPositiveButton(android.R.string.yes) { dialog, which ->
+                    lifecycleScope.launch {
+                        withContext(Dispatchers.IO) {
+                            when (binding.bottomBarViewFlipper.displayedChild) {
+                                0 -> episodeNumber = (1..50).random()
+                                1 -> episodeNumber = (1..100).random()
+                                2 -> episodeNumber = (1..150).random()
+                                3 -> episodeNumber = (1..215).random()
+                            }
+                            apiCall()
+                        }
+                    }
+                }
+                builder.show()
+            }
 
+        }
     }
 
     private fun getRockyBeachLink(nummer: String): String? {
@@ -238,5 +292,73 @@ class MainActivity : AppCompatActivity() {
         val spotify: String
     )
 
+    @SuppressLint("QueryPermissionsNeeded")
+    fun isSpotifyInstalled() : Boolean{
+        val packageManager: PackageManager = packageManager
+        val intent = Intent(Intent.ACTION_VIEW)
+        if (intent.resolveActivity(packageManager) != null) {
+            try {
+                packageManager.getPackageInfo("com.spotify.music", PackageManager.GET_ACTIVITIES)
+                return true
+            } catch (ignore: PackageManager.NameNotFoundException) {
+            }
+        }
+        return false
+    }
+    private fun isConnected() : Boolean{
+        val currentNetwork = getSystemService(ConnectivityManager::class.java).activeNetwork
+        return currentNetwork != null
+    }
+    private fun refresh(){
+        lifecycleScope.launch {
+            withContext(Dispatchers.IO) {
+                when (binding.bottomBarViewFlipper.displayedChild) {
+                    0 -> episodeNumber = (1..50).random()
+                    1 -> episodeNumber = (1..100).random()
+                    2 -> episodeNumber = (1..150).random()
+                    3 -> episodeNumber = (1..215).random()
+                    4 -> episodeNumber = (1..7).random()
+                }
+                apiCall()
+            }
+        }
+
+    }
+    fun aboutLibsDialog(){
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle(getString(R.string.dialog_third_party))
+        val animals = arrayOf(getString(R.string.glide),getString(R.string.appintro))
+        builder.setItems(animals) { dialog, which ->
+            when (which) {
+                0 -> {openBrowser("https://github.com/bumptech/glide")}
+                1 -> {openBrowser("https://github.com/AppIntro/AppIntro")}
+            }
+        }
+        val dialog = builder.create()
+        dialog.show()
+    }
+    fun openBrowser(url : String){
+        val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        startActivity(browserIntent)
+    }
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        menuInflater.inflate(R.menu.menu_main, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_settings -> {
+                startActivity(Intent(this@MainActivity, SettingsActivity::class.java))
+                true
+            }
+            R.id.action_about ->{
+                aboutLibsDialog()
+                return true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
 }
 
