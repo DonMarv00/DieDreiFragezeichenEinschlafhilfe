@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "de.msdevs.einschlafhilfe.app-mergeDebugResources-27:/values-v17/values-v17.xml",
+            "outputFile": "de.msdevs.einschlafhilfe.app-mergeDebugResources-41:/values-v17/values-v17.xml",
             "map": [
                 {
-                    "source": "/Users/marvinstelter/.gradle/caches/transforms-3/4dbb48f051ac95016539472b6438376d/transformed/appcompat-1.4.1/res/values-v17/values-v17.xml",
+                    "source": "/Users/marvinstelter/.gradle/caches/transforms-3/b63e592bd144e04c862e9dd5d8c68608/transformed/appcompat-1.4.1/res/values-v17/values-v17.xml",
                     "from": {
                         "startLines": "2,5,9,12,15,18,22,25,29,33,37,40,43,46,50,53,57",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

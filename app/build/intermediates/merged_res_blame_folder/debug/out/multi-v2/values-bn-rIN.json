@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "de.msdevs.einschlafhilfe.app-mergeDebugResources-27:/values-bn-rIN/values-bn-rIN.xml",
+            "outputFile": "de.msdevs.einschlafhilfe.app-mergeDebugResources-41:/values-bn-rIN/values-bn-rIN.xml",
             "map": [
                 {
-                    "source": "/Users/marvinstelter/.gradle/caches/transforms-3/beb2c986294596f64f5b95254838f936/transformed/jetified-AppIntro-6.2.0/res/values-bn-rIN/values-bn-rIN.xml",
+                    "source": "/Users/marvinstelter/.gradle/caches/transforms-3/2f0e9cbef0d64e2548a8ea10291d7d61/transformed/jetified-AppIntro-6.2.0/res/values-bn-rIN/values-bn-rIN.xml",
                     "from": {
                         "startLines": "2,3,4,5,6",
                         "startColumns": "4,4,4,4,4",

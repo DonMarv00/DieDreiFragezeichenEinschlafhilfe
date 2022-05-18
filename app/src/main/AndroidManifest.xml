@@ -35,6 +35,9 @@
             android:theme="@style/AppThemeNoToolbar"/>
         <activity android:name=".SettingsActivity"
             android:label="@string/settings"/>
+        <activity android:name=".AboutActivity"
+            android:theme="@style/AboutStyles"
+            android:label="@string/about" />
     </application>
 
 </manifest>

@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "de.msdevs.einschlafhilfe.app-mergeDebugResources-27:/values-lv/values-lv.xml",
+            "outputFile": "de.msdevs.einschlafhilfe.app-mergeDebugResources-41:/values-lv/values-lv.xml",
             "map": [
                 {
-                    "source": "/Users/marvinstelter/.gradle/caches/transforms-3/4dbb48f051ac95016539472b6438376d/transformed/appcompat-1.4.1/res/values-lv/values-lv.xml",
+                    "source": "/Users/marvinstelter/.gradle/caches/transforms-3/b63e592bd144e04c862e9dd5d8c68608/transformed/appcompat-1.4.1/res/values-lv/values-lv.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "/Users/marvinstelter/.gradle/caches/transforms-3/7b02759d96680a299072bc415f27d40c/transformed/material-1.6.0/res/values-lv/values-lv.xml",
+                    "source": "/Users/marvinstelter/.gradle/caches/transforms-3/feb5322c57fa501282afbd8cbd69cc19/transformed/material-1.6.0/res/values-lv/values-lv.xml",
                     "from": {
                         "startLines": "2,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -40,7 +40,7 @@
                     }
                 },
                 {
-                    "source": "/Users/marvinstelter/.gradle/caches/transforms-3/0ce40c5c1ed181571d582682f0077be2/transformed/core-1.7.0/res/values-lv/values-lv.xml",
+                    "source": "/Users/marvinstelter/.gradle/caches/transforms-3/f3c1846e6bff5b1c3ce14399c13431b1/transformed/core-1.7.0/res/values-lv/values-lv.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

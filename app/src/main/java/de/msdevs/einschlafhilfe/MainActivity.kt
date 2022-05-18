@@ -18,6 +18,7 @@ import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
+import com.mikepenz.aboutlibraries.LibsBuilder
 import de.msdevs.einschlafhilfe.databinding.ActivityMainBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -248,7 +249,7 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this,getString(R.string.fehler_glide),Toast.LENGTH_SHORT).show()
             }
         }else{
-            runOnUiThread{
+            runOnUiThread {
                 val builder = AlertDialog.Builder(this)
                 builder.setTitle(R.string.no_internet_dialog_title)
                 builder.setMessage(R.string.no_internet_dialog_text)
@@ -267,10 +268,8 @@ class MainActivity : AppCompatActivity() {
                 }
                 builder.show()
             }
-
         }
     }
-
     private fun getRockyBeachLink(nummer: String): String? {
         var url = ""
         when (nummer.length) {
@@ -354,7 +353,7 @@ class MainActivity : AppCompatActivity() {
                 true
             }
             R.id.action_about ->{
-                aboutLibsDialog()
+                startActivity(Intent(this@MainActivity, AboutActivity::class.java))
                 return true
             }
             else -> super.onOptionsItemSelected(item)

@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "de.msdevs.einschlafhilfe.app-mergeDebugResources-27:/values-vi-rVN/values-vi-rVN.xml",
+            "outputFile": "de.msdevs.einschlafhilfe.app-mergeDebugResources-41:/values-vi-rVN/values-vi-rVN.xml",
             "map": [
                 {
-                    "source": "/Users/marvinstelter/.gradle/caches/transforms-3/beb2c986294596f64f5b95254838f936/transformed/jetified-AppIntro-6.2.0/res/values-vi-rVN/values-vi-rVN.xml",
+                    "source": "/Users/marvinstelter/.gradle/caches/transforms-3/2f0e9cbef0d64e2548a8ea10291d7d61/transformed/jetified-AppIntro-6.2.0/res/values-vi-rVN/values-vi-rVN.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",

@@ -32,4 +32,6 @@
     <string name="dialog_third_party">Bibliotheken von Drittanbietern</string>
     <string name="glide">Glide</string>
     <string name="appintro">AppIntro</string>
+    <string name="about">Über</string>
+    <string name="about_long">Die Einschlafhilfe App schlägt dir Folgen der drei Detektive aus Rocky Beach vor.</string>
 </resources>
