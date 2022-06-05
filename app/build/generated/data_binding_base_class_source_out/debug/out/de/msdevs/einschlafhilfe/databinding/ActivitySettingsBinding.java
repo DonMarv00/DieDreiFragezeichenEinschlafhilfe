@@ -4,13 +4,16 @@ package de.msdevs.einschlafhilfe.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SwitchCompat;
+import androidx.cardview.widget.CardView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
+import com.google.android.material.slider.RangeSlider;
 import de.msdevs.einschlafhilfe.R;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -21,24 +24,94 @@ public final class ActivitySettingsBinding implements ViewBinding {
   private final RelativeLayout rootView;
 
   @NonNull
+  public final CheckBox cbD3;
+
+  @NonNull
+  public final CheckBox cbDDF;
+
+  @NonNull
+  public final CheckBox cbKids;
+
+  @NonNull
+  public final CheckBox cbSpecial;
+
+  @NonNull
+  public final CheckBox cbSpecialK;
+
+  @NonNull
+  public final CardView cvPrivacySettings;
+
+  @NonNull
+  public final RangeSlider rangeSlider;
+
+  @NonNull
+  public final RangeSlider rangeSliderKids;
+
+  @NonNull
+  public final RelativeLayout rlDDF;
+
+  @NonNull
+  public final RelativeLayout rlKids;
+
+  @NonNull
   public final SwitchCompat swUpdateList;
 
   @NonNull
   public final SwitchCompat swUseSpotify;
 
   @NonNull
+  public final TextView tvCstDesc;
+
+  @NonNull
+  public final TextView tvCstHeader;
+
+  @NonNull
+  public final TextView tvEnd;
+
+  @NonNull
+  public final TextView tvEndKids;
+
+  @NonNull
   public final TextView tvSpotify;
+
+  @NonNull
+  public final TextView tvStart;
+
+  @NonNull
+  public final TextView tvStartKids;
 
   @NonNull
   public final TextView tvUpdateList;
 
-  private ActivitySettingsBinding(@NonNull RelativeLayout rootView,
+  private ActivitySettingsBinding(@NonNull RelativeLayout rootView, @NonNull CheckBox cbD3,
+      @NonNull CheckBox cbDDF, @NonNull CheckBox cbKids, @NonNull CheckBox cbSpecial,
+      @NonNull CheckBox cbSpecialK, @NonNull CardView cvPrivacySettings,
+      @NonNull RangeSlider rangeSlider, @NonNull RangeSlider rangeSliderKids,
+      @NonNull RelativeLayout rlDDF, @NonNull RelativeLayout rlKids,
       @NonNull SwitchCompat swUpdateList, @NonNull SwitchCompat swUseSpotify,
-      @NonNull TextView tvSpotify, @NonNull TextView tvUpdateList) {
+      @NonNull TextView tvCstDesc, @NonNull TextView tvCstHeader, @NonNull TextView tvEnd,
+      @NonNull TextView tvEndKids, @NonNull TextView tvSpotify, @NonNull TextView tvStart,
+      @NonNull TextView tvStartKids, @NonNull TextView tvUpdateList) {
     this.rootView = rootView;
+    this.cbD3 = cbD3;
+    this.cbDDF = cbDDF;
+    this.cbKids = cbKids;
+    this.cbSpecial = cbSpecial;
+    this.cbSpecialK = cbSpecialK;
+    this.cvPrivacySettings = cvPrivacySettings;
+    this.rangeSlider = rangeSlider;
+    this.rangeSliderKids = rangeSliderKids;
+    this.rlDDF = rlDDF;
+    this.rlKids = rlKids;
     this.swUpdateList = swUpdateList;
     this.swUseSpotify = swUseSpotify;
+    this.tvCstDesc = tvCstDesc;
+    this.tvCstHeader = tvCstHeader;
+    this.tvEnd = tvEnd;
+    this.tvEndKids = tvEndKids;
     this.tvSpotify = tvSpotify;
+    this.tvStart = tvStart;
+    this.tvStartKids = tvStartKids;
     this.tvUpdateList = tvUpdateList;
   }
 
@@ -69,6 +142,66 @@ public final class ActivitySettingsBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.cbD3;
+      CheckBox cbD3 = ViewBindings.findChildViewById(rootView, id);
+      if (cbD3 == null) {
+        break missingId;
+      }
+
+      id = R.id.cbDDF;
+      CheckBox cbDDF = ViewBindings.findChildViewById(rootView, id);
+      if (cbDDF == null) {
+        break missingId;
+      }
+
+      id = R.id.cbKids;
+      CheckBox cbKids = ViewBindings.findChildViewById(rootView, id);
+      if (cbKids == null) {
+        break missingId;
+      }
+
+      id = R.id.cbSpecial;
+      CheckBox cbSpecial = ViewBindings.findChildViewById(rootView, id);
+      if (cbSpecial == null) {
+        break missingId;
+      }
+
+      id = R.id.cbSpecialK;
+      CheckBox cbSpecialK = ViewBindings.findChildViewById(rootView, id);
+      if (cbSpecialK == null) {
+        break missingId;
+      }
+
+      id = R.id.cv_privacy_settings;
+      CardView cvPrivacySettings = ViewBindings.findChildViewById(rootView, id);
+      if (cvPrivacySettings == null) {
+        break missingId;
+      }
+
+      id = R.id.rangeSlider;
+      RangeSlider rangeSlider = ViewBindings.findChildViewById(rootView, id);
+      if (rangeSlider == null) {
+        break missingId;
+      }
+
+      id = R.id.rangeSliderKids;
+      RangeSlider rangeSliderKids = ViewBindings.findChildViewById(rootView, id);
+      if (rangeSliderKids == null) {
+        break missingId;
+      }
+
+      id = R.id.rlDDF;
+      RelativeLayout rlDDF = ViewBindings.findChildViewById(rootView, id);
+      if (rlDDF == null) {
+        break missingId;
+      }
+
+      id = R.id.rlKids;
+      RelativeLayout rlKids = ViewBindings.findChildViewById(rootView, id);
+      if (rlKids == null) {
+        break missingId;
+      }
+
       id = R.id.sw_update_list;
       SwitchCompat swUpdateList = ViewBindings.findChildViewById(rootView, id);
       if (swUpdateList == null) {
@@ -81,9 +214,45 @@ public final class ActivitySettingsBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.tv_cst_desc;
+      TextView tvCstDesc = ViewBindings.findChildViewById(rootView, id);
+      if (tvCstDesc == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_cst_header;
+      TextView tvCstHeader = ViewBindings.findChildViewById(rootView, id);
+      if (tvCstHeader == null) {
+        break missingId;
+      }
+
+      id = R.id.tvEnd;
+      TextView tvEnd = ViewBindings.findChildViewById(rootView, id);
+      if (tvEnd == null) {
+        break missingId;
+      }
+
+      id = R.id.tvEndKids;
+      TextView tvEndKids = ViewBindings.findChildViewById(rootView, id);
+      if (tvEndKids == null) {
+        break missingId;
+      }
+
       id = R.id.tv_spotify;
       TextView tvSpotify = ViewBindings.findChildViewById(rootView, id);
       if (tvSpotify == null) {
+        break missingId;
+      }
+
+      id = R.id.tvStart;
+      TextView tvStart = ViewBindings.findChildViewById(rootView, id);
+      if (tvStart == null) {
+        break missingId;
+      }
+
+      id = R.id.tvStartKids;
+      TextView tvStartKids = ViewBindings.findChildViewById(rootView, id);
+      if (tvStartKids == null) {
         break missingId;
       }
 
@@ -93,8 +262,10 @@ public final class ActivitySettingsBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivitySettingsBinding((RelativeLayout) rootView, swUpdateList, swUseSpotify,
-          tvSpotify, tvUpdateList);
+      return new ActivitySettingsBinding((RelativeLayout) rootView, cbD3, cbDDF, cbKids, cbSpecial,
+          cbSpecialK, cvPrivacySettings, rangeSlider, rangeSliderKids, rlDDF, rlKids, swUpdateList,
+          swUseSpotify, tvCstDesc, tvCstHeader, tvEnd, tvEndKids, tvSpotify, tvStart, tvStartKids,
+          tvUpdateList);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

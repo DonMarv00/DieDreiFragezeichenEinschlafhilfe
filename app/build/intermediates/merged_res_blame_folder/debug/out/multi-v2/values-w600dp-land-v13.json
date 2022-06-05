@@ -4,7 +4,7 @@
             "outputFile": "de.msdevs.einschlafhilfe.app-mergeDebugResources-41:/values-w600dp-land-v13/values-w600dp-land-v13.xml",
             "map": [
                 {
-                    "source": "/Users/marvinstelter/.gradle/caches/transforms-3/feb5322c57fa501282afbd8cbd69cc19/transformed/material-1.6.0/res/values-w600dp-land-v13/values-w600dp-land-v13.xml",
+                    "source": "/Users/marvinstelter/.gradle/caches/transforms-3/403ed6dc7f86dad875aa53948be2b725/transformed/material-1.6.1/res/values-w600dp-land-v13/values-w600dp-land-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

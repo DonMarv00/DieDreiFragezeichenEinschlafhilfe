@@ -4,7 +4,7 @@
             "outputFile": "de.msdevs.einschlafhilfe.app-mergeDebugResources-41:/values-v24/values-v24.xml",
             "map": [
                 {
-                    "source": "/Users/marvinstelter/.gradle/caches/transforms-3/feb5322c57fa501282afbd8cbd69cc19/transformed/material-1.6.0/res/values-v24/values-v24.xml",
+                    "source": "/Users/marvinstelter/.gradle/caches/transforms-3/403ed6dc7f86dad875aa53948be2b725/transformed/material-1.6.1/res/values-v24/values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,9,12,15",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "/Users/marvinstelter/.gradle/caches/transforms-3/b63e592bd144e04c862e9dd5d8c68608/transformed/appcompat-1.4.1/res/values-v24/values-v24.xml",
+                    "source": "/Users/marvinstelter/.gradle/caches/transforms-3/11352eaa86521afb3fc924eb8ee702c2/transformed/appcompat-1.4.2/res/values-v24/values-v24.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",

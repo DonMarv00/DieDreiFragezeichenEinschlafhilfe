@@ -24,12 +24,12 @@
         "source": "/Users/marvinstelter/.gradle/daemon/7.3.3/de.msdevs.einschlafhilfe.app-main-45:/mipmap-xxxhdpi/ic_launcher_foreground.png"
     },
     {
-        "merged": "/Users/marvinstelter/.gradle/daemon/7.3.3/de.msdevs.einschlafhilfe.app-merged_res-43:/mipmap-xxxhdpi_ic_launcher.png.flat",
-        "source": "/Users/marvinstelter/.gradle/daemon/7.3.3/de.msdevs.einschlafhilfe.app-main-45:/mipmap-xxxhdpi/ic_launcher.png"
-    },
-    {
         "merged": "/Users/marvinstelter/.gradle/daemon/7.3.3/de.msdevs.einschlafhilfe.app-merged_res-43:/drawable_ic_baseline_personal_video_24.xml.flat",
         "source": "/Users/marvinstelter/.gradle/daemon/7.3.3/de.msdevs.einschlafhilfe.app-main-45:/drawable/ic_baseline_personal_video_24.xml"
+    },
+    {
+        "merged": "/Users/marvinstelter/.gradle/daemon/7.3.3/de.msdevs.einschlafhilfe.app-merged_res-43:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "/Users/marvinstelter/.gradle/daemon/7.3.3/de.msdevs.einschlafhilfe.app-main-45:/mipmap-xxxhdpi/ic_launcher.png"
     },
     {
         "merged": "/Users/marvinstelter/.gradle/daemon/7.3.3/de.msdevs.einschlafhilfe.app-merged_res-43:/mipmap-xhdpi_ic_launcher_foreground.png.flat",
@@ -46,10 +46,6 @@
     {
         "merged": "/Users/marvinstelter/.gradle/daemon/7.3.3/de.msdevs.einschlafhilfe.app-merged_res-43:/drawable_ic_baseline_list_24.xml.flat",
         "source": "/Users/marvinstelter/.gradle/daemon/7.3.3/de.msdevs.einschlafhilfe.app-main-45:/drawable/ic_baseline_list_24.xml"
-    },
-    {
-        "merged": "de.msdevs.einschlafhilfe.app-merged_res-43:/layout_placeholder_layout.xml.flat",
-        "source": "de.msdevs.einschlafhilfe.app-main-45:/layout/placeholder_layout.xml"
     },
     {
         "merged": "/Users/marvinstelter/.gradle/daemon/7.3.3/de.msdevs.einschlafhilfe.app-merged_res-43:/drawable_ic_about.xml.flat",
@@ -150,6 +146,10 @@
     {
         "merged": "/Users/marvinstelter/.gradle/daemon/7.3.3/de.msdevs.einschlafhilfe.app-merged_res-43:/mipmap-xxhdpi_ic_launcher_foreground.png.flat",
         "source": "/Users/marvinstelter/.gradle/daemon/7.3.3/de.msdevs.einschlafhilfe.app-main-45:/mipmap-xxhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "de.msdevs.einschlafhilfe.app-merged_res-43:/layout_activity_main.xml.flat",
+        "source": "de.msdevs.einschlafhilfe.app-main-45:/layout/activity_main.xml"
     },
     {
         "merged": "/Users/marvinstelter/.gradle/daemon/7.3.3/de.msdevs.einschlafhilfe.app-merged_res-43:/mipmap-hdpi_ic_launcher_foreground.png.flat",

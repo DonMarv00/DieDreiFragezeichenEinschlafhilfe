@@ -9,10 +9,12 @@ import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import androidx.annotation.Nullable
 import androidx.appcompat.widget.SwitchCompat
 import androidx.fragment.app.Fragment
 import com.github.appintro.SlidePolicy
+import com.google.android.material.slider.RangeSlider
 import de.msdevs.einschlafhilfe.R
 import de.msdevs.einschlafhilfe.databinding.FragmentSettingsBinding
 
@@ -51,6 +53,8 @@ class SettingsFragment(override val isPolicyRespected: Boolean) : Fragment(), Sl
             sharedPreferencesEditor.putBoolean("update_list",isChecked)
             sharedPreferencesEditor.apply()
         }
+
+
     }
     companion object {
         fun newInstance() : SettingsFragment {

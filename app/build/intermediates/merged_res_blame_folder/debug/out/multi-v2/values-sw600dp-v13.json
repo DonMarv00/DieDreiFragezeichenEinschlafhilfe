@@ -4,7 +4,26 @@
             "outputFile": "de.msdevs.einschlafhilfe.app-mergeDebugResources-41:/values-sw600dp-v13/values-sw600dp-v13.xml",
             "map": [
                 {
-                    "source": "/Users/marvinstelter/.gradle/caches/transforms-3/b63e592bd144e04c862e9dd5d8c68608/transformed/appcompat-1.4.1/res/values-sw600dp-v13/values-sw600dp-v13.xml",
+                    "source": "/Users/marvinstelter/.gradle/caches/transforms-3/403ed6dc7f86dad875aa53948be2b725/transformed/material-1.6.1/res/values-sw600dp-v13/values-sw600dp-v13.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,10,11,12,13,14",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,115,185,256,328,386,444,553,617,673,732,795",
+                        "endLines": "2,3,4,5,6,7,9,10,11,12,13,17",
+                        "endColumns": "59,69,70,71,57,57,10,63,55,58,62,10",
+                        "endOffsets": "110,180,251,323,381,439,548,612,668,727,790,962"
+                    },
+                    "to": {
+                        "startLines": "24,25,26,27,28,29,30,32,33,34,35,36",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "1380,1440,1510,1581,1653,1711,1769,1878,1942,1998,2057,2120",
+                        "endLines": "24,25,26,27,28,29,31,32,33,34,35,39",
+                        "endColumns": "59,69,70,71,57,57,10,63,55,58,62,10",
+                        "endOffsets": "1435,1505,1576,1648,1706,1764,1873,1937,1993,2052,2115,2287"
+                    }
+                },
+                {
+                    "source": "/Users/marvinstelter/.gradle/caches/transforms-3/11352eaa86521afb3fc924eb8ee702c2/transformed/appcompat-1.4.2/res/values-sw600dp-v13/values-sw600dp-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -28,25 +47,6 @@
                         "startOffsets": "611,670,723,774,824,882,936,993,1049,1103,1157,1211,1265,1319",
                         "endColumns": "58,52,50,49,57,53,56,55,53,53,53,53,53,60",
                         "endOffsets": "665,718,769,819,877,931,988,1044,1098,1152,1206,1260,1314,1375"
-                    }
-                },
-                {
-                    "source": "/Users/marvinstelter/.gradle/caches/transforms-3/feb5322c57fa501282afbd8cbd69cc19/transformed/material-1.6.0/res/values-sw600dp-v13/values-sw600dp-v13.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,10,11,12,13,14",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,115,185,256,328,386,444,553,617,673,732,795",
-                        "endLines": "2,3,4,5,6,7,9,10,11,12,13,17",
-                        "endColumns": "59,69,70,71,57,57,10,63,55,58,62,10",
-                        "endOffsets": "110,180,251,323,381,439,548,612,668,727,790,962"
-                    },
-                    "to": {
-                        "startLines": "24,25,26,27,28,29,30,32,33,34,35,36",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "1380,1440,1510,1581,1653,1711,1769,1878,1942,1998,2057,2120",
-                        "endLines": "24,25,26,27,28,29,31,32,33,34,35,39",
-                        "endColumns": "59,69,70,71,57,57,10,63,55,58,62,10",
-                        "endOffsets": "1435,1505,1576,1648,1706,1764,1873,1937,1993,2052,2115,2287"
                     }
                 }
             ]

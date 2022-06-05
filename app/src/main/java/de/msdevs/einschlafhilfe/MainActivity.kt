@@ -16,9 +16,9 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
-import com.mikepenz.aboutlibraries.LibsBuilder
 import de.msdevs.einschlafhilfe.databinding.ActivityMainBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -40,6 +40,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var sharedPreferencesEditor: SharedPreferences.Editor
     private lateinit var folgenListe : String
+    var random : Int = 0
     /*
        Copyright 2022 by Marvin Stelter
      */
@@ -53,7 +54,6 @@ class MainActivity : AppCompatActivity() {
         sharedPreferencesEditor = sharedPreferences.edit()
         if(sharedPreferences.getInt("first",0) == 0){
             sharedPreferencesEditor.putBoolean("update_list", true)
-            sharedPreferencesEditor.putBoolean("beta_features", false)
             sharedPreferencesEditor.putBoolean("spotify", false)
             sharedPreferencesEditor.apply()
 
@@ -66,8 +66,9 @@ class MainActivity : AppCompatActivity() {
                     0 -> episodeNumber = (1..50).random()
                     1 -> episodeNumber = (1..100).random()
                     2 -> episodeNumber = (1..150).random()
-                    3 -> episodeNumber = (1..215).random()
+                    3 -> episodeNumber = (1..216).random()
                     4 -> episodeNumber = (1..7).random()
+                    5 -> episodeNumber = 0
                 }
                 apiCall()
             }
@@ -120,12 +121,8 @@ class MainActivity : AppCompatActivity() {
         }
         binding.fabDescription.setOnClickListener {
             val alert = AlertDialog.Builder(this)
-            alert.setTitle(
-                getString(
-                    R.string.output,
-                    (episodeNumber + 1).toString(),
-                    episodeList[episodeNumber].name
-                )
+
+            alert.setTitle(getString(R.string.output, (episodeNumber + 1).toString(), episodeList[episodeNumber].name)
             )
             alert.setMessage(episodeList[episodeNumber].beschreibung)
             alert.setNeutralButton(getString(R.string.close)) { dlg: DialogInterface, _: Int -> dlg.dismiss() }
@@ -136,20 +133,23 @@ class MainActivity : AppCompatActivity() {
             val liste: Array<String> = when (binding.bottomBarViewFlipper.displayedChild) {
                 4 -> {
                     arrayOf(getString(R.string.informationen))
-                }
-                else -> {
+                }else -> {
                     var neuvertonung = 0
                     for (i in neuvertonungList.indices) {
                         if (episodeNumber.toString() == neuvertonungList[i]) {
                             neuvertonung++
                         }
                     }
-                    when {
-                        neuvertonung != 0 -> arrayOf(
-                            getString(R.string.informationen),
-                            getString(R.string.neuvertonung)
-                        )
-                        else -> arrayOf(getString(R.string.informationen))
+                    if(binding.bottomBarViewFlipper.displayedChild == 5 && random == 3){
+                            arrayOf(getString(R.string.informationen))
+                    }else{
+                        if(neuvertonung != 0){
+                            arrayOf(
+                                    getString(R.string.informationen),
+                                    getString(R.string.neuvertonung))
+                        }else{
+                            arrayOf(getString(R.string.informationen))
+                        }
                     }
                 }
             }
@@ -161,7 +161,7 @@ class MainActivity : AppCompatActivity() {
                 var i = Intent(Intent.ACTION_VIEW)
                 when (which) {
                     0 -> {
-                        i.data = Uri.parse(getRockyBeachLink((episodeNumber + 1).toString()))
+                        i.data = Uri.parse(getRockyBeachLink((episodeNumber + 1).toString(), random))
                         startActivity(i)
                     }
                     1 -> {
@@ -179,13 +179,38 @@ class MainActivity : AppCompatActivity() {
     }
 
     private suspend fun apiCall() {
-        if(binding.bottomBarViewFlipper.displayedChild == 4){
-           binding.btnSpotify.visibility = View.GONE
+        random = (1..3).random()
+        runOnUiThread {
+            if(binding.bottomBarViewFlipper.displayedChild == 4){
+                binding.btnSpotify.visibility = View.GONE
+            }else{
+                if(random != 3){
+                    binding.btnSpotify.visibility = View.VISIBLE
+                }
+            }
         }
         episodeList.clear()
         if(isConnected()){
-            urlExtraParameter =
-                if (binding.bottomBarViewFlipper.displayedChild == 4) "folgen_diedrei.json" else "folgen.json"
+            if(binding.bottomBarViewFlipper.displayedChild == 4){
+                urlExtraParameter = "folgen_diedrei.json"
+            }else if(binding.bottomBarViewFlipper.displayedChild != 5){
+                urlExtraParameter = "folgen.json"
+            }else{
+                val randomDDF = (sharedPreferences.getInt("min",0)..sharedPreferences.getInt("max",0)).random()
+                val randomKids = (sharedPreferences.getInt("minK",0)..sharedPreferences.getInt("maxK",0)).random()
+                if(random == 1){
+                    urlExtraParameter = "folgen.json"
+                    episodeNumber = randomDDF - 1
+                }
+                if(random == 2){
+                    urlExtraParameter = "sonderfolgen_ddf.json"
+                    episodeNumber = (1..19).random() - 1
+                }
+                if(random == 3){
+                    urlExtraParameter = "folgen_diedrei.json"
+                    episodeNumber = (1..7).random() - 1
+                }
+            }
             try {
                 when {
                     episodeList.isEmpty() -> {
@@ -197,52 +222,74 @@ class MainActivity : AppCompatActivity() {
                                     .build()
                              folgenListe = client.newCall(request).await().body()?.string().toString()
                         }else {
-                            if(binding.bottomBarViewFlipper.displayedChild == 4){
-                                folgenListe = assets.open("offline_list_dd.txt").bufferedReader().use(BufferedReader::readText)
-                            }else{
-                                folgenListe = assets.open("offline_list.txt").bufferedReader().use(BufferedReader::readText)
+                                if (binding.bottomBarViewFlipper.displayedChild == 4) {
+                                    folgenListe = assets.open("offline_list_dd.txt").bufferedReader().use(BufferedReader::readText)
+                                } else if(binding.bottomBarViewFlipper.displayedChild != 5){
+                                    folgenListe = assets.open("offline_list.txt").bufferedReader().use(BufferedReader::readText)
+                                }else{
+                                    if(random == 1){
+                                        folgenListe = assets.open("offline_list.txt").bufferedReader().use(BufferedReader::readText)
+                                    }
+                                    if(random == 2){
+                                        folgenListe = assets.open("offline_list_sonderfolgen_ddf.txt").bufferedReader().use(BufferedReader::readText)
+                                    }
+                                    if(random == 3){
+                                        folgenListe = assets.open("offline_list_dd.txt").bufferedReader().use(BufferedReader::readText)
+                                    }
+                                }
                             }
-                        }
-
                         val jsonObject = JSONObject(folgenListe)
                         val jsonArray = jsonObject.optJSONArray("folgen")
                         if (jsonArray != null) {
                             for (i in 0 until jsonArray.length()) {
                                 val jsonObject = jsonArray.getJSONObject(i)
-                                episodeList.add(
-                                    JsonResponse(
-                                        name = jsonObject.optString("name"),
-                                        beschreibung = jsonObject.optString("beschreibung"),
-                                        spotify = jsonObject.optString("nummer")))
+                                episodeList.add(JsonResponse(name = jsonObject.optString("name"), beschreibung = jsonObject.optString("beschreibung"), spotify = jsonObject.optString("spotify")))
                             }
                         }
                     }
                 }
                 runOnUiThread {
-                    binding.tvDetails.text = getString(
-                        R.string.output,
-                        (episodeNumber + 1).toString(),
-                        episodeList[episodeNumber].name
-                    )
                     try {
-                        when {
-                            binding.bottomBarViewFlipper.displayedChild == 4 -> Glide.with(this)
-                                .load(getString(R.string.cover_citroncode_dd_url) + (episodeNumber + 1) + ".jpg")
-                                .into(binding.ivCover)
-                            episodeNumber > 200 -> Glide.with(this)
-                                .load(getString(R.string.external_cover_url) + (episodeNumber + 1) + ".jpg")
-                                .into(binding.ivCover)
-                            else -> Glide.with(this)
-                                .load(getString(R.string.cover_citroncode_url) + (episodeNumber + 1) + ".jpg")
-                                .into(binding.ivCover)
+                        if(binding.bottomBarViewFlipper.displayedChild != 5){
+                            binding.tvDetails.text = getString(R.string.output, (episodeNumber + 1).toString(), episodeList[episodeNumber].name)
+                        }else{
+                            if(random == 1){
+                                binding.tvDetails.text = getString(R.string.output, (episodeNumber + 1).toString(), episodeList[episodeNumber].name)
+                                binding.btnSpotify.visibility = View.VISIBLE
+                            }
+                            if(random == 2){
+                                binding.tvDetails.text = episodeList[episodeNumber].name
+                                binding.btnSpotify.visibility = View.VISIBLE
+                            }
+                            if(random == 3){
+                                binding.tvDetails.text = getString(R.string.output, (episodeNumber + 1).toString(), episodeList[episodeNumber].name)
+                                binding.btnSpotify.visibility = View.GONE
+                            }
+                        }
+                        when (binding.bottomBarViewFlipper.displayedChild) {
+                            4 ->
+                                loadEpisodeCover(getString(R.string.cover_citroncode_dd_url) + (episodeNumber + 1) + ".jpg")
+                            else ->
+                                if(binding.bottomBarViewFlipper.displayedChild != 5){
+                                  loadEpisodeCover(getString(R.string.cover_citroncode_url) + (episodeNumber + 1) + ".png")
+                                }else{
+                                    if(random == 1){
+                                        loadEpisodeCover(getString(R.string.cover_citroncode_url) + (episodeNumber + 1) + ".png")
+                                        binding.fabLinks.show()
+                                    }
+                                    if(random == 2){
+                                        loadEpisodeCover(getString(R.string.cover_citroncode_url) + "x" + (episodeNumber + 1) + ".png")
+                                        binding.fabLinks.hide()
+                                    }
+                                    if(random == 3){
+                                        loadEpisodeCover(getString(R.string.cover_citroncode_dd_url) + (episodeNumber + 1) + ".jpg")
+                                        binding.fabLinks.show()
+                                    }
+                                }
                         }
                     } catch (e: java.lang.Exception) {
                         e.printStackTrace()
-                        Snackbar.make(
-                            binding.relativeLayout,
-                            getString(R.string.cover_error),
-                            Snackbar.LENGTH_SHORT
-                        ).show()
+                        Snackbar.make(binding.relativeLayout, getString(R.string.cover_error), Snackbar.LENGTH_SHORT).show()
                     }
                 }
             } catch (e: IOException) {
@@ -253,14 +300,16 @@ class MainActivity : AppCompatActivity() {
                 val builder = AlertDialog.Builder(this)
                 builder.setTitle(R.string.no_internet_dialog_title)
                 builder.setMessage(R.string.no_internet_dialog_text)
-                builder.setPositiveButton(android.R.string.yes) { dialog, which ->
+                builder.setPositiveButton(getString(R.string.reload)) { _, _ ->
                     lifecycleScope.launch {
                         withContext(Dispatchers.IO) {
                             when (binding.bottomBarViewFlipper.displayedChild) {
                                 0 -> episodeNumber = (1..50).random()
                                 1 -> episodeNumber = (1..100).random()
                                 2 -> episodeNumber = (1..150).random()
-                                3 -> episodeNumber = (1..215).random()
+                                3 -> episodeNumber = (1..216).random()
+                                4 -> episodeNumber = (1..7).random()
+                                5 -> episodeNumber = 0
                             }
                             apiCall()
                         }
@@ -270,21 +319,30 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-    private fun getRockyBeachLink(nummer: String): String? {
+    private fun getRockyBeachLink(nummer: String, random : Int): String {
         var url = ""
         when (nummer.length) {
             3 -> url = "https://www.rocky-beach.com/hoerspiel/folgen/$nummer.html"
             2 -> url = "https://www.rocky-beach.com/hoerspiel/folgen/0$nummer.html"
             1 -> url = "https://www.rocky-beach.com/hoerspiel/folgen/00$nummer.html"
         }
+
         when (binding.bottomBarViewFlipper.displayedChild) {
             4 -> {
                 url = "https://www.rocky-beach.com/hoerspiel/folgen/50$nummer.html"
             }
         }
+        if(random == 3 && binding.bottomBarViewFlipper.displayedChild == 5){
+            url = "https://www.rocky-beach.com/hoerspiel/folgen/50$nummer.html"
+        }
         return url
     }
-
+    private fun loadEpisodeCover(coverUrl : String){
+        Glide.with(this)
+            .load(coverUrl)
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .into(binding.ivCover)
+    }
     class JsonResponse(
         val name: String,
         val beschreibung: String,
@@ -315,33 +373,16 @@ class MainActivity : AppCompatActivity() {
                     0 -> episodeNumber = (1..50).random()
                     1 -> episodeNumber = (1..100).random()
                     2 -> episodeNumber = (1..150).random()
-                    3 -> episodeNumber = (1..215).random()
+                    3 -> episodeNumber = (1..216).random()
                     4 -> episodeNumber = (1..7).random()
+                    5 -> episodeNumber = 0
                 }
                 apiCall()
             }
         }
 
     }
-    fun aboutLibsDialog(){
-        val builder = AlertDialog.Builder(this)
-        builder.setTitle(getString(R.string.dialog_third_party))
-        val animals = arrayOf(getString(R.string.glide),getString(R.string.appintro))
-        builder.setItems(animals) { dialog, which ->
-            when (which) {
-                0 -> {openBrowser("https://github.com/bumptech/glide")}
-                1 -> {openBrowser("https://github.com/AppIntro/AppIntro")}
-            }
-        }
-        val dialog = builder.create()
-        dialog.show()
-    }
-    fun openBrowser(url : String){
-        val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-        startActivity(browserIntent)
-    }
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_main, menu)
         return true
     }
@@ -359,5 +400,6 @@ class MainActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
+
 }
 

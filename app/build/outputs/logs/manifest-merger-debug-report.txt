@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:2:1-43:12
-INJECTED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:2:1-43:12
-INJECTED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:2:1-43:12
-INJECTED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:2:1-43:12
+ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:2:1-44:12
+INJECTED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:2:1-44:12
+INJECTED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:2:1-44:12
+INJECTED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:2:1-44:12
 MERGED from [com.mikepenz:aboutlibraries:10.2.0] /Users/marvinstelter/.gradle/caches/transforms-3/151973e9ea755bbacab6b0e288a83361/transformed/jetified-aboutlibraries-10.2.0/AndroidManifest.xml:2:1-15:12
 MERGED from [androidx.databinding:viewbinding:7.2.0] /Users/marvinstelter/.gradle/caches/transforms-3/7a12b731fdac316cccb4947830b60b60/transformed/jetified-viewbinding-7.2.0/AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.material:material:1.6.0] /Users/marvinstelter/.gradle/caches/transforms-3/feb5322c57fa501282afbd8cbd69cc19/transformed/material-1.6.0/AndroidManifest.xml:17:1-26:12
@@ -64,51 +64,51 @@ MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/marvinstelter/.gra
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/marvinstelter/.gradle/caches/transforms-3/a0111de3469c833f8f02cc4ad4a3fd26/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] /Users/marvinstelter/.gradle/caches/transforms-3/bf83d558c58b55b377633f6f52cfaf15/transformed/print-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] /Users/marvinstelter/.gradle/caches/transforms-3/b962781459a1571074371b1b48a19f82/transformed/jetified-annotation-experimental-1.1.0/AndroidManifest.xml:17:1-24:12
-INJECTED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:2:1-43:12
-INJECTED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:2:1-43:12
-INJECTED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:2:1-43:12
+INJECTED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:2:1-44:12
+INJECTED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:2:1-44:12
+INJECTED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:2:1-44:12
 	package
+		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:4:5-39
 		INJECTED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml
-		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:2:1-43:12
 		INJECTED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml
-		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:2:1-43:12
+		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:2:1-44:12
 		INJECTED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml
 	xmlns:tools
 		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml
-		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:2:1-43:12
+		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:2:1-44:12
 		INJECTED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:2:11-69
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:5:5-79
+ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:6:5-79
 	android:name
-		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:5:22-76
+		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:6:22-76
 uses-permission#android.permission.INTERNET
-ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:6:5-66
+ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:7:5-66
 	android:name
-		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:6:22-64
+		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:7:22-64
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:7:5-79
+ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:8:5-79
 	android:name
-		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:7:22-77
+		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:8:22-77
 permission#android.permission.QUERY_ALL_PACKAGES
-ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:8:5-72
+ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:9:5-72
 	android:name
-		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:8:17-69
+		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:9:17-69
 queries
-ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:9:5-13:15
+ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:10:5-14:15
 intent#action:name:android.intent.action.MAIN
-ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:10:9-12:18
+ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:11:9-13:18
 action#android.intent.action.MAIN
-ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:11:13-65
+ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:12:13-65
 	android:name
-		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:11:21-62
+		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:12:21-62
 application
-ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:15:5-41:19
+ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:16:5-42:19
 MERGED from [com.mikepenz:aboutlibraries:10.2.0] /Users/marvinstelter/.gradle/caches/transforms-3/151973e9ea755bbacab6b0e288a83361/transformed/jetified-aboutlibraries-10.2.0/AndroidManifest.xml:9:5-13:19
 MERGED from [com.mikepenz:aboutlibraries:10.2.0] /Users/marvinstelter/.gradle/caches/transforms-3/151973e9ea755bbacab6b0e288a83361/transformed/jetified-aboutlibraries-10.2.0/AndroidManifest.xml:9:5-13:19
 MERGED from [com.google.android.material:material:1.6.0] /Users/marvinstelter/.gradle/caches/transforms-3/feb5322c57fa501282afbd8cbd69cc19/transformed/material-1.6.0/AndroidManifest.xml:24:5-20
@@ -134,61 +134,61 @@ MERGED from [androidx.startup:startup-runtime:1.0.0] /Users/marvinstelter/.gradl
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/marvinstelter/.gradle/caches/transforms-3/9e53dfe26dfec820e53713712720f794/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/marvinstelter/.gradle/caches/transforms-3/9e53dfe26dfec820e53713712720f794/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
 	android:requestLegacyExternalStorage
-		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:20:9-52
+		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:21:9-52
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.7.0] /Users/marvinstelter/.gradle/caches/transforms-3/f3c1846e6bff5b1c3ce14399c13431b1/transformed/core-1.7.0/AndroidManifest.xml:24:18-86
 	android:supportsRtl
-		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:22:9-35
+		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:23:9-35
 	android:label
-		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:19:9-41
+		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:20:9-41
 	tools:ignore
-		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:26:9-43
+		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:27:9-43
 	android:roundIcon
-		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:21:9-48
+		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:22:9-48
 	tools:targetApi
-		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:25:9-28
+		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:26:9-28
 	android:icon
-		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:18:9-43
+		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:19:9-43
 	android:allowBackup
-		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:16:9-36
+		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:17:9-36
 	android:theme
-		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:23:9-40
+		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:24:9-40
 	android:dataExtractionRules
-		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:24:9-65
+		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:25:9-65
 	tools:replace
-		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:17:9-44
+		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:18:9-44
 activity#de.msdevs.einschlafhilfe.MainActivity
-ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:27:9-33:20
+ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:28:9-34:20
 	android:exported
-		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:28:13-36
+		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:29:13-36
 	android:name
-		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:27:19-47
+		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:28:19-47
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:29:13-32:29
+ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:30:13-33:29
 category#android.intent.category.LAUNCHER
-ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:31:17-77
+ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:32:17-77
 	android:name
-		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:31:27-74
+		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:32:27-74
 activity#de.msdevs.einschlafhilfe.AppIntroActivity
-ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:34:9-35:55
+ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:35:9-36:55
 	android:theme
-		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:35:13-53
+		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:36:13-53
 	android:name
-		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:34:19-51
+		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:35:19-51
 activity#de.msdevs.einschlafhilfe.SettingsActivity
-ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:36:9-37:47
+ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:37:9-38:47
 	android:label
-		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:37:13-45
+		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:38:13-45
 	android:name
-		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:36:19-51
+		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:37:19-51
 activity#de.msdevs.einschlafhilfe.AboutActivity
-ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:38:9-40:45
+ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:39:9-41:45
 	android:label
-		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:40:13-42
+		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:41:13-42
 	android:theme
-		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:39:13-47
+		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:40:13-47
 	android:name
-		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:38:19-48
+		ADDED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:39:19-48
 uses-sdk
 INJECTED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml

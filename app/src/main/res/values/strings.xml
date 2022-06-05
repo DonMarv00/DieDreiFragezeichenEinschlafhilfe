@@ -14,7 +14,7 @@
     <string name="settings">Einstellungen</string>
     <string name="use_spotify">Spotify benutzen </string>
     <string name="welcome">Willkommen</string>
-    <string name="dialog_list">Folgenliste wird aktualisiert...</string>
+    <string name="dialog_list">Folgenliste wird aktualisiert…</string>
     <string name="update_list">Folgenliste automatisch aktualisieren</string>
     <string name="welcome_text">Bevor es richtig losgehen kann müssen wir ein paar Fragen klären und dich uüber unsere Datenschutzerklärung aufmerksam machen.</string>
     <string name="not_installed">Spotify ist nicht installiert.</string>
@@ -25,13 +25,22 @@
     <string name="output">%1$s. %2$s</string>
     <string name="intro_data">Wenn du Spotify oder den Online Modus benutzt werden Daten durch unseren Provider und/oder durch Spotify erhoben.</string>
     <string name="spotify_base_url">https://open.spotify.com/album/</string>
-    <string name="cover_citroncode_url">https://api.citroncode.com/android/ddf/android_api/cover/</string>
+    <string name="cover_citroncode_url">https://api.citroncode.com/android/ddf/v5/cover/cover_</string>
     <string name="cover_citroncode_dd_url">https://api.citroncode.com/android/ddf/android_api/cover/dd</string>
     <string name="external_cover_url">https://www.rocky-beach.com/hoerspiel/cover/</string>
     <string name="fehler_glide">Ein Fehler ist aufgetreten, bitte versuche es erneut!</string>
     <string name="dialog_third_party">Bibliotheken von Drittanbietern</string>
     <string name="glide">Glide</string>
     <string name="appintro">AppIntro</string>
+    <string name="reload">Erneut versuchen</string>
     <string name="about">Über</string>
     <string name="about_long">Die Einschlafhilfe App schlägt dir Folgen der drei Detektive aus Rocky Beach vor.</string>
+    <string name="die_drei_fragezeichen_kids">Die Drei Fragezeichen Kids</string>
+    <string name="die_dr3i">Die Dr3i</string>
+    <string name="die_drei_fragezeichen_sonderfolgen">Die Drei Fragezeichen Sonderfolgen</string>
+    <string name="die_drei_fragezeichen_kids_sonderfolgen">Die Drei Fragezeichen Kids Sonderfolgen</string>
+    <string name="benutzerdefinierte_einstellungen">Benutzerdefinierte Einstellungen</string>
+    <string name="hier_kannst_du_nun_ausw_hlen_welche_folgen_du_h_ren_mochtest_in_welchen_bereicht_diese_liegen_sollen_und_ob_sonderfolgen_auch_angezeigt_werden_sollen">Hier kannst du nun auswählen welche Folgen du hören mochtest, in welchen Bereicht diese liegen sollen und ob Sonderfolgen auch angezeigt werden sollen.</string>
+    <string name="die_drei_fragezeichen">Die Drei Fragezeichen</string>
+    <string name="benutzerdefiniert">Benutzerdefiniert</string>
 </resources>

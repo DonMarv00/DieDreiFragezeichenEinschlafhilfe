@@ -1,0 +1,118 @@
+{
+  "folgen": [
+    {
+      "name": "Die drei ??? - Brainwash - Gefangene Gedanken",
+      "beschreibung": "Als in einer Woche gleich zwei Bekannte der drei ??? verschwinden, vermuten die Jungen, dass die Sekte SynRea dahinter stecken könnte. Um die Vermissten zurückzuholen, fliegen die drei Detektive nach New York und treten in einer Undercover-Aktion der Sekte bei. Schon bald stellt sich heraus, dass die vermissten Jugendlichen tatsächlich dort sind.\nWas jedoch als einfache Rückholaktion geplant war, entpuppt sich zunehmend als unlösbare Mission - denn die Mächte der SynRea-Gruppe scheinen auch von Justus, Peter und Bob Besitz zu ergreifen.",
+      "nummer": "x1",
+      "spotify": "5RBu5WK95Q6BtWfA4o3Vgs"
+    },
+    {
+      "name": "Die drei ??? - High Strung - Unter Hochspannung",
+      "beschreibung": "Verschollen, gefunden, endlich veröffentlicht: Eine Geschichte aus dem Jahr 1990 von der amerikanischen Die drei ???-Autorin G. H. Stones.\n\nJustus will bei einer Radioshow 5000 Dollar gewinnen. Die Regeln sehen vor, dass dazu täglich ein Rätsel gelöst und ein Gegenstand eingesammelt werden muss. Wer alles gefunden hat und es zum Sponsor der Sendung bringt, bekommt das Geld. Ein weiterer Preis ist eine alte Gitarre, die aber scheinbar niemand haben will.\nPlötzlich wird auf dem Schrottplatz eingebrochen und den drei Detektiven ist schnell klar, dass es jemand auf Justus? gesammelte Gegenstände abgesehen hat. Aber wer sollte das sein? Gemeinsam machen sich die drei ??? auf die Suche nach dem Dieb und geraten in ein gefährliches Abenteuer...",
+      "nummer": "x2",
+      "spotify": "2Bxdn8Gn8vEy4UiTOc8cBK"
+    },
+    {
+      "name": "Die drei ??? - House of Horrors - Haus der Angst",
+      "beschreibung": "Ein besonderer Fall zum Mitraten:\nVerschollen, gefunden, endlich auch auf Deutsch veröffentlicht: Eine Geschichten aus dem Jahr 1986 von dem amerikanischen Die drei ???-Autorenpaar Megan und H. William Stine.\n\nWolltest du immer schon den Die drei ??? bei ihren Ermittlungen helfen? Jetzt hast Du die Chance dazu!\nIn der Geisterbahn im Freizeitpark geschehen merkwürdige Dinge. Schreckliche Schreie, ertönen, die mit Sicherheit nicht zum Programm dazugehören. Justus, Peter und Bob, die drei jungen Detektive aus Rocky Beach und ihr Auftraggeber Tony müssen schnellstmöglich herausfinden, was dahinter steckt.\nAber Vorsicht: Eine falsche Entscheidung, und sie sind für immer verloren!\n\nEs liegt an dir. Du kannst den drei ??? und Tony den Weg durch das Haus der Angst schaffen. Oder auch nicht...",
+      "nummer": "x3",
+      "spotify": "249qkyRcqMAoKJhXwrTYtE"
+    },
+    {
+      "name": "Die drei ??? - Das Grab der Inka-Mumie",
+      "beschreibung": "Aus dem unterirdischen Schrein der Familie Paredes wurde eine Mumie gestohlen! Sofort machen sich Justus, Peter und Bob auf, das Rätsel hinter diesem Diebstahl aufzuklären. Wer steckt dahinter - und vor allem: Was hat der Täter mit seiner Beute vor? Bei ihren Ermittlungen treffen die drei ??? auf geheimnisvolle Gestalten, die anscheinend nichts Gutes im Schilde führen. Oder will sie jemand nur auf eine falsche Fährte locken?\n",
+      "nummer": "x4",
+      "spotify": "7osWCNCcvGfqP31G7281iL"
+    },
+    {
+      "name": "Die drei ??? und der Tornadojäger",
+      "beschreibung": "Der bekannte Tornadojäger Dylan Harvey kommt zu einer Foto-Show nach Rocky Beach. Das lassen sich Justus, Peter und Bob natürlich nicht entgehen. Doch kurz vor dem angekündigten Auftritt werden dem Tornadojäger wichtige Aufnahmen gestohlen. Die drei Detektive ermitteln für Harvey. Sie wollen wissen, wer hinter dem Diebstahl steckt - und warum diese Fotos so wichtig sind. Aber plötzlich wirkt ihr Auftraggeber gar nicht mehr so unschuldig. Ist der Tornadojäger nur ein windiger Betrüger?\nUrsprünglich als immersives Hörspiel für Vorführungen in Planetarien produziert, wird mit ,Der Tornadojäger' nun die zweite Produktion ersten Planetariums-Staffel als Stereofassung auf CD veröffentlicht.\n",
+      "nummer": "x5",
+      "spotify": "7mH8vdj0TkiPO6fMHBCvYj"
+    },
+    {
+      "name": "Die drei ??? und das kalte Auge",
+      "beschreibung": "Eine rätselhafte Diebstahlserie erschüttert Rocky Beach! Der Dieb hat offenbar eine Botschaft: CROATOAN schmiert er in blutigen Buchstaben an die Wände der Tatorte. Kennt er die schreckliche, jahrhundertalte Geschichte, die sich hinter diesem Wort verbirgt? Und wer ist der Indianer mit den kalten Augen, der immer wieder auftaucht? Höchste Zeit, dass die drei ??? Licht ins Dunkel bringen...\nUrsprünglich als immersives Hörspiel für Vorführungen in Planetarien produziert, wird mit ,Der Tornadojäger' nun die zweite Produktion ersten Planetariums-Staffel als Stereofassung auf CD veröffentlicht.",
+      "nummer": "x6",
+      "spotify": "3egVVb6Zt0LdS6agBMGsiJ"
+    },
+    {
+      "name": "Die drei ??? und das Grab der Maya (Planetarium Version)",
+      "beschreibung": "In einem Umzugskarton stoßen die drei ??? auf eine alte Steinfigur und eine Karte mit geheimen Schriftzeichen. Beides scheint vom Volk der Maya zu stammen. Welches Geheimnis bergen die Fundstücke?\nAls Justus, Bob und Peter klar wird, dass einige zwielichtige Gestalten sehr an der Lösung des Rätsels interessiert sind, entspinnt sich ein gefährlicher Wettlauf gegen die Zeit - und ihre Widersacher...",
+      "nummer": "x7",
+      "spotify": "4vj4Dq2q7fyvwY7UCj2vin"
+    },
+    {
+      "name": "Die drei ??? und der dreiäugige Totenkopf (Planetarium Version)",
+      "beschreibung": "Horrorfilm-Regisseur James Kushing erwacht eines Morgens mit einer mysteriösen Tätowierung auf dem Arm: ein dreiäugiger Totenkopf! Was hat das Tattoo mit dem Film zu tun, den Kushing niemals fertiggestellt hat? Und welches Geheimnis steckt hinter dem gestohlenen Smaragd, der vor Jahren spurlos vom Filmset verschwand? Justus, Peter und Bob stürzen sich in den Fall und entdecken nach und nach die Wahrheit hinter dem Rätsel ...",
+      "nummer": "x8",
+      "spotify": "39K0Sczt1mIbW33lB5RNer"
+    },
+    {
+      "name": "Die drei ??? und das versunkene Schiff (Planetarium Version)",
+      "beschreibung": "Liegt tatsächlich ein alter Goldschatz vor der Küste des Ferienortes von Justus, Peter und Bob? Prompt vergessen die drei ??? ihren Ärger über den verregneten Urlaub und nehmen die Jagd nach den versunkenen Reichtümern auf. Sie tauchen ein in die geheimnisvolle Geschichte des berühmtesten Dorfbewohners und heben ein dunkles Geheimnis ...",
+      "nummer": "x9",
+      "spotify": "6UN8m07SmIzyDe63H0oljL"
+    },
+    {
+      "name": "Die drei ??? und die schwarze Katze (Planetarium Version)",
+      "beschreibung": "In einem kleinen Wanderzirkus wittern die drei Detektive Justus, Peter und Bob ihren neuesten Fall. Justus ist sich sicher: Wenn ein finster aussehender Mann mit Gewalt eine hässliche Stoffkatze an sich bringen will, sie dann stiehlt und am nächsten Tag per Zeitungsanzeige weitere Katzen sucht, muss etwas dahinter stecken!",
+      "nummer": "x10",
+      "spotify": "39K0Sczt1mIbW33lB5RNer"
+    },
+    {
+      "name": "Die drei ??? und der dreiTag",
+      "beschreibung": "Kann ein und derselbe Tag dreimal völlig unterschiedlich verlaufen? Kann ein unscheinbares Detail wie ein Colaglas darüber entscheiden, wie sich alle weiteren Geschehnisse entwickeln? Erlebe, wie Justus, Peter und Bob auf den unheimlichen Fluch der Sheldon Street, die mysteriösen Zeichen der Ritter und den bedrohlichen Fremden Freund stoßen – und zwar zeitgleich am selben Tag!\nDrei Geschichten von drei Autoren führen dich dreimal durch einen Tag, wie er unterschiedlicher nicht verlaufen könnte.\nTeil J: Der Fuch der Sheldon Street\nAlles beginnt mit dem Kauf eines alten Projektors und der Entdeckung einer kleinen Super-8-Filmrolle. Als die drei Detektive das Fundstück begutachten, entdecken sie die verstörende Aufnahme einer albtraumhaften Gestalt. Schnell stellen die drei ??? fest, dass es um weit mehr geht, als sie zunächst ahnen: Eine ganze Straße scheint unter dem Bann eines düsteren Geheimnisses zu stehen. Doch kaum beginnen Justus, Peter und Bob mit ihren Nachforschungen, da tauchen plötzlich Gegner auf, die ihnen mit allen Mitteln zuvorkommen wollen ...\n\nTeil B: Im Zeichen der Ritter\nGeheimnisvolle Symbole beunruhigen die Bewohner von Rocky Beach. Was steckt hinter den kryptischen Zeichen, die von einer geisterhaften Gestalt nachts an die Häuser gemalt werden? Und warum verhalten sich einige Bewohner der kleinen Küstenstadt so merkwürdig? Ihre ersten Nachforschungen bringen Justus, Peter und vor allem Bob auf die Spur einer mittelalterlichen Ritterlegende. Je intensiver sie sich mit dem Fall beschäftigen, um so klarer scheint, dass ihnen nur wenige Stunden bleiben, um am unheilvollen Freitag den 13. Schlimmeres zu verhindern ...\n\nTeil P: Fremder Freund\nPeter schwebt im siebten Himmel, denn er hat in einem Café Bekanntschaft mit einem großen Fan der drei ??? gemacht. Er wird sogar um ein Autogramm gebeten. Stolz und gut gelaunt verbringt Peter einen tollen Tag mit seinen Freunden, und alles wäre einfach perfekt, wenn er nicht plötzlich diese seltsamen Telefonanrufe und mysteriösen Briefe erhalten würde. Die drei Detektive werden heimlich beobachtet und sogar von einem Unbekannten fotografiert! Was soll das alles? Wer ist dieser seltsame Verfolger? Ist Peters Leben in Gefahr?",
+      "nummer": "x11",
+      "spotify": "3JJeehFIJTxhrltC6e44VT"
+    },
+    {
+      "name": "Die drei ??? und die Geisterlampe",
+      "beschreibung": "1. DIE DREI ??? UND DIE GEISTERLAMPE\nErzählt von Kari Erlhoff\nMr. Vancura ist Schauspieler und sammelt alles, was mit dem Orient zu tun hat. Sein ganzer Stolz ist eine Wunderlampe, in der ein richtiger Dschinn lebt. Aber der Dschinn ist verschwunden...\n\n2. DUNKLE VERGANGENHEIT\nErzählt von Marco Sonnleitner\nDas neueste Hobby von Justus Jonas ist die Ahnenforschung. Und dabei macht er eines Tages eine unglaubliche Entdeckung...\n\n3. ENTFÜHRT\nErzählt von Marco Sonnleitner\nPeter erhält eine E-Mail: Kelly ist entführt worden! Den drei ??? bleibt weniger als eine Stunde Zeit, sie zu finden und zu befreien...\n\n4. VERSCHWÖRUNG AUF DER EAGLE RANCH\nErzählt von Hendrik Buchna\nAuf dem Autorasthof 'Eagle Ranch' geschehen merkwürdige Dinge und die drei ??? erhalten den Auftrag, herauszufinden, was es damit auf sich hat...\n\n5. SOS\nErzählt von Marco Sonnnleitner\nAls die drei ??? vom Strand kommen und auf dem Weg nach Hause sind, sehen sie ein SOS-Signal, das aus einem Haus gesendet wird. Eigentlich steht das Haus doch leer...\n\n6. DER GRAUE DÄMON\nErzählt von Hendrik Buchna\nAuf dem Weg nach Hause wird Peter plötzlich von einem unheimlichen, grauen Dämon verfolgt. Ihm bleibt nur noch ein Ausweg: Die Flucht...\n\n7. DAS LEHRSTÜCK\nErzählt von Kari Erlhoff\nPeters ehemalige Klavierlehrerin, Mrs. Floyd, engagiert die drei ???, um herauszufinden, wo ihre verstorbene Mutter ihr Erbe versteckt haben könnte...\n\n8. DAS RÄTSEL DER SCHWARZEN NADEL\nErzählt von Hendrik Buchna\nDie drei ??? erhalten den Auftrag, bei der Übergabe einer schwarzen Nadel dabei zu sein. Aber geht es dabei wirklich nur um das Schmuckstück?\n\n9. DER VERSCHWUNDENE SUPERSTAR\nErzählt von Kari Erlhoff\nBlacky, der Papagei der drei ???, benimmt sich seit ein paar Tagen höchst sonderbar. Was ist der Grund für die merkwürdigen Sprüche, die der Vogel plötzlich zitiert...\n\n10. MANCHES VERLERNT MAN NIE\nErzählt von Marco Sonnleitner\nDie drei ??? sollen von der Stadt Rocky Beach für ihr Lebenswerk geehrt werden. Und prompt sitzen sie gleich wieder mitten in einem neuen Fall...\n\n11. PSYCHOMOON\nErzählt von Kari Erlhoff\nKellys Tante wird erpresst und die drei ??? sollen bei der Übergabe des Geldes behilflich sein. Aber in dem Motel, in dem Peter und Kelly absteigen, passieren merkwürdige Dinge...\n\n12. JAGD AUF DEN WEIHNACHTSMANN\nErzählt von Hendrik Buchna\nRocky Beach versinkt im Schnee. Und zu allem Überfluss treibt gerade jetzt, wo die Polizei mehr oder weniger handlungsunfähig ist, ein krimineller Weihnachtsmann in der Stadt sein Unwesen...",
+      "nummer": "x12",
+      "spotify": "1nL3AddBvZ845zMyXRowgs"
+    },
+    {
+      "name": "Die drei ??? und der Zeitgeist",
+      "beschreibung": "Die drei ??? übernehmen jeden Fall.\nDa gibt's immer Überraschungen, ungeahnte Wendungen etc. Doch manchmal kommt alles wirklich ganz anders als gedacht - so wie in diesen kurzen Fällen, bei denen die Welt von Justus, Peter und Bob manchmal ganz schön auf den Kopf gestellt wird. Da ist vorwärts dann plötzlich doch rückwärts und vorn ist hinten und gleich nochmal von vorn...\nSechs verzwickte, experimentierfreudige, rätselhafte Kurzgeschichten aus Rocky Beach!\n\n1. Immer und immer wieder (Hendrik Buchna)\n2. Der Raub der Zehntausend (Marco Sonnleitner)\n3. Der verschwundene Zeitgeist (André Minninger)\n4. Leaving Nineteen Sixty-four (Ben Nevis)\n5. Rückwärtsgang (André Marx)\n6. Zeit der Opfer, Zeit der Wunder (Christoph Dittert und Kari Erlhoff)\n\nImmer und immer wieder\nPeter ist ratlos: in wenigen Minuten wird die Zentrale zerstört werden, und er kann nichts dagegen tun! Erst ein Tipp vom Ersten Detektiv bringt ihn auf die richtige Spur - oder doch nicht?\nDer Raub der Zehntausend\nBeim Ausliefern einer Standuhr geraten die drei Detektive mitten in einen Kriminalfall, der äußerst explosiv enden könnte...\nDer verschwundene Zeitgeist\nWer hat die fehlenden Manuskriptseiten von Malcolm Fever gestohlen? Als sich die drei Detektive des Falls annehmen, machen sie die Bekanntschaft mit einer höchst sonderbaren Dame...\nLeaving Nineteen Sixty-four\nProfessor Selby hat die drei ??? auf eine Reise durch die Zeit geschickt - nun müssen sie ein Rätsel lösen, um zurückzukehren...\nRückwärtsgang\nIn diesem rätselhaften Fall scheint die Zeit aus den Fugen geraten zu sein - mal geht es vorwärts, dann wieder zurück!\nZeit der Opfer, Zeit der Wunder\nEigentlich geht es nur um ein Literaturprojekt für die Schule - doch mit den drei ??? wird auch das schnell zu einem Abenteuer...",
+      "nummer": "x13",
+      "spotify": "4lLOJQU6QBH5cxmERE77La"
+    },
+    {
+      "name": "Die drei ??? - Das Rätsel der Sieben",
+      "beschreibung": "Was die Hülle verspricht ...\nCoverbildSieben Kurzgeschichten von sieben Autoren in einer Hörspiel-Box: Bei diesen Fällen wird so rasant ermittelt, dass die Lösungen nur knapp entfernt sind!\nMysteriös, abenteuerlich, gespenstisch, experimentell, witzig, unheimlich und verflixt:\nSiebenmal knackig-kurzer Hör-Spaß ist garantiert!\n\n1. Der siebte Gast (André Minninger)\n2. Bis um sieben zurück (Kari Erlhoff)\n3. Bobs schwerste Stunde (Hendrik Buchna)\n4. Die rote Sieben (Marco Sonnleitner)\n5. Schutzgeld (Ben Nevis)\n6. Die siebte Frau des Leuchters (Christoph Dittert)\n7. Die verschwundene Torte (André Marx)\n\nDer siebte Gast\nMrs. Emily White spürt instinktiv, dass an dem Schreiben von ihrer Freundin Judy Fradkin etwas faul ist. Warum wurde die alte Dame von dem Jahrestreffen der Märchenfiguren so urplötzlich ausgeladen? Um der Sache auf den Grund zu gehen, holt sich Mrs. White die Unterstützung der drei ???...\n\nBis um sieben zurück\nBob Andrews rutscht auf dem glitschigen Boden des Schuppens aus und wird ohnmächtig. Als er kurze Zeit später erwacht, scheinen einige Dinge plötzlich recht merkwürdig zu sein... Doch nicht nur für ihn; denn auch seine Eltern scheinen ihn kaum wiederzuerkennen und machen sich die größten Sorgen um ihren Sohn. In ihrer Angst ziehen sie einen Arzt hinzu...\n\nBobs schwerste Stunde\nBob weicht jede Farbe aus dem Gesicht. Wie vom Blitz getroffen steht er vor dem geöffneten Aktenschrank und lässt seinen Blick über die leeren Regale schweifen. Einbrecher haben das gesamte Fall-Archiv der drei Detektive gestohlen! Die Sammlung scheint für immer verloren zu sein. Doch dann entdeckt Justus einen Zettel mit einer merkwürdigen Botschaft...\n\nDie rote Sieben\n\"Ihre Einsätze bitte!\"\nWährend der Croupier im Casino des Luxusdampfers die Kugel in der Roulette-Schüssel kreisen lässt, wird in Kabine 347 ein Passagier niedergeschlagen und ausgeraubt! Ein Fall für die drei Detektive, die auf dem Schiff gerade als Aushilfskellner arbeiten...\n\nSchutzgeld\nWer ist die seltsame Dame, die so auffällig unauffällig durch die Einkaufsstraße schleicht, und sich dabei immer wieder ängstlich umsieht? Als sich die drei Detektive an ihre Fersen heften und die Verdächtige demaskieren, erleben sie eine große Überraschung. Doch jetzt fangen die Schwierigkeiten erst an...\n\nDie siebte Frau des Leuchters\n\"Mein Name ist Nayeli. Und ich bin ein Dieb!\"\nDer Junge, der bei den drei Detektiven auf dem Schrottplatz auftaucht, zieht einen antiken Kerzenhalter aus seinem Rucksack und erzählt dazu eine seltsame Geschichte. Doch wer ist der Fremde, der urplötzlich auftaucht und Nayeli dann in die Flucht schlägt? Unversehens geraten Justus, Bob und Peter in große Gefahr...\n\nDie verschwundene Torte\nAn Justus' Geburtstag muss der Erste Detektiv eine schwere Niederlage einstecken: Ausgerechnet seine Geburtstagstorte wurde über Nacht aus der Freiluftwerkstatt gestohlen! Doch wer kommt als Täter in Frage? Mit Hilfe einer Überwachungskamera sollte der Dieb doch zu identifizieren sein - oder etwa nicht?",
+      "nummer": "x14",
+      "spotify": "2AEzTekSWfyfzJH56jmhET"
+    },
+    {
+      "name": "Die drei ??? und der schwarze Tag",
+      "beschreibung": "Wenn die drei ??? ermitteln, ist das immer ein schwarzer Tag für Verbrecher. Und manchmal bringt das Detektivbüro sogar schneller als sonst Licht ins Dunkel: Sei es in einem stockfinsteren Verlies, auf der Jagd nach einem schwarzen Phantom oder in einem Dunkelrestaurant - Justus, Peter und Bob lösen jeden Fall.\nSechs verzwickte, experimentierfreudige, rätselhafte Kurzgeschichten aus Rocky Beach!\n\n1. Das schwarze Verlies (Ben Nevis)\n2. Schwarze Seelen (André Minninger)\n3. Ein schwarzer Tag für Mrs. Kingstone (Christoph Dittert, nach einer Idee von ihm und Martin Sturm)\n4. Wer hat Angst vorm schwarzen Mann (Marco Sonnleitner)\n5. Die schwarze PhantOma (Kari Erlhoff)\n6. Das schwarze Nest (Hendrick Buchna)\n\nDas schwarze Verlies\nEs ist dunkel. Mehr als dunkel. Schwarz. Peter erwacht und ist gefesselt! Wo befindet er sich? Ist alles nur ein Traum? Plötzlich vernimmt er ein seltsames Grunzen. Ein Kampfhund...? Dann kehren seine Erinnerungen zurück!\nSchwarze Seelen\nDie gegenseitigen Beschuldigungen der Zwillingsschwestern Helen und Elen stellen die drei Detektive auf eine harte Zerreißprobe. Wird es Ihnen dennoch gelingen, die wahre Täterin zu überführen?\nEin schwarzer Tag für Mrs. Kingstone\nAusgerechnet Skinny Norris beauftragt die drei Detektive mit einem neuen Fall: Wer erpresst Mr. Kingstone, den blinden Betreiber des Dunkelrestaurants in Rocky Beach? In totaler Finsternis ermitteln Justus, Peter und Bob, um den skrupellosen Verbrecher auf die Schliche zu kommen. Doch wird ihre Falle auch zuschnappen?\nWer hat Amgst vorm schwarzen Mann\nIn einem Kindergarten in Rocky Beach herrscht größte Besorgnis: Wurden die Kinder tatsächlich allesamt von einem unheimlichen Schwarzen Mann heimgesucht? Die Ermittlungen der drei ??? führen zum ominösen Herz von Afrika...\nDie schwarze PhantOma\nWer steckt hinter der unheimlichen Porschefahrerin, von der Justus beinahe überfahren wurde!? Auch Peter wird von ihr mit einem heftigen Fausthieb niedergestreckt! Wer ist die humpelnde Rentnerin, die als PhantOma in Rocky Beach ihr Unwesen treibt? An Verdächtigen mangelt es keineswegs...\nDas schwarze Nest\nDas Telefon klingelt nicht in der Zentrale der drei Detektive. Doch Justus hört es ganz deutlich. Leidet er unter Wahnvorstellungen? Und auch Peter wird von argen Problemen geplagt: Er muss unbedingt das große Sackhüpfturnier gewinnen! Bob wird endlich aus dem Krankenhaus entlassen und wundert sich über gar nichts mehr...\n",
+      "nummer": "x15",
+      "spotify": "7ehMwTyKuIM4zdiltMxE4X"
+    },
+    {
+      "name": "Die drei ??? und der 5. Advent",
+      "beschreibung": "Die anstehenden Festtage haben sich Justus, Peter und Bob wahrlich anders vorgestellt: Durch einen Zufall wird Justus Zeuge, wie Tante Mathildas Freundin Lydia Candle am 1. Dezember in ihrem Adventskalender einen erschreckenden Fund macht! Und schon bald stellt sich heraus, dass ein furchtbares Verbrechen verübt werden soll! Viel Zeit bleibt den drei Detektiven nicht, diesen verzwickten Fall zu lösen, in dem an jedem Tag neue Stolpersteine auftauchen, die schließlich nicht nur das Leben von Bob Andrews bedrohen. Die Zeit drängt, und bis zum 24. Dezember gilt es, manch harte Nuss zu knacken...",
+      "nummer": "x16",
+      "spotify": "2qFuUJMx8w4VEO0Zdf8jFJ"
+    },
+    {
+      "name": "Die drei ??? - O du finstere",
+      "beschreibung": "Für Tante Mathilda erfüllt sich ein lang gehegter Wunsch: Gemeinsam mit Onkel Titus, Justus, Peter und Bob will sie Weihnachten in einer verschneiten Berghütte feiern. Die besinnliche Stimmung wird schnell getrübt, als eine gehörnte Schreckgestalt in die Idylle hereinbricht. Doch uch unheimliche Vorfälle und Drohbotschaften halten die drei ??? nicht davon ab, diesem Rätsel auf den Grund zu gehen.\nEin Weihnachtsfall in 24 Kapiteln.",
+      "nummer": "x17",
+      "spotify": "7ynXpeQRwzqKiv8WVh7c7B"
+    },
+    {
+      "name": "Die drei ??? - Stille Nacht, düstere Nacht",
+      "beschreibung": "Weihnachten steht vor der Tür. Die drei ??? besuchen die \"GameFame\", eine landesweit berühmte Spielzeugmesse. Die Actionfiguren der Serie \"Heroes Of The Universe\" sind mit einer bisher geheim gehaltenen technischen Neuheit das diesjährige Messe-Highlight. Doch kurz vor der feierlichen Präsentation der Neuheit bricht der Festredner plötzlich zusammen. War das ein Anschlag auf sein Leben? Die Ermittlungen beginnen - und Justus, Peter und Bob haben nur 24 Stunden Zeit...",
+      "nummer": "x18",
+      "spotify": "5iobM2gNVymvP8XqnRnHVR"
+    },
+    {
+      "name": "Die drei ??? - Master of Chess",
+      "beschreibung": "Eine Autopanne im strömenden Regen zwingt die Drei ??? - Justus, Peter und Bob - dazu, Zuflucht auf Schloss Blackstone zu suchen. \nEin Blitz trifft die Stromleitung und hüllt das Schloss in Dunkelheit. Das alte Gemäuer macht einen gespenstischen Eindruck. Das bestätigt auch Graf Gallagher, der Schlossherr, der den Drei ??? erzählt, dass es in seinem Schloss spukt: Die Figuren auf einem Jahrhunderte alten, marmornen Schachtisch bewegen sich jede Nacht wie von Geisterhand geführt. Doch immer nur um einen Zug - einen geniale durchdachten Schachzug. Der Graf wird offensichtlich herausgefordert.\nDoch warum und vom wem?\nDie drei Detektive ahnen schnell, dass es hier um viel mehr als nur eine Partie Schach geht...",
+      "nummer": "x19",
+      "spotify": "4uJPgDMOIRfoAumwwmpRbR"
+    }
+  ]
+}

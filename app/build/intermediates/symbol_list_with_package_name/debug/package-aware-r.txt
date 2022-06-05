@@ -2762,6 +2762,11 @@ id callMeasure
 id cancel_button
 id cardListView
 id carryVelocity
+id cbD3
+id cbDDF
+id cbKids
+id cbSpecial
+id cbSpecialK
 id center
 id centerCrop
 id centerInside
@@ -2801,6 +2806,7 @@ id custom
 id customPanel
 id cut
 id cv_cover
+id cv_privacy_settings
 id date_picker_actions
 id decelerate
 id decelerateAndComplete
@@ -2902,10 +2908,6 @@ id info
 id invisible
 id inward
 id italic
-id item1
-id item2
-id item3
-id item4
 id item_touch_helper_previous_elevation
 id iv_cover
 id jumpToEnd
@@ -3037,6 +3039,8 @@ id progressBar
 id progress_circular
 id progress_horizontal
 id radio
+id rangeSlider
+id rangeSliderKids
 id ratio
 id rectangles
 id relativeLayout
@@ -3045,6 +3049,8 @@ id right
 id rightToLeft
 id right_icon
 id right_side
+id rlDDF
+id rlKids
 id rl_bb
 id rl_root
 id rounded
@@ -3167,6 +3173,12 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
+id tvEnd
+id tvEndKids
+id tvStart
+id tvStartKids
+id tv_cst_desc
+id tv_cst_header
 id tv_details
 id tv_privacy
 id tv_spotify
@@ -3391,8 +3403,6 @@ layout text_view_with_line_height_from_layout
 layout text_view_with_line_height_from_style
 layout text_view_with_theme_line_height
 layout text_view_without_line_height
-menu example_menu
-menu example_menu2
 menu menu_aboutlibs
 menu menu_main
 mipmap ic_launcher
@@ -3443,6 +3453,8 @@ string app_name_long
 string appbar_scrolling_view_behavior
 string appintro
 string base_url
+string benutzerdefiniert
+string benutzerdefinierte_einstellungen
 string bottom_sheet_behavior
 string bottomsheet_action_expand_halfway
 string character_counter_content_description
@@ -3457,7 +3469,12 @@ string cover_error
 string define_fastadapter
 string dialog_list
 string dialog_third_party
+string die_dr3i
 string die_drei
+string die_drei_fragezeichen
+string die_drei_fragezeichen_kids
+string die_drei_fragezeichen_kids_sonderfolgen
+string die_drei_fragezeichen_sonderfolgen
 string error_icon_content_description
 string exposed_dropdown_menu_content_description
 string external_cover_url
@@ -3467,6 +3484,7 @@ string fastadapter_lib_version
 string fehler_glide
 string glide
 string hide_bottom_view_on_scroll_behavior
+string hier_kannst_du_nun_ausw_hlen_welche_folgen_du_h_ren_mochtest_in_welchen_bereicht_diese_liegen_sollen_und_ob_sonderfolgen_auch_angezeigt_werden_sollen
 string icon_content_description
 string informationen
 string intro_data
@@ -3565,6 +3583,7 @@ string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
 string privacy
+string reload
 string search_menu_title
 string settings
 string spotify_base_url
