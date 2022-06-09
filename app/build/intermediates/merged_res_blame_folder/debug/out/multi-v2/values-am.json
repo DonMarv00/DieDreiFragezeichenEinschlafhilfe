@@ -1,27 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "de.msdevs.einschlafhilfe.app-mergeDebugResources-41:/values-am/values-am.xml",
+            "outputFile": "de.msdevs.einschlafhilfe.app-mergeDebugResources-27:/values-am/values-am.xml",
             "map": [
                 {
-                    "source": "/Users/marvinstelter/.gradle/caches/transforms-3/4beb501147f357b73a05cfe1796ee574/transformed/core-1.8.0/res/values-am/values-am.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "88",
-                        "startColumns": "4",
-                        "startOffsets": "6978",
-                        "endColumns": "100",
-                        "endOffsets": "7074"
-                    }
-                },
-                {
-                    "source": "/Users/marvinstelter/.gradle/caches/transforms-3/403ed6dc7f86dad875aa53948be2b725/transformed/material-1.6.1/res/values-am/values-am.xml",
+                    "source": "/Users/marvinstelter/.gradle/caches/transforms-3/68afa9bf50ed92ba2199c3349a635649/transformed/material-1.6.1/res/values-am/values-am.xml",
                     "from": {
                         "startLines": "2,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -40,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "/Users/marvinstelter/.gradle/caches/transforms-3/11352eaa86521afb3fc924eb8ee702c2/transformed/appcompat-1.4.2/res/values-am/values-am.xml",
+                    "source": "/Users/marvinstelter/.gradle/caches/transforms-3/0672adb875816790648c00f083c3f4bb/transformed/appcompat-1.4.2/res/values-am/values-am.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -54,6 +37,23 @@
                         "startOffsets": "266,364,462,568,654,757,874,952,1028,1119,1212,1304,1398,1498,1591,1686,1779,1870,1961,2041,2141,2241,2337,2439,2539,2638,2788,6898",
                         "endColumns": "97,97,105,85,102,116,77,75,90,92,91,93,99,92,94,92,90,90,79,99,99,95,101,99,98,149,95,79",
                         "endOffsets": "359,457,563,649,752,869,947,1023,1114,1207,1299,1393,1493,1586,1681,1774,1865,1956,2036,2136,2236,2332,2434,2534,2633,2783,2879,6973"
+                    }
+                },
+                {
+                    "source": "/Users/marvinstelter/.gradle/caches/transforms-3/326d3218f9fbc0475d65f91f98b16568/transformed/core-1.8.0/res/values-am/values-am.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "88",
+                        "startColumns": "4",
+                        "startOffsets": "6978",
+                        "endColumns": "100",
+                        "endOffsets": "7074"
                     }
                 }
             ]

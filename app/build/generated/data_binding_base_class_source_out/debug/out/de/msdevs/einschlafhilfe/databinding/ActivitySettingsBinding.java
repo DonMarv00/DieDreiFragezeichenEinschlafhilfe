@@ -36,9 +36,6 @@ public final class ActivitySettingsBinding implements ViewBinding {
   public final CheckBox cbSpecial;
 
   @NonNull
-  public final CheckBox cbSpecialK;
-
-  @NonNull
   public final CardView cvPrivacySettings;
 
   @NonNull
@@ -85,19 +82,18 @@ public final class ActivitySettingsBinding implements ViewBinding {
 
   private ActivitySettingsBinding(@NonNull RelativeLayout rootView, @NonNull CheckBox cbD3,
       @NonNull CheckBox cbDDF, @NonNull CheckBox cbKids, @NonNull CheckBox cbSpecial,
-      @NonNull CheckBox cbSpecialK, @NonNull CardView cvPrivacySettings,
-      @NonNull RangeSlider rangeSlider, @NonNull RangeSlider rangeSliderKids,
-      @NonNull RelativeLayout rlDDF, @NonNull RelativeLayout rlKids,
-      @NonNull SwitchCompat swUpdateList, @NonNull SwitchCompat swUseSpotify,
-      @NonNull TextView tvCstDesc, @NonNull TextView tvCstHeader, @NonNull TextView tvEnd,
-      @NonNull TextView tvEndKids, @NonNull TextView tvSpotify, @NonNull TextView tvStart,
-      @NonNull TextView tvStartKids, @NonNull TextView tvUpdateList) {
+      @NonNull CardView cvPrivacySettings, @NonNull RangeSlider rangeSlider,
+      @NonNull RangeSlider rangeSliderKids, @NonNull RelativeLayout rlDDF,
+      @NonNull RelativeLayout rlKids, @NonNull SwitchCompat swUpdateList,
+      @NonNull SwitchCompat swUseSpotify, @NonNull TextView tvCstDesc,
+      @NonNull TextView tvCstHeader, @NonNull TextView tvEnd, @NonNull TextView tvEndKids,
+      @NonNull TextView tvSpotify, @NonNull TextView tvStart, @NonNull TextView tvStartKids,
+      @NonNull TextView tvUpdateList) {
     this.rootView = rootView;
     this.cbD3 = cbD3;
     this.cbDDF = cbDDF;
     this.cbKids = cbKids;
     this.cbSpecial = cbSpecial;
-    this.cbSpecialK = cbSpecialK;
     this.cvPrivacySettings = cvPrivacySettings;
     this.rangeSlider = rangeSlider;
     this.rangeSliderKids = rangeSliderKids;
@@ -163,12 +159,6 @@ public final class ActivitySettingsBinding implements ViewBinding {
       id = R.id.cbSpecial;
       CheckBox cbSpecial = ViewBindings.findChildViewById(rootView, id);
       if (cbSpecial == null) {
-        break missingId;
-      }
-
-      id = R.id.cbSpecialK;
-      CheckBox cbSpecialK = ViewBindings.findChildViewById(rootView, id);
-      if (cbSpecialK == null) {
         break missingId;
       }
 
@@ -263,7 +253,7 @@ public final class ActivitySettingsBinding implements ViewBinding {
       }
 
       return new ActivitySettingsBinding((RelativeLayout) rootView, cbD3, cbDDF, cbKids, cbSpecial,
-          cbSpecialK, cvPrivacySettings, rangeSlider, rangeSliderKids, rlDDF, rlKids, swUpdateList,
+          cvPrivacySettings, rangeSlider, rangeSliderKids, rlDDF, rlKids, swUpdateList,
           swUseSpotify, tvCstDesc, tvCstHeader, tvEnd, tvEndKids, tvSpotify, tvStart, tvStartKids,
           tvUpdateList);
     }

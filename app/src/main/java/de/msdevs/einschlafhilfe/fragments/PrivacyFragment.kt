@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.CheckBox
+import android.widget.Toast
 import androidx.annotation.Nullable
 import androidx.fragment.app.Fragment
 import com.github.appintro.SlidePolicy
@@ -14,10 +16,11 @@ import de.msdevs.einschlafhilfe.databinding.FragmentPrivacyBinding
 
 
 
-class PrivacyFragment(override val isPolicyRespected: Boolean) : Fragment(), SlidePolicy {
+class PrivacyFragment() : Fragment(), SlidePolicy {
 
     private lateinit var webView: WebView
     lateinit var binding : FragmentPrivacyBinding
+    lateinit var checkBoxPrivacy : CheckBox
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,7 +34,10 @@ class PrivacyFragment(override val isPolicyRespected: Boolean) : Fragment(), Sli
     @SuppressLint("SetJavaScriptEnabled")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        checkBoxPrivacy = binding.cbPrivacy
         webView = binding.webview
+
         webView.webViewClient = object : WebViewClient() {
             override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
                 url?.let { view?.loadUrl(it) }
@@ -47,14 +53,10 @@ class PrivacyFragment(override val isPolicyRespected: Boolean) : Fragment(), Sli
     }
 
 
-    companion object {
-        fun newInstance() : PrivacyFragment {
-            return PrivacyFragment(true)
-        }
-    }
+    override val isPolicyRespected: Boolean
+        get() = checkBoxPrivacy.isChecked
 
     override fun onUserIllegallyRequestedNextPage() {
-        TODO("Not yet implemented")
     }
 
 }

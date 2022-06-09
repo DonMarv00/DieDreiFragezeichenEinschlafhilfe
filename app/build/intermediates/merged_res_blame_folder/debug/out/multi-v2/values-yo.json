@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "de.msdevs.einschlafhilfe.app-mergeDebugResources-41:/values-yo/values-yo.xml",
+            "outputFile": "de.msdevs.einschlafhilfe.app-mergeDebugResources-27:/values-yo/values-yo.xml",
             "map": [
                 {
-                    "source": "/Users/marvinstelter/.gradle/caches/transforms-3/2f0e9cbef0d64e2548a8ea10291d7d61/transformed/jetified-AppIntro-6.2.0/res/values-yo/values-yo.xml",
+                    "source": "/Users/marvinstelter/.gradle/caches/transforms-3/5006160f33ead0208e1b80c2b9ebe7a3/transformed/jetified-AppIntro-6.2.0/res/values-yo/values-yo.xml",
                     "from": {
                         "startLines": "2,3,4,5,6",
                         "startColumns": "4,4,4,4,4",

@@ -16,24 +16,4 @@
     </style>
 
 
-    // define a custom style
-    <style name="CustomAboutLibrariesStyle" parent="">
-        <!-- AboutLibraries specific values -->
-        <item name="aboutLibrariesCardBackground">@color/dark_grey</item>
-        <item name="aboutLibrariesDescriptionTitle">@color/white</item>
-        <item name="aboutLibrariesDescriptionText">@color/white</item>
-        <item name="aboutLibrariesDescriptionDivider">@color/white</item>
-        <item name="aboutLibrariesOpenSourceTitle">@color/white</item>
-        <item name="aboutLibrariesOpenSourceText">@color/white</item>
-        <item name="aboutLibrariesSpecialButtonText">@color/white</item>
-        <item name="aboutLibrariesOpenSourceDivider">@color/white</item>
-    </style>
-
-    // define the custom styles for the theme
-    <style name="AboutStyles" parent="Theme.MaterialComponents.Light.DarkActionBar">
-        <item name="aboutLibrariesStyle">@style/CustomAboutLibrariesStyle</item>
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-    </style>
 </resources>

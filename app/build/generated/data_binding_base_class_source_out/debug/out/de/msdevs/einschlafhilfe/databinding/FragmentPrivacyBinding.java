@@ -5,10 +5,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
+import android.widget.CheckBox;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import de.msdevs.einschlafhilfe.R;
@@ -21,14 +23,22 @@ public final class FragmentPrivacyBinding implements ViewBinding {
   private final RelativeLayout rootView;
 
   @NonNull
+  public final CheckBox cbPrivacy;
+
+  @NonNull
+  public final CardView cvWebview;
+
+  @NonNull
   public final TextView tvPrivacy;
 
   @NonNull
   public final WebView webview;
 
-  private FragmentPrivacyBinding(@NonNull RelativeLayout rootView, @NonNull TextView tvPrivacy,
-      @NonNull WebView webview) {
+  private FragmentPrivacyBinding(@NonNull RelativeLayout rootView, @NonNull CheckBox cbPrivacy,
+      @NonNull CardView cvWebview, @NonNull TextView tvPrivacy, @NonNull WebView webview) {
     this.rootView = rootView;
+    this.cbPrivacy = cbPrivacy;
+    this.cvWebview = cvWebview;
     this.tvPrivacy = tvPrivacy;
     this.webview = webview;
   }
@@ -60,6 +70,18 @@ public final class FragmentPrivacyBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.cb_privacy;
+      CheckBox cbPrivacy = ViewBindings.findChildViewById(rootView, id);
+      if (cbPrivacy == null) {
+        break missingId;
+      }
+
+      id = R.id.cv_webview;
+      CardView cvWebview = ViewBindings.findChildViewById(rootView, id);
+      if (cvWebview == null) {
+        break missingId;
+      }
+
       id = R.id.tv_privacy;
       TextView tvPrivacy = ViewBindings.findChildViewById(rootView, id);
       if (tvPrivacy == null) {
@@ -72,7 +94,8 @@ public final class FragmentPrivacyBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentPrivacyBinding((RelativeLayout) rootView, tvPrivacy, webview);
+      return new FragmentPrivacyBinding((RelativeLayout) rootView, cbPrivacy, cvWebview, tvPrivacy,
+          webview);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

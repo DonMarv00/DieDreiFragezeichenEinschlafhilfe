@@ -35,11 +35,11 @@
 21    </queries>
 22
 23    <application
-23-->/Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:16:5-42:19
+23-->/Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:16:5-41:19
 24        android:allowBackup="false"
 24-->/Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:17:9-36
 25        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-25-->[androidx.core:core:1.7.0] /Users/marvinstelter/.gradle/caches/transforms-3/f3c1846e6bff5b1c3ce14399c13431b1/transformed/core-1.7.0/AndroidManifest.xml:24:18-86
+25-->[androidx.core:core:1.8.0] /Users/marvinstelter/.gradle/caches/transforms-3/326d3218f9fbc0475d65f91f98b16568/transformed/core-1.8.0/AndroidManifest.xml:24:18-86
 26        android:dataExtractionRules="@xml/data_extraction_rules"
 26-->/Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:25:9-65
 27        android:debuggable="true"
@@ -87,54 +87,33 @@
 50            android:label="@string/settings" />
 50-->/Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:38:13-45
 51        <activity
-51-->/Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:39:9-41:45
+51-->/Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:39:9-40:45
 52            android:name="de.msdevs.einschlafhilfe.AboutActivity"
 52-->/Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:39:19-48
-53            android:label="@string/about"
-53-->/Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:41:13-42
-54            android:theme="@style/AboutStyles" />
-54-->/Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:40:13-47
-55        <activity
-55-->[com.mikepenz:aboutlibraries:10.2.0] /Users/marvinstelter/.gradle/caches/transforms-3/151973e9ea755bbacab6b0e288a83361/transformed/jetified-aboutlibraries-10.2.0/AndroidManifest.xml:10:9-12:40
-56            android:name="com.mikepenz.aboutlibraries.ui.LibsActivity"
-56-->[com.mikepenz:aboutlibraries:10.2.0] /Users/marvinstelter/.gradle/caches/transforms-3/151973e9ea755bbacab6b0e288a83361/transformed/jetified-aboutlibraries-10.2.0/AndroidManifest.xml:11:13-71
-57            android:exported="false" />
-57-->[com.mikepenz:aboutlibraries:10.2.0] /Users/marvinstelter/.gradle/caches/transforms-3/151973e9ea755bbacab6b0e288a83361/transformed/jetified-aboutlibraries-10.2.0/AndroidManifest.xml:12:13-37
-58
-59        <uses-library
-59-->[androidx.window:window:1.0.0] /Users/marvinstelter/.gradle/caches/transforms-3/6e4b2c36801e666f8f66d48405a8e7f7/transformed/jetified-window-1.0.0/AndroidManifest.xml:25:9-27:40
-60            android:name="androidx.window.extensions"
-60-->[androidx.window:window:1.0.0] /Users/marvinstelter/.gradle/caches/transforms-3/6e4b2c36801e666f8f66d48405a8e7f7/transformed/jetified-window-1.0.0/AndroidManifest.xml:26:13-54
-61            android:required="false" />
-61-->[androidx.window:window:1.0.0] /Users/marvinstelter/.gradle/caches/transforms-3/6e4b2c36801e666f8f66d48405a8e7f7/transformed/jetified-window-1.0.0/AndroidManifest.xml:27:13-37
-62        <uses-library
-62-->[androidx.window:window:1.0.0] /Users/marvinstelter/.gradle/caches/transforms-3/6e4b2c36801e666f8f66d48405a8e7f7/transformed/jetified-window-1.0.0/AndroidManifest.xml:28:9-30:40
-63            android:name="androidx.window.sidecar"
-63-->[androidx.window:window:1.0.0] /Users/marvinstelter/.gradle/caches/transforms-3/6e4b2c36801e666f8f66d48405a8e7f7/transformed/jetified-window-1.0.0/AndroidManifest.xml:29:13-51
-64            android:required="false" />
-64-->[androidx.window:window:1.0.0] /Users/marvinstelter/.gradle/caches/transforms-3/6e4b2c36801e666f8f66d48405a8e7f7/transformed/jetified-window-1.0.0/AndroidManifest.xml:30:13-37
-65
-66        <provider
-66-->[androidx.emoji2:emoji2:1.0.0] /Users/marvinstelter/.gradle/caches/transforms-3/9f3f6734412a0af8ba32b57c2935f507/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:26:9-34:20
-67            android:name="androidx.startup.InitializationProvider"
-67-->[androidx.emoji2:emoji2:1.0.0] /Users/marvinstelter/.gradle/caches/transforms-3/9f3f6734412a0af8ba32b57c2935f507/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:27:13-67
-68            android:authorities="de.msdevs.einschlafhilfe.androidx-startup"
-68-->[androidx.emoji2:emoji2:1.0.0] /Users/marvinstelter/.gradle/caches/transforms-3/9f3f6734412a0af8ba32b57c2935f507/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:28:13-68
-69            android:exported="false" >
-69-->[androidx.emoji2:emoji2:1.0.0] /Users/marvinstelter/.gradle/caches/transforms-3/9f3f6734412a0af8ba32b57c2935f507/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:29:13-37
-70            <meta-data
-70-->[androidx.emoji2:emoji2:1.0.0] /Users/marvinstelter/.gradle/caches/transforms-3/9f3f6734412a0af8ba32b57c2935f507/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:31:13-33:52
-71                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-71-->[androidx.emoji2:emoji2:1.0.0] /Users/marvinstelter/.gradle/caches/transforms-3/9f3f6734412a0af8ba32b57c2935f507/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:32:17-75
-72                android:value="androidx.startup" />
-72-->[androidx.emoji2:emoji2:1.0.0] /Users/marvinstelter/.gradle/caches/transforms-3/9f3f6734412a0af8ba32b57c2935f507/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:33:17-49
-73            <meta-data
-73-->[androidx.lifecycle:lifecycle-process:2.4.0] /Users/marvinstelter/.gradle/caches/transforms-3/43481031e69ad0a879fd7962b7d6b157/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:31:13-33:52
-74                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-74-->[androidx.lifecycle:lifecycle-process:2.4.0] /Users/marvinstelter/.gradle/caches/transforms-3/43481031e69ad0a879fd7962b7d6b157/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:32:17-78
-75                android:value="androidx.startup" />
-75-->[androidx.lifecycle:lifecycle-process:2.4.0] /Users/marvinstelter/.gradle/caches/transforms-3/43481031e69ad0a879fd7962b7d6b157/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:33:17-49
-76        </provider>
-77    </application>
-78
-79</manifest>
+53            android:label="@string/about" />
+53-->/Users/marvinstelter/AndroidStudioProjects/DieDreiFragezeichenEinschlafhilfe/app/src/main/AndroidManifest.xml:40:13-42
+54
+55        <provider
+55-->[androidx.emoji2:emoji2:1.0.0] /Users/marvinstelter/.gradle/caches/transforms-3/2894bb05c41a492522e4acebeb0d5c7e/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:26:9-34:20
+56            android:name="androidx.startup.InitializationProvider"
+56-->[androidx.emoji2:emoji2:1.0.0] /Users/marvinstelter/.gradle/caches/transforms-3/2894bb05c41a492522e4acebeb0d5c7e/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:27:13-67
+57            android:authorities="de.msdevs.einschlafhilfe.androidx-startup"
+57-->[androidx.emoji2:emoji2:1.0.0] /Users/marvinstelter/.gradle/caches/transforms-3/2894bb05c41a492522e4acebeb0d5c7e/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:28:13-68
+58            android:exported="false" >
+58-->[androidx.emoji2:emoji2:1.0.0] /Users/marvinstelter/.gradle/caches/transforms-3/2894bb05c41a492522e4acebeb0d5c7e/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:29:13-37
+59            <meta-data
+59-->[androidx.emoji2:emoji2:1.0.0] /Users/marvinstelter/.gradle/caches/transforms-3/2894bb05c41a492522e4acebeb0d5c7e/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:31:13-33:52
+60                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+60-->[androidx.emoji2:emoji2:1.0.0] /Users/marvinstelter/.gradle/caches/transforms-3/2894bb05c41a492522e4acebeb0d5c7e/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:32:17-75
+61                android:value="androidx.startup" />
+61-->[androidx.emoji2:emoji2:1.0.0] /Users/marvinstelter/.gradle/caches/transforms-3/2894bb05c41a492522e4acebeb0d5c7e/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:33:17-49
+62            <meta-data
+62-->[androidx.lifecycle:lifecycle-process:2.4.0] /Users/marvinstelter/.gradle/caches/transforms-3/f2b915c14ae816a1d8209f84741921ed/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:31:13-33:52
+63                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+63-->[androidx.lifecycle:lifecycle-process:2.4.0] /Users/marvinstelter/.gradle/caches/transforms-3/f2b915c14ae816a1d8209f84741921ed/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:32:17-78
+64                android:value="androidx.startup" />
+64-->[androidx.lifecycle:lifecycle-process:2.4.0] /Users/marvinstelter/.gradle/caches/transforms-3/f2b915c14ae816a1d8209f84741921ed/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:33:17-49
+65        </provider>
+66    </application>
+67
+68</manifest>

@@ -15,7 +15,7 @@
     <string name="use_spotify">Spotify benutzen </string>
     <string name="welcome">Willkommen</string>
     <string name="dialog_list">Folgenliste wird aktualisiert…</string>
-    <string name="update_list">Folgenliste automatisch aktualisieren</string>
+    <string name="update_list">Online Modus</string>
     <string name="welcome_text">Bevor es richtig losgehen kann müssen wir ein paar Fragen klären und dich uüber unsere Datenschutzerklärung aufmerksam machen.</string>
     <string name="not_installed">Spotify ist nicht installiert.</string>
     <string name="album_auf_spotify_anzeigen">Album auf Spotify anzeigen</string>
@@ -23,7 +23,7 @@
     <string name="no_internet_dialog_text">Stelle eine Verbindung zum Internet her und probiere es erneut.</string>
     <string name="base_url">https://api.citroncode.com/android/ddf/v5/</string>
     <string name="output">%1$s. %2$s</string>
-    <string name="intro_data">Wenn du Spotify oder den Online Modus benutzt werden Daten durch unseren Provider und/oder durch Spotify erhoben.</string>
+    <string name="intro_data">Wenn du den Online Modus verwendest werden Daten durch unseren Provider erhoben, diese sind nicht personenbezogen und werden nach 90 Tagen automatisch gelöscht.\n\nSobald du unsere App verlässt um dir eine Folge anzuhören werden Daten durch Spotify erhoben, die Datenschutzerklärung von Spotify ist in unserer Datenschutzerklärung verlinkt.</string>
     <string name="spotify_base_url">https://open.spotify.com/album/</string>
     <string name="cover_citroncode_url">https://api.citroncode.com/android/ddf/v5/cover/cover_</string>
     <string name="cover_citroncode_dd_url">https://api.citroncode.com/android/ddf/android_api/cover/dd</string>
@@ -40,7 +40,15 @@
     <string name="die_drei_fragezeichen_sonderfolgen">Die Drei Fragezeichen Sonderfolgen</string>
     <string name="die_drei_fragezeichen_kids_sonderfolgen">Die Drei Fragezeichen Kids Sonderfolgen</string>
     <string name="benutzerdefinierte_einstellungen">Benutzerdefinierte Einstellungen</string>
-    <string name="hier_kannst_du_nun_ausw_hlen_welche_folgen_du_h_ren_mochtest_in_welchen_bereicht_diese_liegen_sollen_und_ob_sonderfolgen_auch_angezeigt_werden_sollen">Hier kannst du nun auswählen welche Folgen du hören mochtest, in welchen Bereicht diese liegen sollen und ob Sonderfolgen auch angezeigt werden sollen.</string>
+    <string name="hier_kannst_du_nun_ausw_hlen_welche_folgen_du_h_ren_mochtest_in_welchen_bereicht_diese_liegen_sollen_und_ob_sonderfolgen_auch_angezeigt_werden_sollen">Hier kannst du den Bereich selber anpassen um Folgen vorgeschlagen zu bekommen.</string>
     <string name="die_drei_fragezeichen">Die Drei Fragezeichen</string>
     <string name="benutzerdefiniert">Benutzerdefiniert</string>
+    <string name="version">Version</string>
+    <string name="abt_long">Mit der Einschlafhilfe ist es möglich sich eine Folge der drei Fragezeichen durch verschiedene Filter vorschlagen zu lassen.\n\nBei dieser App handelt es sich um eine Fan Produktion von Marvin Stelter.\nDer Quellcode dieser App ist auf Github veröffentlicht und unter der MIT Lizenz lizensiert.</string>
+    <string name="copyright_notice_abt"><![CDATA[\n„Die drei ???“ sind eine eingetragene Marke der Franckh-Kosmos Verlags-GmbH & Co. KG, Stuttgart. \nCopyright \nDiese App ist NICHT im Besitz von Kosmos, Europa, der Familie Roberts oder anderen Personen, die in die Produktion der Serie Die drei ??? eingebunden sind. \nAlle Schutzmarken, Logos und Copyrights gehören ihren jeweiligen Besitzern. \nAlle Bilder © copyright by Kosmos, Europa, Studios Hamburg, USM oder Random House.]]></string>
+    <string name="quellcode">Quellcode</string>
+    <string name="license">Lizenzen</string>
+    <string name="third_party_libraries">Drittanbieter Bibliotheken</string>
+    <string name="kids">Kids</string>
+    <string name="cb_privacy">Ich habe die Datenschutzerklärung gelesen und akzeptiere diese.</string>
 </resources>

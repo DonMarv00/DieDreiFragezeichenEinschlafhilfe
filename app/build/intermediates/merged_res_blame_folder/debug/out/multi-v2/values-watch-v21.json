@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "de.msdevs.einschlafhilfe.app-mergeDebugResources-41:/values-watch-v21/values-watch-v21.xml",
+            "outputFile": "de.msdevs.einschlafhilfe.app-mergeDebugResources-27:/values-watch-v21/values-watch-v21.xml",
             "map": [
                 {
-                    "source": "/Users/marvinstelter/.gradle/caches/transforms-3/11352eaa86521afb3fc924eb8ee702c2/transformed/appcompat-1.4.2/res/values-watch-v21/values-watch-v21.xml",
+                    "source": "/Users/marvinstelter/.gradle/caches/transforms-3/0672adb875816790648c00f083c3f4bb/transformed/appcompat-1.4.2/res/values-watch-v21/values-watch-v21.xml",
                     "from": {
                         "startLines": "2,6,10",
                         "startColumns": "4,4,4",

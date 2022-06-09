@@ -50,18 +50,7 @@
             android:label="@string/settings" />
         <activity
             android:name="de.msdevs.einschlafhilfe.AboutActivity"
-            android:label="@string/about"
-            android:theme="@style/AboutStyles" />
-        <activity
-            android:name="com.mikepenz.aboutlibraries.ui.LibsActivity"
-            android:exported="false" />
-
-        <uses-library
-            android:name="androidx.window.extensions"
-            android:required="false" />
-        <uses-library
-            android:name="androidx.window.sidecar"
-            android:required="false" />
+            android:label="@string/about" />
 
         <provider
             android:name="androidx.startup.InitializationProvider"

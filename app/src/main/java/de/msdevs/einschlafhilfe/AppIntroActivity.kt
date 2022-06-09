@@ -30,7 +30,7 @@ class AppIntroActivity : AppIntro() {
             description = resources.getString(R.string.welcome_text)
         ))
         addSlide(SettingsFragment.newInstance())
-        addSlide(PrivacyFragment.newInstance())
+        addSlide(PrivacyFragment())
 
 
     }

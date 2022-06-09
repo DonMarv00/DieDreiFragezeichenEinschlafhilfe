@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "de.msdevs.einschlafhilfe.app-mergeDebugResources-41:/values-w320dp-land-v13/values-w320dp-land-v13.xml",
+            "outputFile": "de.msdevs.einschlafhilfe.app-mergeDebugResources-27:/values-w320dp-land-v13/values-w320dp-land-v13.xml",
             "map": [
                 {
-                    "source": "/Users/marvinstelter/.gradle/caches/transforms-3/403ed6dc7f86dad875aa53948be2b725/transformed/material-1.6.1/res/values-w320dp-land-v13/values-w320dp-land-v13.xml",
+                    "source": "/Users/marvinstelter/.gradle/caches/transforms-3/68afa9bf50ed92ba2199c3349a635649/transformed/material-1.6.1/res/values-w320dp-land-v13/values-w320dp-land-v13.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",

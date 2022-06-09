@@ -1,0 +1,521 @@
+{
+  "folgen": [
+    {
+      "name": "Panik im Paradies",
+      "beschreibung": "Bereits in der ersten Folge machen die drei berühmten Detektive ihrem Namen alle Ehre. Eigentlich haben Justus, Peter und Bob ja gerade Ferien. Doch dann treffen sie den kuriosen...",
+      "nummer": "1",
+      "spotify": "5mQg8r5ivI0IX5bTV57KyN"
+    },
+    {
+      "name": "Radio Rocky Beach",
+      "beschreibung": "\"Hier ist Radio Rocky Beach, der coolste Sender zwischen Miami und Alaska!\" DJ Wolfman ist mit seinem Piratensender immer auf der richtigen Welle - da sind sich auch die drei Detektive...",
+      "nummer": "2",
+      "spotify": "50d2KMK7GtbCTfLqxDfHIS"
+    },
+    {
+      "name": "Invasion der Fliegen",
+      "beschreibung":"Hunderte von Fliegen tummeln sich in Tante Mathildas Haus. Ein Albtraum! Wo kommen die alle her? Ist etwa das ganze Gerümpel auf Onkel Titus Schrottplatz daran schuld? Und was hat die...",
+      "nummer": "3",
+      "spotify": "0jhxRM2HsImXg5W28JfUv8"
+    },
+    {
+      "name": "Chaos vor der Kamera",
+      "beschreibung":"Rasende Verfolgungsjagden, Autos, die in Flammen aufgehen, todesmutige Stunts: Justus, Peter und Bob finden es einfach cool, dass der neue Actionfilm bei ihnen auf dem Schrottplatz gedreht wird....",
+      "nummer": "4",
+      "spotify": "30w9IzSbHHevllaU299TMh"
+    },
+    {
+      "name": "Flucht in die Zukunft",
+      "beschreibung":"Was ist mit John Smith geschehen? Der schrullige Tüftler hat behauptet, eine Zeitmaschine entwickelt zu haben, nun ist er spurlos verschwunden. Onkel Titus bekommt den Auftrag, seine...",
+      "nummer": "5",
+      "spotify": "1wNy1x9hCcnmU1vhT7S2Tc"
+    },
+    {
+      "name": "Gefahr im Gruselgarten",
+      "beschreibung":"Es ist Jahrmarkt in Rocky Beach! Die drei Fragezeichen haben Freikarten bekommen, unter anderem auch für den Gruselgarten. Dort begegnen ihnen seltsame Gestalten: ein narbengesichtiger...",
+      "nummer": "6",
+      "spotify": "4TSPWdUo2J4w6VuwQgUK2e"
+    },
+
+    {
+      "name": "Gruft der Piraten",
+      "beschreibung": "Hunderte von Fliegen tummeln sich in Tante Mathildas Haus. Ein Albtraum! Wo kommen die alle her? Ist etwa das ganze Gerümpel auf Onkel Titus Schrottplatz daran schuld? Und was hat die...",
+      "nummer": "7",
+      "spotify": "2rleLzoiSWt5IVyZpkkVHA"
+    },
+    {
+      "name": "Nacht unter Wölfen",
+      "beschreibung": "",
+      "nummer": "8",
+      "spotify": "3RRqQIyDs7AkO3TPbmuRpt"
+    },
+    {
+      "name": "SOS über den Wölfen",
+      "beschreibung": "",
+      "nummer": "9",
+      "spotify": "7A5GQZrirxYgjWCTGpbnbs"
+    },
+    {
+      "name": "Spuk in Rocky Beach",
+      "beschreibung": "",
+      "nummer": "10",
+      "spotify": "6PRRmyf0vuFwPeuVLdDq4q"
+    },
+    {
+      "name": "Fluch des Goldes",
+      "beschreibung":"Die drei ??? Kids können es nicht glauben: In den Magic Mountains wurde tatsächlich Gold gefunden. Kein Wunder, dass alle plötzlich verrückt spielen. Goldrausch in Rocky...",
+      "nummer": "11",
+      "spotify": "6GPxCYDZkEqCLPc7BeCFYb"
+    },
+    {
+      "name": "Internetpiraten",
+      "beschreibung":"Schon wieder haben die Computerdiebe zugeschlagen und diesmal hat es sogar Bobs Vater erwischt. Klar, dass die drei ??? den Fall übernehmen und Operation ?Pegasus? beginnt. Doch jemand...",
+      "nummer": "12",
+      "spotify": "3aYsZOOX3BVsCcHC0MQq3f"
+    },
+    {
+      "name": "Im Reich der Rätsel",
+      "beschreibung":"Das Testament eines Spielerfinders führt die drei ??? Kids zu einem geheimnisvollen Schloss. Doch leicht wird es nicht, an das Erbe des reichen Mannes heranzukommen. Viele sonderbare...",
+      "nummer": "13",
+      "spotify": "x"
+    },
+    {
+      "name": "Gefahr aus dem All",
+      "beschreibung":"Kometen rasen auf die Erde zu und riesige Meteoriten stürzen vom Himmel. Das zumindest könnte passieren, wenn die Erfindung des genialen Professors in falsche Hände gerät....",
+      "nummer": "14",
+      "spotify": "1WTFQcnnJZRhRLkA6Pemom"
+    },
+    {
+      "name": "in der Geisterstadt",
+      "beschreibung":"Ein kleines Erdbeben erschüttert die kalifornische Küste und alle Einwohner flüchten an den nahen Strand. Innerhalb kürzester Zeit gleicht Rocky Beach einer Geisterstadt....",
+      "nummer": "15",
+      "spotify": "3Dn23cUQU7RehW7QeBt3cJ"
+    },
+    {
+      "name": "Der magische Brunnen",
+      "beschreibung":"Phantastische Dinge geschehen plötzlich in Rocky Beach: Der Brunnen füllt sich mit Münzen, Schneeberge bei 30 Grad und auf dem Jahrmarkt erhält jeder den Hauptgewinn. Doch so ganz trauen die drei ??? Kids dem Schlaraffenland nicht und sie schöpfen einen Verdacht: Alles was geschah, stand in einem bekannten Kinderbuch. Nur das Ende der Geschichte muss neu geschrieben werden.",
+      "nummer": "16",
+      "spotify": "2xo9X40JoJuDO64Iy5mpNY"
+    },
+    {
+      "name": "Rettet Atlantis",
+      "beschreibung":"In der Nähe von Rocky Beach eröffnet ein riesiger Aqua Park. Justus, Peter und Bob haben Glück und dürfen bei der Einweihungsfeier dabei sein. Es gibt Wasserrutschen, lustige Delfine aber auch gefährliche Haifische zu bestaunen. Doch es geht einiges schief bei dem Fest. Sabotage? Die drei ??? Kids übernehmen den gefährlichen Auftrag und tauchen bei ihren Ermittlungen in die Unterwasserwelt ein.",
+      "nummer": "17",
+      "spotify": "2RJHP6Kw1jZrp56WCqtiQW"
+    },
+    {
+      "name": "Mission Maulwurf",
+      "beschreibung":"\"Was ist, wenn sie uns entdecken?\", flüsterte Peter nervös. Justus zog sich die Maske über das Gesicht. \"Als Maulwurf muss man eben mit der Gefahr leben.\" Justus, Peter und Bob sehen nur eine Chance die Einbrecherbande zu überführen: Die drei ??? müssen sich unter die Gangster mischen. Die \"Mission Maulwurf\" beginnt.",
+      "nummer": "18",
+      "spotify": "5Z6HPLDixzbX8TNK889Fr8"
+    },
+    {
+      "name": "Spur in die Wildnis",
+      "beschreibung":"Die drei ??? Kids können es kaum glauben: Sie dürfen bei der California Action Tour mitmachen und mit Glück 10.000 Dollar gewinnen. Bei dem Wettkampf müssen die Detektive spannende Abenteuer allein in der Wildnis bestehen. Doch irgendjemand treibt ein falsches Spiel und es wird plötzlich richtig gefährlich. Jetzt sind starke Nerven gefragt...",
+      "nummer": "19",
+      "spotify": "5NmTdnYuPpnDlF9zBTnwHT"
+    },
+    {
+      "name": "Die Schmugglerinsel",
+      "beschreibung":"Onkel Titus hat eine ganze Insel geerbt. Natürlich lassen es sich die drei ??? Kids nicht nehmen, \"Magic Island\" zu erforschen. Doch anscheinend sind sie nicht allein auf der Insel. Sie finden rätselhafte Fußabdrücke und die Spur führt in eine geheimnisvolle Felsenhöhle. Das Abenteuer beginnt.",
+      "nummer": "20",
+      "spotify": "0WwfV73hIbVsEfIUJxFCMN"
+    },
+    {
+      "name": "Die Geisterjäger",
+      "beschreibung":"Sonderbare Dinge geschehen in der Villa von Mrs. Almond. Spukt es etwa in den alten Gemäuern? Diesmal versuchen sich die drei ??? Kids als Geisterjäger. Vom Keller bis zum Dachboden wird alles unter die Lupe genommen. Doch mit wem haben sie sich hier bloß angelegt? Gänsehaut ist angesagt.",
+      "nummer": "21",
+      "spotify": "3sMdBpUspSRJxhr2oze3le"
+    },
+    {
+      "name": "Einarmige Banditen",
+      "beschreibung":"Die drei ??? Kids können es kaum glauben: In Rocky Beach finden verbotene Glücksspiele statt. Selbst Onkel Titus versucht sich an den bunten Automaten - den \"Einarmigen Banditen\". Doch als Justus, Peter und Bob die Ermittlungen aufnehmen, wird?s gefährlich. Anscheinend mögen es einige dunkle Gestalten nicht, wenn sie bei ihren Geschäften gestört werden.",
+      "nummer": "22",
+      "spotify": "2ILrLgqLA1pterp2pZoChc"
+    },
+    {
+      "name": "Feuer in Rocky Beach",
+      "beschreibung":"Feueralarm in Rocky Beach, denn mitten in der Nacht brennt Onkel Titus Schuppen ab. Doch dies bleibt nicht der einzige rätselhafte Brand. Ist das Zufall? Oder ist hier ein Feuerteufel am Werk? Ein Fall für die drei ??? Kids, die für ihre Ermittlungen sogar in die Jugendfeuerwehr eintreten. Es gibt viele Spuren, aber nur eine führt zur Lösung.",
+      "nummer": "23",
+      "spotify": "5PEjckgsqkxbpDlgz30wTk"
+    },
+    {
+      "name": "Im Bann des Zauberers",
+      "beschreibung":"Mitten auf dem Marktplatz von Rocky Beach findet eine Zaubershow statt. Einem mysteriösen Magier gelingt es dabei, das Publikum zu hypnotisieren. Auch die drei ??? Kids werden in seinen Bann gezogen. Doch der Zauberer führt anscheinend noch etwas ganz anderes im Schilde. Können die drei Freunde den Mann stoppen?",
+      "nummer": "24",
+      "spotify": "1GsVIL0B05ykaxM0sjjik8"
+    },
+    {
+      "name": "In letzter Sekunde",
+      "beschreibung":"In Rocky Beach gibt es für kurze Zeit die größte Kuckucksuhr der Welt zu bestaunen. Doch dann geschieht das schier Unglaubliche: Die kostbare Uhr verschwindet spurlos. Wer steckt dahinter? Verbirgt die Uhr ein Geheimnis? Oder hat es sogar mit Zauberei zu tun? Für die drei ??? Kids beginnt ein Wettlauf gegen die Zeit.",
+      "nummer": "25",
+      "spotify": "5nCCuIqR5MsRi3tI90Vu4T"
+    },
+    {
+      "name": "Fußball-Alarm",
+      "beschreibung":"Fußballmeisterschaft in Rocky Beach! Doch es geht nicht nur um den Pokal - Onkel Titus' Schrottplatz steht auf dem Spiel. Die Mannschaft von Justus, Peter und Bob muss also in jedem Fall gewinnen! Aber die Meisterschaft entwickelt sich zu einem richtigen Krimi, denn ihre Gegner kämpfen mit allen Mitteln.",
+      "nummer": "26",
+      "spotify": "7zlnjYjJotwmyxPWee0s9W"
+    },
+    {
+      "name": "Die Schokofalle",
+      "beschreibung":"Das Rezept der köstlichsten Schokolade der Welt ist gestohlen worden. Klar, dass den drei ??? Kids besonders viel daran liegt, diesen Fall zu lösen. Doch wer steckt hinter der Industriespionage? Justus, Peter und Bob müssen der Sache auf den Grund gehen und die Spur führt sie direkt in eine Schokoladenfabrik.",
+      "nummer": "27",
+      "spotify": "0BiK4U6FaICuYqpUQ553Qo"
+    },
+    {
+      "name": "Diamantenjagd",
+      "beschreibung":"Unglaublich: Liegen unter der Erde von Rocky Beach tatsächlich wertvolle Edelsteine? So zumindest erzählt es eine rätselhafte Legende vom alten Fred Fireman. Die drei ??? Kids müssen tief hinabsteigen, um das Geheimnis zu lösen. Doch sie sind nicht allein auf der spannenden Jagd nach den Diamanten",
+      "nummer": "28",
+      "spotify": "4BTfGkg67lPD7pnV9YABGC"
+    },
+    {
+      "name": "Monsterpilze",
+      "beschreibung":"Ein neues Abenteuer wartet auf die drei Detektive. Riesige Pilze, monströse Kirschen und Insekten so groß wie Kühlschränke! Wirklich seltsame Dinge geschehen in Rocky Beach. Hat der verrückte Erfinder seine Finger im Spiel? Eins ist klar: Die drei ??? Kids haben einen schwierigen Fall zu lösen.",
+      "nummer": "29",
+      "spotify": "4fIWqTa6s849HB2NInOgyF"
+    },
+    {
+      "name": "Im Geisterschiff",
+      "beschreibung":"Bei einem Sturm werden merkwürdige Dinge an die Küste von Rocky Beach gespült. Handelt es sich hier wirklich um die Überreste eines alten Schiffswracks? Die drei ??? Kids gehen der Sache sprichwörtlich auf den Grund und müssen tief hinabtauchen. Doch was sie zu sehen bekommen, hätten Justus, Peter und Bob nicht in ihren kühnsten Träumen erwartet.",
+      "nummer": "30",
+      "spotify": "5Dlq8pYslsD1dstLQR7NFw"
+    },
+    {
+      "name": "Rückkehr der Saurier",
+      "beschreibung": "Der gewaltige Saurier schob sich wie ein riesiger Schatten über die drei ??? Kids. „Just, pass auf!“, schrie Bob. „Er kommt genau auf dich zu.“ Doch die Warnung kam zu spät. Die Nachricht von der Entdeckung eines Saurierfriedhofs versetzt ganz Rocky Beach in helle Aufregung. Nur die drei ??? Kids behalten einen kühlen Kopf.",
+      "nummer": "31",
+      "spotify": "https://open.spotify.com/album/49GuQzqAa08WMB8fjtEBj4?si=z-Ayvqg8QgGEhcNHFo3QoQ"
+    },
+    {
+      "name": "Die Gruselfalle",
+      "beschreibung": "Plötzlich war die Stimme des Unsichtbaren direkt neben den drei ??? Kids zu hören. „Die schwarz gekleideten Männer sind seit Tagen auf meiner Spur. Ihr müsst mir unbedingt helfen!“ Die drei Detektive aus Rocky Beach stehen vor einem Rätsel: Wie sollen sie jemanden helfen, von dem sie gar nicht wissen, ob es ihn überhaupt gibt?",
+      "nummer": "32",
+      "spotify": "https://open.spotify.com/album/3UzZjgfXxnjPigAfCYQCr5?si=IS1LYu-WQ46z-MhSwKtSpg"
+    },
+    {
+      "name": "Nacht im Kerker",
+      "beschreibung": "Rocky Beach wird durch einen spektakulären Juwelenraub erschüttert. Heldenhaft rettet Kommissar Reynolds den Juwelier aus den Flammen. Doch plötzlich steht er selbst unter Verdacht und wird festgenommen. Natürlich glauben die drei ??? Kids an seine Unschuld und wollen ihm helfen. Aber dafür müssen sie selbst ins Gefängnis und sitzen hinter Gittern...",
+      "nummer": "33",
+      "spotify": "5cJ4xmPFjEhOCQIBoYwmWi"
+    },
+    {
+      "name": "Falsches Gold",
+      "beschreibung": "Vier rätselhafte alte Münzen und ein Adler, der nicht mehr fliegen soll. Welches Geheimnis verbirgt sich in der verbotenen Werkstatt? Eins wird schnell klar: Es geht um viele Millionen. Die drei ??? Kids müssen sich durch eine ganze Menge Dreck wühlen, bis sie alle Unklarheiten in diesem Fall bereinigt haben...",
+      "nummer": "34",
+      "spotify": "7ATza45Jb2B3MhSD0icgPi"
+    },
+    {
+      "name": "Im Wilden Westen",
+      "beschreibung": "\"Das da vorne sind doch nie im Leben echte Indianer!\"Bob griff zur Wasserpistole. Justus schob seinen Hut tief ins Gesicht.\"Das werden wir erst wissen, wenn uns der erste Pfeil trifft.\"Für Filmaufnahmen verwandelt sich Rocky Beach in eine Westernstadt. Auch Justus, Peter und Bob sehen plötzlich wie richtige Cowboys auch. Doch leider gibt es im Wilden Westen auch eine Menge Bösewichte.",
+      "nummer": "35",
+      "spotify": "1bK1QqLOaESZgs2pXYY4J6"
+    },
+    {
+      "name": "Mission Mars",
+      "beschreibung": "Ein Weltraumabenteuer mitten in Rocky Beach? Wird die Stadt tatsächlich Zeuge einer spektakulären Marslandung? So unglaublich das Abenteuer auch klingen mag, so spricht trotzdem vieles dafür. Die drei ??? Kids können es kaum fassen. Doch der Countdown läuft bereits.",
+      "nummer": "36",
+      "spotify": "6GUPPV35zx22eO4g9tctKN"
+    },
+    {
+      "name": "Der Fluch der Indianer",
+      "beschreibung": "Die Bewohner von Rocky Beach sind geschockt: Ein fremder Indianer prophezeit ihnen großes Unglück. Doch was hat der merkwürdige Fluch zu bedeuten? Welches Rätsel steckt hinter dem Erscheinen des Mannes? Ein verzwickter Fall für die drei ??? Kids.",
+      "nummer": "37",
+      "spotify": "24r6U8cWYIB4bQeMGhNB2Q"
+    },
+    {
+      "name": "Stunde der Wahrheit",
+      "beschreibung": "Auf dem Schrottplatz tauchen seltsame Typen auf. Wollen sie wirklich nur Büchsen werfen? Oder steckt ein Geheimnis dahinter? Die drei ??? Kids müssen tief in die Trickkiste greifen, um ihren Gegnern zuvorzukommen.",
+      "nummer": "38",
+      "spotify": "7o6y1qwFIJolo0ZKUpPTR9"
+    },
+    {
+      "name": "Der verrückte Erfinder",
+      "beschreibung": "In Rocky Beach findet ein Erfinderwettbewerb statt und durch Zufall sind die drei ??? Kids mit dabei. Doch plötzlich verschwindet ein leicht verrückter Professor. Hat es womöglich etwas mit seiner Erfindung zu tun? Justus, Peter und Bob verfolgen eine heiße Spur, die sie hoch hinaus bringt. Ein gefährlicher Fall.",
+      "nummer": "39",
+      "spotify": "6NkPN8kGJftA5ZURbZTKve"
+    },
+    {
+      "name": "Brennendes Eis",
+      "beschreibung": "Was für ein Glück! Die drei ??? Kids haben einen Urlaub in der neu gebauten Pazifik Skiarena gewonnen. Aber bei der Eröffnung der überdachten Skipiste geht Einiges schief, denn der Schnee schmilzt plötzlich weg. Nachschub gibt es in den Bergen - doch dort machen sie eine ungeheure Entdeckung.",
+      "nummer": "40",
+      "spotify": "12IDORrv50mRmb7501PgiI"
+    },
+    {
+      "name": "Insel der Haie",
+      "beschreibung": "Auf Shark Island, einer kleinen Insel vor der Küste Kaliforniens soll ein Piratenfilm gedreht werden. Die drei ??? Kids sind mit dabei, doch plötzlich ist Peters Vater verschwunden. Sofort machen sich Justus, Peter und Bob auf die Suche nach ihm und entdecken dabei einen unterirdischen Gang, der sie in ungeahnte Tiefen des Meeres und in eine verkehrte Welt führt.",
+      "nummer": "41",
+      "spotify": "3ixBUKtl7HtxSZECC3YnNb"
+    },
+    {
+      "name": "Fußballgötter",
+      "beschreibung": "„Heute Nacht wird etwas geschehen, das mit Fußballgöttern und dunklen Weissagungen zu tun hat“, sagte Justus. Peter schüttelte sich. „Wie kannst du dabei ruhig bleiben? Uns droht ein Sack voll Gefahren!“ Justus grinste. „Ja, aber darauf sind wir bestens vorbereitet!“ In Rocky Beach findet ein Fußballturnier statt – und Justus Jonas ist als Torwart mit von der Partie. Doch schon bald zeigt sich, dass jemand hinter der goldenen Statue des Fußballgottes her ist. Die drei ??? müssen nicht nur das Endspiel gewinnen, sondern dabei auch noch einen gefährlichen Fall lösen...",
+      "nummer": "42",
+      "spotify": "6sS4r99PFfzH6Gxc1Z3evg"
+    },
+    {
+      "name": "Duell der Ritter",
+      "beschreibung":"„Was war das?“, rief Peter erschrocken und sah sich unsicher um. Auf der obersten Treppenstufe stand ein Mann in einem schwarzen Umhang. Seine Augen waren mit einer Maske bedeckt und...",
+      "nummer": "43",
+      "spotify": "5J0AsPaix5KTMNjTFpj624"
+    },
+    {
+      "name": "Monster in Rocky Beach",
+      "beschreibung": "In der Schlucht von Rocky Beach soll ein zotteliger Affenmensch unterwegs sein, ein sogenannter Bigfoot. Noch nie hat jemand ein solches Wesen gesehen, doch plötzlich tauchen Fotos auf und verräterische Fußspuren werden entdeckt. Die drei ??? Kids begeben sich auf eine gefährliche Monsterjagd.",
+      "nummer": "44",
+      "spotify": "5fIxmzKdFvtbRIeRBEeptA"
+    },
+    {
+      "name": "Ein Fall für Superhelden",
+      "beschreibung": "Es gab einen lauten Knall, und der Wagen stand in Flammen. Mr Jeffers brüllte durch ein Megafon: \"Die Kameras in Bereitschaft! Auftritt des Superhelden! Drei, zwei, eins und Action!\" Justus tritt als Werbestar einer Cornflakes-Firma auf. Im Superman-Kostüm soll er vor laufender Kamera Heldentaten vollbringen. Doch schon bald kommen die drei ??? Kids einem bösen Werbeschwindel auf die Spur...",
+      "nummer": "45",
+      "spotify": "4Al8xe9LlMxHWhIddbienL"
+    },
+    {
+      "name": "Jagd auf das Dino Ei",
+      "beschreibung": "Justus nahm das Ei in die Hand und hielt es sich vorsichtig ans Ohr. „Wahnsinn! Da drin bewegt sich was!“ Peter riss vor Schreck die Augen auf. „Leg sofort das Ei weg, Just!“ Die Reise in den Safaripark auf Conga Island hat es in sich. Ein verrückter Pilot, wilde Tiere und ein Inselgeheimnis bescheren den drei ??? Kids eines ihrer gefährlichsten Abenteuer ...",
+      "nummer": "46",
+      "spotify": "6eQDj0n1wU2dEXO7vr1Bmm"
+    },
+    {
+      "name": "Falsche Fußball-Freunde",
+      "beschreibung": "In Rocky Beach findet die Weltmeisterschaft im Strandfußball statt. Viele berühmte Fußballstars werden erwartet. Doch nicht alle Fußballfreunde spielen fair. Die drei ??? Kids stürzen sich in ein gefährliches Abenteuer.",
+      "nummer": "47",
+      "spotify": "42cBTxTbzCzbYm0sd4VUxU"
+    },
+    {
+      "name": "Tanz der Skelette",
+      "beschreibung": "Ein alter Piratengeist versucht, den Surflehrer aus seiner Strandhütte zu vertreiben. Als nachts auch noch leuchtende Skelette auftauchen und schaurige Tänze aufführen, eilen die drei ??? ihrem Freund zu Hilfe. Doch keiner der Detektive ahnt, was sich hinter den Spukgestalten für ein Geheimnis verbirgt...",
+      "nummer": "48",
+      "spotify": "105UQAEjLpiqUCUK6x6i3g"
+    },
+    {
+      "name": "Der singende Geist",
+      "beschreibung": "Onkel Titus hat auf einer Auktion eine alte Standuhr ersteigert. Doch kaum steht diese auf dem Schrottplatz, sind auf einmal jede Menge Leute hinter ihr her. Welches Geheimnis versteckt sich in der Uhr? Und was weiß das rätselhafte Mädchen mit der Stimme, die Glas zerspringen lässt? Ein singender Geist führt die drei ??? Kids auf eine gefährliche Spur...",
+      "nummer": "49",
+      "spotify": "https://open.spotify.com/album/1cCB23DWt7mRHBFvTsX87C?si=LvQ99wKPQTuR7STd0uYfQA"
+    },
+    {
+      "name": "Schatz der Piraten",
+      "beschreibung": "Ein uralter Brief erzählt von der Zeit des Goldrausches in Kalifornien und bringt Die drei ??? Kids zum Schiffswrack der Santa Anna . Auf dem verlassenen Schiff finden Justus, Peter und Bob eine Schatzkarte. Diese führt sie zu einer Pirateninsel. Doch nicht nur die drei Detektive sind hinter dem Piratenschatz her. Eine spannende Jagd beginnt ...",
+      "nummer": "50",
+      "spotify": "7zUg7xSxAAkwntDiX1yhGJ"
+    },
+    {
+      "name": "Tatort Kletterpark",
+      "beschreibung": "Ein neuer Kletterpark wir eröffnet, und die drei ??? Kids dürfen zusammen mit Bobs Vater als erste auf das Gelände. Doch schon bald merken sie, dass jemand mit Absicht die Besucher in große Gefahr bringt. Wer steckt hinter dieser bösen Sabotage? Ein Fall mit viel Nervenkitzel...",
+      "nummer": "51",
+      "spotify": "2Vu69KfWoS6eAzwnhqssWk"
+    },
+    {
+      "name": "Mächtige Magier",
+      "beschreibung": "In Rocky Beach findet ein großer Zauberwettbewerb statt. Doch irgendjemand will dem mächtigen Magier Harris schaden. Aber wer steckt dahinter? Um den Fall zu lösen, müssen die drei ??? Kids selbst ein paar Zaubertricks anwenden. Hokuspokus Fidibus!",
+      "nummer": "52",
+      "spotify": "6g5MSdVTrKY3f1ZzsqUhXw"
+    },
+    {
+      "name": "Geheimnis der Tiere",
+      "beschreibung": "Kann es sein, dass sich niemand um die Tiere des verstorbenen Anthony Sparks kümmern will? Justus, Peter und Bob haben ein großes Herz und nehmen sie bei sich auf. Dabei kommen die drei ??? Kids einem lang gehüteten Geheimnis auf die Spur.",
+      "nummer": "53",
+      "spotify": "3ahySlDFUrzxatkaJUC2hV"
+    },
+    {
+      "name": "Der schwarze Joker",
+      "beschreibung": "Justus, Bob und Peter sind verwirrt. Sollte wirklich ihr Erzfeind Skinny Norris hinter den fiesen Streichen stecken, die eine unheimliche Gestalt den Bewohnern von Rocky Beach spielt? Der Unbekannte nennt sich „Der schwarze Joker“ und macht selbst vor Tante Mathildas frische Wäsche nicht halt. Also nehmen die drei ??? Kids die Verfolgung auf – doch mit dem schwarzen Joker ist nicht zu spaßen ...",
+      "nummer": "55",
+      "spotify": "2UNXd8SieHWtTM5g0VMeGv"
+    },
+    {
+      "name": "Das Rätsel der Könige",
+      "beschreibung": "Seltsame Dinge geschehen im neuen Einkaufszentrum in der Nähe von Rocky Beach. Als die drei ??? Kids die Spuren verfolgen, stoßen sie auf einen wertvollen Königsschatz. Doch sie sind nicht die Einzigen, die das Rätsel der Könige lösen wollen.",
+      "nummer": "56",
+      "spotify": "0zmK2RPZSiThN6xwxDFNrL"
+    },
+    {
+      "name": "Der Weihnachtsdieb",
+      "beschreibung": "Weihnachten steht vor der Tür und auf Justus, Peter und Bob warten 24 spannende Abenteuer. Jeden Tag stehen die drei ??? Kids vor einem neuen rätselhaften Fall. Findest auch du die Täter und kannst die verzwickten Ratekrimis lösen? Doch Vorsicht! Denn dabei geht es nicht nur um geklaute Tannenbäume...",
+      "nummer": "57",
+      "spotify": "23RIS8PEXnZUs0AwqmstMS"
+    },
+    {
+      "name": "Spur des Drachen",
+      "beschreibung": "Ein Drache in Rocky Beach! Ein unheimlicher Einbrecher mit Drachenmaske verbreitet Angst und Schrecken. Im Villenviertel macht er Jagd auf Schmuck und Diamanten. Zum Glück hinterlässt das Ungeheuer bei seinen Einbrüchen so einige Spuren. Für Die drei ??? Kids beginnt eine aufregende Verfolgungsjagd...",
+      "nummer": "58",
+      "spotify": "2KpYeQgAWPq3skEUb1A8qb"
+    },
+    {
+      "name": "Fußballhelden",
+      "beschreibung": "Wer treibt im Kostüm des Fußballmaskottchens sein Unwesen? Niemand traut sich, die Maske zu lüften, denn das bringt angeblich Unglück! Die drei ??? Kids sind sich sicher: Hier ist eine fiese Verschwörung im Gange …",
+      "nummer": "59",
+      "spotify": "66YZOif5ogyl1O0rFT28HM"
+    },
+    {
+      "name": "Gespensterjagd",
+      "beschreibung": "Im großen Kino von Rocky Beach spukt es! Doch nicht nur dort, überall in der Stadt tauchen plötzlich geisterhafte Gestalten auf. Und das alles an Halloween! Die drei ??? Kids gehen auf Gespensterjagd.",
+      "nummer": "60",
+      "spotify": "5XKW97txqaNv82dIUDWf6D"
+    },
+    {
+      "name": "Alarm im Dino-Park",
+      "beschreibung": "Werden die Dinosaurier-Skelette im Dino-Park nachts wirklich lebendig und bedrohen den Parkbesitzer? Justus, Peter und Bob übernehmen den Fall und begeben sich in ein waghalsiges Urzeit-Abenteuer.",
+      "nummer": "61",
+      "spotify": "2ZQKn9GVeJalLEuh3BvuOB?"
+    },
+    {
+      "name": "Gefahr im Dschungel",
+      "beschreibung": "Hilfe! Justus, Peter und Bob sind in einem gigantischen Dschungel-Haus gefangen! Und das nur, weil sie einem entführten Professor helfen wollten. Können die drei ??? Kids diesen Fall lösen?",
+      "nummer": "62",
+      "spotify": "3KD5QNC2k1328SsuYFIjiq"
+    },
+    {
+      "name": "Monster-Wolken",
+      "beschreibung": "Monster-Wolken über Rocky Beach! Hässliche Nebelfratzen lenken die Autofahrer ab und Flugzeuge geraten in Gefahr. Doch wer ist für das Chaos am Himmel verantwortlich? Justus, Peter und Bob müssen eingreifen...",
+      "nummer": "63",
+      "spotify": "39QjW5XIE81HsWRjjyaVH0"
+    },
+    {
+      "name": "In der Schatzhöhle",
+      "beschreibung": "Die drei ??? Kids haben einen Schnupperkurs im Höhlentauchen gewonnen. Doch ein Taucher ist unter falschen Namen angemeldet und entfernt sich heimlich von der Gruppe. Justus, Peter und Bob verfolgen ihn und entdecken eine Schatzhöhle!",
+      "nummer": "64",
+      "spotify": "6Om3zELCMatFreSN4FMeOG"
+    },
+    {
+      "name": "Mission Goldhund",
+      "beschreibung": "Ein junger Hund taucht bei den drei ??? Kids auf und weicht ihnen nicht mehr von der Seite. Was will er von ihnen? Sein Halsband ist aus echtem Gold und schon bald geraten Justus, Peter und Bob in eine gefährliche Verfolgungsjagd …",
+      "nummer": "65",
+      "spotify": "4ErYqkUdfkAmsgltEPJKH7"
+    },
+    {
+      "name": "Geheimnisse im Meer",
+      "beschreibung": "Wer macht der Hauptdarstellerin des Unterwasser-Musicals am Strand von Rocky Beach nur das Leben schwer? Die kleine Meerjungfrau gerät von einer Gefahr in die nächste. Natürlich sind die drei ??? Kids zur Stelle, um den Fall zu lösen.",
+      "nummer": "66",
+      "spotify": "6xSlKWjaEpc6SMJ69uVKYT"
+    },
+    {
+      "name": "Der goldene Drache",
+      "beschreibung": "Ein Drache in Rocky Beach! Während eines Unwetters streckt er seinen Kopf zwischen den Wolken hervor und speit Gold! Ist an der alten Legende tatsächlich etwas Wahres dran? Justus, Peter und Bob gehen der Sache auf den Grund.",
+      "nummer": "67",
+      "spotify": "5qvokPibHLO3e47oV4wyhz"
+    },
+    {
+      "name": "Chaos im Dunkeln",
+      "beschreibung": "Sonnenfinsternis in Rocky Beach. Doch kaum wird es dunkel, bricht plötzlich Chaos aus. Im Maya-Museum wird eingebrochen und clevere Diebe machen sich ans Werk. Sind die wertvollen Kunstschätze noch zu retten? Die drei ??? Kids nehmen die Verfolgung auf.",
+      "nummer": "68",
+      "spotify": "0zDRwoqvJYhvfhcvQYzfcZ"
+    },
+    {
+      "name": "Die Rätselfalle",
+      "beschreibung": "Ein Hilferuf versteckt in einem Kreuzworträtsel! Das haben die drei ??? Kids noch nie erlebt. Wer braucht ihre Hilfe? Die Spur führt in ein geheimnisvolles Seniorenheim. Dort geht die spannende Rätseljagd weiter...",
+      "nummer": "69",
+      "spotify": "6QpCsN1do9sWdzxMzP6vAm"
+    },
+    {
+      "name": "Aufbruch ins All",
+      "beschreibung": "Justus, Peter und Bob freuen sich auf ein Inselabenteuer vor der Küste von Rocky Beach. Doch plötzlich taucht aus dem Wasser etwas Unheimliches auf. Ist eine Weltraumstation ins Meer gestürzt? Die drei Detektive ermitteln.",
+      "nummer": "70",
+      "spotify": "1ntNbHEo93jDj2JgZtLMrS"
+    },
+    {
+      "name": "Tatort Trampolin",
+      "beschreibung": "Die neueste Attraktion in Rocky Beach ist ein spektakulärer Jump-Park. Doch kurz nach der Eröffnung kommt es zu rätselhaften Pannen. Wer will den Park ruinieren? Die drei ??? Kids machen sich auf die Suche nach dem Täter und geraten dabei selbst in Gefahr.",
+      "nummer": "71",
+      "spotify": "1RrOzTtLYceG05edrb7YNQ"
+    },
+    {
+      "name": "Die Laser-Falle",
+      "beschreibung": "Leuchtende Termitenhügel sind die Attraktion im Nationalpark Termiten-City. Das wollen sich Justus, Peter und Bob natürlich nicht entgehen lassen. Doch plötzlich werden Besucher von den kleinen Insekten scheinbar ausgeraubt. Die drei Detektive brauchen jetzt starke Nerven.",
+      "nummer": "72",
+      "spotify": "0xynCTUxYMlBA1IcPfAgKq"
+    },
+    {
+      "name": "Surfstrand in Gefahr",
+      "beschreibung": "Gibt es wirklich Einhörner? Ein alter Surfer behauptet, dass er das sagenumwobene Tier tatsächlich gesehen hat. Natürlich will ganz Rocky Beach das Wunderwesen mit dem magischen Horn hautnah erleben. Justus, Peter und Bob gehen der Sache auf den Grund.",
+      "nummer": "73",
+      "spotify": "7JrHsowbMVguSku3JG2tLS"
+    },
+    {
+      "name": "Das Schienenmonster",
+      "beschreibung": "Justus, Peter und Bob dürfen in einem supermodernen Zug mitreisen. Während sie die coole Technik testen, fällt plötzlich im gesamten Zug der Strom aus. Wer steckt dahinter? Die drei Detektive ermitteln in einem neuen Fall!",
+      "nummer": "74",
+      "spotify": "7KEMmRYdYTyOkHaoocjwp7"
+    },
+    {
+      "name": "Der Fußball-Roboter",
+      "beschreibung": "Ein wirklich außergewöhnliches Fußballturnier findet auf dem Marktplatz in Rocky Beach statt. Fußball-Roboter spielen im K.-o.-System gegeneinander. Aber gleich zu Beginn des Turniers passieren mysteriöse Dinge. Im Finale müssen die drei ??? Kids gegen einen Roboter antreten, der alle Tricks draufhat.",
+      "nummer": "75",
+      "spotify": "4M3VGzWy7xxm93zGw0xqAU"
+    },
+    {
+      "name": "Blinde Passagiere",
+      "beschreibung": "Vor der Küste von Rocky Beach liegt ein großes Kreuzfahrtschiff vor Anker. Doch an Bord geschehen seltsame Dinge und anscheinend macht sich eine Diebesbande ans Werk. Justus, Peter und Bob gehen der Sache auf den Grund - und mischen sich unter die Passagiere.",
+      "nummer": "76",
+      "spotify": "6nSehzQCvelIRQu84k5N7E"
+    },
+    {
+      "name": "Die Musikdiebe",
+      "beschreibung": "Aus dem Tonstudio des Popstars Modena wurde ein Song gestohlen. Kann Modena ihrem Team nicht mehr vertrauen? Als Chorsänger getarnt begeben sich die drei ??? Kids auf die Spur des Diebes.",
+      "nummer": "77",
+      "spotify": "75If2drFgUUJdC6eQ0dZYl"
+    },
+    {
+      "name": "Schrottplatz in Gefahr",
+      "beschreibung": "Der Schrottplatz von Onkel Titus brennt! Ausgerechnet vor der großen „20-Jahre-Jubiläumsfeier“. Die drei ??? Kids sind ganz sicher: \ndas kann kein Zufall sein … Rätselhafte Spuren führen Justus, Peter und Bob hinaus aus Rocky Beach und weit zurück in die Vergangenheit …",
+      "nummer": "78",
+      "spotify": "15aFL9eaT1bjrURanvEKEn"
+    },
+    {
+      "name": "Achtung, Abenteuer",
+      "beschreibung": "Die wertvolle Statue „Der goldene Falke“ wird aus dem Museum gestohlen. Eine heiße Spur führt auf den Abenteuerspielplatz von Rocky Beach. Bei den Ermittlungen geraten drei ??? Kids in eine gefährliche Lage.",
+      "nummer": "79",
+      "spotify": "5GOZBi4hHD6rvJI1zp7ryf"
+    },
+    {
+      "name": "Gefährlicher Nebel",
+      "beschreibung": "Undurchdringlicher Nebel zieht durch Rocky Beach. Überall, wo er auftaucht, passieren mysteriöse Diebstähle. Was hat die Legende des Geisternebels damit zu tun? Justus, Peter und Bob behalten den Durchblick und haben bald einen heißen Verdacht.",
+      "nummer": "80",
+      "spotify": "5EeUZitOFX7Nad5yp2CFud"
+    },
+    {
+      "name": "Turbo-Rennen",
+      "beschreibung": "Ein wildes Stockcar-Rennen in Rocky Beach! Doch plötzlich wird die berühmte Rennfahrerin Viola beschuldigt, ein teures Testauto gestohlen zu haben. Werden die drei ??? Kids den „Erlkönig“ finden?",
+      "nummer": "81",
+      "spotify": "3NOIKGCYKsL3nCCgzksldt"
+    },
+    {
+      "name": "Die Delfin-Piraten",
+      "beschreibung": "Justus, Peter und Bob besuchen eine Auswilderungsstation für gefangene Delfine. Seit Kurzem verschwinden die schutzbedürftigen Tiere auf mysteriöse Weise immer wieder von dort. Stecken etwa fiese Diebe dahinter?",
+      "nummer": "82",
+      "spotify": "5n6gdqMbunkR1J0MhqTaV8"
+    },
+    {
+      "name": "Fußball-Diebe",
+      "beschreibung": "Großes Fußball-Finale in Rocky Beach und natürlich sind Justus, Peter und Bob dabei. Doch es scheint, als hätte Peter sein Fußball-Talent verloren. Schnell haben Bob und Justus einen Verdacht und schon bald zeigt sich, dass hier irgendwer ganz fies manipuliert. Die drei ??? Kids ermitteln. ",
+      "nummer": "83",
+      "spotify": "0rjlBTxlkcd3aFoYS1HPCn"
+    },
+    {
+      "name": "Tatort Skate-Park",
+      "beschreibung": "",
+      "nummer": "84",
+      "spotify": "11uIA0NksKWJ2xjjTMvO8x"
+    },
+    {
+      "name": "Falscher Alarm",
+      "beschreibung": "Kommissar Reynolds wird mit falschen Funksprüchen zu angeblichen Tatorten gerufen. Sogar der Schrottplatz soll überfallen worden sein. Die drei Detektive begeben sich auf eine abenteuerliche Spurensuche.",
+      "nummer": "85",
+      "spotify": "2FRfGv6pQommVYHmqJKqU5"
+    },
+    {
+      "name": "Riesen in Rocky Beach",
+      "beschreibung": "Ein Miniaturmodell von Rocky Beach sorgt für Aufregung! Die Stadt ist geschrumpft und alles, was im Modell geschieht, passiert auch in Wirklichkeit. Wer versucht der Stadt zu Schaden? Die drei ??? beginnen mit ihren Ermittlungen.",
+      "nummer": "86",
+      "spotify": "3CVr8yD3EmmbTAD3mgdkst"
+    },
+    {
+      "name": "Das Geisterspiel",
+      "beschreibung": "Peters Lieblings-Basketball Mannschaft spielt in Rocky Beach. Während des Turniers passieren unerklärliche Dinge. Ist etwa ein Geist im Stadion? Die drei ??? Kids sind sich sicher, dass jemand anderes dahintersteckt ... ",
+      "nummer": "87",
+      "spotify": "3M7f1Ta7DdY49Cj0bsHchW"
+    }
+  ]
+}

@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "de.msdevs.einschlafhilfe.app-mergeDebugResources-41:/values-ja/values-ja.xml",
+            "outputFile": "de.msdevs.einschlafhilfe.app-mergeDebugResources-27:/values-ja/values-ja.xml",
             "map": [
                 {
-                    "source": "/Users/marvinstelter/.gradle/caches/transforms-3/11352eaa86521afb3fc924eb8ee702c2/transformed/appcompat-1.4.2/res/values-ja/values-ja.xml",
+                    "source": "/Users/marvinstelter/.gradle/caches/transforms-3/0672adb875816790648c00f083c3f4bb/transformed/appcompat-1.4.2/res/values-ja/values-ja.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -21,24 +21,7 @@
                     }
                 },
                 {
-                    "source": "/Users/marvinstelter/.gradle/caches/transforms-3/2f0e9cbef0d64e2548a8ea10291d7d61/transformed/jetified-AppIntro-6.2.0/res/values-ja/values-ja.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6",
-                        "startColumns": "4,4,4,4,4",
-                        "startOffsets": "55,108,161,228,281",
-                        "endColumns": "52,52,66,52,54",
-                        "endOffsets": "103,156,223,276,331"
-                    },
-                    "to": {
-                        "startLines": "33,34,35,36,37",
-                        "startColumns": "4,4,4,4,4",
-                        "startOffsets": "2844,2897,2950,3017,3070",
-                        "endColumns": "52,52,66,52,54",
-                        "endOffsets": "2892,2945,3012,3065,3120"
-                    }
-                },
-                {
-                    "source": "/Users/marvinstelter/.gradle/caches/transforms-3/4beb501147f357b73a05cfe1796ee574/transformed/core-1.8.0/res/values-ja/values-ja.xml",
+                    "source": "/Users/marvinstelter/.gradle/caches/transforms-3/326d3218f9fbc0475d65f91f98b16568/transformed/core-1.8.0/res/values-ja/values-ja.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -55,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "/Users/marvinstelter/.gradle/caches/transforms-3/403ed6dc7f86dad875aa53948be2b725/transformed/material-1.6.1/res/values-ja/values-ja.xml",
+                    "source": "/Users/marvinstelter/.gradle/caches/transforms-3/68afa9bf50ed92ba2199c3349a635649/transformed/material-1.6.1/res/values-ja/values-ja.xml",
                     "from": {
                         "startLines": "2,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -71,6 +54,23 @@
                         "endLines": "5,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91",
                         "endColumns": "12,68,84,103,75,62,83,63,57,80,63,54,58,56,53,92,55,56,53,65,99,75,80,91,61,61,78,66,65,69,69,76,63,70,67,62,78,62,79,81,71,70,71,47,63,74,76,61,63,62,85,83,80,84,72",
                         "endOffsets": "253,3189,3274,3378,3454,3517,3601,3665,3723,3804,3868,3923,3982,4039,4093,4186,4242,4299,4353,4419,4519,4595,4676,4768,4830,4892,4971,5038,5104,5174,5244,5321,5385,5456,5524,5587,5666,5729,5809,5891,5963,6034,6106,6154,6218,6293,6370,6432,6496,6559,6645,6729,6810,6895,6968"
+                    }
+                },
+                {
+                    "source": "/Users/marvinstelter/.gradle/caches/transforms-3/5006160f33ead0208e1b80c2b9ebe7a3/transformed/jetified-AppIntro-6.2.0/res/values-ja/values-ja.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6",
+                        "startColumns": "4,4,4,4,4",
+                        "startOffsets": "55,108,161,228,281",
+                        "endColumns": "52,52,66,52,54",
+                        "endOffsets": "103,156,223,276,331"
+                    },
+                    "to": {
+                        "startLines": "33,34,35,36,37",
+                        "startColumns": "4,4,4,4,4",
+                        "startOffsets": "2844,2897,2950,3017,3070",
+                        "endColumns": "52,52,66,52,54",
+                        "endOffsets": "2892,2945,3012,3065,3120"
                     }
                 }
             ]

@@ -8,6 +8,7 @@ import android.content.pm.PackageManager
 import android.net.ConnectivityManager
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -56,7 +57,6 @@ class MainActivity : AppCompatActivity() {
             sharedPreferencesEditor.putBoolean("update_list", true)
             sharedPreferencesEditor.putBoolean("spotify", false)
             sharedPreferencesEditor.apply()
-
             startActivity(Intent(this@MainActivity, AppIntroActivity::class.java))
         }
 
@@ -69,6 +69,7 @@ class MainActivity : AppCompatActivity() {
                     3 -> episodeNumber = (1..216).random()
                     4 -> episodeNumber = (1..7).random()
                     5 -> episodeNumber = 0
+                    6 -> episodeNumber = (1..87).random()
                 }
                 apiCall()
             }
@@ -174,12 +175,11 @@ class MainActivity : AppCompatActivity() {
 
             val dialog = builder.create()
             dialog.show()
-
         }
     }
 
     private suspend fun apiCall() {
-        random = (1..3).random()
+        random = (1..4).random()
         runOnUiThread {
             if(binding.bottomBarViewFlipper.displayedChild == 4){
                 binding.btnSpotify.visibility = View.GONE
@@ -190,14 +190,17 @@ class MainActivity : AppCompatActivity() {
             }
         }
         episodeList.clear()
-        if(isConnected()){
+
             if(binding.bottomBarViewFlipper.displayedChild == 4){
                 urlExtraParameter = "folgen_diedrei.json"
+            }else if(binding.bottomBarViewFlipper.displayedChild == 6){
+                urlExtraParameter = "folgen_kids.json"
             }else if(binding.bottomBarViewFlipper.displayedChild != 5){
                 urlExtraParameter = "folgen.json"
             }else{
                 val randomDDF = (sharedPreferences.getInt("min",0)..sharedPreferences.getInt("max",0)).random()
                 val randomKids = (sharedPreferences.getInt("minK",0)..sharedPreferences.getInt("maxK",0)).random()
+
                 if(random == 1){
                     urlExtraParameter = "folgen.json"
                     episodeNumber = randomDDF - 1
@@ -210,12 +213,16 @@ class MainActivity : AppCompatActivity() {
                     urlExtraParameter = "folgen_diedrei.json"
                     episodeNumber = (1..7).random() - 1
                 }
+                if(random == 4){
+                    urlExtraParameter = "folgen_kids.json"
+                    episodeNumber = randomKids - 1
+                }
             }
             try {
                 when {
                     episodeList.isEmpty() -> {
 
-                        if(sharedPreferences.getBoolean("update_list",false)){
+                        if(sharedPreferences.getBoolean("update_list",false) && isConnected()){
                             val client = OkHttpClient.Builder().build()
                             val request =
                                 Request.Builder().url(getString(R.string.base_url) + urlExtraParameter)
@@ -224,6 +231,8 @@ class MainActivity : AppCompatActivity() {
                         }else {
                                 if (binding.bottomBarViewFlipper.displayedChild == 4) {
                                     folgenListe = assets.open("offline_list_dd.txt").bufferedReader().use(BufferedReader::readText)
+                                } else if(binding.bottomBarViewFlipper.displayedChild == 6){
+                                    folgenListe = assets.open("offline_list_kids.txt").bufferedReader().use(BufferedReader::readText)
                                 } else if(binding.bottomBarViewFlipper.displayedChild != 5){
                                     folgenListe = assets.open("offline_list.txt").bufferedReader().use(BufferedReader::readText)
                                 }else{
@@ -235,6 +244,9 @@ class MainActivity : AppCompatActivity() {
                                     }
                                     if(random == 3){
                                         folgenListe = assets.open("offline_list_dd.txt").bufferedReader().use(BufferedReader::readText)
+                                    }
+                                    if(random == 4){
+                                        folgenListe = assets.open("offline_list_kids.txt").bufferedReader().use(BufferedReader::readText)
                                     }
                                 }
                             }
@@ -248,10 +260,12 @@ class MainActivity : AppCompatActivity() {
                         }
                     }
                 }
+
                 runOnUiThread {
                     try {
                         if(binding.bottomBarViewFlipper.displayedChild != 5){
                             binding.tvDetails.text = getString(R.string.output, (episodeNumber + 1).toString(), episodeList[episodeNumber].name)
+
                         }else{
                             if(random == 1){
                                 binding.tvDetails.text = getString(R.string.output, (episodeNumber + 1).toString(), episodeList[episodeNumber].name)
@@ -265,12 +279,17 @@ class MainActivity : AppCompatActivity() {
                                 binding.tvDetails.text = getString(R.string.output, (episodeNumber + 1).toString(), episodeList[episodeNumber].name)
                                 binding.btnSpotify.visibility = View.GONE
                             }
+                            if(random == 4){
+                                binding.tvDetails.text = getString(R.string.output, (episodeNumber + 1).toString(), episodeList[episodeNumber].name)
+                            }
                         }
                         when (binding.bottomBarViewFlipper.displayedChild) {
                             4 ->
                                 loadEpisodeCover(getString(R.string.cover_citroncode_dd_url) + (episodeNumber + 1) + ".jpg")
                             else ->
-                                if(binding.bottomBarViewFlipper.displayedChild != 5){
+                                if(binding.bottomBarViewFlipper.displayedChild == 6) {
+                                    loadEpisodeCover(getString(R.string.cover_citroncode_url) + "k" + (episodeNumber + 1) + ".png")
+                                }else if(binding.bottomBarViewFlipper.displayedChild != 5){
                                   loadEpisodeCover(getString(R.string.cover_citroncode_url) + (episodeNumber + 1) + ".png")
                                 }else{
                                     if(random == 1){
@@ -285,39 +304,20 @@ class MainActivity : AppCompatActivity() {
                                         loadEpisodeCover(getString(R.string.cover_citroncode_dd_url) + (episodeNumber + 1) + ".jpg")
                                         binding.fabLinks.show()
                                     }
+                                    if(random == 4){
+                                        loadEpisodeCover(getString(R.string.cover_citroncode_url) + "k" + (episodeNumber + 1) + ".png")
+                                        binding.fabLinks.hide()
+                                    }
                                 }
                         }
                     } catch (e: java.lang.Exception) {
                         e.printStackTrace()
-                        Snackbar.make(binding.relativeLayout, getString(R.string.cover_error), Snackbar.LENGTH_SHORT).show()
+                       refresh()
                     }
                 }
             } catch (e: IOException) {
                 Toast.makeText(this,getString(R.string.fehler_glide),Toast.LENGTH_SHORT).show()
             }
-        }else{
-            runOnUiThread {
-                val builder = AlertDialog.Builder(this)
-                builder.setTitle(R.string.no_internet_dialog_title)
-                builder.setMessage(R.string.no_internet_dialog_text)
-                builder.setPositiveButton(getString(R.string.reload)) { _, _ ->
-                    lifecycleScope.launch {
-                        withContext(Dispatchers.IO) {
-                            when (binding.bottomBarViewFlipper.displayedChild) {
-                                0 -> episodeNumber = (1..50).random()
-                                1 -> episodeNumber = (1..100).random()
-                                2 -> episodeNumber = (1..150).random()
-                                3 -> episodeNumber = (1..216).random()
-                                4 -> episodeNumber = (1..7).random()
-                                5 -> episodeNumber = 0
-                            }
-                            apiCall()
-                        }
-                    }
-                }
-                builder.show()
-            }
-        }
     }
     private fun getRockyBeachLink(nummer: String, random : Int): String {
         var url = ""
@@ -376,6 +376,7 @@ class MainActivity : AppCompatActivity() {
                     3 -> episodeNumber = (1..216).random()
                     4 -> episodeNumber = (1..7).random()
                     5 -> episodeNumber = 0
+                    6 -> episodeNumber = (1..87).random()
                 }
                 apiCall()
             }

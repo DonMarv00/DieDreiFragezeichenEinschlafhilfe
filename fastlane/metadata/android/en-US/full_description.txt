@@ -1,3 +1,26 @@
-Mit der <i>Einschlafhilfe</i> kannst du dir eine Folge der DDF bestimmen lassen -- sie funktioniert schnell und zuverlässig und Gratis!
+This App helps you to select a random episode of the audiobook "Three Investigators"
 
-Diese App ist ein Fanprojekt. „Die drei ???“ sind eine eingetragene Marke der Franckh-Kosmos Verlags-GmbH & Co. KG, Stuttgart.
+Functions:
+
+- Different options to select a episode
+- Over 350 Episodes in 4 categories, updated frequently
+- Custom settings to select a episode
+
+Privacy:
+
+The app offers a function that opens Spotify to play a audiobook.
+Spotify may collect personally identifiable information.
+Read the Spotify privacy policy to know how Spotify uses your data.
+
+Privacy Policy of Spotify can be found here:
+
+https://www.spotify.com/de/legal/privacy-policy/
+
+The function can be disabled in the app settings.
+
+Copyright:
+
+"The three ???" is a registered trademark of Franckh-Kosmos Verlags-GmbH & Co. KG, Stuttgart.
+This app is NOT owned by Kosmos, Europa, the Roberts family or anyone else that is involved in the production of The Three ???.
+All trademarks, logos and copyrights belong to their respective owners.
+All images © copyright by Kosmos, Europa, Studios Hamburg, USM or Random House.

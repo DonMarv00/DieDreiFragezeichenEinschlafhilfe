@@ -120,12 +120,11 @@
                 android:layout_marginEnd="10dp"
                 android:orientation="vertical">
 
-                <CheckBox
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:buttonTint="@color/white"
-                    android:checked="true"
-                    android:id="@+id/cbDDF"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
                     android:text="@string/die_drei_fragezeichen"
                     android:textColor="@color/white" />
 
@@ -175,12 +174,11 @@
 
                 </RelativeLayout>
 
-                <CheckBox
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:buttonTint="@color/white"
-                    android:id="@+id/cbKids"
-                    android:checked="true"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
                     android:text="@string/die_drei_fragezeichen_kids"
                     android:textColor="@color/white" />
 
@@ -229,33 +227,6 @@
                         android:textStyle="bold" />
 
                 </RelativeLayout>
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:buttonTint="@color/white"
-                    android:checked="true"
-                    android:id="@+id/cbD3"
-                    android:text="@string/die_dr3i"
-                    android:textColor="@color/white" />
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:buttonTint="@color/white"
-                    android:checked="true"
-                    android:id="@+id/cbSpecial"
-                    android:text="@string/die_drei_fragezeichen_sonderfolgen"
-                    android:textColor="@color/white" />
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:buttonTint="@color/white"
-                    android:checked="true"
-                    android:id="@+id/cbSpecialK"
-                    android:text="@string/die_drei_fragezeichen_kids_sonderfolgen"
-                    android:textColor="@color/white" />
             </LinearLayout>
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
