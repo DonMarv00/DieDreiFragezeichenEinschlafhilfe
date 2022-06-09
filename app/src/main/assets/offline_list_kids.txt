@@ -319,6 +319,13 @@
       "nummer": "53",
       "spotify": "3ahySlDFUrzxatkaJUC2hV"
     },
+
+    {
+    "name":"Zombie Alarm",
+    "beschreibung":"Bei einem alten Schiffswrack finden \“Die drei ??? Kids\“ eine geheimnisvolle Flaschenpost. Sie stammt von einem Schiffbrüchigen, dessen Geist anscheinend keine Ruhe findet. Ist er wirklich ein Zombie? Als Justus, Peter und Bob beschließen dem Spuk ein Ende zu machen, schlittern sie mitten in ein gruseliges Abenteuer.",
+    "nummer":"54",
+    "spotify":"4bM4QL65khBjHgvAEW1glL"
+    },
     {
       "name": "Der schwarze Joker",
       "beschreibung": "Justus, Bob und Peter sind verwirrt. Sollte wirklich ihr Erzfeind Skinny Norris hinter den fiesen Streichen stecken, die eine unheimliche Gestalt den Bewohnern von Rocky Beach spielt? Der Unbekannte nennt sich „Der schwarze Joker“ und macht selbst vor Tante Mathildas frische Wäsche nicht halt. Also nehmen die drei ??? Kids die Verfolgung auf – doch mit dem schwarzen Joker ist nicht zu spaßen ...",

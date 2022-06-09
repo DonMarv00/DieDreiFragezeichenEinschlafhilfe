@@ -338,10 +338,12 @@ class MainActivity : AppCompatActivity() {
         return url
     }
     private fun loadEpisodeCover(coverUrl : String){
-        Glide.with(this)
-            .load(coverUrl)
-            .diskCacheStrategy(DiskCacheStrategy.ALL)
-            .into(binding.ivCover)
+       if(isConnected() && sharedPreferences.getBoolean("update_list",false)){
+           Glide.with(this)
+               .load(coverUrl)
+               .diskCacheStrategy(DiskCacheStrategy.ALL)
+               .into(binding.ivCover)
+       }
     }
     class JsonResponse(
         val name: String,
