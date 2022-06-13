@@ -11,10 +11,10 @@ Der Quellcode darf bearbeitet werden, gerne können Funktionen hinzugefügt werd
   <img src="https://api.citroncode.com/shared/ddf_3.jpg" width="280" alt="Screenshot 3">
 </p>
 
-## Download on Google Play
+## Download
 
-<a href='https://play.google.com/store/apps/details?id=de.msdevs.einschlafhilfe&gl=DE&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' width="280" src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/></a>
-
+<a href='https://play.google.com/store/apps/details?id=de.msdevs.einschlafhilfe'><img alt='Get it on Google Play' width="200" src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/></a>
+<a href='https://apt.izzysoft.de/fdroid/index/apk/de.msdevs.einschlafhilfe'><img alt='Get it on IzzyOnDroid' width="200" src='https://gitlab.com/IzzyOnDroid/repo/-/raw/master/assets/IzzyOnDroid.png'/></a>
 
 ## License
 
