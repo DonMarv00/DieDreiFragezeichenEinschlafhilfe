@@ -1289,6 +1289,24 @@
       "beschreibung": "Entführung auf dem Schrottplatz - Arnold Grasso beauftragt die drei ??? gerade mit einem Fall, als er vor ihren Augen entführt wird. Und das ausgerechnet von seiner eigenen Familie. Sie beschuldigt ihn, ein wertvolles Gemälde gestohlen zu haben, das seit langer Zeit in ihrem Besitz ist. Können die drei Detektive ihren Auftraggeber finden und seine Unschuld beweisen? Justus, Peter und Bob dürfen keine Zeit verlieren ... ",
       "nummer": "215",
       "spotify": "https://open.spotify.com/album/76pYNMMVZTiuNy3IoXcavU?si=HvSF3uSNRqqTSKNmZVNHjg"
-    }
+    },
+    {
+      "name": "Die drei Fragezeichen - Die Schwingen des Unheils",
+      "beschreibung": "XFLR-7 - ein geheimes Forschungsprojekt - ist in Gefahr! Unbekannte Gangster scheinen den Diebstahl der geheimen Unterlagen zu planen, doch der einzige Zeuge, den Justus, Peter und Bob befragen können, ist ein Halsbandsittich namens Huxley. Damit die Konstruktionspläne von XFLR-7 nicht in die falschen Hände geraten, müssen die drei ??? ihr Können unter Beweis stellen. Werden die Detektive das Geheimprojekt retten?",
+      "nummer": "216",
+      "spotify": "https://open.spotify.com/album/2BkEUZY7Da7bqlUjmMA2Cq"
+     },
+     {
+      "name": "Die drei Fragezeichen und der Kristallschädel",
+      "beschreibung": "Ein harmloser Trödeleinkauf endet für die drei ??? in einer Verfolgungsjagd. Die Suche nach einem wertvollen Kristallschädel beginnt! Der kürzlich verstorbene Hunter Scott soll einen solchen Schädel besessen haben. Von den Maya gefertigt hat er angeblich heilende Kräfte. Doch wo in seiner Villa könnte er versteckt sein? Das fragen sich nicht nur Justus, Peter und Bob – denn einige zwielichtige Gestalten haben es auf den Kristallschädel abgesehen. Sind die drei Detektive schneller?",
+      "nummer": "217",
+      "spotify": "https://open.spotify.com/album/1WlRnNunbHpnRTTVkxMRnd"
+     },
+     {
+      "name": "Die drei Fragezeichen - Im Netz der Lügen",
+      "beschreibung": "Ein Einbrecher, der nichts stiehlt, sondern Gegenstände hinterlässt? In Rocky Beach gehen seltsame Dinge vor, wenn das kein Fall für die drei ??? ist! Was zunächst harmlos erscheint, folgt einem Muster und genau dieses versuchen Just, Peter und Bob zu entschlüsseln. Doch jemand will mit aller Kraft verhindern, dass die Detektive Licht ins Dunkel bringen. Werden die drei Freunde den Fall lösen, bevor es zu einer Katastrophe kommt, oder verstricken sie sich im Netz der Lügen?",
+      "nummer": "218",
+      "spotify": "https://open.spotify.com/album/2WwOKZLpFWrvw3O9CISod1"
+     }
   ]
 }
