@@ -16,7 +16,7 @@
     <string name="welcome">Willkommen</string>
     <string name="dialog_list">Folgenliste wird aktualisiert…</string>
     <string name="update_list">Online Modus</string>
-    <string name="welcome_text">Bevor es richtig losgehen kann müssen wir ein paar Fragen klären und dich uüber unsere Datenschutzerklärung aufmerksam machen.</string>
+    <string name="welcome_text">Bevor es richtig losgehen kann müssen wir ein paar Fragen klären und dich über unsere Datenschutzerklärung aufmerksam machen.</string>
     <string name="not_installed">Spotify ist nicht installiert.</string>
     <string name="album_auf_spotify_anzeigen">Album auf Spotify anzeigen</string>
     <string name="no_internet_dialog_title">Keine Datenverbindung</string>
