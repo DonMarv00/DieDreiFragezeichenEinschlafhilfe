@@ -1307,6 +1307,30 @@
       "beschreibung": "Ein Einbrecher, der nichts stiehlt, sondern Gegenstände hinterlässt? In Rocky Beach gehen seltsame Dinge vor, wenn das kein Fall für die drei ??? ist! Was zunächst harmlos erscheint, folgt einem Muster und genau dieses versuchen Just, Peter und Bob zu entschlüsseln. Doch jemand will mit aller Kraft verhindern, dass die Detektive Licht ins Dunkel bringen. Werden die drei Freunde den Fall lösen, bevor es zu einer Katastrophe kommt, oder verstricken sie sich im Netz der Lügen?",
       "nummer": "218",
       "spotify": "https://open.spotify.com/album/2WwOKZLpFWrvw3O9CISod1"
+     },
+     {
+      "name": "Die drei Fragezeichen - Die Teufelsklippe",
+      "beschreibung": "Peter Shaw - ein Mörder? Ganz bestimmt nicht! Da sind sich Justus und Bob sicher. Können die beiden die Unschuld des Zweiten Detektivs beweisen? Peter sieht ihn fallen, doch die Teufelsklippe gibt ihn nicht wieder her. Verschluckt von den tosenden Wellen bleibt der Mann verschwunden … Was ist passiert? Ausgerechnet der Zweite Detektiv wird beschuldigt, Paul Forsters ins Meer gestoßen zu haben. Im Verhör wird Peter bis ins kleinste Detail befragt. Justus und Bob versuchen derweil mehr über den seltsamen Fall herauszufinden. Können die beiden ihrem Freund helfen?",
+      "nummer": "219",
+      "spotify": "https://open.spotify.com/album/6ewdyVIW2LurJhYGU0UBAa"
+     },
+     {
+      "name": "Die drei Fragezeichen - Im Wald der Gefahren",
+      "beschreibung": "Von Rocky Beach in die Rocky Mountains – die drei ??? freuen sich auf ein Wander-Wochenende. Was harmlos beginnt, wird zum Kampf ums nackte Überleben! Noch bevor die Wandergruppe aufbricht, wittern die drei Detektive einen neuen Fall: Ein toter Briefkasten und eine Stolperfalle – will jemand die Tour verhindern? Schon auf der ersten Etappe wird es brenzlig. Ein Bach wird zum reißenden Fluss, und Pilze sollte man mit Vorsicht genießen. Als Peter verschwindet, wird klar: Die Wildnis hat etwas zu verbergen. Die drei ??? finden sich im Wald der Gefahren wieder ...",
+      "nummer": "220",
+      "spotify": "https://open.spotify.com/album/01i4iyB40EU7Qgd6EgKoZt"
+     },
+     {
+      "name": "Die drei Fragezeichen - Manuskript des Satans",
+      "beschreibung": "Ein Manuskript des leibhaftigen Satans und teuflische Lärmattacken – dieser Fall hat es in sich! Begeben die drei ??? sich in höllische Gefahr? Wer steckt hinter dem entsetzlichen Lärmangriff auf das Haus von Professor Bancroft? Während der Wissenschaftler versucht, eine geheimnisvolle alte Handschrift zu übersetzen, machen sich Justus, Peter und Bob auf die Suche nach der Lärmquelle. Haben die Attacken etwas mit dem Manuskript des Satans zu tun, an dem der Professor gerade arbeitet? Die drei Detektive werden es herausfinden. ",
+      "nummer": "221",
+      "spotify": "https://open.spotify.com/album/1KpVSqapKAUAtAepWWxPWs"
+     },
+     {
+      "name": "Die drei Fragezeichen - Die Gesetzlosen",
+      "beschreibung": "Schneller als Peter Shaw gucken kann, wird er in einen heiklen Fall verwickelt: Zufällig hört er, wie seine Mathe-Lehrerin Ms Blunt ein dubiöses Telefonat führt. Als gewissenhafter Detektiv heftet er sich an die Fersen der Lehrerin und findet heraus, dass die unauffällige Frau ein dunkles Geheimnis hat. Die drei ??? begeben sich auf einen Roadtrip durch die kalifornische Prärie und auf die Spur skrupelloser Kopfgeldjäger!",
+      "nummer": "222",
+      "spotify": "https://open.spotify.com/album/3o2Gwvg8lqLNRnlV1v1s5K"
      }
   ]
 }

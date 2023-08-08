@@ -3,26 +3,21 @@ package de.msdevs.einschlafhilfe.fragments
 
 import android.annotation.SuppressLint
 import android.content.SharedPreferences
-import android.os.Build
 import android.os.Bundle
-import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CheckBox
 import androidx.annotation.Nullable
-import androidx.appcompat.widget.SwitchCompat
 import androidx.fragment.app.Fragment
 import com.github.appintro.SlidePolicy
-import com.google.android.material.slider.RangeSlider
-import de.msdevs.einschlafhilfe.R
+import com.google.android.material.materialswitch.MaterialSwitch
 import de.msdevs.einschlafhilfe.databinding.FragmentSettingsBinding
 
 
 class SettingsFragment(override val isPolicyRespected: Boolean) : Fragment(), SlidePolicy {
 
-    lateinit var switchSpotify : SwitchCompat
-    lateinit var switchUpdatelist : SwitchCompat
+    lateinit var switchSpotify : MaterialSwitch
+    lateinit var switchUpdatelist : MaterialSwitch
     lateinit var sharedPreferences: SharedPreferences
     lateinit var sharedPreferencesEditor: SharedPreferences.Editor
     lateinit var binding : FragmentSettingsBinding
@@ -53,8 +48,6 @@ class SettingsFragment(override val isPolicyRespected: Boolean) : Fragment(), Sl
             sharedPreferencesEditor.putBoolean("update_list",isChecked)
             sharedPreferencesEditor.apply()
         }
-
-
     }
     companion object {
         fun newInstance() : SettingsFragment {

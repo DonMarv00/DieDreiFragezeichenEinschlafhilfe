@@ -8,4 +8,5 @@
     <color name="whiteSecondary">#99FFFFFF</color>
     <color name="dark_grey">#232323</color>
     <color name="blue">#0048FF</color>
+    <color name="colorSwitch">#938F99</color>
 </resources>

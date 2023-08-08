@@ -15,7 +15,7 @@
         android:layout_alignParentEnd="true"
         app:backgroundTint="@color/colorPrimary"
         app:tint="#FFFFFF"
-        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp"
         android:layout_above="@id/fab_description"
         android:layout_marginTop="10dp"
         android:clickable="true"
@@ -59,6 +59,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <ImageView
                 android:id="@+id/iv_cover"
                 android:layout_width="171dp"
@@ -116,7 +117,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:contentDescription=""
+                    android:contentDescription="@string/cover"
                     app:srcCompat="@drawable/ic_left"
                     tools:ignore="ContentDescription" />
             </RelativeLayout>
@@ -125,7 +126,7 @@
                 android:id="@+id/btn_right"
                 android:layout_width="35dp"
                 android:layout_height="50dp"
-                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
                 android:layout_centerInParent="true"
                 android:background="@color/colorPrimaryDark">
 

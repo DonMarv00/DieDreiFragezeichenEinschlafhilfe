@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="de.msdevs.einschlafhilfe">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <permission android:name="android.permission.QUERY_ALL_PACKAGES" />
+
+
     <queries>
         <intent>
             <action android:name="android.intent.action.MAIN" />
         </intent>
     </queries>
-
+    <supports-screens android:resizeable="true"
+        android:largeScreens="true"
+        android:xlargeScreens="true"/>
     <application
         android:allowBackup="false"
         tools:replace="android:allowBackup"
@@ -38,6 +40,11 @@
             android:label="@string/settings"/>
         <activity android:name=".AboutActivity"
             android:label="@string/about" />
-    </application>
 
+
+
+    </application>
+    <queries>
+        <package android:name="com.spotify.music" />
+    </queries>
 </manifest>

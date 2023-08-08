@@ -523,6 +523,30 @@
       "beschreibung": "Peters Lieblings-Basketball Mannschaft spielt in Rocky Beach. Während des Turniers passieren unerklärliche Dinge. Ist etwa ein Geist im Stadion? Die drei ??? Kids sind sich sicher, dass jemand anderes dahintersteckt ... ",
       "nummer": "87",
       "spotify": "3M7f1Ta7DdY49Cj0bsHchW"
-    }
+    },
+    {
+     "name": "Schatz aus dem All",
+     "beschreibung": "Alle in Rocky Beach wollen den fantastischen Schatz aus dem All finden. Auch Justus, Peter und Bob sind mit von der Partie. Doch schon bald ahnen die drei Freunde, dass an der ganzen Sache etwas faul ist ...",
+     "nummer": "88",
+     "spotify": "1wzirotAAliqPA1p0GPl08"
+     },
+     {
+      "name": "Im Geistergarten",
+      "beschreibung": "Unheimliche Touristen streifen durch Rocky Beach und lassen ihre Drohnen am Himmel aufsteigen. Als im Rathaus auch noch alte Stadtpläne gestohlen werden, fragen sich die drei ??? Kids: Was geht hier vor?",
+      "nummer": "89",
+      "spotify": "7HIZJWnLo11Fsv68HPhjgj"
+     },
+     {
+      "name": "Flug ins Nichts",
+      "beschreibung": "Justus, Peter und Bob freuen sich über eine spektakuläre Attraktion: Mitten auf dem Marktplatz steht ein Windkanal für Bodyflying. Aber schon beim ersten Testflug geht einiges schief. Ein neuer Fall für die drei Detektive.  ",
+      "nummer": "90",
+      "spotify": "41Wrbk3iySSFbBnbixychu"
+     },
+     {
+      "name": "Gefahr im Spiegelkabinett",
+      "beschreibung": "Onkel Titus kauft ein altes Spiegelkabinett. Bei genauerer Inspektion hören die drei ??? Kids plötzlich rätselhafte Reime.Vielleicht kann der berühmte Rätselerfinder Mr Think helfen? Doch als Justus, Peter und Bob in seiner Villa ankommen, fehlt von ihm jede Spur... ",
+      "nummer": "91",
+      "spotify": "3cbOXb1xkJF65KRjBBqlmL"
+     }
   ]
 }

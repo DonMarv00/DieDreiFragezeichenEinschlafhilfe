@@ -51,4 +51,16 @@
     <string name="third_party_libraries">Drittanbieter Bibliotheken</string>
     <string name="kids">Kids</string>
     <string name="cb_privacy">Ich habe die Datenschutzerklärung gelesen und akzeptiere diese.</string>
+    <string name="cover">Cover</string>
+    <string name="expandablelayout">ExpandableLayout</string>
+    <string name="by_cachapa">von Cachapa</string>
+    <string name="contact_us">Kontaktiere uns</string>
+    <string name="open">Mehr Informationen</string>
+    <string name="by_bumptech">von Bump Technologies</string>
+    <string name="app_intro">AppIntro</string>
+    <string name="app_intro_team">vom AppIntro Team</string>
+    <string name="by_square">von Square</string>
+    <string name="okhttp">OkHttp</string>
+    <string name="kotlin_coroutines_okhttp">Coroutines OkHttp</string>
+    <string name="by_gildor">von Andrey Mischenko</string>
 </resources>

@@ -45,13 +45,15 @@
                     android:textColor="@color/white"
                     android:textSize="17sp"
                     android:textStyle="bold" />
-                <androidx.appcompat.widget.SwitchCompat
-                    android:layout_width="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:layout_alignParentEnd="true"
-                    android:checked="true"
+
+                <com.google.android.material.materialswitch.MaterialSwitch
                     android:id="@+id/sw_update_list"
-                    android:layout_height="wrap_content"/>
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    app:thumbTint="@drawable/thumb_style"
+                    android:layout_centerInParent="true"
+                    android:checked="true" />
             </RelativeLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -68,12 +70,14 @@
                     android:textColor="@color/white"
                     android:textSize="17sp"
                     android:textStyle="bold" />
-                <androidx.appcompat.widget.SwitchCompat
-                    android:layout_width="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:layout_alignParentEnd="true"
+
+                <com.google.android.material.materialswitch.MaterialSwitch
                     android:id="@+id/sw_use_spotify"
-                    android:layout_height="wrap_content"/>
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:thumbTint="@drawable/thumb_style"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerInParent="true" />
             </RelativeLayout>
 
             <TextView

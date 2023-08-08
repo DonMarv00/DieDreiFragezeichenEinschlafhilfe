@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var folgenListe : String
     var random : Int = 0
     /*
-       Copyright 2022 by Marvin Stelter
+       Copyright 2017 - 2023 by Marvin Stelter
      */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -120,12 +120,12 @@ class MainActivity : AppCompatActivity() {
            refresh()
         }
         binding.fabDescription.setOnClickListener {
-            val alert = AlertDialog.Builder(this)
+            val alert = MaterialAlertDialogBuilder(this, R.style.DialogTheme)
 
             alert.setTitle(getString(R.string.output, (episodeNumber + 1).toString(), episodeList[episodeNumber].name)
             )
             alert.setMessage(episodeList[episodeNumber].beschreibung)
-            alert.setNeutralButton(getString(R.string.close)) { dlg: DialogInterface, _: Int -> dlg.dismiss() }
+            alert.setNegativeButton(getString(R.string.close)) { dlg: DialogInterface, _: Int -> dlg.dismiss() }
             alert.show()
         }
         binding.fabLinks.setOnClickListener {
@@ -155,7 +155,7 @@ class MainActivity : AppCompatActivity() {
             }
 
 
-            val builder = MaterialAlertDialogBuilder(this)
+            val builder = MaterialAlertDialogBuilder(this, R.style.DialogTheme)
             builder.setTitle("Links:")
             builder.setItems(liste) { _: DialogInterface?, which: Int ->
                 var i = Intent(Intent.ACTION_VIEW)
@@ -350,8 +350,7 @@ class MainActivity : AppCompatActivity() {
         val spotify: String
     )
 
-    @SuppressLint("QueryPermissionsNeeded")
-    fun isSpotifyInstalled() : Boolean{
+    private fun isSpotifyInstalled() : Boolean{
         val packageManager: PackageManager = packageManager
         val intent = Intent(Intent.ACTION_VIEW)
         if (intent.resolveActivity(packageManager) != null) {
@@ -374,7 +373,7 @@ class MainActivity : AppCompatActivity() {
                     0 -> episodeNumber = (1..50).random()
                     1 -> episodeNumber = (1..100).random()
                     2 -> episodeNumber = (1..150).random()
-                    3 -> episodeNumber = (1..216).random()
+                    3 -> episodeNumber = (1..222).random()
                     4 -> episodeNumber = (1..7).random()
                     5 -> episodeNumber = 0
                     6 -> episodeNumber = (1..87).random()
