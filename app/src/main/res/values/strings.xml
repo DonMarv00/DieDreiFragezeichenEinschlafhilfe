@@ -63,4 +63,5 @@
     <string name="okhttp">OkHttp</string>
     <string name="kotlin_coroutines_okhttp">Coroutines OkHttp</string>
     <string name="by_gildor">von Andrey Mischenko</string>
+    <string name="kontakt">Kontakt</string>
 </resources>

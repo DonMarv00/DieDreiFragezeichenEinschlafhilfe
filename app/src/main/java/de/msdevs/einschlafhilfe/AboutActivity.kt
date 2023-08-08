@@ -5,7 +5,6 @@ import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import de.msdevs.einschlafhilfe.databinding.ActivityAboutBinding
 import net.cachapa.expandablelayout.ExpandableLayout
 
@@ -16,6 +15,7 @@ class AboutActivity : AppCompatActivity() {
     private lateinit var btnPrivacy : Button
     private lateinit var btnSource : Button
     private lateinit var btnLicenses : Button
+    private lateinit var btnContact : Button
     private lateinit var expandableLayout : ExpandableLayout
 
     //TODO: RecyclerView für die Libraries nutzen -> Neue Libraries können besser hinzugefügt werden
@@ -37,6 +37,7 @@ class AboutActivity : AppCompatActivity() {
         btnSource = binding.btnQuellcode
         btnLicenses = binding.btnLicense
         expandableLayout = binding.expandableLayout
+        btnContact = binding.btnContact
 
         //TODO: RecyclerView für die Libraries nutzen -> Neue Libraries können besser hinzugefügt werden
         btnCoOkHttp = binding.included.btnCoroutinesOkhttp
@@ -73,6 +74,14 @@ class AboutActivity : AppCompatActivity() {
         }
         btnAppIntro.setOnClickListener{
             opennUrl("https://github.com/AppIntro/AppIntro")
+        }
+        btnGlide.setOnClickListener {
+            val intent = Intent(Intent.ACTION_SENDTO)
+            intent.setData(Uri.parse("mailto:"))
+            intent.putExtra(Intent.EXTRA_EMAIL, arrayOf("stelter.developer@gmail.com"))
+            intent.putExtra(Intent.EXTRA_SUBJECT, "Kontaktanfrage: DDF Folgenauswahl")
+            intent.putExtra(Intent.EXTRA_TEXT, "Deine Nachricht hier...")
+            startActivity(intent)
         }
     }
     override fun onSupportNavigateUp(): Boolean {
