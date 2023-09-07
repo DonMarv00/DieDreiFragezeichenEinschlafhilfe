@@ -4,7 +4,7 @@
     <string name="string_folgen_1_150">1 – 150</string>
     <string name="string_folgen_1_100">1 – 100</string>
     <string name="string_folgen_1_50">1 – 50</string>
-    <string name="app_name_long">Die drei ??? - Einschlafhilfe</string>
+    <string name="app_name_long">Die drei ??? - Folgenauswahl Helfer</string>
     <string name="die_drei">Die Dr3i</string>
     <string name="neuvertonung">Anhören als Neuvertonung</string>
     <string name="informationen">Informationen auf rocky-beach.com</string>
@@ -64,4 +64,9 @@
     <string name="kotlin_coroutines_okhttp">Coroutines OkHttp</string>
     <string name="by_gildor">von Andrey Mischenko</string>
     <string name="kontakt">Kontakt</string>
+    <string name="theme">App Theme auswählen</string>
+    <string name="bob">Bob</string>
+    <string name="justus">Justus</string>
+    <string name="peter">Peter</string>
+    <string name="prefs_theme_key">theme</string>
 </resources>

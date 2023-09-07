@@ -13,8 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:layout_alignParentEnd="true"
-        app:backgroundTint="@color/colorPrimary"
-        app:tint="#FFFFFF"
+        app:backgroundTint="?attr/colorOnPrimary"
+        app:tint="?attr/colorOnSurface"
         android:layout_marginEnd="10dp"
         android:layout_above="@id/fab_description"
         android:layout_marginTop="10dp"
@@ -27,10 +27,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="60dp"
-        app:backgroundTint="@color/colorPrimary"
-        app:tint="#FFFFFF"
+        app:backgroundTint="?attr/colorOnPrimary"
+        app:tint="?attr/colorOnSurface"
         android:layout_alignParentEnd="true"
-        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp"
         android:layout_marginTop="10dp"
         android:clickable="true"
         app:srcCompat="@drawable/ic_refresh" />
@@ -39,10 +39,10 @@
         android:id="@+id/fab_description"
         android:layout_width="wrap_content"
         android:layout_above="@id/fab_refresh"
-        android:layout_marginRight="10dp"
-        app:backgroundTint="@color/colorPrimary"
-        app:tint="#FFFFFF"
-        android:layout_alignParentRight="true"
+        android:layout_marginEnd="10dp"
+        app:backgroundTint="?attr/colorOnPrimary"
+        app:tint="?attr/colorOnSurface"
+        android:layout_alignParentEnd="true"
         android:layout_height="wrap_content"
         android:clickable="true"
         app:srcCompat="@drawable/ic_text" />
@@ -81,15 +81,15 @@
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
         android:textStyle="bold"
-        android:textColor="@color/colorPrimary" />
+        android:textColor="?attr/colorOnPrimary" />
 
     <Button
         android:layout_width="wrap_content"
         android:id="@+id/btn_spotify"
         android:layout_below="@id/tv_details"
         android:layout_centerInParent="true"
-        android:textColor="#FFFFFF"
-        android:backgroundTint="@color/colorPrimary"
+        android:textColor="?attr/colorOnSurface"
+        android:backgroundTint="?attr/colorOnPrimary"
         android:text="@string/album_auf_spotify_anzeigen"
         android:layout_height="wrap_content"/>
 
@@ -103,20 +103,21 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_alignParentBottom="true"
-            android:background="@color/colorPrimary">
+            android:background="?attr/colorOnPrimary">
 
             <RelativeLayout
                 android:id="@+id/btn_left"
                 android:layout_width="35dp"
                 android:layout_height="50dp"
-                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
                 android:layout_centerInParent="true"
-                android:background="@color/colorPrimaryDark">
+                android:background="?attr/colorPrimary">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
+                    app:tint="?attr/colorOnSurface"
                     android:contentDescription="@string/cover"
                     app:srcCompat="@drawable/ic_left"
                     tools:ignore="ContentDescription" />
@@ -128,13 +129,14 @@
                 android:layout_height="50dp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerInParent="true"
-                android:background="@color/colorPrimaryDark">
+                android:background="?attr/colorPrimary">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:contentDescription=""
+                    app:tint="?attr/colorOnSurface"
                     app:srcCompat="@drawable/ic_right"
                     tools:ignore="ContentDescription" />
             </RelativeLayout>
@@ -155,7 +157,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:text="@string/string_folgen_1_50"
-                        android:textColor="#FFFFFF"
+                        android:textColor="?attr/colorOnSurface"
                         android:textSize="20sp"
                         android:textStyle="bold" />
                 </RelativeLayout>
@@ -169,7 +171,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:text="@string/string_folgen_1_100"
-                        android:textColor="#FFFFFF"
+                        android:textColor="?attr/colorOnPrimary"
                         android:textSize="20sp"
                         android:textStyle="bold" />
                 </RelativeLayout>
@@ -183,7 +185,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:text="@string/string_folgen_1_150"
-                        android:textColor="#FFFFFF"
+                        android:textColor="?attr/colorOnPrimary"
                         android:textSize="20sp"
                         android:textStyle="bold" />
                 </RelativeLayout>
@@ -197,7 +199,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:text="@string/alle_folgen"
-                        android:textColor="#FFFFFF"
+                        android:textColor="?attr/colorOnPrimary"
                         android:textSize="20sp"
                         android:textStyle="bold" />
                 </RelativeLayout>
@@ -211,7 +213,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:text="@string/die_drei"
-                        android:textColor="#FFFFFF"
+                        android:textColor="?attr/colorOnPrimary"
                         android:textSize="20sp"
                         android:textStyle="bold" />
                 </RelativeLayout>
@@ -225,7 +227,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:text="@string/benutzerdefiniert"
-                        android:textColor="#FFFFFF"
+                        android:textColor="?attr/colorOnPrimary"
                         android:textSize="20sp"
                         android:textStyle="bold" />
                 </RelativeLayout>
@@ -239,7 +241,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:text="@string/kids"
-                        android:textColor="#FFFFFF"
+                        android:textColor="?attr/colorOnPrimary"
                         android:textSize="20sp"
                         android:textStyle="bold" />
                 </RelativeLayout>

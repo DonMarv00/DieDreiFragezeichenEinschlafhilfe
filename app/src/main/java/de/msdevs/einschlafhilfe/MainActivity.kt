@@ -1,10 +1,12 @@
 package de.msdevs.einschlafhilfe
 
-import android.annotation.SuppressLint
+
+
 import android.content.DialogInterface
 import android.content.Intent
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
+import android.graphics.PorterDuff
 import android.net.ConnectivityManager
 import android.net.Uri
 import android.os.Bundle
@@ -12,14 +14,13 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import de.msdevs.einschlafhilfe.databinding.ActivityMainBinding
+import de.msdevs.einschlafhilfe.utils.Utility
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -31,7 +32,7 @@ import java.io.BufferedReader
 import java.io.IOException
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() { //Extends Base Activity
 
     private lateinit var binding: ActivityMainBinding
     private var urlExtraParameter = "folgen.json"
@@ -40,7 +41,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var sharedPreferencesEditor: SharedPreferences.Editor
     private lateinit var folgenListe : String
+    private var selectedTheme : Int = 0
     var random : Int = 0
+
     /*
        Copyright 2017 - 2023 by Marvin Stelter
      */
@@ -52,6 +55,8 @@ class MainActivity : AppCompatActivity() {
 
         sharedPreferences = getSharedPreferences(packageName,0)
         sharedPreferencesEditor = sharedPreferences.edit()
+
+
         if(sharedPreferences.getInt("first",0) == 0){
             sharedPreferencesEditor.putBoolean("update_list", true)
             sharedPreferencesEditor.putBoolean("spotify", false)
@@ -120,7 +125,12 @@ class MainActivity : AppCompatActivity() {
            refresh()
         }
         binding.fabDescription.setOnClickListener {
-            val alert = MaterialAlertDialogBuilder(this, R.style.DialogTheme)
+           var alert : MaterialAlertDialogBuilder
+           if(Utility.getTheme(this) == 4){
+               alert = MaterialAlertDialogBuilder(this, R.style.DialogThemeWhite)
+           }else{
+               alert = MaterialAlertDialogBuilder(this, R.style.DialogTheme)
+           }
 
             alert.setTitle(getString(R.string.output, (episodeNumber + 1).toString(), episodeList[episodeNumber].name)
             )
@@ -155,7 +165,15 @@ class MainActivity : AppCompatActivity() {
             }
 
 
-            val builder = MaterialAlertDialogBuilder(this, R.style.DialogTheme)
+
+
+            var builder : MaterialAlertDialogBuilder
+            if(Utility.getTheme(this) == 4){
+                builder = MaterialAlertDialogBuilder(this, R.style.DialogThemeWhite)
+            }else{
+                builder = MaterialAlertDialogBuilder(this, R.style.DialogTheme)
+            }
+
             builder.setTitle("Links:")
             builder.setItems(liste) { _: DialogInterface?, which: Int ->
                 var i = Intent(Intent.ACTION_VIEW)
@@ -284,7 +302,7 @@ class MainActivity : AppCompatActivity() {
                         }
                         when (binding.bottomBarViewFlipper.displayedChild) {
                             4 ->
-                                loadEpisodeCover(getString(R.string.cover_citroncode_dd_url) + (episodeNumber + 1) + ".jpg")
+                                loadEpisodeCover(getString(R.string.cover_citroncode_dd_url) + (episodeNumber + 1) + ".png")
                             else ->
                                 if(binding.bottomBarViewFlipper.displayedChild == 6) {
                                     loadEpisodeCover(getString(R.string.cover_citroncode_url) + "k" + (episodeNumber + 1) + ".png")
@@ -300,7 +318,7 @@ class MainActivity : AppCompatActivity() {
                                         binding.fabLinks.hide()
                                     }
                                     if(random == 3){
-                                        loadEpisodeCover(getString(R.string.cover_citroncode_dd_url) + (episodeNumber + 1) + ".jpg")
+                                        loadEpisodeCover(getString(R.string.cover_citroncode_dd_url) + (episodeNumber + 1) + ".png")
                                         binding.fabLinks.show()
                                     }
                                     if(random == 4){
@@ -402,5 +420,27 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        sharedPreferences = getSharedPreferences(packageName,0)
+        sharedPreferencesEditor = sharedPreferences.edit()
+
+        if (sharedPreferences.getInt("theme_changed",0) == 1) {
+            val intent = intent
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+            finish()
+            overridePendingTransition(0, 0)
+            startActivity(intent)
+            overridePendingTransition(0, 0)
+
+            sharedPreferencesEditor.putInt("theme_changed",0)
+            sharedPreferencesEditor.apply()
+        }
+    }
+
+    fun changeViewThemes(){
+
+    }
 }
 

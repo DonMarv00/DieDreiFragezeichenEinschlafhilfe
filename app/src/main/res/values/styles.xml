@@ -29,6 +29,68 @@
         <item name="colorOnSurfaceInverse">@color/colorAccent</item>
     </style>
 
+    <style name="AppThemeBlue" parent="Theme.Material3.Dark">
+        <!-- Customize your theme here. -->
+
+        <item name="colorPrimary">@color/colorPrimaryDarkBlue</item>
+        <item name="colorOnPrimary">@color/colorAccentBlue</item>
+
+
+        <item name="android:colorBackground">@color/colorPrimaryDarkBlue</item>
+        <item name="colorOnBackground">@color/colorPrimaryDarkBlue</item>
+        <item name="colorSurface">@color/colorPrimaryBlue</item>
+        <item name="colorOnSurface">@color/white</item>
+        <item name="colorOnSurfaceInverse">@color/colorAccentBlue</item>
+
+
+    </style>
+
+
+    <style name="AppThemeNoToolbarBlue" parent="Theme.Material3.Dark.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimaryDarkBlue</item>
+        <item name="colorOnPrimary">@color/colorAccentBlue</item>
+
+
+        <item name="android:colorBackground">@color/colorPrimaryDarkBlue</item>
+        <item name="colorOnBackground">@color/colorPrimaryDarkBlue</item>
+        <item name="colorSurface">@color/colorPrimaryBlue</item>
+        <item name="colorOnSurface">@color/white</item>
+        <item name="colorOnSurfaceInverse">@color/colorAccentBlue</item>
+    </style>
+
+
+    <style name="AppThemeWhite" parent="Theme.Material3.Dark">
+        <!-- Customize your theme here. -->
+
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <item name="android:colorBackground">@color/white</item>
+        <item name="colorOnBackground">@color/white</item>
+        <item name="colorSurface">@color/white</item>
+        <item name="colorOnSurface">@color/black</item>
+        <item name="colorOnSurfaceInverse">@color/white</item>
+        
+    </style>
+
+
+    <style name="AppThemeNoToolbarWhite" parent="Theme.Material3.Dark.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <item name="android:colorBackground">@color/white</item>
+        <item name="colorOnBackground">@color/white</item>
+        <item name="colorSurface">@color/white</item>
+        <item name="colorOnSurface">@color/black</item>
+        <item name="colorOnSurfaceInverse">@color/white</item>
+
+
+    </style>
+
+
+
     <style name="DialogTheme" parent="MaterialAlertDialog.MaterialComponents">
         <item name="materialAlertDialogTitleTextStyle">@style/AlertDialogTitleText</item>
         <item name="materialAlertDialogBodyTextStyle">@style/AlertDialogBodyText</item>
@@ -51,6 +113,32 @@
     <style name="AlertDialogBodyText" parent="MaterialAlertDialog.MaterialComponents.Body.Text">
         <item name="android:textColor">@android:color/white</item>
     </style>
+
+    <style name="DialogThemeWhite" parent="MaterialAlertDialog.MaterialComponents">
+        <item name="materialAlertDialogTitleTextStyle">@style/AlertDialogTitleTextWhite</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/AlertDialogBodyTextWhite</item>
+        <item name="buttonBarPositiveButtonStyle">@style/PositiveButtonStyleWhite</item>
+        <item name="buttonBarNegativeButtonStyle">@style/NegativeButtonStyleWhite</item>
+    </style>
+
+    <style name="PositiveButtonStyleWhite" parent="@style/Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="NegativeButtonStyleWhite" parent="@style/Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="AlertDialogTitleTextWhite" parent="MaterialAlertDialog.MaterialComponents.Title.Text">
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="AlertDialogBodyTextWhite" parent="MaterialAlertDialog.MaterialComponents.Body.Text">
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+
+
 
 
 </resources>

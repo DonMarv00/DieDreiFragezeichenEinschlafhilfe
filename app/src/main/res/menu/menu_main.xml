@@ -5,10 +5,12 @@
     <item android:title="@string/settings"
         app:showAsAction="ifRoom"
         android:id="@+id/action_settings"
+        app:iconTint="?attr/colorOnSurface"
         android:icon="@drawable/ic_settings"/>
     <item android:title="@string/settings"
         app:showAsAction="always"
         android:id="@+id/action_about"
+        app:iconTint="?attr/colorOnSurface"
         android:icon="@drawable/ic_about"/>
 
 </menu>

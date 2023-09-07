@@ -5,234 +5,392 @@
     android:background="@color/black"
     android:layout_height="match_parent">
 
-    <androidx.cardview.widget.CardView
+    <ScrollView
         android:layout_width="match_parent"
-        app:cardCornerRadius="8dp"
-        android:id="@+id/cv_privacy_settings"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        app:cardBackgroundColor="@color/dark_grey"
-        android:layout_height="wrap_content">
-        <LinearLayout
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp">
-
-                <TextView
-                    android:id="@+id/tv_update_list"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_centerInParent="true"
-                    android:layout_marginStart="10dp"
-                    android:text="@string/update_list"
-                    android:textColor="@color/white"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
-
-                <com.google.android.material.materialswitch.MaterialSwitch
-                    android:id="@+id/sw_update_list"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerInParent="true"
-                    app:thumbTint="@drawable/thumb_style"
-                    android:checked="true" />
-            </RelativeLayout>
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp">
-
-                <TextView
-                    android:id="@+id/tv_spotify"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_centerInParent="true"
-                    android:layout_marginStart="10dp"
-                    android:text="@string/use_spotify"
-                    android:textColor="@color/white"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
-
-                <com.google.android.material.materialswitch.MaterialSwitch
-                    android:id="@+id/sw_use_spotify"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerInParent="true"
-                    app:thumbTint="@drawable/thumb_style" />
-            </RelativeLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:text="@string/intro_data"
-                android:layout_marginBottom="10dp"
-                android:textColor="@color/white"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        app:cardCornerRadius="8dp"
-        app:cardBackgroundColor="@color/dark_grey"
-        android:layout_width="match_parent"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_below="@id/cv_privacy_settings"
-        android:layout_marginTop="10dp"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:layout_marginTop="10dp"
-                android:id="@+id/tv_cst_header"
-                android:layout_marginStart="10dp"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:text="@string/benutzerdefinierte_einstellungen"/>
 
-            <TextView
-                android:id="@+id/tv_cst_desc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tv_cst_header"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
-                android:text="@string/hier_kannst_du_nun_ausw_hlen_welche_folgen_du_h_ren_mochtest_in_welchen_bereicht_diese_liegen_sollen_und_ob_sonderfolgen_auch_angezeigt_werden_sollen"
-                android:textColor="@color/white" />
-
-
-            <LinearLayout
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tv_cst_desc"
-                android:layout_marginStart="10dp"
+                app:cardCornerRadius="8dp"
+                android:id="@+id/cv_privacy_settings"
                 android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                    android:text="@string/die_drei_fragezeichen"
-                    android:textColor="@color/white" />
-
-                <RelativeLayout
+                app:cardBackgroundColor="@color/dark_grey"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:id="@+id/rlDDF"
                     android:layout_height="wrap_content">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp">
+
+                        <TextView
+                            android:id="@+id/tv_update_list"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerInParent="true"
+                            android:layout_marginStart="10dp"
+                            android:text="@string/update_list"
+                            android:textColor="@color/white"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
+
+                        <com.google.android.material.materialswitch.MaterialSwitch
+                            android:id="@+id/sw_update_list"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerInParent="true"
+                            android:checked="true" />
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp">
+
+                        <TextView
+                            android:id="@+id/tv_spotify"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerInParent="true"
+                            android:layout_marginStart="10dp"
+                            android:text="@string/use_spotify"
+                            android:textColor="@color/white"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
+
+                        <com.google.android.material.materialswitch.MaterialSwitch
+                            android:id="@+id/sw_use_spotify"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerInParent="true" />
+                    </RelativeLayout>
 
                     <TextView
-                        android:id="@+id/tvStart"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:layout_centerInParent="true"
-                        android:layout_marginStart="5dp"
-                        android:textColor="@color/white"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <com.google.android.material.slider.RangeSlider
-                        android:id="@+id/rangeSlider"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
-                        android:layout_toStartOf="@id/tvEnd"
-                        android:layout_toEndOf="@id/tvStart"
-                        android:valueFrom="1"
-                        android:valueTo="222"
-                        app:labelBehavior="gone"
-                        app:thumbColor="@color/colorPrimary"
-                        app:thumbStrokeColor="@color/white"
-                        app:trackColorActive="@color/colorPrimary"
-                        app:trackColorInactive="@color/white" />
-
-                    <TextView
-                        android:id="@+id/tvEnd"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerInParent="true"
-                        android:layout_marginEnd="5dp"
+                        android:text="@string/intro_data"
+                        android:layout_marginBottom="10dp"
                         android:textColor="@color/white"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-                </RelativeLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                    android:text="@string/die_drei_fragezeichen_kids"
-                    android:textColor="@color/white" />
-
+            <androidx.cardview.widget.CardView
+                app:cardCornerRadius="8dp"
+                app:cardBackgroundColor="@color/dark_grey"
+                android:layout_width="match_parent"
+                android:id="@+id/cv_custom_settings"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_below="@id/cv_privacy_settings"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content">
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:id="@+id/rlKids"
-                    android:layout_height="wrap_content">
-
+                    android:layout_height="match_parent">
                     <TextView
-                        android:id="@+id/tvStartKids"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:layout_centerInParent="true"
-                        android:layout_marginStart="5dp"
                         android:textColor="@color/white"
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/tv_cst_header"
+                        android:layout_marginStart="10dp"
                         android:textSize="20sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:text="@string/benutzerdefinierte_einstellungen"/>
 
-                    <com.google.android.material.slider.RangeSlider
-                        android:id="@+id/rangeSliderKids"
+                    <TextView
+                        android:id="@+id/tv_cst_desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_cst_header"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/hier_kannst_du_nun_ausw_hlen_welche_folgen_du_h_ren_mochtest_in_welchen_bereicht_diese_liegen_sollen_und_ob_sonderfolgen_auch_angezeigt_werden_sollen"
+                        android:textColor="@color/white" />
+
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
+                        android:layout_below="@id/tv_cst_desc"
                         android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
                         android:layout_marginEnd="10dp"
-                        android:layout_toStartOf="@id/tvEndKids"
-                        android:layout_toEndOf="@id/tvStartKids"
-                        android:valueFrom="1"
-                        android:valueTo="87"
-                        app:labelBehavior="gone"
-                        app:thumbColor="@color/colorPrimary"
-                        app:thumbStrokeColor="@color/white"
-                        app:trackColorActive="@color/colorPrimary"
-                        app:trackColorInactive="@color/white" />
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:text="@string/die_drei_fragezeichen"
+                            android:textColor="@color/white" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:id="@+id/rlDDF"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/tvStart"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:layout_centerInParent="true"
+                                android:layout_marginStart="5dp"
+                                android:textColor="@color/white"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
+
+                            <com.google.android.material.slider.RangeSlider
+                                android:id="@+id/rangeSlider"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_toStartOf="@id/tvEnd"
+                                android:layout_toEndOf="@id/tvStart"
+                                android:valueFrom="1"
+                                android:valueTo="222"
+                                app:labelBehavior="gone"
+                                app:thumbColor="?attr/colorOnPrimary"
+                                app:thumbStrokeColor="@color/white"
+                                app:trackColorActive="?attr/colorOnPrimary"
+                                app:trackColorInactive="@color/white" />
+
+                            <TextView
+                                android:id="@+id/tvEnd"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerInParent="true"
+                                android:layout_marginEnd="5dp"
+                                android:textColor="@color/white"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
+
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:text="@string/die_drei_fragezeichen_kids"
+                            android:textColor="@color/white" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:id="@+id/rlKids"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/tvStartKids"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:layout_centerInParent="true"
+                                android:layout_marginStart="5dp"
+                                android:textColor="@color/white"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
+
+                            <com.google.android.material.slider.RangeSlider
+                                android:id="@+id/rangeSliderKids"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_toStartOf="@id/tvEndKids"
+                                android:layout_toEndOf="@id/tvStartKids"
+                                android:valueFrom="1"
+                                android:valueTo="87"
+                                app:labelBehavior="gone"
+                                app:thumbColor="?attr/colorOnPrimary"
+                                app:thumbStrokeColor="@color/white"
+                                app:trackColorActive="?attr/colorOnPrimary"
+                                app:trackColorInactive="@color/white" />
+
+                            <TextView
+                                android:id="@+id/tvEndKids"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerInParent="true"
+                                android:layout_marginEnd="5dp"
+                                android:textColor="@color/white"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
+
+                        </RelativeLayout>
+                    </LinearLayout>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                app:cardCornerRadius="8dp"
+                app:cardBackgroundColor="@color/dark_grey"
+                android:layout_width="match_parent"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_below="@id/cv_custom_settings"
+                android:layout_marginTop="10dp"
+                android:layout_height="200dp">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/tvEndKids"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerInParent="true"
-                        android:layout_marginEnd="5dp"
                         android:textColor="@color/white"
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/tv_theme_header"
+                        android:layout_marginStart="10dp"
                         android:textSize="20sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:text="@string/theme"/>
 
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:id="@+id/rl_justus"
+                                android:layout_height="wrap_content">
+                                <ImageView
+                                    android:id="@+id/iv_justus"
+                                    android:layout_width="80dp"
+                                    android:layout_height="80dp"
+                                    android:src="@drawable/ic_circle"
+                                    app:tint="@color/white" />
+
+                                <ImageView
+                                    android:id="@+id/iv_check_justus"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:visibility="gone"
+                                    android:layout_centerInParent="true"
+                                    android:src="@drawable/ic_check_theme_out" />
+                            </RelativeLayout>
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/rl_justus"
+                                android:layout_centerInParent="true"
+                                android:text="@string/justus"
+                                android:textColor="@color/white"
+                                android:textStyle="bold" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:id="@+id/rl_bob"
+                                android:layout_height="wrap_content">
+                                <ImageView
+                                    android:id="@+id/iv_bob"
+                                    android:layout_width="80dp"
+                                    android:layout_height="80dp"
+                                    android:src="@drawable/ic_circle"
+                                    app:tint="@color/colorPrimary" />
+
+                                <ImageView
+                                    android:id="@+id/iv_check_bob"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:visibility="gone"
+                                    android:src="@drawable/ic_check_theme_out"
+                                    app:tint="@color/white" />
+                            </RelativeLayout>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/rl_bob"
+                                android:layout_centerInParent="true"
+                                android:text="@string/bob"
+                                android:textColor="@color/white"
+                                android:textStyle="bold" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:id="@+id/rl_peter"
+                                android:layout_height="wrap_content">
+                                <ImageView
+                                    android:id="@+id/iv_peter"
+                                    android:layout_width="80dp"
+                                    android:layout_height="80dp"
+                                    android:src="@drawable/ic_circle"
+                                    app:tint="@color/blue" />
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:id="@+id/iv_check_peter"
+                                    android:visibility="gone"
+                                    android:src="@drawable/ic_check_theme_out"
+                                    app:tint="@color/white" />
+                            </RelativeLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/rl_peter"
+                                android:layout_centerInParent="true"
+                                android:text="@string/peter"
+                                android:textColor="@color/white"
+                                android:textStyle="bold" />
+                        </RelativeLayout>
+
+                    </LinearLayout>
                 </RelativeLayout>
-            </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
         </RelativeLayout>
-    </androidx.cardview.widget.CardView>
+    </ScrollView>
+
+
+
 
 </RelativeLayout>

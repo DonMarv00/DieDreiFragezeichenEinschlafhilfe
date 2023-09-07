@@ -4,12 +4,11 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
-import androidx.appcompat.app.AppCompatActivity
 import de.msdevs.einschlafhilfe.databinding.ActivityAboutBinding
 import net.cachapa.expandablelayout.ExpandableLayout
 
 
-class AboutActivity : AppCompatActivity() {
+class AboutActivity : BaseActivity() {
 
     private lateinit var binding : ActivityAboutBinding
     private lateinit var btnPrivacy : Button
@@ -75,7 +74,7 @@ class AboutActivity : AppCompatActivity() {
         btnAppIntro.setOnClickListener{
             opennUrl("https://github.com/AppIntro/AppIntro")
         }
-        btnGlide.setOnClickListener {
+        btnContact.setOnClickListener {
             val intent = Intent(Intent.ACTION_SENDTO)
             intent.setData(Uri.parse("mailto:"))
             intent.putExtra(Intent.EXTRA_EMAIL, arrayOf("stelter.developer@gmail.com"))

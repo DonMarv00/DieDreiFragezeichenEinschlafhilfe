@@ -1,19 +1,29 @@
 package de.msdevs.einschlafhilfe
 
 
+import android.R
+import android.content.Intent
 import android.content.SharedPreferences
+import android.content.res.ColorStateList
+import android.content.res.Resources
+import android.graphics.Color
 import android.os.Bundle
+import android.view.View
+import android.widget.ImageView
+import android.widget.RelativeLayout
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.SwitchCompat
+import androidx.appcompat.content.res.AppCompatResources
+import com.google.android.material.materialswitch.MaterialSwitch
 import com.google.android.material.slider.RangeSlider
 import de.msdevs.einschlafhilfe.databinding.ActivitySettingsBinding
+import de.msdevs.einschlafhilfe.utils.Utility
 
-class SettingsActivity : AppCompatActivity() {
+
+class SettingsActivity : BaseActivity() {
 
     lateinit var binding : ActivitySettingsBinding
-    lateinit var switchSpotify : SwitchCompat
-    lateinit var switchUpdatelist : SwitchCompat
+    lateinit var switchSpotify : MaterialSwitch
+    lateinit var switchUpdatelist : MaterialSwitch
     lateinit var sharedPreferences: SharedPreferences
     lateinit var sharedPreferencesEditor: SharedPreferences.Editor
     lateinit var rangeSlider : RangeSlider
@@ -22,6 +32,13 @@ class SettingsActivity : AppCompatActivity() {
     lateinit var tvStartK : TextView
     lateinit var tvEnd: TextView
     lateinit var tvEndK : TextView
+    lateinit var selectedTheme : String
+    lateinit var ivCheckJustus : ImageView
+    lateinit var ivCheckBob : ImageView
+    lateinit var ivCheckPeter : ImageView
+    lateinit var rlJustus : RelativeLayout
+    lateinit var rlBob : RelativeLayout
+    lateinit var rlPeter: RelativeLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,18 +47,7 @@ class SettingsActivity : AppCompatActivity() {
         setContentView(view)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        sharedPreferences = getSharedPreferences(packageName,0)
-        sharedPreferencesEditor = sharedPreferences.edit()
-
-        switchSpotify = binding.swUseSpotify
-        switchUpdatelist = binding.swUpdateList
-
-        rangeSlider = binding.rangeSlider
-        rangeSliderKids = binding.rangeSliderKids
-        tvStart = binding.tvStart
-        tvStartK = binding.tvStartKids
-        tvEnd = binding.tvEnd
-        tvEndK = binding.tvEndKids
+        iniViews()
 
         switchSpotify.isChecked = sharedPreferences.getBoolean("spotify",false)
         switchUpdatelist.isChecked = sharedPreferences.getBoolean("update_list",false)
@@ -118,6 +124,77 @@ class SettingsActivity : AppCompatActivity() {
                 sharedPreferencesEditor.apply()
             }
         })
+
+
+        rlJustus.setOnClickListener{
+            selectedTheme = "justus"
+            loadThemeSettings()
+
+            Utility.setTheme(applicationContext, 4);
+            recreateActivity();
+        }
+        rlBob.setOnClickListener{
+            selectedTheme = "bob"
+            loadThemeSettings()
+
+            Utility.setTheme(applicationContext, 2);
+            recreateActivity();
+        }
+        rlPeter.setOnClickListener{
+            selectedTheme = "peter"
+            loadThemeSettings()
+
+            Utility.setTheme(applicationContext, 3);
+            recreateActivity();
+        }
+    }
+    fun iniViews(){
+        sharedPreferences = getSharedPreferences(packageName,0)
+        sharedPreferencesEditor = sharedPreferences.edit()
+        selectedTheme = sharedPreferences.getString("selected_theme","").toString()
+
+        switchSpotify = binding.swUseSpotify
+        switchUpdatelist = binding.swUpdateList
+
+        rangeSlider = binding.rangeSlider
+        rangeSliderKids = binding.rangeSliderKids
+        tvStart = binding.tvStart
+        tvStartK = binding.tvStartKids
+        tvEnd = binding.tvEnd
+        tvEndK = binding.tvEndKids
+        ivCheckJustus = binding.ivCheckJustus
+        ivCheckPeter = binding.ivCheckPeter
+        ivCheckBob = binding.ivCheckBob
+
+        rlJustus = binding.rlJustus
+        rlBob = binding.rlBob
+        rlPeter = binding.rlPeter
+
+        loadThemeSettings()
+
+        changeViewThemes()
+    }
+    fun loadThemeSettings(){
+        sharedPreferencesEditor.putString("selected_theme",selectedTheme)
+        sharedPreferencesEditor.putInt("theme_changed",1)
+        sharedPreferencesEditor.apply()
+
+        if(selectedTheme.length == 0 || selectedTheme == "bob"){
+           ivCheckBob.visibility = View.VISIBLE
+
+            ivCheckPeter.visibility = View.GONE
+            ivCheckJustus.visibility = View.GONE
+        }else if(selectedTheme == "justus"){
+            ivCheckJustus.visibility = View.VISIBLE
+
+            ivCheckPeter.visibility = View.GONE
+            ivCheckBob.visibility = View.GONE
+        }else if(selectedTheme == "peter"){
+            ivCheckPeter.visibility = View.VISIBLE
+
+            ivCheckBob.visibility = View.GONE
+            ivCheckJustus.visibility = View.GONE
+        }
     }
     fun String.floatToInt(): Int {
         return this.toFloat().toInt()
@@ -125,6 +202,70 @@ class SettingsActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true
+    }
+    fun recreateActivity() {
+        val intent = intent
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+        finish()
+        overridePendingTransition(0, 0)
+        startActivity(intent)
+        overridePendingTransition(0, 0)
+
+
+    }
+
+    fun changeViewThemes(){
+        if(Utility.getTheme(this) == 4){
+           // switchUpdatelist.thumbDrawable = getDrawable(R.drawable.thumb_style_white)
+
+            val thumbTintSelector = ColorStateList(
+                arrayOf(
+                    intArrayOf(android.R.attr.state_checked),
+                    intArrayOf(-android.R.attr.state_checked)
+                ),
+                intArrayOf(
+                    // Color when the switch is checked
+                    Color.parseColor("#000000"),
+                    // Color when the switch is unchecked
+                    Color.parseColor("#938F99")
+                )
+            )
+            switchUpdatelist.thumbTintList = thumbTintSelector
+            switchSpotify.thumbTintList = thumbTintSelector
+
+        }else if(Utility.getTheme(this) == 2){
+
+            val thumbTintSelector = ColorStateList(
+                arrayOf(
+                    intArrayOf(android.R.attr.state_checked),
+                    intArrayOf(-android.R.attr.state_checked)
+                ),
+                intArrayOf(
+                    // Color when the switch is checked
+                    Color.parseColor("#d50000"),
+                    // Color when the switch is unchecked
+                    Color.parseColor("#938F99")
+                )
+            )
+            switchUpdatelist.thumbTintList = thumbTintSelector
+            switchSpotify.thumbTintList = thumbTintSelector
+        }else if(Utility.getTheme(this) == 3){
+            val thumbTintSelector = ColorStateList(
+                arrayOf(
+                    intArrayOf(android.R.attr.state_checked),
+                    intArrayOf(-android.R.attr.state_checked)
+                ),
+                intArrayOf(
+                    // Color when the switch is checked
+                    Color.parseColor("#0048FF"),
+                    // Color when the switch is unchecked
+                    Color.parseColor("#938F99")
+                )
+            )
+            switchUpdatelist.thumbTintList = thumbTintSelector
+            switchSpotify.thumbTintList = thumbTintSelector
+        }
+
     }
 }
 

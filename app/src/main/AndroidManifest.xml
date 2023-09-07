@@ -42,7 +42,6 @@
             android:label="@string/about" />
 
 
-
     </application>
     <queries>
         <package android:name="com.spotify.music" />

@@ -9,8 +9,8 @@ android {
         applicationId "de.msdevs.einschlafhilfe"
         minSdkVersion 26
         targetSdkVersion 33
-        versionCode 46
-        versionName "4.2"
+        versionCode 48
+        versionName "4.3"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
