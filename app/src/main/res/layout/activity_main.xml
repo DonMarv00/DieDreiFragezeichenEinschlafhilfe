@@ -171,7 +171,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:text="@string/string_folgen_1_100"
-                        android:textColor="?attr/colorOnPrimary"
+                        android:textColor="?attr/colorOnSurface"
                         android:textSize="20sp"
                         android:textStyle="bold" />
                 </RelativeLayout>
@@ -185,7 +185,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:text="@string/string_folgen_1_150"
-                        android:textColor="?attr/colorOnPrimary"
+                        android:textColor="?attr/colorOnSurface"
                         android:textSize="20sp"
                         android:textStyle="bold" />
                 </RelativeLayout>
@@ -199,7 +199,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:text="@string/alle_folgen"
-                        android:textColor="?attr/colorOnPrimary"
+                        android:textColor="?attr/colorOnSurface"
                         android:textSize="20sp"
                         android:textStyle="bold" />
                 </RelativeLayout>
@@ -213,7 +213,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:text="@string/die_drei"
-                        android:textColor="?attr/colorOnPrimary"
+                        android:textColor="?attr/colorOnSurface"
                         android:textSize="20sp"
                         android:textStyle="bold" />
                 </RelativeLayout>
@@ -227,7 +227,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:text="@string/benutzerdefiniert"
-                        android:textColor="?attr/colorOnPrimary"
+                        android:textColor="?attr/colorOnSurface"
                         android:textSize="20sp"
                         android:textStyle="bold" />
                 </RelativeLayout>
@@ -241,7 +241,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:text="@string/kids"
-                        android:textColor="?attr/colorOnPrimary"
+                        android:textColor="?attr/colorOnSurface"
                         android:textSize="20sp"
                         android:textStyle="bold" />
                 </RelativeLayout>
