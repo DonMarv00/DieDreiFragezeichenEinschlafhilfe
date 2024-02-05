@@ -1331,6 +1331,24 @@
       "beschreibung": "Schneller als Peter Shaw gucken kann, wird er in einen heiklen Fall verwickelt: Zufällig hört er, wie seine Mathe-Lehrerin Ms Blunt ein dubiöses Telefonat führt. Als gewissenhafter Detektiv heftet er sich an die Fersen der Lehrerin und findet heraus, dass die unauffällige Frau ein dunkles Geheimnis hat. Die drei ??? begeben sich auf einen Roadtrip durch die kalifornische Prärie und auf die Spur skrupelloser Kopfgeldjäger!",
       "nummer": "222",
       "spotify": "https://open.spotify.com/album/3o2Gwvg8lqLNRnlV1v1s5K"
-     }
+     },
+     {
+      "name": "Die drei Fragezeichen und der Knochenmann",
+      "beschreibung": "Eine Frau verschwindet nach einem Erdbeben plötzlich spurlos. Was ist mit ihr geschehen? Die drei ??? begeben sich auf eine gefährliche Suche. Die junge Schneiderin Maya erscheint nicht zur Arbeit am Camelot Theatre. Justus, Peter und Bob haben den Verdacht, dass das Rätsel, das die Theaterleitung veranstaltet, etwas damit zu tun hat. Denn ein hohes Preisgeld ist zu gewinnen. Ist des Rätsels Lösung auch die Spur zu Maya? Die drei Detektive ermitteln, während erneut die Erde bebt ...  ",
+      "nummer": "223",
+      "spotify": "https://open.spotify.com/album/451jKBwuSNrNgLlqEAZfra"
+     },
+     {
+      "name": "Die drei Fragezeichen - Die Yacht des Verrats",
+      "beschreibung": "Justus Jonas ist einmalig – oder etwa nicht? Unerwarteter Besuch und ein Diebstahl führen die drei ??? auf die Yacht des Verrats. Justus, Peter und Bob trauen ihren Augen kaum, als ihnen Ian Carew wieder gegenübersteht. Ein alter Fall verbindet die Detektive mit dem Sohn des ehemaligen Premierministers von Nanda. Kein Wunder, dass Ian erneut ihre Hilfe sucht. Er ist im   Auftrag seines Landes in Rocky Beach, doch jemand verfolgt ihn und in sein Hotelzimmer wurde eingebrochen. Können die drei ??? ihrem Freund helfen? ",
+      "nummer": "224",
+      "spotify": "https://open.spotify.com/album/7JhdaReI98XYFrzb3jJPFa"
+      },
+      {
+       "name": "Die drei Fragezeichen und der Puppenmacher",
+       "beschreibung": "Schaurige Maispuppen, Schüsse und verurteilte Verbrecher – keine guten Vorzeichen für eine Hochzeit. Die drei ??? geben ihr Bestes, um das Fest zu retten. Deep Spring, ein verschlafener Ort in der Wüste von Arizona: Die drei ??? reisen an, um die Hochzeit eines alten Bekannten zu besuchen. Doch während die Vorbereitungen in vollem Gange sind, pflastern unheimliche Puppen den Weg der Detektive. Als sie schließlich ein Hochzeitspaar aus Mais, aufgehängt im Gebälk, entdecken, bekommt nicht nur die Braut kalte Füße. Können Justus, Peter und Bob die seltsamen Geschehnisse aufklären? ",
+       "nummer": "225",
+       "spotify": "https://open.spotify.com/album/0FuC7q4bJG41g1naKBx4ot"
+      }
   ]
 }

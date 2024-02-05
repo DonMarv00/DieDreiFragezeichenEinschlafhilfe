@@ -164,7 +164,7 @@
                                 android:layout_toStartOf="@id/tvEnd"
                                 android:layout_toEndOf="@id/tvStart"
                                 android:valueFrom="1"
-                                android:valueTo="222"
+                                android:valueTo="225"
                                 app:labelBehavior="gone"
                                 app:thumbColor="?attr/colorOnPrimary"
                                 app:thumbStrokeColor="@color/white"

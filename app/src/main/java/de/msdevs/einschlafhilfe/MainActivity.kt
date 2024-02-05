@@ -6,7 +6,6 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
-import android.graphics.PorterDuff
 import android.net.ConnectivityManager
 import android.net.Uri
 import android.os.Bundle
@@ -80,14 +79,14 @@ class MainActivity : BaseActivity() { //Extends Base Activity
         }
 
         binding.btnLeft.setOnClickListener {
-            binding.bottomBarViewFlipper.setOutAnimation(this, R.anim.anim_flipper_item_in_right)
-            binding.bottomBarViewFlipper.setInAnimation(this, R.anim.anim_flipper_item_out_left)
+            binding.bottomBarViewFlipper.setInAnimation(this, R.anim.anim_flipper_item_in_right)
+            binding.bottomBarViewFlipper.setOutAnimation(this, R.anim.anim_flipper_item_out_left)
             binding.bottomBarViewFlipper.showPrevious()
             refresh()
         }
         binding.btnRight.setOnClickListener {
-            binding.bottomBarViewFlipper.setInAnimation(this, R.anim.anim_flipper_item_in_right)
-            binding.bottomBarViewFlipper.setOutAnimation(this, R.anim.anim_flipper_item_out_left)
+            binding.bottomBarViewFlipper.setInAnimation(this, R.anim.anim_flipper_item_in_left) //right
+            binding.bottomBarViewFlipper.setOutAnimation(this, R.anim.anim_flipper_item_out_right)
             binding.bottomBarViewFlipper.showNext()
             refresh()
         }
@@ -164,10 +163,7 @@ class MainActivity : BaseActivity() { //Extends Base Activity
                 }
             }
 
-
-
-
-            var builder : MaterialAlertDialogBuilder
+            val builder : MaterialAlertDialogBuilder
             if(Utility.getTheme(this) == 4){
                 builder = MaterialAlertDialogBuilder(this, R.style.DialogThemeWhite)
             }else{
@@ -439,8 +435,5 @@ class MainActivity : BaseActivity() { //Extends Base Activity
         }
     }
 
-    fun changeViewThemes(){
-
-    }
 }
 

@@ -3,14 +3,14 @@ apply plugin: 'kotlin-android'
 
 android {
 
-    compileSdkVersion 33
+    compileSdkVersion 34
 
     defaultConfig {
         applicationId "de.msdevs.einschlafhilfe"
         minSdkVersion 26
-        targetSdkVersion 33
-        versionCode 48
-        versionName "4.3"
+        targetSdkVersion 34
+        versionCode 50
+        versionName "5.1"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -23,7 +23,18 @@ android {
     buildFeatures{
         viewBinding true
     }
+
+
     namespace 'de.msdevs.einschlafhilfe'
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
 }
 
 dependencies {
@@ -34,11 +45,11 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.15.1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.14.2'
     implementation 'com.github.cachapa:ExpandableLayout:2.9.2'
-    implementation "androidx.core:core-ktx:1.8.0"
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.4.1"
+    implementation "androidx.core:core-ktx:1.12.0"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.7.0"
     implementation("ru.gildor.coroutines:kotlin-coroutines-okhttp:1.0")
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.github.AppIntro:AppIntro:6.2.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.9.10"
+    implementation 'com.github.AppIntro:AppIntro:6.3.1'
 }
 repositories {
     mavenCentral()
