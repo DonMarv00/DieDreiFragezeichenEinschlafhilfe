@@ -6,7 +6,6 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
-import android.net.ConnectivityManager
 import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
@@ -19,6 +18,8 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import de.msdevs.einschlafhilfe.databinding.ActivityMainBinding
+import de.msdevs.einschlafhilfe.models.JsonResponse
+import de.msdevs.einschlafhilfe.utils.NetworkUtils
 import de.msdevs.einschlafhilfe.utils.Utility
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -31,7 +32,7 @@ import java.io.BufferedReader
 import java.io.IOException
 
 
-class MainActivity : BaseActivity() { //Extends Base Activity
+class MainActivity : BaseActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private var urlExtraParameter = "folgen.json"
@@ -41,11 +42,13 @@ class MainActivity : BaseActivity() { //Extends Base Activity
     private lateinit var sharedPreferencesEditor: SharedPreferences.Editor
     private lateinit var folgenListe : String
     private var selectedTheme : Int = 0
-    var random : Int = 0
+    private lateinit var networkUtils: NetworkUtils
+    private var random : Int = 0
 
     /*
-       Copyright 2017 - 2023 by Marvin Stelter
+       Copyright 2017 - 2024 by Marvin Stelter
      */
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -54,7 +57,7 @@ class MainActivity : BaseActivity() { //Extends Base Activity
 
         sharedPreferences = getSharedPreferences(packageName,0)
         sharedPreferencesEditor = sharedPreferences.edit()
-
+        networkUtils = NetworkUtils()
 
         if(sharedPreferences.getInt("first",0) == 0){
             sharedPreferencesEditor.putBoolean("update_list", true)
@@ -235,7 +238,7 @@ class MainActivity : BaseActivity() { //Extends Base Activity
                 when {
                     episodeList.isEmpty() -> {
 
-                        if(sharedPreferences.getBoolean("update_list",false) && isConnected()){
+                        if(sharedPreferences.getBoolean("update_list",false) && networkUtils.isConnected(this)){
                             val client = OkHttpClient.Builder().build()
                             val request =
                                 Request.Builder().url(getString(R.string.base_url) + urlExtraParameter)
@@ -351,19 +354,13 @@ class MainActivity : BaseActivity() { //Extends Base Activity
         return url
     }
     private fun loadEpisodeCover(coverUrl : String){
-       if(isConnected() && sharedPreferences.getBoolean("update_list",false)){
+       if(networkUtils.isConnected(this) && sharedPreferences.getBoolean("update_list",false)){
            Glide.with(this)
                .load(coverUrl)
                .diskCacheStrategy(DiskCacheStrategy.ALL)
                .into(binding.ivCover)
        }
     }
-    class JsonResponse(
-        val name: String,
-        val beschreibung: String,
-        val spotify: String
-    )
-
     private fun isSpotifyInstalled() : Boolean{
         val packageManager: PackageManager = packageManager
         val intent = Intent(Intent.ACTION_VIEW)
@@ -375,10 +372,6 @@ class MainActivity : BaseActivity() { //Extends Base Activity
             }
         }
         return false
-    }
-    private fun isConnected() : Boolean{
-        val currentNetwork = getSystemService(ConnectivityManager::class.java).activeNetwork
-        return currentNetwork != null
     }
     private fun refresh(){
         lifecycleScope.launch {

@@ -37,8 +37,8 @@
     <string name="about_long">Die Einschlafhilfe App schlägt dir Folgen der drei Detektive aus Rocky Beach vor.</string>
     <string name="die_drei_fragezeichen_kids">Die Drei Fragezeichen Kids</string>
     <string name="die_dr3i">Die Dr3i</string>
-    <string name="die_drei_fragezeichen_sonderfolgen">Die Drei Fragezeichen Sonderfolgen</string>
-    <string name="die_drei_fragezeichen_kids_sonderfolgen">Die Drei Fragezeichen Kids Sonderfolgen</string>
+    <string name="die_drei_fragezeichen_sonderfolgen">Die drei ??? Sonderfolgen</string>
+    <string name="die_drei_fragezeichen_kids_sonderfolgen">Die drei ??? Kids Sonderfolgen</string>
     <string name="benutzerdefinierte_einstellungen">Benutzerdefinierte Einstellungen</string>
     <string name="hier_kannst_du_nun_ausw_hlen_welche_folgen_du_h_ren_mochtest_in_welchen_bereicht_diese_liegen_sollen_und_ob_sonderfolgen_auch_angezeigt_werden_sollen">Hier kannst du den Bereich selber anpassen um Folgen vorgeschlagen zu bekommen.</string>
     <string name="die_drei_fragezeichen">Die Drei Fragezeichen</string>
@@ -69,4 +69,11 @@
     <string name="justus">Justus</string>
     <string name="peter">Peter</string>
     <string name="prefs_theme_key">theme</string>
+    <string name="die_drei_sonderfolgen">Die drei ??? Sonderfolgen</string>
+    <string name="die_drei_kids_sonderfolgen">Die drei ??? Kids Sonderfolgen</string>
+    <string name="die_drei_h_rb_cher">Die drei ??? Hörbücher</string>
+    <string name="filterliste">Filterliste</string>
+    <string name="klick_auf_den_button_unten_um_folgen_auszublenden_die_du_z_b_nicht_im_besitz_hast_oder_nicht_gerne_h_rst">Klick auf den Button unten, um Folgen auszublenden, die du z. B. nicht im Besitz hast oder nicht gerne hörst.</string>
+    <string name="folgen_ausw_hlen">Folgen auswählen</string>
+    <string name="es_wurden_noch_keine_folgen_hinzugef_gt">Es wurden noch keine Folgen hinzugefügt</string>
 </resources>

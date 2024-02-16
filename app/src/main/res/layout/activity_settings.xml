@@ -130,13 +130,23 @@
                         android:layout_marginEnd="10dp"
                         android:orientation="vertical">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="15sp"
-                            android:textStyle="bold"
-                            android:text="@string/die_drei_fragezeichen"
-                            android:textColor="@color/white" />
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="17sp"
+                                android:textStyle="bold"
+                                android:text="@string/die_drei_fragezeichen"
+                                android:textColor="@color/white" />
+                            <com.google.android.material.materialswitch.MaterialSwitch
+                                android:checked="true"
+                                android:id="@+id/sw_show_ddf"
+                                android:layout_alignParentEnd="true"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                        </RelativeLayout>
 
                         <RelativeLayout
                             android:layout_width="match_parent"
@@ -184,13 +194,23 @@
 
                         </RelativeLayout>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="15sp"
-                            android:textStyle="bold"
-                            android:text="@string/die_drei_fragezeichen_kids"
-                            android:textColor="@color/white" />
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="17sp"
+                                android:textStyle="bold"
+                                android:text="@string/die_drei_fragezeichen_kids"
+                                android:textColor="@color/white" />
+                            <com.google.android.material.materialswitch.MaterialSwitch
+                                android:checked="true"
+                                android:id="@+id/show_ddf_kids"
+                                android:layout_alignParentEnd="true"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                        </RelativeLayout>
 
                         <RelativeLayout
                             android:layout_width="match_parent"
@@ -237,17 +257,113 @@
                                 android:textStyle="bold" />
 
                         </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="17sp"
+                                android:textStyle="bold"
+                                android:text="@string/die_drei_sonderfolgen"
+                                android:textColor="@color/white" />
+                            <com.google.android.material.materialswitch.MaterialSwitch
+                                android:checked="true"
+                                android:id="@+id/show_ddf_sonderfolgen"
+                                android:layout_alignParentEnd="true"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="17sp"
+                                android:textStyle="bold"
+                                android:text="@string/die_drei_kids_sonderfolgen"
+                                android:textColor="@color/white" />
+                            <com.google.android.material.materialswitch.MaterialSwitch
+                                android:checked="true"
+                                android:id="@+id/show_ddf_kids_sonderfolgen"
+                                android:layout_alignParentEnd="true"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="17sp"
+                                android:textStyle="bold"
+                                android:text="@string/die_drei_h_rb_cher"
+                                android:textColor="@color/white" />
+                            <com.google.android.material.materialswitch.MaterialSwitch
+                                android:checked="true"
+                                android:id="@+id/show_ddf_buecher_sonderfolgen"
+                                android:layout_alignParentEnd="true"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                        </RelativeLayout>
                     </LinearLayout>
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cv_filter_list"
                 app:cardCornerRadius="8dp"
                 app:cardBackgroundColor="@color/dark_grey"
                 android:layout_width="match_parent"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_below="@id/cv_custom_settings"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:id="@+id/tv_header_filter_ist"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/white"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:text="@string/filterliste"/>
+
+                        <TextView
+                            android:id="@+id/tv_list_desc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tv_header_filter_ist"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/klick_auf_den_button_unten_um_folgen_auszublenden_die_du_z_b_nicht_im_besitz_hast_oder_nicht_gerne_h_rst"
+                            android:textColor="@color/white" />
+
+                        <Button
+                            android:id="@+id/btn_filter"
+                            android:layout_below="@id/tv_list_desc"
+                            android:layout_margin="10dp"
+                            android:text="@string/folgen_ausw_hlen"
+                            android:textColor="?attr/colorOnSurface"
+                            android:backgroundTint="?attr/colorOnPrimary"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                    </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                app:cardCornerRadius="8dp"
+                app:cardBackgroundColor="@color/dark_grey"
+                android:layout_width="match_parent"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_below="@id/cv_filter_list"
                 android:layout_marginTop="10dp"
                 android:layout_height="200dp">
                 <RelativeLayout
@@ -264,7 +380,6 @@
                         android:textSize="20sp"
                         android:textStyle="bold"
                         android:text="@string/theme"/>
-
 
                     <LinearLayout
                         android:layout_width="wrap_content"

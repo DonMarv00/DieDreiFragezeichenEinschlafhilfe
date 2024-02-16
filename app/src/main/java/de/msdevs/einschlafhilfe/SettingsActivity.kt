@@ -9,6 +9,7 @@ import android.content.res.Resources
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
@@ -39,6 +40,7 @@ class SettingsActivity : BaseActivity() {
     lateinit var rlJustus : RelativeLayout
     lateinit var rlBob : RelativeLayout
     lateinit var rlPeter: RelativeLayout
+    lateinit var btnFilter : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -124,6 +126,9 @@ class SettingsActivity : BaseActivity() {
                 sharedPreferencesEditor.apply()
             }
         })
+        btnFilter.setOnClickListener {
+            startActivity(Intent(this@SettingsActivity, FilterActivity::class.java))
+        }
 
 
         rlJustus.setOnClickListener{
@@ -165,6 +170,8 @@ class SettingsActivity : BaseActivity() {
         ivCheckJustus = binding.ivCheckJustus
         ivCheckPeter = binding.ivCheckPeter
         ivCheckBob = binding.ivCheckBob
+
+        btnFilter = binding.btnFilter
 
         rlJustus = binding.rlJustus
         rlBob = binding.rlBob
@@ -216,8 +223,6 @@ class SettingsActivity : BaseActivity() {
 
     fun changeViewThemes(){
         if(Utility.getTheme(this) == 4){
-           // switchUpdatelist.thumbDrawable = getDrawable(R.drawable.thumb_style_white)
-
             val thumbTintSelector = ColorStateList(
                 arrayOf(
                     intArrayOf(android.R.attr.state_checked),
