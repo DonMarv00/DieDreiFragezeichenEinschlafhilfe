@@ -3,31 +3,40 @@
     android:layout_width="match_parent"
     android:background="@color/black"
     android:layout_height="match_parent">
-
-    <TextView
-        android:id="@+id/tv_no_episodes_added"
-        android:layout_centerInParent="true"
-        android:textSize="20sp"
-        android:layout_margin="20dp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:text="@string/es_wurden_noch_keine_folgen_hinzugef_gt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_margin="10dp"
-        android:layout_height="wrap_content">
-        <com.google.android.material.textfield.MaterialAutoCompleteTextView
-            android:id="@+id/tv_folge"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginStart="5dp"
-            android:textColor="@color/white"
-            android:hint="Folgen Name oder Folgen Nummer" />
-    </com.google.android.material.textfield.TextInputLayout>
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/tv_no_episodes_added"
+            android:layout_centerInParent="true"
+            android:textSize="20sp"
+            android:layout_margin="20dp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:text="@string/es_wurden_noch_keine_folgen_hinzugef_gt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content">
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/tv_folge"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/white"
+                android:hint="@string/name_der_folge" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_below="@id/textInputLayout"
+            android:id="@+id/rv_filter_liste"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
 
 </RelativeLayout>

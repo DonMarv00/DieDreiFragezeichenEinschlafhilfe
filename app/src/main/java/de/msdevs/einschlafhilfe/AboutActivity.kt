@@ -52,6 +52,8 @@ class AboutActivity : BaseActivity() {
             opennUrl("https://github.com/MarvinStelter/DieDreiFragezeichenEinschlafhilfe")
         }
         btnLicenses.setOnClickListener{
+            startActivity(Intent(this@AboutActivity, AboutLibrariesActivity::class.java))
+
            if(expandableLayout.isExpanded){
                expandableLayout.collapse()
            }else{

@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'com.mikepenz.aboutlibraries.plugin'
 
 android {
 
@@ -23,7 +24,6 @@ android {
     buildFeatures{
         viewBinding true
     }
-
 
     namespace 'de.msdevs.einschlafhilfe'
 
@@ -50,6 +50,8 @@ dependencies {
     implementation("ru.gildor.coroutines:kotlin-coroutines-okhttp:1.0")
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.9.10"
     implementation 'com.github.AppIntro:AppIntro:6.3.1'
+    implementation "com.mikepenz:aboutlibraries-core:10.9.1"
+    implementation "com.mikepenz:aboutlibraries:10.9.1"
 }
 repositories {
     mavenCentral()

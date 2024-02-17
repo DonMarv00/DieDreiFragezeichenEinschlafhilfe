@@ -271,7 +271,7 @@ class MainActivity : BaseActivity() {
                         if (jsonArray != null) {
                             for (i in 0 until jsonArray.length()) {
                                 val jsonObject = jsonArray.getJSONObject(i)
-                                episodeList.add(JsonResponse(name = jsonObject.optString("name"), beschreibung = jsonObject.optString("beschreibung"), spotify = jsonObject.optString("spotify")))
+                                episodeList.add(JsonResponse(name = jsonObject.optString("name"), beschreibung = jsonObject.optString("beschreibung"), spotify = jsonObject.optString("spotify"), nummer = jsonObject.optInt("nummer"), type = ""))
                             }
                         }
                     }

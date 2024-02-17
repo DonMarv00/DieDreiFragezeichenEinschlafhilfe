@@ -42,7 +42,12 @@
         <activity android:name=".AboutActivity"
             android:label="@string/about" />
 
-
+        <activity
+            android:theme="@style/AppThemeNoToolbar"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi,LockedOrientationActivity"
+            android:name=".AboutLibrariesActivity"
+            android:exported="false" />
     </application>
     <queries>
         <package android:name="com.spotify.music" />
