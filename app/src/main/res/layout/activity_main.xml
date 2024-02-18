@@ -26,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="75dp"
         app:backgroundTint="?attr/colorOnPrimary"
         app:tint="?attr/colorOnSurface"
         android:layout_alignParentEnd="true"
@@ -48,8 +48,8 @@
         app:srcCompat="@drawable/ic_text" />
 
     <androidx.cardview.widget.CardView
-        android:layout_width="170dp"
-        android:layout_height="170dp"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
         app:cardCornerRadius="8dp"
         android:id="@+id/cv_cover"
         app:cardBackgroundColor="@color/black"
@@ -62,8 +62,8 @@
 
             <ImageView
                 android:id="@+id/iv_cover"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
+                android:layout_width="220dp"
+                android:layout_height="220dp"
                 android:layout_centerInParent="true" />
         </RelativeLayout>
 
@@ -80,6 +80,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="?attr/colorOnPrimary" />
 
@@ -101,14 +102,14 @@
         <RelativeLayout
             android:id="@+id/relativeLayout"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="65dp"
             android:layout_alignParentBottom="true"
             android:background="?attr/colorOnPrimary">
 
             <RelativeLayout
                 android:id="@+id/btn_left"
-                android:layout_width="35dp"
-                android:layout_height="50dp"
+                android:layout_width="40dp"
+                android:layout_height="65dp"
                 android:layout_alignParentStart="true"
                 android:layout_centerInParent="true"
                 android:background="?attr/colorPrimary">
@@ -125,8 +126,8 @@
 
             <RelativeLayout
                 android:id="@+id/btn_right"
-                android:layout_width="35dp"
-                android:layout_height="50dp"
+                android:layout_width="40dp"
+                android:layout_height="65dp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerInParent="true"
                 android:background="?attr/colorPrimary">

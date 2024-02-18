@@ -88,20 +88,6 @@
                     android:layout_height="wrap_content"/>
 
 
-                <net.cachapa.expandablelayout.ExpandableLayout
-                    android:id="@+id/expandable_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:el_duration="1000"
-                    app:el_expanded="false"
-                    android:layout_marginBottom="5dp"
-                    app:el_parallax="0.5">
-
-                    <include
-                        android:id="@+id/included"
-                        layout="@layout/layout_libraries"/>
-
-                </net.cachapa.expandablelayout.ExpandableLayout>
 
 
             </LinearLayout>

@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/black"
     android:layout_height="match_parent">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -19,23 +22,28 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="match_parent"
+            android:hint="@string/name_der_folge"
             android:layout_margin="10dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_height="wrap_content">
             <com.google.android.material.textfield.MaterialAutoCompleteTextView
                 android:id="@+id/tv_folge"
+                android:completionThreshold="3"
+                android:paddingStart="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:layout_marginStart="5dp"
                 android:textColor="@color/white"
-                android:hint="@string/name_der_folge" />
+                app:hintTextColor="@color/white"
+                android:hint="@string/name_der_folge"
+                tools:ignore="RtlSymmetry" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_below="@id/textInputLayout"
             android:id="@+id/rv_filter_liste"
             android:layout_width="match_parent"
+            android:layout_marginBottom="20dp"
             android:layout_height="wrap_content"/>
     </RelativeLayout>
 

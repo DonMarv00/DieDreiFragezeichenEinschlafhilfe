@@ -4,14 +4,10 @@ package de.msdevs.einschlafhilfe
 import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
 import android.util.Log
-import android.view.ScaleGestureDetector
 import android.view.View
 import android.widget.ArrayAdapter
-import android.widget.FrameLayout
-import android.widget.HorizontalScrollView
-import android.widget.ScrollView
 import android.widget.TextView
-import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -45,6 +41,7 @@ class FilterActivity : BaseActivity(), FilterListeAdapter.OnDeleteItemListener{
         super.onCreate(savedInstanceState)
         binding = ActivityFilterBinding.inflate(layoutInflater)
         val view = binding.root
+        supportActionBar?.title = getString(R.string.filter_liste)
         setContentView(view)
         iniViews()
         refreshList()
@@ -61,7 +58,7 @@ class FilterActivity : BaseActivity(), FilterListeAdapter.OnDeleteItemListener{
 
 
     }
-    private suspend fun apiCall(extraParameter : String) {
+    private fun apiCall(extraParameter : String) {
         try {
             if(networkUtils.isConnected(this)){
 

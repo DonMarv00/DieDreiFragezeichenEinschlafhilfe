@@ -79,4 +79,5 @@
     <string name="es_wurden_noch_keine_folgen_hinzugef_gt">Es wurden noch keine Folgen hinzugefügt</string>
     <string name="nummer">Nummer: %1$s</string>
     <string name="name_der_folge">Name der Folge</string>
+    <string name="filter_liste">Filterliste</string>
 </resources>

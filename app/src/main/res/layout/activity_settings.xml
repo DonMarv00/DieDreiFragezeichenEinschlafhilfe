@@ -5,6 +5,7 @@
     android:background="@color/black"
     android:layout_height="match_parent">
 
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -143,6 +144,7 @@
                             <com.google.android.material.materialswitch.MaterialSwitch
                                 android:checked="true"
                                 android:id="@+id/sw_show_ddf"
+                                android:visibility="gone"
                                 android:layout_alignParentEnd="true"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"/>
@@ -206,6 +208,7 @@
                                 android:textColor="@color/white" />
                             <com.google.android.material.materialswitch.MaterialSwitch
                                 android:checked="true"
+                                android:visibility="gone"
                                 android:id="@+id/show_ddf_kids"
                                 android:layout_alignParentEnd="true"
                                 android:layout_width="wrap_content"
@@ -258,6 +261,7 @@
 
                         </RelativeLayout>
                         <RelativeLayout
+                            android:visibility="gone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
                             <TextView
@@ -275,6 +279,7 @@
                                 android:layout_height="wrap_content"/>
                         </RelativeLayout>
                         <RelativeLayout
+                            android:visibility="gone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
                             <TextView
@@ -292,6 +297,7 @@
                                 android:layout_height="wrap_content"/>
                         </RelativeLayout>
                         <RelativeLayout
+                            android:visibility="gone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
                             <TextView
