@@ -1,26 +1,28 @@
-This App helps you to select a random episode of the audiobook "Three Investigators"
+Dive into the fascinating world of "Die drei ???" audio dramas with our innovative Android app!
+Our app provides you with the option to choose an episode at your convenience, relieving you of a difficult decision.
 
-Functions:
+Features:
 
-- Different options to select a episode
-- Over 350 Episodes in 4 categories, updated frequently
-- Custom settings to select a episode
+Diverse Selection:
+Choose from various filters such as "1-50", "1-100", "1-150", or search through all available episodes.
+Create custom filters to select episodes within a specific range and create your own personalized listening list.
+Decide whether you want to explore adventures of "Die drei ???", "Die Dr3i", or "Die drei Fragezeichen Kids."
 
-Privacy:
+Customization:
+Remove unwanted episodes from the selection algorithm to consider only those that match your taste.
+Personalize the app according to your preferences and listen only to the episodes you enjoy.
 
-The app offers a function that opens Spotify to play a audiobook.
-Spotify may collect personally identifiable information.
-Read the Spotify privacy policy to know how Spotify uses your data.
+Open in Spotify:
+Start your selected episode with a simple button press directly on Spotify and enjoy it without delay.
+Also take a look on privacy policy of Spotify: https://www.spotify.com/de/legal/privacy-policy/
 
-Privacy Policy of Spotify can be found here:
+Comprehensive Information:
+Get detailed descriptions for each episode to learn more about the exciting cases of the three detectives.
+Find links for additional information to discover even more details about the episode.
 
-https://www.spotify.com/de/legal/privacy-policy/
+Information:
 
-The function can be disabled in the app settings.
-
-Copyright:
-
-"The three ???" is a registered trademark of Franckh-Kosmos Verlags-GmbH & Co. KG, Stuttgart.
-This app is NOT owned by Kosmos, Europa, the Roberts family or anyone else that is involved in the production of The Three ???.
-All trademarks, logos and copyrights belong to their respective owners.
-All images © copyright by Kosmos, Europa, Studios Hamburg, USM or Random House.
+"Die drei ???" is a registered trademark of Franckh-Kosmos Verlags-GmbH & Co. KG, Stuttgart.
+This app is NOT owned by Kosmos, Europa, the Roberts family, or any individuals involved in the production of the "Die drei ???" series.
+All trademarks, logos, and copyrights belong to their respective owners.
+All images © copyright by Kosmos, Europa, Studios Hamburg, USM, or Random House.
