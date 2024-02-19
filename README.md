@@ -6,9 +6,9 @@ Der Quellcode darf bearbeitet werden, gerne können Funktionen hinzugefügt werd
 ## Screenshots
 
 <p align="center">
-  <img src="https://api.citroncode.com/shared/ddf_1.jpg" width="280" alt="Screenshot 1">
-  <img src="https://api.citroncode.com/shared/ddf_2.jpg" width="280" alt="Screenshot 2">
-  <img src="https://api.citroncode.com/shared/ddf_3.jpg" width="280" alt="Screenshot 3">
+  <img src="https://github.com/MarvinStelter/DieDreiFragezeichenEinschlafhilfe/blob/master/screenshots/mockup_20240218_211102.png?raw=true" width="280" alt="Screenshot 1">
+  <img src="https://github.com/MarvinStelter/DieDreiFragezeichenEinschlafhilfe/blob/master/screenshots/mockup_20240218_211109.png?raw=true" width="280" alt="Screenshot 2">
+  <img src="https://github.com/MarvinStelter/DieDreiFragezeichenEinschlafhilfe/blob/master/screenshots/mockup_20240218_211118.png?raw=true" width="280" alt="Screenshot 3">
 </p>
 
 ## Download
