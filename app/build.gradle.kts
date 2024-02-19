@@ -12,8 +12,8 @@ android {
         applicationId = "de.msdevs.einschlafhilfe"
         minSdk = 26
         targetSdk = 34
-        versionCode = 50
-        versionName = "5.1"
+        versionCode = 52
+        versionName = "5.2.1"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -38,6 +38,11 @@ android {
     buildFeatures {
         viewBinding = true
     }
+    dependenciesInfo {
+        includeInApk = false
+        includeInBundle = false
+    }
+
 }
 
 dependencies {

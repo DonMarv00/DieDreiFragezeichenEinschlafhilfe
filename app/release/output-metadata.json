@@ -1,0 +1,20 @@
+{
+  "version": 3,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "de.msdevs.einschlafhilfe",
+  "variantName": "release",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "attributes": [],
+      "versionCode": 51,
+      "versionName": "5.2",
+      "outputFile": "app-release.apk"
+    }
+  ],
+  "elementType": "File"
+}
