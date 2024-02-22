@@ -1,0 +1,3 @@
+- Added a filter system
+- Fixed animation bugs in the bottom navigation
+- Updated the episodes list
