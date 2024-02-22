@@ -1,1 +1,1 @@
-This App helps you to select a random episode of the audiobook "The Three Investigators"
+ Random episode selector for the german audiobook "The Three Investigators"
