@@ -83,4 +83,5 @@
     <string name="folge_laedt_noch">Bitte warte, bis eine Folge ausgewählt worden ist.</string>
     <string name="information">Information</string>
     <string name="ddf">Die drei ???</string>
+    <string name="filter_informations">Hier kannst du Folgen auswählen, die du z.B. nicht gerne hörst oder im Besitz hast.\n\nAlgorithmus:\nJe mehr Folgen einer Art ausgewählt werden, desto weniger wird diese Art angezeigt. Wieso? Es wird erst die Art und dann die Folge ausgewählt, falls diese im Filter ist wird wieder die Folgen Art ausgewählt und so weiter.</string>
 </resources>

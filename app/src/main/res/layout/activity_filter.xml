@@ -21,11 +21,10 @@
 
     <com.google.android.material.tabs.TabLayout
         android:layout_width="match_parent"
-        app:tabIconTint="@color/white"
         android:id="@+id/tablayout"
         android:layout_below="@id/appbarlayout"
-        app:tabTextColor="@color/white"
-        app:tabIndicatorColor="@color/white"
+        app:tabTextColor="?attr/colorOnSurface"
+        app:tabIndicatorColor="?attr/colorOnSurface"
         android:layout_height="wrap_content">
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"

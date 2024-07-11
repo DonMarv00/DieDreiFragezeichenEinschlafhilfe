@@ -2,11 +2,16 @@ package de.msdevs.einschlafhilfe
 
 
 
+import android.content.DialogInterface
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.widget.Toolbar
 import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import de.msdevs.einschlafhilfe.adapter.ViewPagerAdapter
@@ -70,5 +75,36 @@ class FilterActivity : BaseActivity(false){
             toolbar.setTitleTextColor(Color.BLACK)
             nav?.setTint(Color.BLACK)
         }
+    }
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_filter, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+
+            R.id.action_about ->{
+                showInformationDialog()
+                return true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+    private fun showInformationDialog(){
+        val alert : MaterialAlertDialogBuilder = if (Utility.getTheme(applicationContext) <= 2) {
+            MaterialAlertDialogBuilder(this, R.style.DialogThemeRed)
+        } else if (Utility.getTheme(applicationContext) == 3) {
+            MaterialAlertDialogBuilder(this, R.style.DialogThemeBlue)
+        } else if (Utility.getTheme(applicationContext) == 4) {
+            MaterialAlertDialogBuilder(this, R.style.DialogThemeWhite)
+        }else{
+            MaterialAlertDialogBuilder(this, R.style.DialogThemeRed)
+        }
+
+        alert.setTitle(getString(R.string.information))
+        alert.setMessage(getString(R.string.filter_informations))
+        alert.setNegativeButton(getString(R.string.close)) { dlg: DialogInterface, _: Int -> dlg.dismiss() }
+        alert.show()
     }
 }

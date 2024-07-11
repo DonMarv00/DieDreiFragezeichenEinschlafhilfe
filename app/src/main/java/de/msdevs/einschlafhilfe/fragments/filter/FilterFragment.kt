@@ -26,6 +26,7 @@ class FilterFragment : Fragment(), FilterListeAdapter.OnFilterAdded{
     private var position: Int? = null
     private lateinit var folgen_database: SQLiteDatabase
     private lateinit var databaseHelper: DatabaseHelper
+    private var loadCounter = 0
 
     companion object {
         private const val ARG_POSITION = "position"
@@ -42,20 +43,29 @@ class FilterFragment : Fragment(), FilterListeAdapter.OnFilterAdded{
     private fun loadEpisodes(){
         var type = ""
         pgLoadEpisodes.visibility = View.VISIBLE
-        episodeList.clear()
 
         when (position) {
             2 -> {
+                episodeList.clear()
                 folgenListe = requireActivity().assets.open("offline_list_dd.txt").bufferedReader().use(BufferedReader::readText)
                 type = "d3"
             }
             1 -> {
+                episodeList.clear()
                 folgenListe = requireActivity().assets.open("offline_list_kids.txt").bufferedReader().use(BufferedReader::readText)
                 type = "kids"
             }
             0 -> {
-                folgenListe = requireActivity().assets.open("offline_list.txt").bufferedReader().use(BufferedReader::readText)
-                type = "ddf"
+                if(loadCounter == 0){
+                    episodeList.clear()
+                    folgenListe = requireActivity().assets.open("offline_list.txt").bufferedReader().use(BufferedReader::readText)
+                    type = "ddf"
+                }else{
+                    folgenListe = requireActivity().assets.open("offline_list_sonderfolgen_ddf.txt").bufferedReader().use(BufferedReader::readText)
+                    type = "sonderfolgen"
+                    loadCounter = 0
+                }
+                loadCounter++
             }
         }
 
@@ -75,6 +85,9 @@ class FilterFragment : Fragment(), FilterListeAdapter.OnFilterAdded{
         pgLoadEpisodes.visibility = View.GONE
         rvEpisodes.adapter = FilterListeAdapter(episodeList,this,requireContext())
 
+        if(type == "ddf"){
+            loadEpisodes()
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

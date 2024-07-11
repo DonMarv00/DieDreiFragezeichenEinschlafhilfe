@@ -2,13 +2,10 @@ package de.msdevs.einschlafhilfe.adapter
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
-import android.text.BoringLayout
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity.MODE_PRIVATE
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -42,6 +39,7 @@ class FilterListeAdapter(private val folgeList: List<JsonResponse>, private val 
                 binding.tvFolgenNummer.text = binding.tvFolgenNummer.context.getString(R.string.nummer, nummer)
             }
             loadCover(nummer,type, binding.ivCover)
+
             binding.cbDelete.isChecked = isFiltered(folgeTitle)
             binding.cbDelete.setOnClickListener{
                 onAddToFilterList?.onFilterAdded(folgeTitle,nummer,type)
@@ -87,6 +85,9 @@ class FilterListeAdapter(private val folgeList: List<JsonResponse>, private val 
             url = context.getString(R.string.cover_citroncode_url)  + (nummer) + ".png"
         }else if(prefix == "k"){
             url = context.getString(R.string.cover_citroncode_url)  + "k" + (nummer) + ".png"
+        }
+        else if(prefix == "x"){
+            url = context.getString(R.string.cover_citroncode_url) + (nummer) + ".png"
         }
 
         if(networkUtils.isConnected(context)){
