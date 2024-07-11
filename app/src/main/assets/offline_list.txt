@@ -999,8 +999,8 @@
     {
       "name": "Die drei ??? und das blaue Biest",
       "beschreibung": "Im Film-Erlebnispark Movie Empire gehen seltsame Dinge vor sich. Ein Unbekannter verübt hinterhältige Sabotage-Akte und bringt damit die Shows und Besucher in Gefahr. Aber wem könnte daran gelegen sein, den Park zu ruinieren? Als wäre das nicht genug, taucht immer wieder ein blau schimmerndes Monstrum auf, das einem mythischen Mantikor ähnelt. Furchtlos nehmen die drei ??? die Ermittlungen auf. Bis sie eines Nachts plötzlich dem Biest gegenüberstehen!",
-      "mummer": "167",
-      "spotify": "https://open.spotify.com/album/7kskBahbrQWCOiaXKuoPjE?si=ZSGdonuCRBqKame2WlQyNw&dl_branch=1"
+      "nummer": "167",
+      "spotify": "https://open.spotify.com/album/7kskBahbrQWCOiaXKuoPjE"
     },
     {
       "name": "Die drei ??? - GPS Gangster",
