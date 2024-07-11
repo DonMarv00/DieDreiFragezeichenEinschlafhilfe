@@ -5,24 +5,16 @@
     android:background="@color/black"
     android:layout_height="wrap_content">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        app:cardCornerRadius="8dp"
-        android:id="@+id/cv_privacy_settings"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        app:cardBackgroundColor="@color/dark_grey"
-        android:layout_height="wrap_content">
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="70dp">
             <ImageView
                 android:id="@+id/iv_cover"
                 android:layout_width="60dp"
                 android:layout_margin="5dp"
                 android:layout_height="60dp"/>
             <TextView
+                android:layout_marginTop="5dp"
                 android:textStyle="bold"
                 android:textSize="15sp"
                 android:textColor="@color/white"
@@ -39,8 +31,11 @@
                 android:textColor="@color/white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
-            <ImageView
-                android:id="@+id/iv_delete"
+            <CheckBox
+                android:checked="true"
+                app:buttonTint="@color/colorPrimary"
+                app:buttonIconTint="@color/white"
+                android:id="@+id/cb_delete"
                 android:src="@drawable/ic_delete"
                 android:layout_width="40dp"
                 android:layout_centerInParent="true"
@@ -49,5 +44,6 @@
                 android:layout_margin="5dp"
                 android:layout_height="40dp"/>
         </RelativeLayout>
-    </androidx.cardview.widget.CardView>
+
+
 </RelativeLayout>

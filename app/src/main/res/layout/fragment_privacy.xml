@@ -42,8 +42,10 @@
           <CheckBox
               android:id="@+id/cb_privacy"
               android:layout_width="wrap_content"
+              app:buttonIconTint="@color/white"
               android:layout_height="wrap_content"
               android:layout_alignParentBottom="true"
+              app:buttonTint="@color/colorPrimary"
               android:layout_marginStart="10dp"
               android:text="@string/cb_privacy"
               android:textColor="@color/white" />

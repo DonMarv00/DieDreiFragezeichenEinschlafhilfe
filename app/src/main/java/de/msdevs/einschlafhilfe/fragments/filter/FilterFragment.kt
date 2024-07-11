@@ -1,20 +1,31 @@
 package de.msdevs.einschlafhilfe.fragments.filter
 
+import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
+import androidx.appcompat.app.AppCompatActivity.MODE_PRIVATE
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import de.msdevs.einschlafhilfe.R
+import de.msdevs.einschlafhilfe.adapter.FilterListeAdapter
+import de.msdevs.einschlafhilfe.database.DatabaseHelper
 import de.msdevs.einschlafhilfe.models.JsonResponse
+import org.json.JSONObject
+import java.io.BufferedReader
 
-class FilterFragment : Fragment() {
+class FilterFragment : Fragment(), FilterListeAdapter.OnFilterAdded{
 
     private val episodeList = ArrayList<JsonResponse>()
     private lateinit var rvEpisodes : RecyclerView
     private lateinit var pgLoadEpisodes : ProgressBar
+    private lateinit var folgenListe : String
+    private var position: Int? = null
+    private lateinit var folgen_database: SQLiteDatabase
+    private lateinit var databaseHelper: DatabaseHelper
 
     companion object {
         private const val ARG_POSITION = "position"
@@ -28,7 +39,43 @@ class FilterFragment : Fragment() {
         }
     }
 
-    private var position: Int? = null
+    private fun loadEpisodes(){
+        var type = ""
+        pgLoadEpisodes.visibility = View.VISIBLE
+        episodeList.clear()
+
+        when (position) {
+            2 -> {
+                folgenListe = requireActivity().assets.open("offline_list_dd.txt").bufferedReader().use(BufferedReader::readText)
+                type = "d3"
+            }
+            1 -> {
+                folgenListe = requireActivity().assets.open("offline_list_kids.txt").bufferedReader().use(BufferedReader::readText)
+                type = "kids"
+            }
+            0 -> {
+                folgenListe = requireActivity().assets.open("offline_list.txt").bufferedReader().use(BufferedReader::readText)
+                type = "ddf"
+            }
+        }
+
+        val jsonObject = JSONObject(folgenListe)
+        val jsonArray = jsonObject.optJSONArray("folgen")
+        if (jsonArray != null) {
+            for (i in 0 until jsonArray.length()) {
+                val jsonObject = jsonArray.getJSONObject(i)
+                episodeList.add(JsonResponse(
+                    name = jsonObject.optString("name"),
+                    beschreibung = jsonObject.optString("beschreibung"),
+                    spotify = jsonObject.optString("spotify"),
+                    nummer = jsonObject.optString("nummer"),
+                    type = type))
+            }
+        }
+        pgLoadEpisodes.visibility = View.GONE
+        rvEpisodes.adapter = FilterListeAdapter(episodeList,this,requireContext())
+
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,6 +94,22 @@ class FilterFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        folgen_database = requireContext().openOrCreateDatabase("app_list", MODE_PRIVATE,null)
+        databaseHelper = DatabaseHelper(requireContext())
+        databaseHelper.createTables(folgen_database)
 
+        rvEpisodes = view.findViewById(R.id.rv_folgen_liste)
+        pgLoadEpisodes = view.findViewById(R.id.pg_load_episodes)
+        rvEpisodes.layoutManager = LinearLayoutManager(requireContext())
+
+        loadEpisodes()
+    }
+
+    override fun onFilterAdded(name : String, nummer : String, type : String) {
+       if(!databaseHelper.alreadyAdded(folgen_database,name)){
+           databaseHelper.insertFilterFolge(folgen_database,name,nummer,type)
+       }else{
+           databaseHelper.removeFromList(folgen_database,name)
+       }
     }
 }
