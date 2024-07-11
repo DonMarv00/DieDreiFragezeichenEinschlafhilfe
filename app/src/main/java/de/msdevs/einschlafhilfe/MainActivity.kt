@@ -66,9 +66,11 @@ class MainActivity : BaseActivity(false) {
         setSupportActionBar(toolbar)
         toolbarDesign()
 
+
         sharedPreferences = getSharedPreferences(packageName,0)
         sharedPreferencesEditor = sharedPreferences.edit()
         networkUtils = NetworkUtils()
+        restoreViewFlipperPostion()
 
         folgen_database = openOrCreateDatabase("app_list",MODE_PRIVATE,null)
         databaseHelper = DatabaseHelper(this)
@@ -101,12 +103,14 @@ class MainActivity : BaseActivity(false) {
             binding.bottomBarViewFlipper.setOutAnimation(this, R.anim.anim_flipper_item_out_left)
             binding.bottomBarViewFlipper.showPrevious()
             refresh()
+            saveViewFlipperPostion()
         }
         binding.btnRight.setOnClickListener {
             binding.bottomBarViewFlipper.setInAnimation(this, R.anim.anim_flipper_item_in_left) //right
             binding.bottomBarViewFlipper.setOutAnimation(this, R.anim.anim_flipper_item_out_right)
             binding.bottomBarViewFlipper.showNext()
             refresh()
+            saveViewFlipperPostion()
         }
         if(!isSpotifyInstalled()){
             binding.btnSpotify.visibility = View.GONE
@@ -504,6 +508,13 @@ class MainActivity : BaseActivity(false) {
             sharedPreferencesEditor.putInt("theme_changed",0)
             sharedPreferencesEditor.apply()
         }
+    }
+    private fun restoreViewFlipperPostion(){
+        binding.bottomBarViewFlipper.displayedChild = sharedPreferences.getInt("vf_pos",0)
+    }
+    private fun saveViewFlipperPostion(){
+        sharedPreferencesEditor.putInt("vf_pos", binding.bottomBarViewFlipper.displayedChild)
+        sharedPreferencesEditor.apply()
     }
 }
 
