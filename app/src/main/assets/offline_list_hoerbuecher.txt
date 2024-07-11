@@ -59,6 +59,6 @@
          "name":"Die drei Fragezeichen und das Bergmonster",
          "beschreibung":"Die drei ??? Family & Friends: Kai Schwind liest Die drei ??? und das Bergmonster. Wir freuen uns, dass Kai, der schon so lange als Regisseur der letzten drei Live-Hörspiele, als Skriptautor einiger Specials, als Bobcast-Host und auch mit seiner Ferienbande die drei ??? begleitet, den Weg ins Studio gefunden hat, um einen echten ???-Klassiker einzulesen. Wir sprechen über eine klassische Kassettenkinder-Biografie, Mutproben, knackende Türen - und übernatürliche Elemente. Passt auf eure Bergmonster auf!",
          "nummer":"12"
-      }
+      },
    ]
 }

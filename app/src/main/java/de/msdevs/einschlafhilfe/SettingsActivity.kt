@@ -5,7 +5,6 @@ import android.R
 import android.content.Intent
 import android.content.SharedPreferences
 import android.content.res.ColorStateList
-import android.content.res.Resources
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
@@ -14,41 +13,44 @@ import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.content.res.AppCompatResources
+import androidx.appcompat.widget.Toolbar
 import com.google.android.material.materialswitch.MaterialSwitch
 import com.google.android.material.slider.RangeSlider
 import de.msdevs.einschlafhilfe.databinding.ActivitySettingsBinding
 import de.msdevs.einschlafhilfe.utils.Utility
 
 
-class SettingsActivity : BaseActivity() {
+class SettingsActivity : BaseActivity(true) {
 
-    lateinit var binding : ActivitySettingsBinding
-    lateinit var switchSpotify : MaterialSwitch
-    lateinit var switchUpdatelist : MaterialSwitch
-    lateinit var sharedPreferences: SharedPreferences
-    lateinit var sharedPreferencesEditor: SharedPreferences.Editor
-    lateinit var rangeSlider : RangeSlider
-    lateinit var rangeSliderKids : RangeSlider
-    lateinit var tvStart : TextView
-    lateinit var tvStartK : TextView
-    lateinit var tvEnd: TextView
-    lateinit var tvEndK : TextView
-    lateinit var selectedTheme : String
-    lateinit var ivCheckJustus : ImageView
-    lateinit var ivCheckBob : ImageView
-    lateinit var ivCheckPeter : ImageView
-    lateinit var rlJustus : RelativeLayout
-    lateinit var rlBob : RelativeLayout
-    lateinit var rlPeter: RelativeLayout
-    lateinit var btnFilter : Button
+    private lateinit var binding : ActivitySettingsBinding
+    private lateinit var switchSpotify : MaterialSwitch
+    private lateinit var switchUpdatelist : MaterialSwitch
+    private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var sharedPreferencesEditor: SharedPreferences.Editor
+    private lateinit var rangeSlider : RangeSlider
+    private lateinit var rangeSliderKids : RangeSlider
+    private lateinit var tvStart : TextView
+    private lateinit var tvStartK : TextView
+    private lateinit var tvEnd: TextView
+    private lateinit var tvEndK : TextView
+    private lateinit var selectedTheme : String
+    private lateinit var ivCheckJustus : ImageView
+    private lateinit var ivCheckBob : ImageView
+    private lateinit var ivCheckPeter : ImageView
+    private lateinit var rlJustus : RelativeLayout
+    private lateinit var rlBob : RelativeLayout
+    private lateinit var rlPeter: RelativeLayout
+    private lateinit var btnFilter : Button
+    private lateinit var toolbar: Toolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         binding = ActivitySettingsBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        toolbarDesign()
 
         iniViews()
 
@@ -179,7 +181,6 @@ class SettingsActivity : BaseActivity() {
         rlPeter = binding.rlPeter
 
         loadThemeSettings()
-
         changeViewThemes()
     }
     fun loadThemeSettings(){
@@ -208,7 +209,7 @@ class SettingsActivity : BaseActivity() {
         return this.toFloat().toInt()
     }
     override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
+        finish()
         return true
     }
     fun recreateActivity() {
@@ -219,9 +220,7 @@ class SettingsActivity : BaseActivity() {
         startActivity(intent)
         overridePendingTransition(0, 0)
 
-
     }
-
     fun changeViewThemes(){
         if(Utility.getTheme(this) == 4){
             val thumbTintSelector = ColorStateList(
@@ -230,9 +229,7 @@ class SettingsActivity : BaseActivity() {
                     intArrayOf(-android.R.attr.state_checked)
                 ),
                 intArrayOf(
-                    // Color when the switch is checked
                     Color.parseColor("#000000"),
-                    // Color when the switch is unchecked
                     Color.parseColor("#938F99")
                 )
             )
@@ -247,9 +244,7 @@ class SettingsActivity : BaseActivity() {
                     intArrayOf(-android.R.attr.state_checked)
                 ),
                 intArrayOf(
-                    // Color when the switch is checked
                     Color.parseColor("#d50000"),
-                    // Color when the switch is unchecked
                     Color.parseColor("#938F99")
                 )
             )
@@ -262,9 +257,7 @@ class SettingsActivity : BaseActivity() {
                     intArrayOf(-android.R.attr.state_checked)
                 ),
                 intArrayOf(
-                    // Color when the switch is checked
                     Color.parseColor("#0048FF"),
-                    // Color when the switch is unchecked
                     Color.parseColor("#938F99")
                 )
             )
@@ -272,6 +265,25 @@ class SettingsActivity : BaseActivity() {
             switchSpotify.thumbTintList = thumbTintSelector
         }
 
+    }
+    private fun toolbarDesign() {
+        toolbar = binding.toolbar
+        setSupportActionBar(toolbar)
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true);
+        supportActionBar?.setDisplayShowHomeEnabled(true);
+
+        val nav = toolbar.navigationIcon
+        if (Utility.getTheme(applicationContext) <= 2) {
+            toolbar.setTitleTextColor(Color.WHITE)
+            nav?.setTint(Color.WHITE)
+        } else if (Utility.getTheme(applicationContext) == 3) {
+            toolbar.setTitleTextColor(Color.WHITE)
+            nav?.setTint(Color.WHITE)
+        } else if (Utility.getTheme(applicationContext) == 4) {
+            toolbar.setTitleTextColor(Color.BLACK)
+            nav?.setTint(Color.BLACK)
+        }
     }
 }
 

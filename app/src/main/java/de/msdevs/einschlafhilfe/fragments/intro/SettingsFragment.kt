@@ -1,4 +1,4 @@
-package de.msdevs.einschlafhilfe.fragments
+package de.msdevs.einschlafhilfe.fragments.intro
 
 
 import android.annotation.SuppressLint
@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.Nullable
 import androidx.fragment.app.Fragment
 import com.github.appintro.SlidePolicy
 import com.google.android.material.materialswitch.MaterialSwitch
@@ -16,17 +15,13 @@ import de.msdevs.einschlafhilfe.databinding.FragmentSettingsBinding
 
 class SettingsFragment(override val isPolicyRespected: Boolean) : Fragment(), SlidePolicy {
 
-    lateinit var switchSpotify : MaterialSwitch
-    lateinit var switchUpdatelist : MaterialSwitch
-    lateinit var sharedPreferences: SharedPreferences
-    lateinit var sharedPreferencesEditor: SharedPreferences.Editor
-    lateinit var binding : FragmentSettingsBinding
+    private lateinit var switchSpotify : MaterialSwitch
+    private lateinit var switchUpdatelist : MaterialSwitch
+    private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var sharedPreferencesEditor: SharedPreferences.Editor
+    private lateinit var binding : FragmentSettingsBinding
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        @Nullable container: ViewGroup?,
-        @Nullable savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentSettingsBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -56,7 +51,7 @@ class SettingsFragment(override val isPolicyRespected: Boolean) : Fragment(), Sl
     }
 
     override fun onUserIllegallyRequestedNextPage() {
-        TODO("Not yet implemented")
+
     }
 
 }

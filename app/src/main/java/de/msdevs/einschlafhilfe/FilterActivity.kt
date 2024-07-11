@@ -2,160 +2,77 @@ package de.msdevs.einschlafhilfe
 
 
 import android.database.sqlite.SQLiteDatabase
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager.widget.ViewPager
+import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 import com.google.android.material.textfield.MaterialAutoCompleteTextView
 import de.msdevs.einschlafhilfe.adapter.FilterListeAdapter
+import de.msdevs.einschlafhilfe.adapter.ViewPagerAdapter
 import de.msdevs.einschlafhilfe.database.DatabaseHelper
 import de.msdevs.einschlafhilfe.databinding.ActivityFilterBinding
 import de.msdevs.einschlafhilfe.models.JsonResponse
 import de.msdevs.einschlafhilfe.utils.NetworkUtils
+import de.msdevs.einschlafhilfe.utils.Utility
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.json.JSONObject
 import java.io.BufferedReader
 
-class FilterActivity : BaseActivity(), FilterListeAdapter.OnDeleteItemListener{
-    private lateinit var rvFilterListe : RecyclerView
-    private lateinit var tvNothingAdded : TextView
+class FilterActivity : BaseActivity(false), FilterListeAdapter.OnDeleteItemListener{
+
+
     private lateinit var binding : ActivityFilterBinding
     private lateinit var folgen_database: SQLiteDatabase
     private lateinit var databaseHelper: DatabaseHelper
-    private lateinit var tvInput : MaterialAutoCompleteTextView
-    private val episodeList = ArrayList<JsonResponse>()
-    private var filterList = ArrayList<JsonResponse>()
-    private var jsonIndexSeperator = HashMap<String, Int>()
-    private var apiCallCounter = 0
     private lateinit var networkUtils: NetworkUtils
-    private lateinit var folgenListe : String
+    private lateinit var toolbar : Toolbar
+    private lateinit var tabLayout : TabLayout
+    private lateinit var viewPager : ViewPager2
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         binding = ActivityFilterBinding.inflate(layoutInflater)
         val view = binding.root
-        supportActionBar?.title = getString(R.string.filter_liste)
         setContentView(view)
         iniViews()
-        refreshList()
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        toolbarDesign()
 
-        lifecycleScope.launch {
-            withContext(Dispatchers.IO) {
-                apiCall("ddf")
-                apiCall("d3")
-                apiCall("kids")
-                apiCall("sonderfolgen")
+        viewPager.adapter = ViewPagerAdapter(this@FilterActivity)
+        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+            when (position) {
+                0 -> { tab.text = getString(R.string.ddf) }
+                1 -> { tab.text = getString(R.string.kids) }
+                else -> { tab.text = getString(R.string.die_dr3i) }
             }
-        }
-
-
-    }
-    private fun apiCall(extraParameter : String) {
-        try {
-            if(networkUtils.isConnected(this)){
-
-                if(extraParameter == "ddf"){
-                    folgenListe = assets.open("offline_list.txt").bufferedReader().use(BufferedReader::readText)
-                }else if (extraParameter == "d3"){
-                    folgenListe = assets.open("offline_list_dd.txt").bufferedReader().use(BufferedReader::readText)
-                }else if(extraParameter == "kids"){
-                    folgenListe = assets.open("offline_list_kids.txt").bufferedReader().use(BufferedReader::readText)
-                }else{
-                    folgenListe = assets.open("offline_list_sonderfolgen_ddf.txt").bufferedReader().use(BufferedReader::readText)
-                }
-                val jsonObject = JSONObject(folgenListe)
-                val jsonArray = jsonObject.optJSONArray("folgen")
-                if (jsonArray != null) {
-                    for (i in 0 until jsonArray.length()) {
-                        val jsonObject = jsonArray.getJSONObject(i)
-                        episodeList.add(
-                            JsonResponse(
-                                name = jsonObject.optString("name"),
-                                beschreibung = jsonObject.optString("beschreibung"),
-                                spotify = jsonObject.optString("spotify"),
-                                nummer = jsonObject.optInt("nummer"),
-                                type = extraParameter
-                            )
-                        )
-                    }
-                    jsonIndexSeperator[extraParameter] = jsonArray.length()
-                    apiCallCounter++
-                    if(apiCallCounter == 4){
-                        runOnUiThread {
-                            iniAutoComplete()
-                        }
-                    }
-                }
-
-            }
-        }catch (e : Exception){
-            Log.e("","Error: " + e.message)
-        }
-    }
-    private fun iniAutoComplete(){
-        val nameArray = episodeList.map { it.name }.toTypedArray()
-
-        val adapter: ArrayAdapter<String> = ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, nameArray)
-        val textView : MaterialAutoCompleteTextView = binding.tvFolge
-        textView.threshold = 3
-        textView.setAdapter(adapter)
-
-        textView.setOnItemClickListener { parent, view, position, id ->
-            val selectedName = parent.getItemAtPosition(position) as String
-            databaseHelper.insertFilterFolge(folgen_database,selectedName,getEpisodeNumber(selectedName),getEpisodeType(selectedName))
-            textView.text = null
-            refreshList()
-        }
-    }
-    private fun refreshList(){
-        filterList = databaseHelper.getFilterList(folgen_database)
-        val adapter = FilterListeAdapter(filterList,this)
-        val layoutManger = LinearLayoutManager(this)
-
-        if(filterList.isNotEmpty()){
-            tvNothingAdded.visibility = View.GONE
-        }else{
-            tvNothingAdded.visibility = View.VISIBLE
-        }
-        rvFilterListe.layoutManager = layoutManger
-        rvFilterListe.adapter = adapter
+        }.attach()
 
     }
+
+
     private fun iniViews(){
         folgen_database = openOrCreateDatabase("app_list",MODE_PRIVATE,null)
         databaseHelper = DatabaseHelper(this)
         databaseHelper.createTables(folgen_database)
-
         networkUtils = NetworkUtils()
-        tvInput = binding.tvFolge
-        rvFilterListe = binding.rvFilterListe
-        tvNothingAdded = binding.tvNoEpisodesAdded
+        viewPager = binding.viewpager
+        tabLayout = binding.tablayout
+
     }
 
-    private fun getEpisodeNumber(nameToFind: String): String? {
-        for (jsonResponse in episodeList) {
-            if (jsonResponse.name == nameToFind) {
-                return jsonResponse.nummer.toString()
-            }
-        }
-        return null
-    }
-    private fun getEpisodeType(nameToFind: String): String? {
-        for (jsonResponse in episodeList) {
-            if (jsonResponse.name == nameToFind) {
-                return jsonResponse.type
-            }
-        }
-        return null
-    }
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true
@@ -163,6 +80,25 @@ class FilterActivity : BaseActivity(), FilterListeAdapter.OnDeleteItemListener{
 
     override fun onDeleteItem(name: String) {
         databaseHelper.removeFromList(folgen_database,name)
-        refreshList()
+
+    }
+    private fun toolbarDesign() {
+        toolbar = binding.toolbar
+        setSupportActionBar(toolbar)
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true);
+        supportActionBar?.setDisplayShowHomeEnabled(true);
+
+        val nav = toolbar.navigationIcon
+        if (Utility.getTheme(applicationContext) <= 2) {
+            toolbar.setTitleTextColor(Color.WHITE)
+            nav?.setTint(Color.WHITE)
+        } else if (Utility.getTheme(applicationContext) == 3) {
+            toolbar.setTitleTextColor(Color.WHITE)
+            nav?.setTint(Color.WHITE)
+        } else if (Utility.getTheme(applicationContext) == 4) {
+            toolbar.setTitleTextColor(Color.BLACK)
+            nav?.setTint(Color.BLACK)
+        }
     }
 }

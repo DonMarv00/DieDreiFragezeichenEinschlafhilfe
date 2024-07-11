@@ -5,10 +5,9 @@ import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.fragment.app.Fragment
 import com.github.appintro.AppIntro
-import com.github.appintro.AppIntroCustomLayoutFragment
 import com.github.appintro.AppIntroFragment
-import de.msdevs.einschlafhilfe.fragments.PrivacyFragment
-import de.msdevs.einschlafhilfe.fragments.SettingsFragment
+import de.msdevs.einschlafhilfe.fragments.intro.PrivacyFragment
+import de.msdevs.einschlafhilfe.fragments.intro.SettingsFragment
 
 class AppIntroActivity : AppIntro() {
 
@@ -38,7 +37,6 @@ class AppIntroActivity : AppIntro() {
     }
     override fun onSkipPressed(currentFragment: Fragment?) {
         super.onSkipPressed(currentFragment)
-        // Decide what to do when the user clicks on "Skip"
         finish()
     }
     override fun onDonePressed(currentFragment: Fragment?) {

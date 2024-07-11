@@ -1,7 +1,11 @@
 package de.msdevs.einschlafhilfe.utils
 
+import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Context
+import android.graphics.Color
 import android.preference.PreferenceManager
+import com.tapadoo.alerter.Alerter
 import de.msdevs.einschlafhilfe.R
 
 object Utility {
@@ -13,5 +17,26 @@ object Utility {
     fun getTheme(context: Context): Int {
         val prefs = PreferenceManager.getDefaultSharedPreferences(context)
         return prefs.getInt(context.getString(R.string.prefs_theme_key), -1)
+    }
+
+    @SuppressLint("UseCompatLoadingForDrawables")
+    fun displayAlerter(text : String, color : Int,white : Boolean, activity : Activity){
+        activity.getDrawable(R.drawable.ic_info)?.let {
+         if(white){
+             Alerter.create(activity)
+                 .setTitle(activity.getString(R.string.information))
+                 .setBackgroundColorInt(color)
+                 .setIcon(it)
+                 .setText(text)
+                 .show()
+         }else{
+             Alerter.create(activity)
+                 .setTitle(activity.getString(R.string.information))
+                 .setBackgroundColorInt(color)
+                 .setIcon(it)
+                 .setText(text)
+                 .show()
+         }
+        }
     }
 }

@@ -547,6 +547,36 @@
       "beschreibung": "Onkel Titus kauft ein altes Spiegelkabinett. Bei genauerer Inspektion hören die drei ??? Kids plötzlich rätselhafte Reime.Vielleicht kann der berühmte Rätselerfinder Mr Think helfen? Doch als Justus, Peter und Bob in seiner Villa ankommen, fehlt von ihm jede Spur... ",
       "nummer": "91",
       "spotify": "3cbOXb1xkJF65KRjBBqlmL"
-     }
+     },
+     {
+      "name": "Spuk im Leuchtturm",
+      "beschreibung": "Die drei ??? Kids auf Geisterjagd im alten Leuchtturm. Ein Lichtstrahl zeichnet gruselige Fratzen in den nebligen Himmel über dem Meer. Nach dem ersten Schrecken wollen Justus, Peter und Bob der Sache auf den Grund gehen. Treiben hier wirklich Geister ihr Unwesen? ",
+      "nummer": "92",
+      "spotify": "https://open.spotify.com/album/4793v2qgBpisdJjWcSCjt2"
+     },
+     {
+      "name": "Die Geistermühle",
+      "beschreibung": "Die Flügel der alten Windmühle in Rocky Beach drehen sich plötzlich bei absoluter Windstille. Wie kann das sein? Bei genauer Untersuchung stoßen die drei Freunde auf eine sagenhafte Legende. ",
+      "nummer": "93",
+      "spotify": "https://open.spotify.com/album/6FLO3ExDCl0GwkzjCQGq0x"
+     },
+     {
+      "name": "Falsche Vampire",
+      "beschreibung": "Vampir-Alarm in Rocky Beach. Flatterhafte Wesen werden am Nachthimmel gesichtet, und Fred Fireman hat plötzlich zwei verdächtige rote Punkte am Hals. Justus, Peter und Bob gehen der Sache auf den Grund, und eine gruselige Vampirjagd beginnt. ",
+      "nummer": "94",
+      "spotify": "https://open.spotify.com/album/4I3xNROKxdLC2GFcpp8o2R"
+     },
+     {
+      "name": "Geheime Zeichen",
+      "beschreibung": "Einbruch in einer Villa! Bei der Untersuchung des Tatorts fällt den drei ??? Kids ein merkwürdiges Kreidezeichen auf. Was hat es damit auf sich? Justus, Peter und Bob müssen Kommissar Reynolds helfen, weitere Einbrüche zu verhindern.",
+      "nummer": "95",
+      "spotify": "https://open.spotify.com/album/3xIGmydqrJOShru5bQmSVa"
+     },
+     {
+      "name": "Der Schrottkönig",
+      "beschreibung": "Onkel Titus ist verzweifelt, denn kaum ein Kunde verirrt sich mehr auf den Schrottplatz. Und beim neuen Konkurrenten sind gebrauchte Ersatzteile viel günstiger. Wie kann das sein? Justus, Peter und Bob nehmen die Ermittlungen auf und landen in der Höhle des Löwen.",
+      "nummer": "96",
+       "spotify": "https://open.spotify.com/album/4MvsJSPLzWm6irgVI2PXfo"
+      }
   ]
 }

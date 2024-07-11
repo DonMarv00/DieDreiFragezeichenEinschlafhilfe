@@ -1,25 +1,23 @@
 package de.msdevs.einschlafhilfe
 
-
-import android.content.ContentValues
 import android.content.DialogInterface
 import android.content.Intent
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.database.sqlite.SQLiteDatabase
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.android.material.snackbar.Snackbar
 import de.msdevs.einschlafhilfe.database.DatabaseHelper
 import de.msdevs.einschlafhilfe.databinding.ActivityMainBinding
 import de.msdevs.einschlafhilfe.models.JsonResponse
@@ -35,7 +33,8 @@ import ru.gildor.coroutines.okhttp.await
 import java.io.BufferedReader
 import java.io.IOException
 
-class MainActivity : BaseActivity() {
+
+class MainActivity : BaseActivity(false) {
 
     private lateinit var binding: ActivityMainBinding
     private var urlExtraParameter = "folgen.json"
@@ -49,7 +48,9 @@ class MainActivity : BaseActivity() {
     private var random : Int = 0
     private lateinit var folgen_database: SQLiteDatabase
     private lateinit var databaseHelper: DatabaseHelper
-
+    private lateinit var toolbar : Toolbar
+    private var alerterColor : Int = 0
+    private var isWhite = false
     /*
        Copyright 2017 - 2024 by Marvin Stelter
      */
@@ -60,6 +61,10 @@ class MainActivity : BaseActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+        toolbar = binding.toolbar
+        setSupportActionBar(toolbar)
+        toolbarDesign()
 
         sharedPreferences = getSharedPreferences(packageName,0)
         sharedPreferencesEditor = sharedPreferences.edit()
@@ -126,29 +131,32 @@ class MainActivity : BaseActivity() {
                 startActivity(intent)
             } catch (e: Exception) {
                 e.printStackTrace()
-                Snackbar.make(
-                    binding.relativeLayout,
-                    getString(R.string.not_installed),
-                    Snackbar.LENGTH_SHORT
-                ).show()
+                Utility.displayAlerter(getString(R.string.not_installed),alerterColor,isWhite,this@MainActivity)
             }
         }
         binding.fabRefresh.setOnClickListener {
            refresh()
         }
         binding.fabDescription.setOnClickListener {
-           var alert : MaterialAlertDialogBuilder
-           if(Utility.getTheme(this) == 4){
-               alert = MaterialAlertDialogBuilder(this, R.style.DialogThemeWhite)
-           }else{
-               alert = MaterialAlertDialogBuilder(this, R.style.DialogTheme)
-           }
+            try {
 
-            alert.setTitle(getString(R.string.output, (episodeNumber + 1).toString(), episodeList[episodeNumber].name)
-            )
-            alert.setMessage(episodeList[episodeNumber].beschreibung)
-            alert.setNegativeButton(getString(R.string.close)) { dlg: DialogInterface, _: Int -> dlg.dismiss() }
-            alert.show()
+                val alert : MaterialAlertDialogBuilder = if (Utility.getTheme(applicationContext) <= 2) {
+                    MaterialAlertDialogBuilder(this, R.style.DialogThemeRed)
+                } else if (Utility.getTheme(applicationContext) == 3) {
+                    MaterialAlertDialogBuilder(this, R.style.DialogThemeBlue)
+                } else if (Utility.getTheme(applicationContext) == 4) {
+                    MaterialAlertDialogBuilder(this, R.style.DialogThemeWhite)
+                }else{
+                    MaterialAlertDialogBuilder(this, R.style.DialogThemeRed)
+                }
+
+                alert.setTitle(getString(R.string.output, (episodeNumber + 1).toString(), episodeList[episodeNumber].name))
+                alert.setMessage(episodeList[episodeNumber].beschreibung)
+                alert.setNegativeButton(getString(R.string.close)) { dlg: DialogInterface, _: Int -> dlg.dismiss() }
+                alert.show()
+            }catch (e : Exception){
+                Utility.displayAlerter(getString(R.string.folge_laedt_noch),alerterColor,isWhite,this@MainActivity)
+            }
         }
         binding.fabLinks.setOnClickListener {
             val neuvertonungList = listOf("11", "1", "10", "8",
@@ -182,11 +190,14 @@ class MainActivity : BaseActivity() {
                 }
             }
 
-            val builder : MaterialAlertDialogBuilder
-            if(Utility.getTheme(this) == 4){
-                builder = MaterialAlertDialogBuilder(this, R.style.DialogThemeWhite)
+            val builder : MaterialAlertDialogBuilder = if (Utility.getTheme(applicationContext) <= 2) {
+                MaterialAlertDialogBuilder(this, R.style.DialogThemeRed)
+            } else if (Utility.getTheme(applicationContext) == 3) {
+                MaterialAlertDialogBuilder(this, R.style.DialogThemeBlue)
+            } else if (Utility.getTheme(applicationContext) == 4) {
+                MaterialAlertDialogBuilder(this, R.style.DialogThemeWhite)
             }else{
-                builder = MaterialAlertDialogBuilder(this, R.style.DialogTheme)
+                MaterialAlertDialogBuilder(this, R.style.DialogThemeRed)
             }
 
             builder.setTitle("Links:")
@@ -208,8 +219,23 @@ class MainActivity : BaseActivity() {
             val dialog = builder.create()
             dialog.show()
         }
-    }
 
+    }
+    private fun toolbarDesign() {
+        if (Utility.getTheme(applicationContext) <= 2) {
+            toolbar.setTitleTextColor(Color.WHITE)
+            alerterColor = Color.parseColor("#d50000")
+            isWhite = false
+        } else if (Utility.getTheme(applicationContext) == 3) {
+            toolbar.setTitleTextColor(Color.WHITE)
+            alerterColor = Color.parseColor("#0048FF")
+            isWhite = false
+        } else if (Utility.getTheme(applicationContext) == 4) {
+            toolbar.setTitleTextColor(Color.BLACK)
+            alerterColor = Color.BLACK
+            isWhite = true
+        }
+    }
     private suspend fun apiCall() {
         try {
             random = (1..4).random()
@@ -218,7 +244,9 @@ class MainActivity : BaseActivity() {
                     binding.btnSpotify.visibility = View.GONE
                 }else{
                     if(random != 3){
-                        binding.btnSpotify.visibility = View.VISIBLE
+                        if(sharedPreferences.getBoolean("spotify",false)){
+                            binding.btnSpotify.visibility = View.VISIBLE
+                        }
                     }
                 }
             }
@@ -288,15 +316,17 @@ class MainActivity : BaseActivity() {
                         if (jsonArray != null) {
                             for (i in 0 until jsonArray.length()) {
                                 val jsonObject = jsonArray.getJSONObject(i)
-                                episodeList.add(JsonResponse(name = jsonObject.optString("name"), beschreibung = jsonObject.optString("beschreibung"), spotify = jsonObject.optString("spotify"), nummer = jsonObject.optInt("nummer"), type = ""))
+                                episodeList.add(JsonResponse(
+                                    name = jsonObject.optString("name"),
+                                    beschreibung = jsonObject.optString("beschreibung"),
+                                    spotify = jsonObject.optString("spotify"),
+                                    nummer = jsonObject.optString("nummer"), type = ""))
                             }
                         }
                     }
                 }
-                Log.e("MainActivity","Episode Number: " + episodeNumber)
                 val name = episodeList[episodeNumber].name
                 if (!checkFilter(name)){
-                    //Folge anzeigen
                     runOnUiThread {
                         try {
                             if(binding.bottomBarViewFlipper.displayedChild != 5){
@@ -304,15 +334,21 @@ class MainActivity : BaseActivity() {
                             }else{
                                 if(random == 1){
                                     binding.tvDetails.text = getString(R.string.output, (episodeNumber + 1).toString(), episodeList[episodeNumber].name)
-                                    binding.btnSpotify.visibility = View.VISIBLE
+                                    if(sharedPreferences.getBoolean("spotify",false)){
+                                        binding.btnSpotify.visibility = View.VISIBLE
+                                    }
                                 }
                                 if(random == 2){
                                     binding.tvDetails.text = episodeList[episodeNumber].name
-                                    binding.btnSpotify.visibility = View.VISIBLE
+                                    if(sharedPreferences.getBoolean("spotify",false)){
+                                        binding.btnSpotify.visibility = View.VISIBLE
+                                    }
                                 }
                                 if(random == 3){
                                     binding.tvDetails.text = getString(R.string.output, (episodeNumber + 1).toString(), episodeList[episodeNumber].name)
-                                    binding.btnSpotify.visibility = View.GONE
+                                    if(sharedPreferences.getBoolean("spotify",false)){
+                                        binding.btnSpotify.visibility = View.VISIBLE
+                                    }
                                 }
                                 if(random == 4){
                                     binding.tvDetails.text = getString(R.string.output, (episodeNumber + 1).toString(), episodeList[episodeNumber].name)
@@ -338,6 +374,7 @@ class MainActivity : BaseActivity() {
                                         if(random == 3){
                                             loadEpisodeCover(getString(R.string.cover_citroncode_dd_url) + (episodeNumber + 1) + ".png")
                                             binding.fabLinks.show()
+                                            binding.btnSpotify.visibility = View.GONE
                                         }
                                         if(random == 4){
                                             loadEpisodeCover(getString(R.string.cover_citroncode_url) + "k" + (episodeNumber + 1) + ".png")
@@ -368,14 +405,10 @@ class MainActivity : BaseActivity() {
                 }
 
             } catch (e: IOException) {
-                runOnUiThread{
-                  //  Toast.makeText(this,getString(R.string.fehler_glide),Toast.LENGTH_SHORT).show()
-                }
+                Log.e("MainActivity", "Error: " + e)
             }
         }catch (e : Exception){
-            runOnUiThread{
-               // Toast.makeText(this,"Error: " + e.message,Toast.LENGTH_SHORT).show()
-            }
+            Log.e("MainActivity", "Error: " + e)
         }
     }
     private fun getRockyBeachLink(nummer: String, random : Int): String {
@@ -385,7 +418,6 @@ class MainActivity : BaseActivity() {
             2 -> url = "https://www.rocky-beach.com/hoerspiel/folgen/0$nummer.html"
             1 -> url = "https://www.rocky-beach.com/hoerspiel/folgen/00$nummer.html"
         }
-
         when (binding.bottomBarViewFlipper.displayedChild) {
             4 -> {
                 url = "https://www.rocky-beach.com/hoerspiel/folgen/50$nummer.html"
@@ -473,6 +505,6 @@ class MainActivity : BaseActivity() {
             sharedPreferencesEditor.apply()
         }
     }
-
 }
+
 

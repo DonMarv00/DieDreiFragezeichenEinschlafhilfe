@@ -22,9 +22,13 @@ class FilterListeAdapter(private val folgeList: List<JsonResponse>, private val 
 
         fun bind(folgeTitle: String, nummer : String, type : String) {
             binding.tvFolgenName.text = folgeTitle
-            binding.tvFolgenNummer.text = binding.tvFolgenNummer.context.getString(R.string.nummer, nummer)
-            loadCover(nummer,type, binding.ivCover)
 
+            if(nummer.contains("x")){
+                binding.tvFolgenNummer.text = binding.tvFolgenNummer.context.getString(R.string.nummer, "$nummer (Sonderfolge)")
+            }else{
+                binding.tvFolgenNummer.text = binding.tvFolgenNummer.context.getString(R.string.nummer, nummer)
+            }
+            loadCover(nummer,type, binding.ivCover)
             binding.ivDelete.setOnClickListener{
                 onDeleteItemListener?.onDeleteItem(folgeTitle)
             }
@@ -63,7 +67,7 @@ class FilterListeAdapter(private val folgeList: List<JsonResponse>, private val 
         val url : String = if(prefix == "dd"){
             context.getString(R.string.cover_citroncode_dd_url) + (nummer) + ".png"
         }else{
-            context.getString(R.string.cover_citroncode_url) + prefix + (nummer) + ".png"
+            context.getString(R.string.cover_citroncode_url)  + (nummer) + ".png"
         }
         Log.e("FilterListeAdapter", "Cover URL: $url")
         if(networkUtils.isConnected(context)){

@@ -4,6 +4,6 @@ class JsonResponse(
     val name: String,
     val beschreibung: String,
     val spotify: String,
-    val nummer: Int,
+    val nummer: String,
     val type : String
 )

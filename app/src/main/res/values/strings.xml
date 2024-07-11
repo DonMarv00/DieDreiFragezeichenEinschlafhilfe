@@ -80,4 +80,7 @@
     <string name="nummer">Nummer: %1$s</string>
     <string name="name_der_folge">Name der Folge</string>
     <string name="filter_liste">Filterliste</string>
+    <string name="folge_laedt_noch">Bitte warte, bis eine Folge ausgewählt worden ist.</string>
+    <string name="information">Information</string>
+    <string name="ddf">Die drei ???</string>
 </resources>

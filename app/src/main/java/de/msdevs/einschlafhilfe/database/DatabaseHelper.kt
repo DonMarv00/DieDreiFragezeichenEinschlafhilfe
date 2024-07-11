@@ -40,7 +40,7 @@ class DatabaseHelper(private val c: Context) {
             if (cursor.moveToFirst()) {
                 do {
                     try {
-                        app_names.add(JsonResponse(cursor.getString(0),"N/A","N/A",Integer.parseInt(cursor.getString(1)), cursor.getString(2)))
+                        app_names.add(JsonResponse(cursor.getString(0),"N/A","N/A",cursor.getString(1), cursor.getString(2)))
                     } catch (e: Exception) {
                         Log.e("DatabaseHelper", "Error: " + e.message)
                     }

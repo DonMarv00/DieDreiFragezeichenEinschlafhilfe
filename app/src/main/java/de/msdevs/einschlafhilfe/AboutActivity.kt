@@ -1,31 +1,38 @@
 package de.msdevs.einschlafhilfe
 
 import android.content.Intent
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.widget.Toolbar
 import de.msdevs.einschlafhilfe.databinding.ActivityAboutBinding
+import de.msdevs.einschlafhilfe.utils.Utility
 
-class AboutActivity : BaseActivity() {
+class AboutActivity : BaseActivity(false) {
 
     private lateinit var binding : ActivityAboutBinding
     private lateinit var btnPrivacy : Button
     private lateinit var btnSource : Button
     private lateinit var btnLicenses : Button
     private lateinit var btnContact : Button
+    private lateinit var toolbar: Toolbar
+
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         binding = ActivityAboutBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
 
         btnPrivacy = binding.btnPrivacy
         btnSource = binding.btnQuellcode
         btnLicenses = binding.btnLicense
         btnContact = binding.btnContact
+
+        toolbarDesign()
 
 
         btnPrivacy.setOnClickListener{
@@ -41,7 +48,7 @@ class AboutActivity : BaseActivity() {
         btnContact.setOnClickListener {
             val intent = Intent(Intent.ACTION_SENDTO)
             intent.setData(Uri.parse("mailto:"))
-            intent.putExtra(Intent.EXTRA_EMAIL, arrayOf("stelter.developer@gmail.com"))
+            intent.putExtra(Intent.EXTRA_EMAIL, arrayOf("contact@citroncode.com"))
             intent.putExtra(Intent.EXTRA_SUBJECT, "Kontaktanfrage: DDF Folgenauswahl")
             intent.putExtra(Intent.EXTRA_TEXT, "Deine Nachricht hier...")
             startActivity(intent)
@@ -54,5 +61,23 @@ class AboutActivity : BaseActivity() {
     private fun openUrl(url : String){
         val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
         startActivity(browserIntent)
+    }
+    private fun toolbarDesign() {
+        toolbar = binding.toolbar
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+
+        val nav = toolbar.navigationIcon
+        if (Utility.getTheme(applicationContext) <= 2) {
+            toolbar.setTitleTextColor(Color.WHITE)
+            nav?.setTint(Color.WHITE)
+        } else if (Utility.getTheme(applicationContext) == 3) {
+            toolbar.setTitleTextColor(Color.WHITE)
+            nav?.setTint(Color.WHITE)
+        } else if (Utility.getTheme(applicationContext) == 4) {
+            toolbar.setTitleTextColor(Color.BLACK)
+            nav?.setTint(Color.BLACK)
+        }
     }
 }

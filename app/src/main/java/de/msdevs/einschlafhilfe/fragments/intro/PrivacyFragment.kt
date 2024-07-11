@@ -1,4 +1,4 @@
-package de.msdevs.einschlafhilfe.fragments
+package de.msdevs.einschlafhilfe.fragments.intro
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -8,24 +8,21 @@ import android.view.ViewGroup
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.CheckBox
-import android.widget.Toast
-import androidx.annotation.Nullable
 import androidx.fragment.app.Fragment
 import com.github.appintro.SlidePolicy
 import de.msdevs.einschlafhilfe.databinding.FragmentPrivacyBinding
 
 
-
 class PrivacyFragment() : Fragment(), SlidePolicy {
 
     private lateinit var webView: WebView
-    lateinit var binding : FragmentPrivacyBinding
-    lateinit var checkBoxPrivacy : CheckBox
+    private lateinit var binding : FragmentPrivacyBinding
+    private lateinit var checkBoxPrivacy : CheckBox
 
     override fun onCreateView(
         inflater: LayoutInflater,
-        @Nullable container: ViewGroup?,
-        @Nullable savedInstanceState: Bundle?
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         binding = FragmentPrivacyBinding.inflate(inflater, container, false)
         return binding.root

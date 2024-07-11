@@ -13,6 +13,7 @@
         <item name="colorOnSurface">@color/white</item>
         <item name="colorOnSurfaceInverse">@color/colorAccent</item>
 
+
     </style>
 
 
@@ -86,12 +87,18 @@
         <item name="colorOnSurface">@color/black</item>
         <item name="colorOnSurfaceInverse">@color/white</item>
 
-
     </style>
 
+    <style name="DialogThemeBlue" parent="MaterialAlertDialog.MaterialComponents">
+        <item name="colorSurfaceContainerHigh">@color/colorPrimaryBlue</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/AlertDialogTitleText</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/AlertDialogBodyText</item>
+        <item name="buttonBarPositiveButtonStyle">@style/PositiveButtonStyle</item>
+        <item name="buttonBarNegativeButtonStyle">@style/NegativeButtonStyle</item>
+    </style>
 
-
-    <style name="DialogTheme" parent="MaterialAlertDialog.MaterialComponents">
+    <style name="DialogThemeRed" parent="MaterialAlertDialog.MaterialComponents">
+        <item name="colorSurfaceContainerHigh">@color/colorPrimary</item>
         <item name="materialAlertDialogTitleTextStyle">@style/AlertDialogTitleText</item>
         <item name="materialAlertDialogBodyTextStyle">@style/AlertDialogBodyText</item>
         <item name="buttonBarPositiveButtonStyle">@style/PositiveButtonStyle</item>
@@ -114,7 +121,8 @@
         <item name="android:textColor">@android:color/white</item>
     </style>
 
-    <style name="DialogThemeWhite" parent="MaterialAlertDialog.MaterialComponents">
+    <style name="DialogThemeWhite" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="colorSurfaceContainerHigh">@color/white</item>
         <item name="materialAlertDialogTitleTextStyle">@style/AlertDialogTitleTextWhite</item>
         <item name="materialAlertDialogBodyTextStyle">@style/AlertDialogBodyTextWhite</item>
         <item name="buttonBarPositiveButtonStyle">@style/PositiveButtonStyleWhite</item>
@@ -136,9 +144,6 @@
     <style name="AlertDialogBodyTextWhite" parent="MaterialAlertDialog.MaterialComponents.Body.Text">
         <item name="android:textColor">@android:color/black</item>
     </style>
-
-
-
 
 
 </resources>

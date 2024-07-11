@@ -1349,6 +1349,24 @@
        "beschreibung": "Schaurige Maispuppen, Schüsse und verurteilte Verbrecher – keine guten Vorzeichen für eine Hochzeit. Die drei ??? geben ihr Bestes, um das Fest zu retten. Deep Spring, ein verschlafener Ort in der Wüste von Arizona: Die drei ??? reisen an, um die Hochzeit eines alten Bekannten zu besuchen. Doch während die Vorbereitungen in vollem Gange sind, pflastern unheimliche Puppen den Weg der Detektive. Als sie schließlich ein Hochzeitspaar aus Mais, aufgehängt im Gebälk, entdecken, bekommt nicht nur die Braut kalte Füße. Können Justus, Peter und Bob die seltsamen Geschehnisse aufklären? ",
        "nummer": "225",
        "spotify": "https://open.spotify.com/album/0FuC7q4bJG41g1naKBx4ot"
+      },
+      {
+       "name": "Die drei Fragezeichen - Die Spur der Toten",
+       "beschreibung": "Bob Andrews stockt der Atem – unerwartet erhält er Post von einem Anwalt. Die Vergangenheit holt ihn ein und lässt ihn an seinem Verstand zweifeln. Das Vermächtnis, das eine alte Bekannte dem dritten Detektiv hinterlässt, ist ebenso unheimlich wie bizarr: Nach ihrem Ableben soll er die Spur ihres Mörders aufnehmen und ihn unter allen Umständen dingfest machen. Können die drei ??? ihren Tod aufklären und den Täter finden? Justus, Peter und Bob folgen den Spuren, die bis in das Reich der Toten führen.",
+       "nummer": "226",
+       "spotify": "https://open.spotify.com/album/3Sv5tE8PcAlGY6Ys2ISQXF"
+      },
+      {
+       "name": "Die drei Fragezeichen - Melodie der Rache",
+       "beschreibung": "Die drei ??? Ermitteln für einen berühmten Rockstar und lauschen der Melodie der Rache. Können die Detektive Licht ins Dunkel bringen? Als Peter Journey die drei ??? Um Hilfe bittet, sind die Detektive hellauf begeistert, denn PJ ist eine echte Rocklegende. In der Ferienanlage des Musikers herrscht Chaos: Eine wertvolle Bassgitarre wurde gestohlen und ein Gast brutal niedergeschlagen. Justus, Peter und Bob buchen sich kurzerhand selbst ein Zimmer im Hotel und stoßen auf ein dunkles Geheimnis der Vergangenheit.",
+       "nummer": "227",
+       "spotify": "https://open.spotify.com/album/2CMXywsh8wVXXCmr2bLTZ6"
+      },
+      {
+       "name": "Die drei Fragezeichen - Der Ruf der Krähen",
+       "beschreibung": "Die Krähen sind los! Als Peter Shaw durch den Palisades Park joggt, wird er Zeuge eines unheimlichen Vorfalls: Er hört lautes Gekrächze und Hilfeschreie. Ein Mann wird von einem Schwarm Krähen attackiert! Nur schwer lassen sich die Vögel vertreiben. Warum haben sie das getan? Ein unheimliches Ereignis, das an Alfred Hitchcocks berühmten Film „Die Vögel“ erinnert. In ihrem neuen Fall treffen Justus, Jonas, Peter Shaw und Bob Andrews auf ungewöhnliche Gegner. Haben Krähen eine eigene Sprache, um sich gegen Menschen zu verbünden?",
+       "nummer": "228",
+       "spotify": "https://open.spotify.com/album/6lyjnz3h0CJ87CS7YvK3bT"
       }
   ]
 }

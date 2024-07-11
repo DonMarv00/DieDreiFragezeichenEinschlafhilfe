@@ -35,6 +35,7 @@
             android:theme="@style/AppThemeNoToolbar"/>
         <activity android:name=".FilterActivity"/>
         <activity android:name=".SettingsActivity"
+            android:theme="@style/AppThemeNoToolbar"
             android:label="@string/settings"/>
         <activity android:name=".AboutActivity"
             android:label="@string/about" />
