@@ -475,13 +475,13 @@
       "spotify": "https://open.spotify.com/album/1rDYlXZy6vN4wqqQ6buqOr?si=6646EZ6SRiqjD9nk1PBteQ&dl_branch=1"
     },
     {
-      "name": "Die drei ??? - Verdeckte Fouls",
+      "name": "Die drei ??? - Geheimakte Ufo",
       "beschreibung": "Bob und Peter stockt der Atem. Durch die Bäume schimmert unwirklich grelles Licht - ein Raumschiff in in den Wäldern um Rocky Beach gelandet. Für Peter steht fest: Die Außerirdischen übernehmen die Macht auf der Erde! Justus, der Kopf des Detektivtrios, reagiert gelassen auf die Ufo-Berichte seiner Freunde. Doch dann taucht ein weiterer Augenzeuge auf und der Erste Detektiv wird stutzig. Nochmals untersuchen die drei ??? den Landeplatz des Raumschiffs, ohne zu ahnen, daß sie bereits erwartet werden...",
       "nummer": "80",
       "spotify": "https://open.spotify.com/album/4izXuApLzBWtWHrFqgcrxL?si=bRkx1ohUSjWVIIM6l-lPsA&dl_branch=1"
     },
     {
-      "name": "Die drei ??? - Geheimakte Ufo",
+      "name": "Die drei ??? - Verdeckte Fouls",
       "beschreibung": "Erfolgreiche Wochen liegen hinter einem deutschen Fußball-Team. Nun wollen sich die Spieler unter der Sonne Kaliforniens auf die Rückrunde vorbereiten. Aber schon bald wird die Harmonie durch merkwürdige Vorgänge erschüttert: Ein Unbekannter treibt in den Mannschafträumen sein böses Spiel. Welches Ziel verfolgt er mit dem Zerschneiden von Trikots und dem Aufsprayen geheimnisvoller Symbole? Die drei ??? nehmen die Ermittlungen auf.",
       "nummer": "81",
       "spotify": "https://open.spotify.com/album/2s5u6hCaMpTIvZtBRvQzha?si=ixN5MzCWRny2oPDWgHS0hQ&dl_branch=1"

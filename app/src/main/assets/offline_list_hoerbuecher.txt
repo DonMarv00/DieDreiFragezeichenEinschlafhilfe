@@ -3,62 +3,74 @@
       {
          "name":"Die drei Fragezeichen und der Ameisenmensch",
          "beschreibung":"Kribbelnde Spannung im wahrsten Sinne des Wortes verheißt dieser Fall - die drei ??? juckt das nicht. Gilt es doch der attraktiven Letitia Radford beizustehen, die zwar im Luxus lebt, sich aber von allerlei Krabbelndem und odendrein einer lebendig gewordenen Vogelscheuche bedroht sieht! Der mutige Entschluss, es mit Ameisen und Schlimmerem aufzunehmen, bringt die drei ??? mit sonderbaren Zeitgenossen in Berührung ... ",
-         "nummer":"1"
+         "nummer":"1",
+         "spotify": ""
       },
       {
          "name":"Die drei Fragezeichen und der Zauberspiegel",
          "beschreibung":"Wenn jemand erzählt, in einem spanischen Spiegel spuke es, und nachts sind auch noch seltsame Geräusche zu hören, dann kriegt vor allem Justus weniger eine Gänsehaut, als vielmehr Lust, diesen Dingen auf den Grund zu gehen. Doch kaum beginnen die drei ??? zu ermitteln, häufen sich merkwürdige Zwischenfälle.  ",
-         "nummer":"2"
+         "nummer":"2",
+         "spotify": ""
       },
       {
          "name":"Die drei Fragezeichen und die schwarze Katze",
          "beschreibung":"Mit Ermittlungen kennt er sich bestens aus: Axel Prahl. Nun hat er mit großem Vergnügen (wie er selbst sagt) für unser Hörbuchprojekt  Die drei ??? und die schwarze Katze eingelesen. Ein bisschen Herzklopfen war auch dabei - und Respekt vor der großen ???-Fan-Gemeinde. Wir freuen uns über seine Interpretation der schwarzen Katze. Und auch über das Interview, in dem er nicht nur erzählt wie er sich auf die Hörbuchaufnahmen vorbereitet hat.",
-         "nummer":"3"
+         "nummer":"3",
+         "spotify": ""
       },
       {
          "name":"Die drei Fragezeichen und der gestohlene Preis",
          "beschreibung":"Aufregende Zeiten für die drei ???... Der Diebstahl der silbernen Pokale im Fernsehstudio ist erst der Anfang.  Aber dann versucht jemand, Justus als Quizteilnehmer aus dem Verkehr zu ziehen, und dasselbe passiert der ehrgeizigen Peggy, die ebenfalls gewinnen möchte. Die Freunde Bob und Peter helfen wie immer tatkräftig mit, als Justus zu ermitteln beginnt. Wer spielt hier falsch? An Verdächtigen fehlt es nicht.",
-         "nummer":"4"
+         "nummer":"4",
+         "spotify": ""
       },
       {
          "name":"Die drei Fragezeichen und der sprechende Totenkopf",
          "beschreibung":"Sie gehört von Anbeginn zu den drei ???: Karin Lieneweg in ihrer Rolle als resolute Tante Mathilda. Wir freuen uns über ein lebendiges Interview mit einer großartigen Frau, die von ihren Anfängen am Theater erzählt und uns interessante Einblicke in ihr Leben mit und ohne die drei ??? gewährt. Das Hörbuch Die drei ??? und der sprechende Totenkopf ist tatsächlich das erste Hörbuch, das Karin Lieneweg eingelesen hat. Wir finden, sie hat das grandios gemacht - und sind gemeinsam mit ihr sehr gespannt, wie es euch gefällt. ",
-         "nummer":"5"
+         "nummer":"5",
+         "spotify": ""
       },
       {
          "name":"Die drei Fragezeichen und die flüsternde Mumie",
          "beschreibung":"Kann eine 3000 Jahre alte Mumie flüstern? Noch dazu in einem altägyptischen Dialekt, den niemand verstehen kann? Die drei ??? sind entschlossen, das Geheimnis zu lösen, auch wenn der Fluch der Mumie sie treffen sollte. ",
-         "nummer":"6"
+         "nummer":"6",
+         "spotify": ""
       },
       {
          "name":"Die drei Fragezeichen und die silberne Spinne",
          "beschreibung":"Er bezeichnet sich selbst als ???-Über-Fan: Nicholas Müller – Sänger der Band Jupiter Jones. Im Interview erzählt er, wie schnell die Band zu ihrem Namen kam und wie es sich anfühlt seit 20 Jahren mit dem Originalnamen von Justus Jonas auf dem Band-T-Shirt rumzulaufen. Nicholas hat nicht nur zu den ??? eine Verbindung, sondern auch eine zu den drei !!! – und so wie es sich anhört auch noch einen Rucksack in Berlin ...  Danke, lieber Nicholas für das Interview – und insbesondere auch für deine Hörbuchlesung Die drei ??? und die silberne Spinne!",
-         "nummer":"7"
+         "nummer":"7",
+         "spotify": ""
       },
       {
          "name":"Die drei Fragezeichen und der Höhlenmensch",
          "beschreibung":"Der beliebte Schauspieler und Sprecher Eckart Dux liest: Die drei ??? und der Höhlenmensch. Dank seiner unverwechselbaren Stimme wird es extra spannend, wenn in Citrus-Grove seltsame Dinge passieren, nachdem dort ein vorgeschichtliches Skelett gefunden wurde. Trailer-John, der vor dem Museum Wache hält, behauptet sogar, er habe in der Nacht den lebendig gewordenen Höhlenmenschen weglaufen sehen! Neugierig und ahnungsvoll machen sich die drei ??? ans Beobachten. Und tatsächlich - allmählich kristallisiert sich heraus, dass hier verschiedene kriminelle Vorgänge parallel laufen...  ",
-         "nummer":"8"
+         "nummer":"8",
+         "spotify": ""
       },
       {
          "name":"Die drei Fragezeichen und die gefährliche Erbschaft",
          "beschreibung":"Endlich wieder ??? Podcast & Hörbuchzeit! Diesmal im Interview: Holger Mahlich alias Inspektor Cotta, der uns seine ganz persönliche ‚Vor‘-Geschichte erzählt. Von Weimar über Ost-Berlin, über die Grenze der DDF nach Wien, Köln bis zu seiner Wahlheimat Hamburg, wo er dann auch früh Heikedine Körting kennenlernte. Für unsere ???-Hörbuchreihe hat er den Rätsel-Klassiker Die drei ??? und die gefährliche Erbschaft gelesen – und sich gefreut, dass er einmal mehr als in der Rolle Inspektor Cotta gewohnt zu Wort kommt. ",
-         "nummer":"9"
+         "nummer":"9",
+         "spotify": ""
       },
       {
          "name":"Die drei Fragezeichen und die rätselhaften Bilder",
          "beschreibung":"Wir setzen unsere Die drei ??? Hörbuchreihe fort! Diesmal direkt nach der Hörbuchaufnahme im Interview: Dr. Mai Thi Nguyen-Kim. Mai erzählt, wie sie früher mit ihrem älteren Bruder Die drei ??? Kassetten gehört hat, erklärt die berühmte Telefonlawine aus ihrer wissenschaftlichen Perspektive und wir erfahren, warum sie bei den Hörbuchaufnahmen zu Die drei ??? und die rätselhaften Bilder zwischendurch immer mal lachend abbrechen musste.  ",
-         "nummer":"10"
+         "nummer":"10",
+         "spotify": ""
       },
       {
          "name":"Die drei Fragezeichen und der schrullige Millionär",
          "beschreibung":"Schau doch in den Audio & Video Podcast mit Klaas Heufer-Umlauf rein, hier siehst du einen Ausschnitt aus den Aufnahmen und während des Gesprächs mit Oliver Rohrbeck verrät Klaas, dass er Die drei ??? und der schrullige Millionär ausgesucht hat, damit es nicht zu gruselig wird. Als Kind waren ihm die drei ??? Hörspiele oft zu spannend. Dabei ist Klaas ist ein erfahrener Hörspielhörer - und hat sogar gemeinsam mit Jan Böhmermann selbst ein Hörspiel aufgenommen. ",
-         "nummer":"11"
+         "nummer":"11",
+         "spotify": ""
       },
       {
          "name":"Die drei Fragezeichen und das Bergmonster",
          "beschreibung":"Die drei ??? Family & Friends: Kai Schwind liest Die drei ??? und das Bergmonster. Wir freuen uns, dass Kai, der schon so lange als Regisseur der letzten drei Live-Hörspiele, als Skriptautor einiger Specials, als Bobcast-Host und auch mit seiner Ferienbande die drei ??? begleitet, den Weg ins Studio gefunden hat, um einen echten ???-Klassiker einzulesen. Wir sprechen über eine klassische Kassettenkinder-Biografie, Mutproben, knackende Türen - und übernatürliche Elemente. Passt auf eure Bergmonster auf!",
-         "nummer":"12"
-      },
+         "nummer":"12",
+         "spotify": ""
+      }
    ]
 }

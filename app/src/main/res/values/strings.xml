@@ -4,7 +4,7 @@
     <string name="string_folgen_1_150">1 – 150</string>
     <string name="string_folgen_1_100">1 – 100</string>
     <string name="string_folgen_1_50">1 – 50</string>
-    <string name="app_name_long">Die drei ??? - Folgenauswahl Helfer</string>
+    <string name="app_name_long">Die drei ??? - Einschlafhilfe</string>
     <string name="die_drei">Die Dr3i</string>
     <string name="neuvertonung">Anhören als Neuvertonung</string>
     <string name="informationen">Informationen auf rocky-beach.com</string>
@@ -84,4 +84,5 @@
     <string name="information">Information</string>
     <string name="ddf">Die drei ???</string>
     <string name="filter_informations">Hier kannst du Folgen auswählen, die du z.B. nicht gerne hörst oder im Besitz hast.\n\nAlgorithmus:\nJe mehr Folgen einer Art ausgewählt werden, desto weniger wird diese Art angezeigt. Wieso? Es wird erst die Art und dann die Folge ausgewählt, falls diese im Filter ist wird wieder die Folgen Art ausgewählt und so weiter.</string>
+    <string name="hoerbuecher">Hörbücher</string>
 </resources>

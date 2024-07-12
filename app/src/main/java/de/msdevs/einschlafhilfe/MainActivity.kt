@@ -66,7 +66,6 @@ class MainActivity : BaseActivity(false) {
         setSupportActionBar(toolbar)
         toolbarDesign()
 
-
         sharedPreferences = getSharedPreferences(packageName,0)
         sharedPreferencesEditor = sharedPreferences.edit()
         networkUtils = NetworkUtils()
@@ -82,22 +81,21 @@ class MainActivity : BaseActivity(false) {
             sharedPreferencesEditor.apply()
             startActivity(Intent(this@MainActivity, AppIntroActivity::class.java))
         }
-
         lifecycleScope.launch {
             withContext(Dispatchers.IO) {
                 when (binding.bottomBarViewFlipper.displayedChild) {
-                    0 -> episodeNumber = (1..50).random()
-                    1 -> episodeNumber = (1..100).random()
-                    2 -> episodeNumber = (1..150).random()
-                    3 -> episodeNumber = (1..216).random()
-                    4 -> episodeNumber = (1..7).random()
+                    0 -> episodeNumber = (1..50).random() - 1
+                    1 -> episodeNumber = (1..100).random() - 1
+                    2 -> episodeNumber = (1..150).random() - 1
+                    3 -> episodeNumber = (1..228).random() - 1
+                    4 -> episodeNumber = (1..8).random() - 1
                     5 -> episodeNumber = 0
-                    6 -> episodeNumber = (1..87).random()
+                    6 -> episodeNumber = (1..96).random() - 1
+                    7 -> episodeNumber = (1..12).random() - 1
                 }
                 apiCall()
             }
         }
-
         binding.btnLeft.setOnClickListener {
             binding.bottomBarViewFlipper.setInAnimation(this, R.anim.anim_flipper_item_in_right)
             binding.bottomBarViewFlipper.setOutAnimation(this, R.anim.anim_flipper_item_out_left)
@@ -240,6 +238,16 @@ class MainActivity : BaseActivity(false) {
             isWhite = true
         }
     }
+    private suspend fun loadJsonList(){
+        if(sharedPreferences.getBoolean("update_list",false) && networkUtils.isConnected(this)){
+
+        }else{
+
+        }
+    }
+    private fun selectEpisode(){
+
+    }
     private suspend fun apiCall() {
         try {
             random = (1..4).random()
@@ -260,15 +268,18 @@ class MainActivity : BaseActivity(false) {
                 urlExtraParameter = "folgen_diedrei.json"
             }else if(binding.bottomBarViewFlipper.displayedChild == 6){
                 urlExtraParameter = "folgen_kids.json"
+            }else if(binding.bottomBarViewFlipper.displayedChild == 7){
+                urlExtraParameter = "hoerbuecher.json"
             }else if(binding.bottomBarViewFlipper.displayedChild != 5){
                 urlExtraParameter = "folgen.json"
             }else{
                 val randomDDF = (sharedPreferences.getInt("min",0)..sharedPreferences.getInt("max",0)).random()
                 val randomKids = (sharedPreferences.getInt("minK",0)..sharedPreferences.getInt("maxK",0)).random()
 
+                //TODO Hier ist vielleicht ein Fehler beim auswählen, wenn der in den Einstellungen die Slider noch nicht benutzt wurden. Später checken
                 if(random == 1){
                     urlExtraParameter = "folgen.json"
-                    episodeNumber = randomDDF - 1
+                    episodeNumber = randomDDF
                 }
                 if(random == 2){
                     urlExtraParameter = "sonderfolgen_ddf.json"
@@ -276,11 +287,11 @@ class MainActivity : BaseActivity(false) {
                 }
                 if(random == 3){
                     urlExtraParameter = "folgen_diedrei.json"
-                    episodeNumber = (1..7).random() - 1
+                    episodeNumber = (1..8).random() - 1
                 }
                 if(random == 4){
                     urlExtraParameter = "folgen_kids.json"
-                    episodeNumber = randomKids - 1
+                    episodeNumber = randomKids
                 }
             }
             try {
@@ -298,6 +309,8 @@ class MainActivity : BaseActivity(false) {
                                 folgenListe = assets.open("offline_list_dd.txt").bufferedReader().use(BufferedReader::readText)
                             } else if(binding.bottomBarViewFlipper.displayedChild == 6){
                                 folgenListe = assets.open("offline_list_kids.txt").bufferedReader().use(BufferedReader::readText)
+                            } else if(binding.bottomBarViewFlipper.displayedChild == 7) {
+                                folgenListe = assets.open("offline_list_hoerbuecher.txt").bufferedReader().use(BufferedReader::readText)
                             } else if(binding.bottomBarViewFlipper.displayedChild != 5){
                                 folgenListe = assets.open("offline_list.txt").bufferedReader().use(BufferedReader::readText)
                             }else{
@@ -315,6 +328,7 @@ class MainActivity : BaseActivity(false) {
                                 }
                             }
                         }
+                       // Log.e("MainActivity", folgenListe)
                         val jsonObject = JSONObject(folgenListe)
                         val jsonArray = jsonObject.optJSONArray("folgen")
                         if (jsonArray != null) {
@@ -324,11 +338,14 @@ class MainActivity : BaseActivity(false) {
                                     name = jsonObject.optString("name"),
                                     beschreibung = jsonObject.optString("beschreibung"),
                                     spotify = jsonObject.optString("spotify"),
-                                    nummer = jsonObject.optString("nummer"), type = ""))
+                                    nummer = jsonObject.optString("nummer"),
+                                    type = ""))
                             }
                         }
                     }
                 }
+
+
                 val name = episodeList[episodeNumber].name
                 if (!checkFilter(name)){
                     runOnUiThread {
@@ -395,13 +412,14 @@ class MainActivity : BaseActivity(false) {
                     lifecycleScope.launch {
                         withContext(Dispatchers.IO) {
                             when (binding.bottomBarViewFlipper.displayedChild) {
-                                0 -> episodeNumber = (1..50).random()
-                                1 -> episodeNumber = (1..100).random()
-                                2 -> episodeNumber = (1..150).random()
-                                3 -> episodeNumber = (1..216).random()
-                                4 -> episodeNumber = (1..7).random()
+                                0 -> episodeNumber = (1..50).random() - 1
+                                1 -> episodeNumber = (1..100).random() - 1
+                                2 -> episodeNumber = (1..150).random() - 1
+                                3 -> episodeNumber = (1..228).random() - 1
+                                4 -> episodeNumber = (1..8).random() - 1
                                 5 -> episodeNumber = 0
-                                6 -> episodeNumber = (1..87).random()
+                                6 -> episodeNumber = (1..96).random() - 1
+                                7 -> episodeNumber = (1..12).random() - 1
                             }
                             apiCall()
                         }
@@ -457,13 +475,14 @@ class MainActivity : BaseActivity(false) {
         lifecycleScope.launch {
             withContext(Dispatchers.IO) {
                 when (binding.bottomBarViewFlipper.displayedChild) {
-                    0 -> episodeNumber = (1..50).random()
-                    1 -> episodeNumber = (1..100).random()
-                    2 -> episodeNumber = (1..150).random()
-                    3 -> episodeNumber = (1..222).random()
-                    4 -> episodeNumber = (1..7).random()
+                    0 -> episodeNumber = (1..50).random() - 1
+                    1 -> episodeNumber = (1..100).random() - 1
+                    2 -> episodeNumber = (1..150).random() - 1
+                    3 -> episodeNumber = (1..228).random() - 1
+                    4 -> episodeNumber = (1..8).random() - 1
                     5 -> episodeNumber = 0
-                    6 -> episodeNumber = (1..87).random()
+                    6 -> episodeNumber = (1..96).random() - 1
+                    7 -> episodeNumber = (1..12).random() - 1
                 }
                 apiCall()
             }
