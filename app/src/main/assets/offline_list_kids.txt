@@ -45,19 +45,19 @@
     },
     {
       "name": "Nacht unter Wölfen",
-      "beschreibung": "",
+      "beschreibung": "Justus, Bob und Peter können es nicht glauben: Sie selbst sollen mit Falschgeld bezahlt haben. Aber woher stammen die Blüten? Die Spuren führen quer durch Rocky Beach und im Zirkus Rondini erhalten sie einen entscheidenden Hinweis. Doch sieben hungrige Wölfe bewachen ein düsteres Geheimnis.",
       "nummer": "8",
       "spotify": "3RRqQIyDs7AkO3TPbmuRpt"
     },
     {
-      "name": "SOS über den Wölfen",
-      "beschreibung": "",
+      "name": "SOS über den Wolken",
+      "beschreibung": "Die drei ??? Kids ermitteln weiter! Alles fängt so toll an: Die drei Detektive werden für einen Aufräumjob mit einer Fahrt im Heißluftballon belohnt. Aber ein Sabotageakt macht aus dem Vergnügen schnell ein gefährliches Abenteuer. Wieder mit beiden Beinen fest auf dem Boden möchten die drei ??? die Hintergründe des Anschlags in Erfahrung bringen. Bis der Fall jedoch endgültig gelöst ist, gilt es eine zweite nicht ganz ungefährliche Ballonfahrt zu meistern.",
       "nummer": "9",
       "spotify": "7A5GQZrirxYgjWCTGpbnbs"
     },
     {
       "name": "Spuk in Rocky Beach",
-      "beschreibung": "",
+      "beschreibung": "Unheimliche Dinge geschehen in Rocky Beach. Gruselige Geistererscheinungen, rätselhafte Kornkreise und gespenstische Schattenwesen. Kein Wunder, dass sich auch das Fernsehen dafür interessiert. Doch die drei ??? Kids wollen nicht so richtig an UFOs und Außerirdische glauben. Ein Fall für starke Nerven.",
       "nummer": "10",
       "spotify": "6PRRmyf0vuFwPeuVLdDq4q"
     },

@@ -24,12 +24,12 @@ import de.msdevs.einschlafhilfe.models.JsonResponse
 import de.msdevs.einschlafhilfe.utils.NetworkUtils
 import de.msdevs.einschlafhilfe.utils.Utility
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import org.json.JSONObject
-import ru.gildor.coroutines.okhttp.await
 import java.io.BufferedReader
 import java.io.IOException
 
@@ -37,13 +37,10 @@ import java.io.IOException
 class MainActivity : BaseActivity(false) {
 
     private lateinit var binding: ActivityMainBinding
-    private var urlExtraParameter = "folgen.json"
-    private var episodeNumber: Int = 0
-    private val episodeList = ArrayList<JsonResponse>()
+    private var episodeNumberExternal: Int = 0
+
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var sharedPreferencesEditor: SharedPreferences.Editor
-    private lateinit var folgenListe : String
-    private var selectedTheme : Int = 0
     private lateinit var networkUtils: NetworkUtils
     private var random : Int = 0
     private lateinit var folgen_database: SQLiteDatabase
@@ -51,6 +48,15 @@ class MainActivity : BaseActivity(false) {
     private lateinit var toolbar : Toolbar
     private var alerterColor : Int = 0
     private var isWhite = false
+    private val episodeListDDF = ArrayList<JsonResponse>()
+    private val episodeListDD = ArrayList<JsonResponse>()
+    private val episodeListKids = ArrayList<JsonResponse>()
+    private val episodeListSonderfolgen = ArrayList<JsonResponse>()
+    private val episodeListHoerbuecher = ArrayList<JsonResponse>()
+    private lateinit var selectedEpisodeDescription : String
+    private lateinit var selectedEpisodeSpotify : String
+    private lateinit var selectedEpisodeName : String
+
     /*
        Copyright 2017 - 2024 by Marvin Stelter
      */
@@ -65,37 +71,9 @@ class MainActivity : BaseActivity(false) {
         toolbar = binding.toolbar
         setSupportActionBar(toolbar)
         toolbarDesign()
+        iniApp()
+        initializeEpisodeLists()
 
-        sharedPreferences = getSharedPreferences(packageName,0)
-        sharedPreferencesEditor = sharedPreferences.edit()
-        networkUtils = NetworkUtils()
-        restoreViewFlipperPostion()
-
-        folgen_database = openOrCreateDatabase("app_list",MODE_PRIVATE,null)
-        databaseHelper = DatabaseHelper(this)
-        databaseHelper.createTables(folgen_database)
-
-        if(sharedPreferences.getInt("first",0) == 0){
-            sharedPreferencesEditor.putBoolean("update_list", true)
-            sharedPreferencesEditor.putBoolean("spotify", false)
-            sharedPreferencesEditor.apply()
-            startActivity(Intent(this@MainActivity, AppIntroActivity::class.java))
-        }
-        lifecycleScope.launch {
-            withContext(Dispatchers.IO) {
-                when (binding.bottomBarViewFlipper.displayedChild) {
-                    0 -> episodeNumber = (1..50).random() - 1
-                    1 -> episodeNumber = (1..100).random() - 1
-                    2 -> episodeNumber = (1..150).random() - 1
-                    3 -> episodeNumber = (1..228).random() - 1
-                    4 -> episodeNumber = (1..8).random() - 1
-                    5 -> episodeNumber = 0
-                    6 -> episodeNumber = (1..96).random() - 1
-                    7 -> episodeNumber = (1..12).random() - 1
-                }
-                apiCall()
-            }
-        }
         binding.btnLeft.setOnClickListener {
             binding.bottomBarViewFlipper.setInAnimation(this, R.anim.anim_flipper_item_in_right)
             binding.bottomBarViewFlipper.setOutAnimation(this, R.anim.anim_flipper_item_out_left)
@@ -118,7 +96,7 @@ class MainActivity : BaseActivity(false) {
         }
         binding.btnSpotify.setOnClickListener {
             try {
-                var id = episodeList[episodeNumber].spotify
+                var id = selectedEpisodeSpotify
                 when {
                     id.contains("https://") -> {
                         val separated: Array<String> = id.split(getString(R.string.spotify_base_url).toRegex()).toTypedArray()
@@ -152,8 +130,8 @@ class MainActivity : BaseActivity(false) {
                     MaterialAlertDialogBuilder(this, R.style.DialogThemeRed)
                 }
 
-                alert.setTitle(getString(R.string.output, (episodeNumber + 1).toString(), episodeList[episodeNumber].name))
-                alert.setMessage(episodeList[episodeNumber].beschreibung)
+                alert.setTitle(getString(R.string.output, (episodeNumberExternal + 1).toString(), selectedEpisodeName))
+                alert.setMessage(selectedEpisodeDescription)
                 alert.setNegativeButton(getString(R.string.close)) { dlg: DialogInterface, _: Int -> dlg.dismiss() }
                 alert.show()
             }catch (e : Exception){
@@ -174,7 +152,7 @@ class MainActivity : BaseActivity(false) {
                 }else -> {
                     var neuvertonung = 0
                     for (i in neuvertonungList.indices) {
-                        if (episodeNumber.toString() == neuvertonungList[i]) {
+                        if (episodeNumberExternal.toString() == neuvertonungList[i]) {
                             neuvertonung++
                         }
                     }
@@ -207,7 +185,7 @@ class MainActivity : BaseActivity(false) {
                 var i = Intent(Intent.ACTION_VIEW)
                 when (which) {
                     0 -> {
-                        i.data = Uri.parse(getRockyBeachLink((episodeNumber + 1).toString(), random))
+                        i.data = Uri.parse(getRockyBeachLink((episodeNumberExternal + 1).toString(), random))
                         startActivity(i)
                     }
                     1 -> {
@@ -238,201 +216,112 @@ class MainActivity : BaseActivity(false) {
             isWhite = true
         }
     }
-    private suspend fun loadJsonList(){
-        if(sharedPreferences.getBoolean("update_list",false) && networkUtils.isConnected(this)){
+    private fun iniApp(){
+        sharedPreferences = getSharedPreferences(packageName,0)
+        sharedPreferencesEditor = sharedPreferences.edit()
+        networkUtils = NetworkUtils()
+        restoreViewFlipperPostion()
 
-        }else{
+        folgen_database = openOrCreateDatabase("app_list",MODE_PRIVATE,null)
+        databaseHelper = DatabaseHelper(this)
+        databaseHelper.createTables(folgen_database)
 
+        if(sharedPreferences.getInt("first",0) == 0){
+            sharedPreferencesEditor.putBoolean("update_list", true)
+            sharedPreferencesEditor.putBoolean("spotify", false)
+            sharedPreferencesEditor.apply()
+            startActivity(Intent(this@MainActivity, AppIntroActivity::class.java))
         }
-    }
-    private fun selectEpisode(){
-
     }
     private suspend fun apiCall() {
         try {
-            random = (1..4).random()
+            val random = (1..4).random()
             runOnUiThread {
-                if(binding.bottomBarViewFlipper.displayedChild == 4){
+                if (binding.bottomBarViewFlipper.displayedChild == 4) {
                     binding.btnSpotify.visibility = View.GONE
-                }else{
-                    if(random != 3){
-                        if(sharedPreferences.getBoolean("spotify",false)){
+                } else {
+                    if (random != 3 && sharedPreferences.getBoolean("spotify", false)) {
+                        binding.btnSpotify.visibility = View.VISIBLE
+                    }
+                }
+            }
+
+            val (episodeList, episodeNumber) = when (binding.bottomBarViewFlipper.displayedChild) {
+                0-> episodeListDDF to (1..50).random() - 1
+                1-> episodeListDDF to (1..100).random() - 1
+                2 -> episodeListDDF to (1..150).random() - 1
+                3 -> episodeListDDF to (1..episodeListDDF.size).random() - 1
+                4 -> episodeListDD to (1..8).random() - 1
+                6 -> episodeListKids to (1..episodeListKids.size).random() - 1
+                7 -> episodeListHoerbuecher to (1..episodeListHoerbuecher.size).random() - 1
+                5 -> when (random) {
+                    1 -> episodeListDDF to (sharedPreferences.getInt("min", 1)..sharedPreferences.getInt("max", episodeListDDF.size)).random() - 1
+                    2 -> episodeListSonderfolgen to (1..episodeListSonderfolgen.size).random() - 1
+                    3 -> episodeListDD to (1..episodeListDD.size).random() - 1
+                    4 -> episodeListKids to (sharedPreferences.getInt("minK", 1)..sharedPreferences.getInt("maxK", episodeListKids.size)).random() - 1
+                    else -> episodeListDDF to 0
+                } else -> episodeListDDF to (1..episodeListDDF.size).random() - 1 //Error
+            }
+
+            episodeNumberExternal = episodeNumber
+            Log.e("MainActivity", "Episode Number: " + episodeNumber + " vf pos: " + binding.bottomBarViewFlipper.displayedChild)
+            val episode = episodeList[episodeNumber]
+
+            if (!checkFilter(episode.name)) {
+                runOnUiThread {
+                    try {
+                        binding.tvDetails.text = getString(R.string.output, (episodeNumber + 1).toString(), episode.name)
+                        if (sharedPreferences.getBoolean("spotify", false) && random != 3 && binding.bottomBarViewFlipper.displayedChild != 4) {
                             binding.btnSpotify.visibility = View.VISIBLE
                         }
-                    }
-                }
-            }
-            episodeList.clear()
-
-            if(binding.bottomBarViewFlipper.displayedChild == 4){
-                urlExtraParameter = "folgen_diedrei.json"
-            }else if(binding.bottomBarViewFlipper.displayedChild == 6){
-                urlExtraParameter = "folgen_kids.json"
-            }else if(binding.bottomBarViewFlipper.displayedChild == 7){
-                urlExtraParameter = "hoerbuecher.json"
-            }else if(binding.bottomBarViewFlipper.displayedChild != 5){
-                urlExtraParameter = "folgen.json"
-            }else{
-                val randomDDF = (sharedPreferences.getInt("min",0)..sharedPreferences.getInt("max",0)).random()
-                val randomKids = (sharedPreferences.getInt("minK",0)..sharedPreferences.getInt("maxK",0)).random()
-
-                //TODO Hier ist vielleicht ein Fehler beim auswählen, wenn der in den Einstellungen die Slider noch nicht benutzt wurden. Später checken
-                if(random == 1){
-                    urlExtraParameter = "folgen.json"
-                    episodeNumber = randomDDF
-                }
-                if(random == 2){
-                    urlExtraParameter = "sonderfolgen_ddf.json"
-                    episodeNumber = (1..19).random() - 1
-                }
-                if(random == 3){
-                    urlExtraParameter = "folgen_diedrei.json"
-                    episodeNumber = (1..8).random() - 1
-                }
-                if(random == 4){
-                    urlExtraParameter = "folgen_kids.json"
-                    episodeNumber = randomKids
-                }
-            }
-            try {
-                when {
-                    episodeList.isEmpty() -> {
-
-                        if(sharedPreferences.getBoolean("update_list",false) && networkUtils.isConnected(this)){
-                            val client = OkHttpClient.Builder().build()
-                            val request =
-                                Request.Builder().url(getString(R.string.base_url) + urlExtraParameter)
-                                    .build()
-                            folgenListe = client.newCall(request).await().body()?.string().toString()
-                        }else {
-                            if (binding.bottomBarViewFlipper.displayedChild == 4) {
-                                folgenListe = assets.open("offline_list_dd.txt").bufferedReader().use(BufferedReader::readText)
-                            } else if(binding.bottomBarViewFlipper.displayedChild == 6){
-                                folgenListe = assets.open("offline_list_kids.txt").bufferedReader().use(BufferedReader::readText)
-                            } else if(binding.bottomBarViewFlipper.displayedChild == 7) {
-                                folgenListe = assets.open("offline_list_hoerbuecher.txt").bufferedReader().use(BufferedReader::readText)
-                            } else if(binding.bottomBarViewFlipper.displayedChild != 5){
-                                folgenListe = assets.open("offline_list.txt").bufferedReader().use(BufferedReader::readText)
-                            }else{
-                                if(random == 1){
-                                    folgenListe = assets.open("offline_list.txt").bufferedReader().use(BufferedReader::readText)
-                                }
-                                if(random == 2){
-                                    folgenListe = assets.open("offline_list_sonderfolgen_ddf.txt").bufferedReader().use(BufferedReader::readText)
-                                }
-                                if(random == 3){
-                                    folgenListe = assets.open("offline_list_dd.txt").bufferedReader().use(BufferedReader::readText)
-                                }
-                                if(random == 4){
-                                    folgenListe = assets.open("offline_list_kids.txt").bufferedReader().use(BufferedReader::readText)
-                                }
-                            }
-                        }
-                       // Log.e("MainActivity", folgenListe)
-                        val jsonObject = JSONObject(folgenListe)
-                        val jsonArray = jsonObject.optJSONArray("folgen")
-                        if (jsonArray != null) {
-                            for (i in 0 until jsonArray.length()) {
-                                val jsonObject = jsonArray.getJSONObject(i)
-                                episodeList.add(JsonResponse(
-                                    name = jsonObject.optString("name"),
-                                    beschreibung = jsonObject.optString("beschreibung"),
-                                    spotify = jsonObject.optString("spotify"),
-                                    nummer = jsonObject.optString("nummer"),
-                                    type = ""))
-                            }
-                        }
-                    }
-                }
-
-
-                val name = episodeList[episodeNumber].name
-                if (!checkFilter(name)){
-                    runOnUiThread {
-                        try {
-                            if(binding.bottomBarViewFlipper.displayedChild != 5){
-                                binding.tvDetails.text = getString(R.string.output, (episodeNumber + 1).toString(), episodeList[episodeNumber].name)
-                            }else{
-                                if(random == 1){
-                                    binding.tvDetails.text = getString(R.string.output, (episodeNumber + 1).toString(), episodeList[episodeNumber].name)
-                                    if(sharedPreferences.getBoolean("spotify",false)){
-                                        binding.btnSpotify.visibility = View.VISIBLE
-                                    }
-                                }
-                                if(random == 2){
-                                    binding.tvDetails.text = episodeList[episodeNumber].name
-                                    if(sharedPreferences.getBoolean("spotify",false)){
-                                        binding.btnSpotify.visibility = View.VISIBLE
-                                    }
-                                }
-                                if(random == 3){
-                                    binding.tvDetails.text = getString(R.string.output, (episodeNumber + 1).toString(), episodeList[episodeNumber].name)
-                                    if(sharedPreferences.getBoolean("spotify",false)){
-                                        binding.btnSpotify.visibility = View.VISIBLE
-                                    }
-                                }
-                                if(random == 4){
-                                    binding.tvDetails.text = getString(R.string.output, (episodeNumber + 1).toString(), episodeList[episodeNumber].name)
-                                }
-                            }
-                            when (binding.bottomBarViewFlipper.displayedChild) {
-                                4 ->
-                                    loadEpisodeCover(getString(R.string.cover_citroncode_dd_url) + (episodeNumber + 1) + ".png")
-                                else ->
-                                    if(binding.bottomBarViewFlipper.displayedChild == 6) {
-                                        loadEpisodeCover(getString(R.string.cover_citroncode_url) + "k" + (episodeNumber + 1) + ".png")
-                                    }else if(binding.bottomBarViewFlipper.displayedChild != 5){
+                        when (binding.bottomBarViewFlipper.displayedChild) {
+                            4 ->
+                                loadEpisodeCover(getString(R.string.cover_citroncode_dd_url) + (episodeNumber + 1) + ".png")
+                            else ->
+                                if(binding.bottomBarViewFlipper.displayedChild == 6) {
+                                    loadEpisodeCover(getString(R.string.cover_citroncode_url) + "k" + (episodeNumber + 1) + ".png")
+                                }else if(binding.bottomBarViewFlipper.displayedChild != 5){
+                                    loadEpisodeCover(getString(R.string.cover_citroncode_url) + (episodeNumber + 1) + ".png")
+                                }else{
+                                    if(random == 1){
                                         loadEpisodeCover(getString(R.string.cover_citroncode_url) + (episodeNumber + 1) + ".png")
-                                    }else{
-                                        if(random == 1){
-                                            loadEpisodeCover(getString(R.string.cover_citroncode_url) + (episodeNumber + 1) + ".png")
-                                            binding.fabLinks.show()
-                                        }
-                                        if(random == 2){
-                                            loadEpisodeCover(getString(R.string.cover_citroncode_url) + "x" + (episodeNumber + 1) + ".png")
-                                            binding.fabLinks.hide()
-                                        }
-                                        if(random == 3){
-                                            loadEpisodeCover(getString(R.string.cover_citroncode_dd_url) + (episodeNumber + 1) + ".png")
-                                            binding.fabLinks.show()
-                                            binding.btnSpotify.visibility = View.GONE
-                                        }
-                                        if(random == 4){
-                                            loadEpisodeCover(getString(R.string.cover_citroncode_url) + "k" + (episodeNumber + 1) + ".png")
-                                            binding.fabLinks.hide()
-                                        }
+                                        binding.fabLinks.show()
                                     }
-                            }
-                        } catch (e: java.lang.Exception) {
-                            e.printStackTrace()
-                            refresh()
+                                    if(random == 2){
+                                        loadEpisodeCover(getString(R.string.cover_citroncode_url) + "x" + (episodeNumber + 1) + ".png")
+                                        binding.fabLinks.hide()
+                                    }
+                                    if(random == 3){
+                                        loadEpisodeCover(getString(R.string.cover_citroncode_dd_url) + (episodeNumber + 1) + ".png")
+                                        binding.fabLinks.show()
+                                        binding.btnSpotify.visibility = View.GONE
+                                    }
+                                    if(random == 4){
+                                        loadEpisodeCover(getString(R.string.cover_citroncode_url) + "k" + (episodeNumber + 1) + ".png")
+                                        binding.fabLinks.hide()
+                                    }
+                                }
                         }
-                    }
-                }else{
-                    lifecycleScope.launch {
-                        withContext(Dispatchers.IO) {
-                            when (binding.bottomBarViewFlipper.displayedChild) {
-                                0 -> episodeNumber = (1..50).random() - 1
-                                1 -> episodeNumber = (1..100).random() - 1
-                                2 -> episodeNumber = (1..150).random() - 1
-                                3 -> episodeNumber = (1..228).random() - 1
-                                4 -> episodeNumber = (1..8).random() - 1
-                                5 -> episodeNumber = 0
-                                6 -> episodeNumber = (1..96).random() - 1
-                                7 -> episodeNumber = (1..12).random() - 1
-                            }
-                            apiCall()
-                        }
+                        selectedEpisodeName = episode.name
+                        selectedEpisodeDescription = episode.beschreibung
+                        selectedEpisodeSpotify = episode.spotify
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                        refresh()
                     }
                 }
-
-            } catch (e: IOException) {
-                Log.e("MainActivity", "Error: " + e)
+            } else {
+                lifecycleScope.launch {
+                    withContext(Dispatchers.IO) {
+                        apiCall()
+                    }
+                }
             }
-        }catch (e : Exception){
-            Log.e("MainActivity", "Error: " + e)
+        } catch (e: Exception) {
+            Log.e("MainActivity", "Error: $e")
         }
     }
+
     private fun getRockyBeachLink(nummer: String, random : Int): String {
         var url = ""
         when (nummer.length) {
@@ -474,16 +363,6 @@ class MainActivity : BaseActivity(false) {
     private fun refresh(){
         lifecycleScope.launch {
             withContext(Dispatchers.IO) {
-                when (binding.bottomBarViewFlipper.displayedChild) {
-                    0 -> episodeNumber = (1..50).random() - 1
-                    1 -> episodeNumber = (1..100).random() - 1
-                    2 -> episodeNumber = (1..150).random() - 1
-                    3 -> episodeNumber = (1..228).random() - 1
-                    4 -> episodeNumber = (1..8).random() - 1
-                    5 -> episodeNumber = 0
-                    6 -> episodeNumber = (1..96).random() - 1
-                    7 -> episodeNumber = (1..12).random() - 1
-                }
                 apiCall()
             }
         }
@@ -534,6 +413,86 @@ class MainActivity : BaseActivity(false) {
     private fun saveViewFlipperPostion(){
         sharedPreferencesEditor.putInt("vf_pos", binding.bottomBarViewFlipper.displayedChild)
         sharedPreferencesEditor.apply()
+    }
+    private suspend fun loadEpisodesFromServer(url: String): List<JsonResponse> = withContext(Dispatchers.IO) {
+        val episodeList = ArrayList<JsonResponse>()
+        try {
+            val client = OkHttpClient.Builder().build()
+            val request = Request.Builder().url(url).build()
+            val response = client.newCall(request).execute()
+            if (response.isSuccessful) {
+                val folgenListe = response.body()?.string()
+                if (!folgenListe.isNullOrEmpty()) {
+                    val jsonObject = JSONObject(folgenListe)
+                    val jsonArray = jsonObject.optJSONArray("folgen")
+                    if (jsonArray != null) {
+                        for (i in 0 until jsonArray.length()) {
+                            val jsonObject = jsonArray.getJSONObject(i)
+                            episodeList.add(JsonResponse(
+                                name = jsonObject.optString("name"),
+                                beschreibung = jsonObject.optString("beschreibung"),
+                                spotify = jsonObject.optString("spotify"),
+                                nummer = jsonObject.optString("nummer"),
+                                type = ""
+                            ))
+                        }
+                    }
+                }
+            }
+        } catch (e: IOException) {
+            Log.e("MainActivity", "Error loading episodes from server: ", e)
+        }
+        episodeList
+    }
+    private fun initializeEpisodeLists() {
+        lifecycleScope.launch {
+            val updateList = sharedPreferences.getBoolean("update_list", false)
+            if (updateList && networkUtils.isConnected(this@MainActivity)) {
+                val episodesDDF = async { loadEpisodesFromServer(getString(R.string.base_url) + "folgen.json") }
+                val episodesDD = async { loadEpisodesFromServer(getString(R.string.base_url) + "folgen_diedrei.json") }
+                val episodesKids = async { loadEpisodesFromServer(getString(R.string.base_url) + "folgen_kids.json") }
+                val episodesSonderfolgen = async { loadEpisodesFromServer(getString(R.string.base_url) + "sonderfolgen_ddf.json") }
+                val episodesHoerbuecher = async { loadEpisodesFromServer(getString(R.string.base_url) + "hoerbuecher.json") }
+
+                episodeListDDF.addAll(episodesDDF.await())
+                episodeListDD.addAll(episodesDD.await())
+                episodeListKids.addAll(episodesKids.await())
+                episodeListSonderfolgen.addAll(episodesSonderfolgen.await())
+                episodeListHoerbuecher.addAll(episodesHoerbuecher.await())
+            } else {
+                episodeListDDF.addAll(loadEpisodesFromAssets("offline_list.txt"))
+                episodeListDD.addAll(loadEpisodesFromAssets("offline_list_dd.txt"))
+                episodeListKids.addAll(loadEpisodesFromAssets("offline_list_kids.txt"))
+                episodeListSonderfolgen.addAll(loadEpisodesFromAssets("offline_list_sonderfolgen_ddf.txt"))
+                episodeListHoerbuecher.addAll(loadEpisodesFromAssets("offline_list_hoerbuecher.txt"))
+            }
+
+            lifecycleScope.launch {
+                withContext(Dispatchers.IO) {
+                    apiCall()
+                }
+            }
+        }
+    }
+
+    private fun loadEpisodesFromAssets(filename: String): List<JsonResponse> {
+        val episodeList = ArrayList<JsonResponse>()
+        val folgenListe = assets.open(filename).bufferedReader().use(BufferedReader::readText)
+        val jsonObject = JSONObject(folgenListe)
+        val jsonArray = jsonObject.optJSONArray("folgen")
+        if (jsonArray != null) {
+            for (i in 0 until jsonArray.length()) {
+                val jsonObject = jsonArray.getJSONObject(i)
+                episodeList.add(JsonResponse(
+                    name = jsonObject.optString("name"),
+                    beschreibung = jsonObject.optString("beschreibung"),
+                    spotify = jsonObject.optString("spotify"),
+                    nummer = jsonObject.optString("nummer"),
+                    type = ""
+                ))
+            }
+        }
+        return episodeList
     }
 }
 

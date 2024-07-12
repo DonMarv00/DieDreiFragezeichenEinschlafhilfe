@@ -49,7 +49,6 @@ class SettingsActivity : BaseActivity(true) {
         binding = ActivitySettingsBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-
         toolbarDesign()
 
         iniViews()
