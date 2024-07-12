@@ -74,6 +74,8 @@ class FilterListeAdapter(private val folgeList: List<JsonResponse>, private val 
             prefix = "k"
         }else if(type == "sonderfolgen"){
             prefix = "x"
+        }else if(type == "hoerbuecher"){
+            prefix = "h"
         }else{
             prefix = "s"
         }
@@ -85,8 +87,9 @@ class FilterListeAdapter(private val folgeList: List<JsonResponse>, private val 
             url = context.getString(R.string.cover_citroncode_url)  + (nummer) + ".png"
         }else if(prefix == "k"){
             url = context.getString(R.string.cover_citroncode_url)  + "k" + (nummer) + ".png"
-        }
-        else if(prefix == "x"){
+        }else if(prefix == "h"){
+        url = context.getString(R.string.cover_citroncode_url)  + "h" + (nummer) + ".png"
+        } else if(prefix == "x"){
             url = context.getString(R.string.cover_citroncode_url) + (nummer) + ".png"
         }
 

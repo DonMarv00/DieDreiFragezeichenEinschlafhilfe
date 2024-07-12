@@ -1366,7 +1366,7 @@
        "name": "Die drei Fragezeichen - Der Ruf der Krähen",
        "beschreibung": "Die Krähen sind los! Als Peter Shaw durch den Palisades Park joggt, wird er Zeuge eines unheimlichen Vorfalls: Er hört lautes Gekrächze und Hilfeschreie. Ein Mann wird von einem Schwarm Krähen attackiert! Nur schwer lassen sich die Vögel vertreiben. Warum haben sie das getan? Ein unheimliches Ereignis, das an Alfred Hitchcocks berühmten Film „Die Vögel“ erinnert. In ihrem neuen Fall treffen Justus, Jonas, Peter Shaw und Bob Andrews auf ungewöhnliche Gegner. Haben Krähen eine eigene Sprache, um sich gegen Menschen zu verbünden?",
        "nummer": "228",
-       "spotify": "https://open.spotify.com/album/6lyjnz3h0CJ87CS7YvK3bT"
+       "spotify": "https://open.spotify.com/album/6sNAlohza1ZTWVMGhFTGJW"
       }
   ]
 }

@@ -60,9 +60,12 @@ class FilterFragment : Fragment(), FilterListeAdapter.OnFilterAdded{
                     episodeList.clear()
                     folgenListe = requireActivity().assets.open("offline_list.txt").bufferedReader().use(BufferedReader::readText)
                     type = "ddf"
-                }else{
+                }else if(loadCounter == 1){
                     folgenListe = requireActivity().assets.open("offline_list_sonderfolgen_ddf.txt").bufferedReader().use(BufferedReader::readText)
                     type = "sonderfolgen"
+                }else{
+                    folgenListe = requireActivity().assets.open("offline_list_hoerbuecher.txt").bufferedReader().use(BufferedReader::readText)
+                    type = "hoerbuecher"
                     loadCounter = 0
                 }
                 loadCounter++
@@ -85,7 +88,7 @@ class FilterFragment : Fragment(), FilterListeAdapter.OnFilterAdded{
         pgLoadEpisodes.visibility = View.GONE
         rvEpisodes.adapter = FilterListeAdapter(episodeList,this,requireContext())
 
-        if(type == "ddf"){
+        if(type == "ddf" || type == "sonderfolgen"){
             loadEpisodes()
         }
     }
