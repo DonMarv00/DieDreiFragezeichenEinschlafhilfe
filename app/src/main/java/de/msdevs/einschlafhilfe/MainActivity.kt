@@ -5,7 +5,9 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.database.sqlite.SQLiteDatabase
+import android.graphics.Bitmap
 import android.graphics.Color
+import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -17,12 +19,15 @@ import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.request.target.CustomTarget
+import com.bumptech.glide.request.transition.Transition
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import de.msdevs.einschlafhilfe.database.DatabaseHelper
 import de.msdevs.einschlafhilfe.databinding.ActivityMainBinding
 import de.msdevs.einschlafhilfe.models.JsonResponse
 import de.msdevs.einschlafhilfe.utils.NetworkUtils
 import de.msdevs.einschlafhilfe.utils.Utility
+import de.msdevs.einschlafhilfe.utils.Utility.cropAndSetImage
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
@@ -264,7 +269,6 @@ class MainActivity : BaseActivity(false) {
             }
 
             episodeNumberExternal = episodeNumber
-            Log.e("MainActivity", "Episode Number: " + episodeNumber + " vf pos: " + binding.bottomBarViewFlipper.displayedChild)
             val episode = episodeList[episodeNumber]
 
             if (!checkFilter(episode.name)) {
@@ -280,8 +284,13 @@ class MainActivity : BaseActivity(false) {
                             else ->
                                 if(binding.bottomBarViewFlipper.displayedChild == 6) {
                                     loadEpisodeCover(getString(R.string.cover_citroncode_url) + "k" + (episodeNumber + 1) + ".png")
+                                    binding.fabLinks.hide()
+                                }else if(binding.bottomBarViewFlipper.displayedChild == 7){
+                                    loadEpisodeCoverHoerbuch(getString(R.string.cover_citroncode_url) + "h" +(episodeNumber + 1) + ".png")
+                                    binding.fabLinks.hide()
                                 }else if(binding.bottomBarViewFlipper.displayedChild != 5){
                                     loadEpisodeCover(getString(R.string.cover_citroncode_url) + (episodeNumber + 1) + ".png")
+                                    binding.fabLinks.show()
                                 }else{
                                     if(random == 1){
                                         loadEpisodeCover(getString(R.string.cover_citroncode_url) + (episodeNumber + 1) + ".png")
@@ -347,6 +356,24 @@ class MainActivity : BaseActivity(false) {
                .into(binding.ivCover)
        }
     }
+    private fun loadEpisodeCoverHoerbuch(coverUrl: String) {
+        if (networkUtils.isConnected(this) && sharedPreferences.getBoolean("update_list", false)) {
+            Glide.with(this)
+                .asBitmap() // Lädt das Bild als Bitmap
+                .load(coverUrl)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(object : CustomTarget<Bitmap>() {
+                    override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
+                       cropAndSetImage(this@MainActivity, binding.ivCover, resource)
+                    }
+
+                    override fun onLoadCleared(placeholder: Drawable?) {
+
+                    }
+                })
+        }
+    }
+
     private fun isSpotifyInstalled() : Boolean{
         val packageManager: PackageManager = packageManager
         val intent = Intent(Intent.ACTION_VIEW)

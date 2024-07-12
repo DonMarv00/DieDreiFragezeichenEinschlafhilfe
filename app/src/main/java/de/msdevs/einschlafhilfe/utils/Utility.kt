@@ -3,8 +3,12 @@ package de.msdevs.einschlafhilfe.utils
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.Bitmap.createBitmap
 import android.graphics.Color
+import android.graphics.Rect
 import android.preference.PreferenceManager
+import android.widget.ImageView
 import com.tapadoo.alerter.Alerter
 import de.msdevs.einschlafhilfe.R
 
@@ -38,5 +42,15 @@ object Utility {
                  .show()
          }
         }
+    }
+    fun cropAndSetImage(context: Context, imageView: ImageView, originalBitmap: Bitmap) {
+        val widthPx = 463
+        val heightPx = 600
+        val posX = 398
+        val posY = 0
+
+        val rect = Rect(posX, posY, posX + widthPx, posY + heightPx)
+        val croppedBitmap = createBitmap(originalBitmap, rect.left, rect.top, rect.width(), rect.height())
+        imageView.setImageBitmap(croppedBitmap)
     }
 }
