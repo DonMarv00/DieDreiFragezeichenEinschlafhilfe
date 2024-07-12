@@ -472,6 +472,26 @@ class MainActivity : BaseActivity(false) {
                     apiCall()
                 }
             }
+
+            if(sharedPreferences.getInt("initialEpisodesLength",0) == 0){
+                sharedPreferencesEditor.putInt("minD",1)
+                sharedPreferencesEditor.putInt("maxD", episodeListDDF.size)
+                sharedPreferencesEditor.putInt("minKD",1)
+                sharedPreferencesEditor.putInt("maxKD", episodeListKids.size)
+
+                sharedPreferencesEditor.putInt("min",1)
+                sharedPreferencesEditor.putInt("max", episodeListDDF.size)
+                sharedPreferencesEditor.putInt("minK",1)
+                sharedPreferencesEditor.putInt("maxK", episodeListKids.size)
+                sharedPreferencesEditor.putInt("initialEpisodesLength", 123)
+                sharedPreferencesEditor.apply()
+            }else{
+                sharedPreferencesEditor.putInt("minD",1)
+                sharedPreferencesEditor.putInt("maxD", episodeListDDF.size)
+                sharedPreferencesEditor.putInt("minKD",1)
+                sharedPreferencesEditor.putInt("maxKD", episodeListKids.size)
+                sharedPreferencesEditor.apply()
+            }
         }
     }
 

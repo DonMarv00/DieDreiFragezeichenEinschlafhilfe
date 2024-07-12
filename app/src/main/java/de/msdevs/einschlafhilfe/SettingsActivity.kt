@@ -7,6 +7,7 @@ import android.content.SharedPreferences
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
@@ -67,31 +68,35 @@ class SettingsActivity : BaseActivity(true) {
             sharedPreferencesEditor.apply()
         }
 
-        if(sharedPreferences.getInt("min",0) == 0){
-            rangeSlider.values = listOf(50f,200f)
-            tvStart.text = "50"
-            tvEnd.text = "200"
-        }else{
-            val x = sharedPreferences.getInt("min",0).toFloat()
-            val y = sharedPreferences.getInt("max",0).toFloat()
-            rangeSlider.values = listOf(x,y)
 
-            tvStart.text = x.toString().floatToInt().toString()
-            tvEnd.text = y.toString().floatToInt().toString()
-        }
+        val x = sharedPreferences.getInt("min",0).toFloat()
+        val y = sharedPreferences.getInt("max",0).toFloat()
+        val xD = sharedPreferences.getInt("minD",0).toFloat()
+        val yD = sharedPreferences.getInt("maxD",0).toFloat()
+        Log.e("SettingsActivity", "x="+ x + " y=" + y)
 
-        if(sharedPreferences.getInt("minK",0) == 0){
-            rangeSliderKids.values = listOf(1f,50f)
-            tvStartK.text = "1"
-            tvEndK.text = "50"
-        }else{
-            val x = sharedPreferences.getInt("minK",0).toFloat()
-            val y = sharedPreferences.getInt("maxK",0).toFloat()
-            rangeSliderKids.values = listOf(x,y)
+        rangeSlider.valueFrom = xD
+        rangeSlider.valueTo = yD
 
-            tvStartK.text = x.toString().floatToInt().toString()
-            tvEndK.text = y.toString().floatToInt().toString()
-        }
+        rangeSlider.values = listOf(x,y)
+
+        tvStart.text = x.toString().floatToInt().toString()
+        tvEnd.text = y.toString().floatToInt().toString()
+
+
+        val xK = sharedPreferences.getInt("minK",0).toFloat()
+        val yK = sharedPreferences.getInt("maxK",0).toFloat()
+        val xKD = sharedPreferences.getInt("minKD",0).toFloat()
+        val yKD = sharedPreferences.getInt("maxKD",0).toFloat()
+
+        rangeSliderKids.valueFrom = xKD
+        rangeSliderKids.valueTo = yKD
+
+        rangeSliderKids.values = listOf(xK,yK)
+
+        tvStartK.text = xK.toString().floatToInt().toString()
+        tvEndK.text = yK.toString().floatToInt().toString()
+
 
         rangeSlider.addOnSliderTouchListener(object : RangeSlider.OnSliderTouchListener{
             override fun onStartTrackingTouch(slider: RangeSlider) {
