@@ -12,6 +12,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.widget.Toolbar
 import com.google.android.material.materialswitch.MaterialSwitch
@@ -188,18 +189,15 @@ class SettingsActivity : BaseActivity(true) {
         sharedPreferencesEditor.apply()
 
         if(selectedTheme.length == 0 || selectedTheme == "bob"){
-           ivCheckBob.visibility = View.VISIBLE
-
+            ivCheckBob.visibility = View.VISIBLE
             ivCheckPeter.visibility = View.GONE
             ivCheckJustus.visibility = View.GONE
         }else if(selectedTheme == "justus"){
             ivCheckJustus.visibility = View.VISIBLE
-
             ivCheckPeter.visibility = View.GONE
             ivCheckBob.visibility = View.GONE
         }else if(selectedTheme == "peter"){
             ivCheckPeter.visibility = View.VISIBLE
-
             ivCheckBob.visibility = View.GONE
             ivCheckJustus.visibility = View.GONE
         }
@@ -235,8 +233,7 @@ class SettingsActivity : BaseActivity(true) {
             switchUpdatelist.thumbTintList = thumbTintSelector
             switchSpotify.thumbTintList = thumbTintSelector
 
-        }else if(Utility.getTheme(this) == 2){
-
+        }else if(Utility.getTheme(this) == 2  ||  selectedTheme.length == 0){
             val thumbTintSelector = ColorStateList(
                 arrayOf(
                     intArrayOf(android.R.attr.state_checked),
