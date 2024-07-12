@@ -240,7 +240,7 @@ class MainActivity : BaseActivity(false) {
     }
     private suspend fun apiCall() {
         try {
-            val random = (1..4).random()
+            val random = (1..5).random()
             runOnUiThread {
                 if (binding.bottomBarViewFlipper.displayedChild == 4) {
                     binding.btnSpotify.visibility = View.GONE
@@ -262,8 +262,9 @@ class MainActivity : BaseActivity(false) {
                 5 -> when (random) {
                     1 -> episodeListDDF to (sharedPreferences.getInt("min", 1)..sharedPreferences.getInt("max", episodeListDDF.size)).random() - 1
                     2 -> episodeListSonderfolgen to (1..episodeListSonderfolgen.size).random() - 1
-                    3 -> episodeListDD to (1..episodeListDD.size).random() - 1
+                    3 -> episodeListDD to  (sharedPreferences.getInt("minDr3i", 1)..sharedPreferences.getInt("maxDr3i", episodeListDDF.size)).random() - 1
                     4 -> episodeListKids to (sharedPreferences.getInt("minK", 1)..sharedPreferences.getInt("maxK", episodeListKids.size)).random() - 1
+                    5 -> episodeListHoerbuecher to (1..episodeListHoerbuecher.size).random() - 1
                     else -> episodeListDDF to 0
                 } else -> episodeListDDF to (1..episodeListDDF.size).random() - 1 //Error
             }
@@ -307,6 +308,10 @@ class MainActivity : BaseActivity(false) {
                                     }
                                     if(random == 4){
                                         loadEpisodeCover(getString(R.string.cover_citroncode_url) + "k" + (episodeNumber + 1) + ".png")
+                                        binding.fabLinks.hide()
+                                    }
+                                    if(random == 5){
+                                        loadEpisodeCover(getString(R.string.cover_citroncode_url) + "h" + (episodeNumber + 1) + ".png")
                                         binding.fabLinks.hide()
                                     }
                                 }
@@ -492,6 +497,10 @@ class MainActivity : BaseActivity(false) {
 
                 sharedPreferencesEditor.putInt("min",1)
                 sharedPreferencesEditor.putInt("max", episodeListDDF.size)
+
+                sharedPreferencesEditor.putInt("minDr3i",1)
+                sharedPreferencesEditor.putInt("maxDr3i", 8)
+
                 sharedPreferencesEditor.putInt("minK",1)
                 sharedPreferencesEditor.putInt("maxK", episodeListKids.size)
                 sharedPreferencesEditor.putInt("initialEpisodesLength", 123)

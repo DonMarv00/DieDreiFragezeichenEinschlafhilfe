@@ -136,6 +136,7 @@
 
 
                     <LinearLayout
+                        android:layout_marginBottom="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/tv_cst_desc"
@@ -226,6 +227,7 @@
                                 android:layout_height="wrap_content"/>
                         </RelativeLayout>
 
+
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:id="@+id/rlKids"
@@ -269,8 +271,8 @@
                                 android:textStyle="bold" />
 
                         </RelativeLayout>
+
                         <RelativeLayout
-                            android:visibility="gone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
                             <TextView
@@ -278,51 +280,64 @@
                                 android:layout_height="wrap_content"
                                 android:textSize="17sp"
                                 android:textStyle="bold"
-                                android:text="@string/die_drei_sonderfolgen"
+                                android:text="@string/die_dr3i"
                                 android:textColor="@color/white" />
                             <com.google.android.material.materialswitch.MaterialSwitch
                                 android:checked="true"
-                                android:id="@+id/show_ddf_sonderfolgen"
+                                android:visibility="gone"
+                                android:id="@+id/show_d3_kids"
                                 android:layout_alignParentEnd="true"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"/>
                         </RelativeLayout>
+
+
                         <RelativeLayout
-                            android:visibility="gone"
                             android:layout_width="match_parent"
+                            android:id="@+id/rlDr3i"
                             android:layout_height="wrap_content">
+
                             <TextView
+                                android:id="@+id/tvStartDr3i"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textSize="17sp"
-                                android:textStyle="bold"
-                                android:text="@string/die_drei_kids_sonderfolgen"
-                                android:textColor="@color/white" />
-                            <com.google.android.material.materialswitch.MaterialSwitch
-                                android:checked="true"
-                                android:id="@+id/show_ddf_kids_sonderfolgen"
-                                android:layout_alignParentEnd="true"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"/>
-                        </RelativeLayout>
-                        <RelativeLayout
-                            android:visibility="gone"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                                android:layout_alignParentStart="true"
+                                android:layout_centerInParent="true"
+                                android:layout_marginStart="5dp"
+                                android:textColor="@color/white"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
+
+                            <com.google.android.material.slider.RangeSlider
+                                android:id="@+id/rangeSliderDr3i"
+                                android:layout_width="match_parent"
+                                android:valueFrom="1"
+                                android:valueTo="8"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_toStartOf="@id/tvEndDr3i"
+                                android:layout_toEndOf="@id/tvStartDr3i"
+                                app:labelBehavior="gone"
+                                app:thumbColor="?attr/colorOnPrimary"
+                                app:thumbStrokeColor="@color/white"
+                                app:trackColorActive="?attr/colorOnPrimary"
+                                app:trackColorInactive="@color/white" />
+
                             <TextView
+                                android:id="@+id/tvEndDr3i"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textSize="17sp"
-                                android:textStyle="bold"
-                                android:text="@string/die_drei_h_rb_cher"
-                                android:textColor="@color/white" />
-                            <com.google.android.material.materialswitch.MaterialSwitch
-                                android:checked="true"
-                                android:id="@+id/show_ddf_buecher_sonderfolgen"
                                 android:layout_alignParentEnd="true"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"/>
+                                android:layout_centerInParent="true"
+                                android:layout_marginEnd="5dp"
+                                android:textColor="@color/white"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
+
                         </RelativeLayout>
+
                     </LinearLayout>
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>

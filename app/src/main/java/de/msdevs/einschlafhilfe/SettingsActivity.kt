@@ -44,6 +44,9 @@ class SettingsActivity : BaseActivity(true) {
     private lateinit var rlPeter: RelativeLayout
     private lateinit var btnFilter : Button
     private lateinit var toolbar: Toolbar
+    private lateinit var rangeSliderDr3i: RangeSlider
+    private lateinit var tvStartDr3i : TextView
+    private lateinit var tvEndDr3i: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
@@ -98,6 +101,14 @@ class SettingsActivity : BaseActivity(true) {
         tvEndK.text = yK.toString().floatToInt().toString()
 
 
+        val xDr3i = sharedPreferences.getInt("minDr3i",0).toFloat()
+        val yDr3i  = sharedPreferences.getInt("maxDr3i",0).toFloat()
+
+        rangeSliderDr3i.values = listOf(xDr3i,yDr3i)
+
+        tvStartDr3i.text = xDr3i.toString().floatToInt().toString()
+        tvEndDr3i.text = yDr3i.toString().floatToInt().toString()
+
         rangeSlider.addOnSliderTouchListener(object : RangeSlider.OnSliderTouchListener{
             override fun onStartTrackingTouch(slider: RangeSlider) {
                 val values = rangeSlider.values
@@ -134,6 +145,25 @@ class SettingsActivity : BaseActivity(true) {
                 sharedPreferencesEditor.apply()
             }
         })
+        rangeSliderDr3i.addOnSliderTouchListener(object : RangeSlider.OnSliderTouchListener{
+            override fun onStartTrackingTouch(slider: RangeSlider) {
+                val values = rangeSliderDr3i.values
+                tvStartDr3i.text =  values[0].toString().floatToInt().toString()
+                tvEndDr3i.text = values[1].toString().floatToInt().toString()
+
+            }
+
+            override fun onStopTrackingTouch(slider: RangeSlider) {
+                val values = rangeSliderDr3i.values
+                tvStartDr3i.text =  values[0].toString().floatToInt().toString()
+                tvEndDr3i.text = values[1].toString().floatToInt().toString()
+
+                sharedPreferencesEditor.putInt("minDr3i",values[0].toInt())
+                sharedPreferencesEditor.putInt("maxDr3i",values[1].toInt())
+                sharedPreferencesEditor.apply()
+            }
+        })
+
         btnFilter.setOnClickListener {
             startActivity(Intent(this@SettingsActivity, FilterActivity::class.java))
         }
@@ -184,6 +214,10 @@ class SettingsActivity : BaseActivity(true) {
         rlJustus = binding.rlJustus
         rlBob = binding.rlBob
         rlPeter = binding.rlPeter
+
+        rangeSliderDr3i = binding.rangeSliderDr3i
+        tvStartDr3i = binding.tvStartDr3i
+        tvEndDr3i = binding.tvEndDr3i
 
         loadThemeSettings()
         changeViewThemes()
