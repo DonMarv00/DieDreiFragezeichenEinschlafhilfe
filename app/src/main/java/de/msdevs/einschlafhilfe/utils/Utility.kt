@@ -43,14 +43,5 @@ object Utility {
          }
         }
     }
-    fun cropAndSetImage(context: Context, imageView: ImageView, originalBitmap: Bitmap) {
-        val widthPx = 463
-        val heightPx = 600
-        val posX = 398
-        val posY = 0
 
-        val rect = Rect(posX, posY, posX + widthPx, posY + heightPx)
-        val croppedBitmap = createBitmap(originalBitmap, rect.left, rect.top, rect.width(), rect.height())
-        imageView.setImageBitmap(croppedBitmap)
-    }
 }

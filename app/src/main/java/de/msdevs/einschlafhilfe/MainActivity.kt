@@ -14,6 +14,7 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.lifecycleScope
@@ -27,7 +28,6 @@ import de.msdevs.einschlafhilfe.databinding.ActivityMainBinding
 import de.msdevs.einschlafhilfe.models.JsonResponse
 import de.msdevs.einschlafhilfe.utils.NetworkUtils
 import de.msdevs.einschlafhilfe.utils.Utility
-import de.msdevs.einschlafhilfe.utils.Utility.cropAndSetImage
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
@@ -286,7 +286,7 @@ class MainActivity : BaseActivity(false) {
                                     loadEpisodeCover(getString(R.string.cover_citroncode_url) + "k" + (episodeNumber + 1) + ".png")
                                     binding.fabLinks.hide()
                                 }else if(binding.bottomBarViewFlipper.displayedChild == 7){
-                                    loadEpisodeCoverHoerbuch(getString(R.string.cover_citroncode_url) + "h" +(episodeNumber + 1) + ".png")
+                                    loadEpisodeCover(getString(R.string.cover_citroncode_url) + "h" +(episodeNumber + 1) + ".png")
                                     binding.fabLinks.hide()
                                 }else if(binding.bottomBarViewFlipper.displayedChild != 5){
                                     loadEpisodeCover(getString(R.string.cover_citroncode_url) + (episodeNumber + 1) + ".png")
@@ -356,23 +356,7 @@ class MainActivity : BaseActivity(false) {
                .into(binding.ivCover)
        }
     }
-    private fun loadEpisodeCoverHoerbuch(coverUrl: String) {
-        if (networkUtils.isConnected(this) && sharedPreferences.getBoolean("update_list", false)) {
-            Glide.with(this)
-                .asBitmap() // Lädt das Bild als Bitmap
-                .load(coverUrl)
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .into(object : CustomTarget<Bitmap>() {
-                    override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
-                       cropAndSetImage(this@MainActivity, binding.ivCover, resource)
-                    }
 
-                    override fun onLoadCleared(placeholder: Drawable?) {
-
-                    }
-                })
-        }
-    }
 
     private fun isSpotifyInstalled() : Boolean{
         val packageManager: PackageManager = packageManager
