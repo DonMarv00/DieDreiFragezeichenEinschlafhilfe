@@ -1,9 +1,6 @@
 package de.msdevs.einschlafhilfe
 
-
-
 import android.content.DialogInterface
-import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.Menu
@@ -18,7 +15,6 @@ import de.msdevs.einschlafhilfe.adapter.ViewPagerAdapter
 import de.msdevs.einschlafhilfe.databinding.ActivityFilterBinding
 import de.msdevs.einschlafhilfe.utils.NetworkUtils
 import de.msdevs.einschlafhilfe.utils.Utility
-
 
 class FilterActivity : BaseActivity(false){
 
