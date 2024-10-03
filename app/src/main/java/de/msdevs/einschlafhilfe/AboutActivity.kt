@@ -26,17 +26,15 @@ class AboutActivity : BaseActivity(false) {
         val view = binding.root
         setContentView(view)
 
-
         btnPrivacy = binding.btnPrivacy
         btnSource = binding.btnQuellcode
         btnLicenses = binding.btnLicense
         btnContact = binding.btnContact
-
         toolbarDesign()
 
 
         btnPrivacy.setOnClickListener{
-            openUrl("https://ddf-einschlafhilfe.de/files/app_privacy.php")
+            openUrl("https://privacy.citroncode.com/details.php?app_id=a0417")
         }
         btnSource.setOnClickListener{
             openUrl("https://github.com/MarvinStelter/DieDreiFragezeichenEinschlafhilfe")

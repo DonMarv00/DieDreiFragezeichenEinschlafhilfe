@@ -11,8 +11,8 @@ import de.msdevs.einschlafhilfe.fragments.intro.SettingsFragment
 
 class AppIntroActivity : AppIntro() {
 
-    lateinit var sharedPreferences: SharedPreferences
-    lateinit var sharedPreferencesEditor: SharedPreferences.Editor
+    private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var sharedPreferencesEditor: SharedPreferences.Editor
 
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
