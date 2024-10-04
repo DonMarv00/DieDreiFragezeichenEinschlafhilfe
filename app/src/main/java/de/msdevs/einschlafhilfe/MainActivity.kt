@@ -12,6 +12,7 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.lifecycleScope
@@ -56,7 +57,8 @@ class MainActivity : BaseActivity(false) {
     private lateinit var selectedEpisodeDescription : String
     private lateinit var selectedEpisodeSpotify : String
     private lateinit var selectedEpisodeName : String
-
+    private var isFirstStart : Int = 0
+    private var hasLoaded : Boolean = false
     /*
        Copyright 2017 - 2024 by Marvin Stelter
      */
@@ -72,7 +74,6 @@ class MainActivity : BaseActivity(false) {
         setSupportActionBar(toolbar)
         toolbarDesign()
         iniApp()
-        initializeEpisodeLists()
 
         binding.btnLeft.setOnClickListener {
             binding.bottomBarViewFlipper.setInAnimation(this, R.anim.anim_flipper_item_in_right)
@@ -226,11 +227,14 @@ class MainActivity : BaseActivity(false) {
         databaseHelper = DatabaseHelper(this)
         databaseHelper.createTables(folgen_database)
 
-        if(sharedPreferences.getInt("first",0) == 0){
+        isFirstStart = sharedPreferences.getInt("first",0)
+        if(isFirstStart == 0){
             sharedPreferencesEditor.putBoolean("update_list", true)
             sharedPreferencesEditor.putBoolean("spotify", false)
             sharedPreferencesEditor.apply()
             startActivity(Intent(this@MainActivity, AppIntroActivity::class.java))
+        }else{
+            initializeEpisodeLists()
         }
     }
     private suspend fun apiCall() {
@@ -349,7 +353,7 @@ class MainActivity : BaseActivity(false) {
         return url
     }
     private fun loadEpisodeCover(coverUrl : String){
-       if(networkUtils.isConnected(this) && sharedPreferences.getBoolean("update_list",false)){
+       if(networkUtils.isConnected(this) && sharedPreferences.getBoolean("update_list",false) && isFirstStart != 0){
            Glide.with(this)
                .load(coverUrl)
                .diskCacheStrategy(DiskCacheStrategy.ALL)
@@ -402,6 +406,11 @@ class MainActivity : BaseActivity(false) {
     }
     override fun onResume() {
         super.onResume()
+
+        isFirstStart = sharedPreferences.getInt("first",0)
+        if(isFirstStart != 0 && !hasLoaded){
+           initializeEpisodeLists()
+        }
 
         sharedPreferences = getSharedPreferences(packageName,0)
         sharedPreferencesEditor = sharedPreferences.edit()
@@ -508,6 +517,7 @@ class MainActivity : BaseActivity(false) {
                 sharedPreferencesEditor.apply()
             }
         }
+        hasLoaded = true
     }
 
     private fun loadEpisodesFromAssets(filename: String): List<JsonResponse> {
