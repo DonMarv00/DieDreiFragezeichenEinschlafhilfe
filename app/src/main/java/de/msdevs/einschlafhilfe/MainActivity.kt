@@ -235,6 +235,7 @@ class MainActivity : BaseActivity(false) {
             startActivity(Intent(this@MainActivity, AppIntroActivity::class.java))
         }else{
             initializeEpisodeLists()
+            updateSliderMaxValue()
         }
     }
     private suspend fun apiCall() {
@@ -519,7 +520,24 @@ class MainActivity : BaseActivity(false) {
         }
         hasLoaded = true
     }
+    private fun updateSliderMaxValue(){
+        //Wenn der Nutzer wenn von Offline zu Online wechselt wurden die Slider Max Werte nicht angepasst, dies geschieht nun.
+        val maxKidsSlider = sharedPreferences.getInt("maxKD", 0)
+        val maxDDFSlider = sharedPreferences.getInt("maxD", 0)
 
+        val maxKidsListe = episodeListKids.size
+        val maxDDFListe = episodeListDDF.size
+
+        if(maxDDFSlider != maxDDFListe){
+            sharedPreferencesEditor.putInt("maxD", episodeListDDF.size)
+            sharedPreferencesEditor.apply()
+        }
+        if(maxKidsSlider != maxKidsListe){
+            sharedPreferencesEditor.putInt("maxKD", episodeListKids.size)
+            sharedPreferencesEditor.apply()
+        }
+
+    }
     private fun loadEpisodesFromAssets(filename: String): List<JsonResponse> {
         val episodeList = ArrayList<JsonResponse>()
         val folgenListe = assets.open(filename).bufferedReader().use(BufferedReader::readText)
