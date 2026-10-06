@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp"
+    android:gravity="center_vertical">
+
+    <TextView
+        android:id="@+id/text_link_nummer"
+        android:layout_width="32dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimary"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:text="1" />
+
+    <TextView
+        android:id="@+id/text_link_titel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#dddddd"
+        android:textSize="15sp"
+        android:text="Kapitel" />
+
+</LinearLayout>

@@ -1,91 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/black"
-    android:fitsSystemWindows="true"
-    android:layout_height="match_parent">
+    android:id="@+id/rl_filter"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <View
+        android:id="@+id/android15statusBarPlaceHolder_filter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorPrimaryDark"
+        android:visibility="gone" />
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_layout"
         android:layout_width="match_parent"
-        android:id="@+id/appbarlayout"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/android15statusBarPlaceHolder_filter">
+
         <androidx.appcompat.widget.Toolbar
-            android:layout_width="match_parent"
-            app:title="@string/filter_liste"
-            android:elevation="0dp"
             android:id="@+id/toolbar"
-            android:layout_height="wrap_content"/>
+            android:layout_width="match_parent"
+            app:theme="@style/ToolbarColoredBackArrow"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            app:title="@string/filter_title"
+            app:titleTextColor="#ffffff" />
     </com.google.android.material.appbar.AppBarLayout>
 
-    <com.google.android.material.tabs.TabLayout
-        android:layout_width="match_parent"
-        android:id="@+id/tablayout"
-        android:layout_below="@id/appbarlayout"
-        app:tabTextColor="?attr/colorOnSurface"
-        app:tabIndicatorColor="?attr/colorOnSurface"
-        android:layout_height="wrap_content">
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:text="@string/ddf"
-            android:layout_height="wrap_content"/>
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:text="@string/kids"
-            android:layout_height="wrap_content"/>
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:text="@string/die_dr3i"
-            android:layout_height="wrap_content"/>
-    </com.google.android.material.tabs.TabLayout>
 
-    <androidx.viewpager2.widget.ViewPager2
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_filter"
+        android:layout_below="@id/app_bar_layout"
         android:layout_width="match_parent"
-        android:id="@+id/viewpager"
-        android:layout_below="@id/tablayout"
-        android:layout_height="match_parent"/>
-    <RelativeLayout
-        android:visibility="gone"
-        android:layout_below="@id/appbarlayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <TextView
-            android:id="@+id/tv_no_episodes_added"
-            android:layout_centerInParent="true"
-            android:textSize="20sp"
-            android:layout_margin="20dp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:text="@string/es_wurden_noch_keine_folgen_hinzugef_gt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout"
-            android:layout_width="match_parent"
-            android:hint="@string/name_der_folge"
-            android:layout_margin="10dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-            android:layout_height="wrap_content">
-            <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                android:id="@+id/tv_folge"
-                android:completionThreshold="3"
-                android:paddingStart="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:textColor="@color/white"
-                app:hintTextColor="@color/white"
-                android:hint="@string/name_der_folge"
-                tools:ignore="RtlSymmetry" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_below="@id/textInputLayout"
-            android:id="@+id/rv_filter_liste"
-            android:layout_width="match_parent"
-            android:layout_marginBottom="20dp"
-            android:layout_height="wrap_content"/>
-    </RelativeLayout>
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingTop="8dp"
+        android:paddingBottom="16dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
 </RelativeLayout>

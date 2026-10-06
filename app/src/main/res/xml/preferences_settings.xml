@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        app:title="@string/pref_category_playback"
+        app:iconSpaceReserved="false">
+
+        <Preference
+            app:key="streaming_provider"
+            app:title="@string/pref_streaming_provider_title"
+            app:persistent="false"
+            app:iconSpaceReserved="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:title="@string/pref_category_privacy"
+        app:iconSpaceReserved="false">
+
+        <Preference
+            app:key="anonymous_statistics"
+            app:title="@string/pref_anon_stats_title"
+            app:summary="@string/pref_anon_stats_summary"
+            app:persistent="false"
+            app:iconSpaceReserved="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:title="@string/pref_category_about"
+        app:iconSpaceReserved="false">
+
+        <Preference
+            app:key="licenses"
+            app:title="@string/pref_licenses_title"
+            app:summary="@string/pref_licenses_summary"
+            app:persistent="false"
+            app:iconSpaceReserved="false" />
+
+        <Preference
+            app:key="contact"
+            app:title="@string/pref_contact_title"
+            app:summary="@string/pref_contact_summary"
+            app:persistent="false"
+            app:iconSpaceReserved="false" />
+
+        <Preference
+            app:key="privacy"
+            app:title="@string/pref_privacy_title"
+            app:summary="@string/pref_privacy_summary"
+            app:persistent="false"
+            app:iconSpaceReserved="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:title="@string/pref_category_legal"
+        app:iconSpaceReserved="false">
+
+        <de.msdevs.einschlafhilfe.prefs.LongSummaryPreference
+            app:key="copyright"
+            app:title="@string/pref_copyright_title"
+            app:summary="@string/copyright_notice_abt"
+            app:selectable="false"
+            app:persistent="false"
+            app:iconSpaceReserved="false" />
+
+        <de.msdevs.einschlafhilfe.prefs.LongSummaryPreference
+            app:key="datasource"
+            app:title="@string/pref_datasource_title"
+            app:summary="@string/pref_datasource_summary"
+            app:persistent="false"
+            app:iconSpaceReserved="false" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

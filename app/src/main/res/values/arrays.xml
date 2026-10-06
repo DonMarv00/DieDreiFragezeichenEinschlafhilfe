@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="streaming_provider_entries">
+        <item>Immer fragen</item>
+        <item>Spotify</item>
+        <item>Apple Music</item>
+        <item>Amazon Music</item>
+        <item>YouTube Music</item>
+        <item>Deezer</item>
+    </string-array>
+
+    <string-array name="streaming_provider_values">
+        <item>ask</item>
+        <item>spotify</item>
+        <item>applemusic</item>
+        <item>amazonmusic</item>
+        <item>youtubemusic</item>
+        <item>deezer</item>
+    </string-array>
+</resources>

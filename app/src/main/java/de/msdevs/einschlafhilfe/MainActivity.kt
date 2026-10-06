@@ -1,562 +1,390 @@
 package de.msdevs.einschlafhilfe
 
-import android.content.DialogInterface
 import android.content.Intent
-import android.content.SharedPreferences
-import android.content.pm.PackageManager
-import android.database.sqlite.SQLiteDatabase
-import android.graphics.Color
-import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import android.view.Menu
-import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
+import android.view.ViewGroup
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.toDrawable
+import androidx.core.net.toUri
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updateLayoutParams
+import androidx.core.view.updatePadding
 import androidx.lifecycle.lifecycleScope
+import androidx.preference.PreferenceManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
+
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import de.msdevs.einschlafhilfe.database.DatabaseHelper
+import de.msdevs.einschlafhilfe.adapter.KapitelAdapter
+import de.msdevs.einschlafhilfe.adapter.LinkAdapter
+import de.msdevs.einschlafhilfe.adapter.SprecherAdapter
+import de.msdevs.einschlafhilfe.data.local.Episode
+import de.msdevs.einschlafhilfe.domain.EpisodeDetails
+import de.msdevs.einschlafhilfe.data.repository.EpisodeRepository
+import de.msdevs.einschlafhilfe.data.local.Kategorie
 import de.msdevs.einschlafhilfe.databinding.ActivityMainBinding
-import de.msdevs.einschlafhilfe.models.JsonResponse
-import de.msdevs.einschlafhilfe.utils.NetworkUtils
-import de.msdevs.einschlafhilfe.utils.Utility
+import de.msdevs.einschlafhilfe.dialog.AnonymousStatisticsDialog
+import de.msdevs.einschlafhilfe.utils.AnalyticsTracker
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import okhttp3.OkHttpClient
-import okhttp3.Request
-import org.json.JSONObject
-import java.io.BufferedReader
-import java.io.IOException
 
-
-class MainActivity : BaseActivity(false) {
+class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private var episodeNumberExternal: Int = 0
+    private lateinit var toolbar: Toolbar
+    private lateinit var repo: EpisodeRepository
 
-    private lateinit var sharedPreferences: SharedPreferences
-    private lateinit var sharedPreferencesEditor: SharedPreferences.Editor
-    private lateinit var networkUtils: NetworkUtils
-    private var random : Int = 0
-    private lateinit var folgen_database: SQLiteDatabase
-    private lateinit var databaseHelper: DatabaseHelper
-    private lateinit var toolbar : Toolbar
-    private var alerterColor : Int = 0
-    private var isWhite = false
-    private val episodeListDDF = ArrayList<JsonResponse>()
-    private val episodeListDD = ArrayList<JsonResponse>()
-    private val episodeListKids = ArrayList<JsonResponse>()
-    private val episodeListSonderfolgen = ArrayList<JsonResponse>()
-    private val episodeListHoerbuecher = ArrayList<JsonResponse>()
-    private lateinit var selectedEpisodeDescription : String
-    private lateinit var selectedEpisodeSpotify : String
-    private lateinit var selectedEpisodeName : String
-    private var isFirstStart : Int = 0
-    private var hasLoaded : Boolean = false
+    private var playMenuItem: android.view.MenuItem? = null
+    private var currentEpisode: Episode? = null
+    private var collapsedTitle: String = ""
+    private var playAvailable: Boolean = true
+    private var isCollapsed: Boolean = false
+
+    private var headerFullHeight: Int = 0
     /*
-       Copyright 2017 - 2024 by Marvin Stelter
+       Copyright 2017 - 2026 by Marvin Stelter
      */
+
+    private val filterLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) {
+        lifecycleScope.launch {
+            if (!repo.isVorratValid()) {
+                repo.refillVorrat()
+                preloadCovers()
+            }
+            showCurrent()
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+        setContentView(binding.root)
+
+        repo = EpisodeRepository(this)
 
         toolbar = binding.toolbar
         setSupportActionBar(toolbar)
-        toolbarDesign()
-        iniApp()
+        supportActionBar?.setDisplayShowTitleEnabled(false)
 
-        binding.btnLeft.setOnClickListener {
-            binding.bottomBarViewFlipper.setInAnimation(this, R.anim.anim_flipper_item_in_right)
-            binding.bottomBarViewFlipper.setOutAnimation(this, R.anim.anim_flipper_item_out_left)
-            binding.bottomBarViewFlipper.showPrevious()
-            refresh()
-            saveViewFlipperPostion()
+        WindowCompat.getInsetsController(window, window.decorView)
+            .isAppearanceLightStatusBars = false
+
+        setupCoverInsets()
+        setupCollapsingFade()
+        setupFabInsets()
+
+        binding.recyclerLinks.layoutManager = LinearLayoutManager(this)
+
+        binding.recyclerKapitel.layoutManager = LinearLayoutManager(this)
+        binding.recyclerSprecher.layoutManager = LinearLayoutManager(this)
+
+        binding.fabFilter.setOnClickListener {
+            filterLauncher.launch(Intent(this, FilterActivity::class.java))
         }
-        binding.btnRight.setOnClickListener {
-            binding.bottomBarViewFlipper.setInAnimation(this, R.anim.anim_flipper_item_in_left) //right
-            binding.bottomBarViewFlipper.setOutAnimation(this, R.anim.anim_flipper_item_out_right)
-            binding.bottomBarViewFlipper.showNext()
-            refresh()
-            saveViewFlipperPostion()
-        }
-        if(!isSpotifyInstalled()){
-            binding.btnSpotify.visibility = View.GONE
-        }
-        if(!sharedPreferences.getBoolean("spotify",false)){
-            binding.btnSpotify.visibility = View.GONE
-        }
-        binding.btnSpotify.setOnClickListener {
-            try {
-                var id = selectedEpisodeSpotify
-                when {
-                    id.contains("https://") -> {
-                        val separated: Array<String> = id.split(getString(R.string.spotify_base_url).toRegex()).toTypedArray()
-                        val pathOneRemoved = separated[1]
-                        val separatedLastPath = pathOneRemoved.split("\\?si=".toRegex()).toTypedArray()
-                        id = separatedLastPath[0]
-                    }
-                }
-                val intent = Intent(Intent.ACTION_VIEW)
-                intent.data = Uri.parse("spotify:album:$id")
-                intent.putExtra(Intent.EXTRA_REFERRER, Uri.parse("android-app://$packageName"))
-                startActivity(intent)
-            } catch (e: Exception) {
-                e.printStackTrace()
-                Utility.displayAlerter(getString(R.string.not_installed),alerterColor,isWhite,this@MainActivity)
+        binding.fabReload.setOnClickListener {
+            lifecycleScope.launch {
+                val next = repo.next()
+                preloadCovers()
+                if (next != null) bind(next)
             }
         }
-        binding.fabRefresh.setOnClickListener {
-           refresh()
-        }
-        binding.fabDescription.setOnClickListener {
-            try {
 
-                val alert : MaterialAlertDialogBuilder = if (Utility.getTheme(applicationContext) <= 2) {
-                    MaterialAlertDialogBuilder(this, R.style.DialogThemeRed)
-                } else if (Utility.getTheme(applicationContext) == 3) {
-                    MaterialAlertDialogBuilder(this, R.style.DialogThemeBlue)
-                } else if (Utility.getTheme(applicationContext) == 4) {
-                    MaterialAlertDialogBuilder(this, R.style.DialogThemeWhite)
-                }else{
-                    MaterialAlertDialogBuilder(this, R.style.DialogThemeRed)
-                }
+        binding.buttonPlayHeader.setOnClickListener { onPlayClicked() }
 
-                alert.setTitle(getString(R.string.output, (episodeNumberExternal + 1).toString(), selectedEpisodeName))
-                alert.setMessage(selectedEpisodeDescription)
-                alert.setNegativeButton(getString(R.string.close)) { dlg: DialogInterface, _: Int -> dlg.dismiss() }
-                alert.show()
-            }catch (e : Exception){
-                Utility.displayAlerter(getString(R.string.folge_laedt_noch),alerterColor,isWhite,this@MainActivity)
-            }
-        }
-        binding.fabLinks.setOnClickListener {
-            val neuvertonungList = listOf("11", "1", "10", "8",
-                "22", "18", "5", "24", "12", "14", "19",
-                "3", "28", "73", "74", "76", "77", "78",
-                "86", "90", "92", "95", "97", "100", "101",
-                "103", "109", "107","121", "122", "123", "124",
-                "125", "126", "127", "128", "128", "129", "130", "131", "135", "140")
+        startupFlow()
 
-            val liste: Array<String> = when (binding.bottomBarViewFlipper.displayedChild) {
-                4 -> {
-                    arrayOf(getString(R.string.informationen))
-                }else -> {
-                    var neuvertonung = 0
-                    for (i in neuvertonungList.indices) {
-                        if (episodeNumberExternal.toString() == neuvertonungList[i]) {
-                            neuvertonung++
-                        }
-                    }
-                    if(binding.bottomBarViewFlipper.displayedChild == 5 && random == 3){
-                            arrayOf(getString(R.string.informationen))
-                    }else{
-                        if(neuvertonung != 0){
-                            arrayOf(
-                                    getString(R.string.informationen),
-                                    getString(R.string.neuvertonung))
-                        }else{
-                            arrayOf(getString(R.string.informationen))
-                        }
-                    }
-                }
-            }
-
-            val builder : MaterialAlertDialogBuilder = if (Utility.getTheme(applicationContext) <= 2) {
-                MaterialAlertDialogBuilder(this, R.style.DialogThemeRed)
-            } else if (Utility.getTheme(applicationContext) == 3) {
-                MaterialAlertDialogBuilder(this, R.style.DialogThemeBlue)
-            } else if (Utility.getTheme(applicationContext) == 4) {
-                MaterialAlertDialogBuilder(this, R.style.DialogThemeWhite)
-            }else{
-                MaterialAlertDialogBuilder(this, R.style.DialogThemeRed)
-            }
-
-            builder.setTitle("Links:")
-            builder.setItems(liste) { _: DialogInterface?, which: Int ->
-                var i = Intent(Intent.ACTION_VIEW)
-                when (which) {
-                    0 -> {
-                        i.data = Uri.parse(getRockyBeachLink((episodeNumberExternal + 1).toString(), random))
-                        startActivity(i)
-                    }
-                    1 -> {
-                        i = Intent(Intent.ACTION_VIEW)
-                        i.data = Uri.parse("http://fragezeichen.neuvertonung.de/")
-                        startActivity(i)
-                    }
-                }
-            }
-
-            val dialog = builder.create()
-            dialog.show()
-        }
-
-    }
-    private fun toolbarDesign() {
-        if (Utility.getTheme(applicationContext) <= 2) {
-            toolbar.setTitleTextColor(Color.WHITE)
-            alerterColor = Color.parseColor("#d50000")
-            isWhite = false
-        } else if (Utility.getTheme(applicationContext) == 3) {
-            toolbar.setTitleTextColor(Color.WHITE)
-            alerterColor = Color.parseColor("#0048FF")
-            isWhite = false
-        } else if (Utility.getTheme(applicationContext) == 4) {
-            toolbar.setTitleTextColor(Color.BLACK)
-            alerterColor = Color.BLACK
-            isWhite = true
-        }
-    }
-    private fun iniApp(){
-        sharedPreferences = getSharedPreferences(packageName,0)
-        sharedPreferencesEditor = sharedPreferences.edit()
-        networkUtils = NetworkUtils()
-        restoreViewFlipperPostion()
-
-        folgen_database = openOrCreateDatabase("app_list",MODE_PRIVATE,null)
-        databaseHelper = DatabaseHelper(this)
-        databaseHelper.createTables(folgen_database)
-
-        isFirstStart = sharedPreferences.getInt("first",0)
-        if(isFirstStart == 0){
-            sharedPreferencesEditor.putBoolean("update_list", true)
-            sharedPreferencesEditor.putBoolean("spotify", false)
-            sharedPreferencesEditor.apply()
-            startActivity(Intent(this@MainActivity, AppIntroActivity::class.java))
-        }else{
-            initializeEpisodeLists()
-            updateSliderMaxValue()
-        }
-    }
-    private suspend fun apiCall() {
-        try {
-            val random = (1..5).random()
-            runOnUiThread {
-                if (binding.bottomBarViewFlipper.displayedChild == 4) {
-                    binding.btnSpotify.visibility = View.GONE
-                } else {
-                    if (random != 3 && sharedPreferences.getBoolean("spotify", false)) {
-                        binding.btnSpotify.visibility = View.VISIBLE
-                    }
-                }
-            }
-
-            val (episodeList, episodeNumber) = when (binding.bottomBarViewFlipper.displayedChild) {
-                0-> episodeListDDF to (1..50).random() - 1
-                1-> episodeListDDF to (1..100).random() - 1
-                2 -> episodeListDDF to (1..150).random() - 1
-                3 -> episodeListDDF to (1..episodeListDDF.size).random() - 1
-                4 -> episodeListDD to (1..8).random() - 1
-                6 -> episodeListKids to (1..episodeListKids.size).random() - 1
-                7 -> episodeListHoerbuecher to (1..episodeListHoerbuecher.size).random() - 1
-                5 -> when (random) {
-                    1 -> episodeListDDF to (sharedPreferences.getInt("min", 1)..sharedPreferences.getInt("max", episodeListDDF.size)).random() - 1
-                    2 -> episodeListSonderfolgen to (1..episodeListSonderfolgen.size).random() - 1
-                    3 -> episodeListDD to  (sharedPreferences.getInt("minDr3i", 1)..sharedPreferences.getInt("maxDr3i", episodeListDDF.size)).random() - 1
-                    4 -> episodeListKids to (sharedPreferences.getInt("minK", 1)..sharedPreferences.getInt("maxK", episodeListKids.size)).random() - 1
-                    5 -> episodeListHoerbuecher to (1..episodeListHoerbuecher.size).random() - 1
-                    else -> episodeListDDF to 0
-                } else -> episodeListDDF to (1..episodeListDDF.size).random() - 1 //Error
-            }
-
-            episodeNumberExternal = episodeNumber
-            val episode = episodeList[episodeNumber]
-
-            if (!checkFilter(episode.name)) {
-                runOnUiThread {
-                    try {
-                        binding.tvDetails.text = getString(R.string.output, (episodeNumber + 1).toString(), episode.name)
-                        if (sharedPreferences.getBoolean("spotify", false) && random != 3 && binding.bottomBarViewFlipper.displayedChild != 4) {
-                            binding.btnSpotify.visibility = View.VISIBLE
-                        }
-                        when (binding.bottomBarViewFlipper.displayedChild) {
-                            4 ->
-                                loadEpisodeCover(getString(R.string.cover_citroncode_dd_url) + (episodeNumber + 1) + ".png")
-                            else ->
-                                if(binding.bottomBarViewFlipper.displayedChild == 6) {
-                                    loadEpisodeCover(getString(R.string.cover_citroncode_url) + "k" + (episodeNumber + 1) + ".png")
-                                    binding.fabLinks.hide()
-                                }else if(binding.bottomBarViewFlipper.displayedChild == 7){
-                                    loadEpisodeCover(getString(R.string.cover_citroncode_url) + "h" +(episodeNumber + 1) + ".png")
-                                    binding.fabLinks.hide()
-                                }else if(binding.bottomBarViewFlipper.displayedChild != 5){
-                                    loadEpisodeCover(getString(R.string.cover_citroncode_url) + (episodeNumber + 1) + ".png")
-                                    binding.fabLinks.show()
-                                }else{
-                                    if(random == 1){
-                                        loadEpisodeCover(getString(R.string.cover_citroncode_url) + (episodeNumber + 1) + ".png")
-                                        binding.fabLinks.show()
-                                    }
-                                    if(random == 2){
-                                        loadEpisodeCover(getString(R.string.cover_citroncode_url) + "x" + (episodeNumber + 1) + ".png")
-                                        binding.fabLinks.hide()
-                                    }
-                                    if(random == 3){
-                                        loadEpisodeCover(getString(R.string.cover_citroncode_dd_url) + (episodeNumber + 1) + ".png")
-                                        binding.fabLinks.show()
-                                        binding.btnSpotify.visibility = View.GONE
-                                    }
-                                    if(random == 4){
-                                        loadEpisodeCover(getString(R.string.cover_citroncode_url) + "k" + (episodeNumber + 1) + ".png")
-                                        binding.fabLinks.hide()
-                                    }
-                                    if(random == 5){
-                                        loadEpisodeCover(getString(R.string.cover_citroncode_url) + "h" + (episodeNumber + 1) + ".png")
-                                        binding.fabLinks.hide()
-                                    }
-                                }
-                        }
-                        selectedEpisodeName = episode.name
-                        selectedEpisodeDescription = episode.beschreibung
-                        selectedEpisodeSpotify = episode.spotify
-                    } catch (e: Exception) {
-                        e.printStackTrace()
-                        refresh()
-                    }
-                }
-            } else {
-                lifecycleScope.launch {
-                    withContext(Dispatchers.IO) {
-                        apiCall()
-                    }
-                }
-            }
-        } catch (e: Exception) {
-            Log.e("MainActivity", "Error: $e")
+        AnonymousStatisticsDialog.showIfNeeded(this)
+        if (AnonymousStatisticsDialog.isEnabled(this)) {
+            sendAnalyticsCall()
         }
     }
 
-    private fun getRockyBeachLink(nummer: String, random : Int): String {
-        var url = ""
-        when (nummer.length) {
-            3 -> url = "https://www.rocky-beach.com/hoerspiel/folgen/$nummer.html"
-            2 -> url = "https://www.rocky-beach.com/hoerspiel/folgen/0$nummer.html"
-            1 -> url = "https://www.rocky-beach.com/hoerspiel/folgen/00$nummer.html"
-        }
-        when (binding.bottomBarViewFlipper.displayedChild) {
-            4 -> {
-                url = "https://www.rocky-beach.com/hoerspiel/folgen/50$nummer.html"
-            }
-        }
-        if(random == 3 && binding.bottomBarViewFlipper.displayedChild == 5){
-            url = "https://www.rocky-beach.com/hoerspiel/folgen/50$nummer.html"
-        }
-        return url
-    }
-    private fun loadEpisodeCover(coverUrl : String){
-       if(networkUtils.isConnected(this) && sharedPreferences.getBoolean("update_list",false) && isFirstStart != 0){
-           Glide.with(this)
-               .load(coverUrl)
-               .diskCacheStrategy(DiskCacheStrategy.ALL)
-               .into(binding.ivCover)
-       }
-    }
+    // ---------- Daten-Flow ----------
 
-
-    private fun isSpotifyInstalled() : Boolean{
-        val packageManager: PackageManager = packageManager
-        val intent = Intent(Intent.ACTION_VIEW)
-        if (intent.resolveActivity(packageManager) != null) {
-            return try {
-                packageManager.getPackageInfo("com.spotify.music", PackageManager.GET_ACTIVITIES)
-                true
-            } catch (e : PackageManager.NameNotFoundException) {
-                false
-            }
-        }
-        return false
-    }
-    private fun refresh(){
+    private fun startupFlow() {
         lifecycleScope.launch {
-            withContext(Dispatchers.IO) {
-                apiCall()
+            val hasCurrent = repo.current() != null
+
+            if (hasCurrent) {
+                showCurrent()
+            } else {
+                setLoading(true)
             }
+
+            if (repo.needsSync()) {
+                try {
+                    repo.sync()
+                } catch (e: Exception) {
+                    setLoading(false)
+                    showNoInternet()
+                    return@launch
+                }
+            }
+
+            if (!repo.isVorratValid()) {
+                repo.refillVorrat()
+                preloadCovers()
+            }
+
+            showCurrent()
+            setLoading(false)
+        }
+    }
+
+    private fun setLoading(loading: Boolean) {
+        binding.progressInitial.visibility =
+            if (loading) android.view.View.VISIBLE else android.view.View.GONE
+        val contentVis = if (loading) android.view.View.INVISIBLE else android.view.View.VISIBLE
+        binding.appBarLayout.visibility = contentVis
+        binding.nestedScrollView.visibility = contentVis
+    }
+
+    private suspend fun showCurrent() {
+        val ep = repo.current() ?: return
+        bind(ep)
+    }
+
+    private suspend fun preloadCovers() {
+        val urls = repo.vorratCoverUrls()
+        withContext(Dispatchers.Main) {
+            urls.forEach { Glide.with(this@MainActivity).load(it).preload() }
+        }
+    }
+
+    private fun showNoInternet() {
+        MaterialAlertDialogBuilder(this)
+            .setTitle(getString(R.string.no_internet_title))
+            .setMessage(getString(R.string.no_internet_message))
+            .setPositiveButton(getString(R.string.dialog_ok), null)
+            .show()
+    }
+
+    private fun bind(ep: Episode) {
+        currentEpisode = ep
+
+        // DR3i gibt es nicht mehr im Streaming -> kein Play
+        playAvailable = ep.kategorie != Kategorie.DR3I
+        binding.buttonPlayHeader.visibility =
+            if (playAvailable) android.view.View.VISIBLE else android.view.View.GONE
+        playMenuItem?.isVisible = playAvailable && isCollapsed
+
+        val nummerText = if (ep.nummer != null) {
+            getString(R.string.folge_prefix, ep.nummer)
+        } else {
+            getString(R.string.kurzgeschichte)
+        }
+        binding.textNummer.text = nummerText
+        binding.textTitel.text = ep.titel
+        binding.textAutor.text = ep.autor ?: ""
+
+
+        val hasBeschreibung = !ep.beschreibung.isNullOrBlank()
+        binding.labelBeschreibung.visibility = if (hasBeschreibung) View.VISIBLE else View.GONE
+        binding.textBeschreibung.visibility = if (hasBeschreibung) View.VISIBLE else View.GONE
+        binding.textBeschreibung.text = ep.beschreibung ?: ""
+
+        collapsedTitle = if (ep.nummer != null) {
+            getString(R.string.collapsed_title_format, ep.nummer, ep.titel)
+        } else {
+            ep.titel
         }
 
+        binding.textJahr.text = ep.jahr?.toString() ?: getString(R.string.value_none)
+        binding.textDauer.text = getString(R.string.dauer_minuten, ep.dauerMs / 60000)
+        binding.textInfoAutor.text = ep.autor ?: getString(R.string.value_none)
+        binding.textSkriptautor.text = ep.skriptautor ?: getString(R.string.value_none)
+
+        Glide.with(this).load(ep.coverUrl).into(binding.coverImage)
+
+        val details = EpisodeDetails.parse(ep)
+        binding.recyclerKapitel.adapter = KapitelAdapter(details.kapitel ?: emptyList())
+        binding.recyclerSprecher.adapter = SprecherAdapter(details.sprechrollen ?: emptyList())
+
+
+        binding.headerInfo.updateLayoutParams { height = ViewGroup.LayoutParams.WRAP_CONTENT }
+        binding.headerInfo.post {
+            headerFullHeight = binding.headerInfo.height
+        }
+        buildLinks(ep)
     }
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+
+    private fun buildLinks(ep: Episode) {
+        val links = buildList {
+            ep.dreifragezeichenUrl?.let { add(getString(R.string.provider_dreifragezeichen) to it) }
+            ep.spotifyUrl?.let { add(getString(R.string.provider_spotify) to it) }
+            ep.appleMusicUrl?.let { add(getString(R.string.provider_apple_music) to it) }
+            ep.amazonMusicUrl?.let { add(getString(R.string.provider_amazon_music) to it) }
+            ep.youtubeMusicUrl?.let { add(getString(R.string.provider_youtube_music) to it) }
+            ep.deezerUrl?.let { add(getString(R.string.provider_deezer) to it) }
+        }
+        binding.recyclerLinks.adapter = LinkAdapter(links) { url ->
+            startActivity(Intent(Intent.ACTION_VIEW, url.toUri()))
+        }
+    }
+
+    // ---------- Play ----------
+
+    private fun onPlayClicked() {
+        val ep = currentEpisode ?: return
+        if (ep.kategorie == Kategorie.DR3I) return
+
+        val provider = PreferenceManager
+            .getDefaultSharedPreferences(this)
+            .getString("streaming_provider", "ask") ?: "ask"
+
+        val url = when (provider) {
+            "spotify" -> ep.spotifyUrl
+            "applemusic" -> ep.appleMusicUrl
+            "amazonmusic" -> ep.amazonMusicUrl
+            "youtubemusic" -> ep.youtubeMusicUrl
+            "deezer" -> ep.deezerUrl
+            else -> null
+        }
+
+        if (provider == "ask" || url == null) {
+            showProviderChooser(ep)
+        } else {
+            openUrl(url)
+        }
+    }
+
+    private fun openUrl(url: String) {
+        startActivity(Intent(Intent.ACTION_VIEW, url.toUri()))
+    }
+
+    private fun showProviderChooser(ep: Episode) {
+        val options = buildList {
+            ep.spotifyUrl?.let { add(Triple(getString(R.string.provider_spotify), "spotify", it)) }
+            ep.appleMusicUrl?.let { add(Triple(getString(R.string.provider_apple_music), "applemusic", it)) }
+            ep.amazonMusicUrl?.let { add(Triple(getString(R.string.provider_amazon_music), "amazonmusic", it)) }
+            ep.youtubeMusicUrl?.let { add(Triple(getString(R.string.provider_youtube_music), "youtubemusic", it)) }
+            ep.deezerUrl?.let { add(Triple(getString(R.string.provider_deezer), "deezer", it)) }
+        }
+        if (options.isEmpty()) return
+
+        val labels = options.map { it.first }.toTypedArray()
+
+        MaterialAlertDialogBuilder(this)
+            .setTitle(getString(R.string.play_with_title))
+            .setItems(labels) { _, which ->
+                val (_, key, url) = options[which]
+                PreferenceManager.getDefaultSharedPreferences(this)
+                    .edit()
+                    .putString("streaming_provider", key)
+                    .apply()
+                openUrl(url)
+            }
+            .show()
+    }
+
+    // ---------- Menü ----------
+
+    override fun onCreateOptionsMenu(menu: android.view.Menu): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
+        playMenuItem = menu.findItem(R.id.action_play)
+        playMenuItem?.isVisible = playAvailable && isCollapsed
         return true
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.action_settings -> {
-                startActivity(Intent(this@MainActivity, SettingsActivity::class.java))
-                true
+    override fun onOptionsItemSelected(item: android.view.MenuItem): Boolean {
+        if (item.itemId == R.id.action_play) {
+            onPlayClicked()
+            return true
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    // ---------- Insets / Collapsing ----------
+
+    private val displayBreite get() = resources.displayMetrics.widthPixels
+
+    private fun setupCoverInsets() {
+        binding.appBarLayout.updateLayoutParams { height = displayBreite }
+        binding.coverImage.updateLayoutParams {
+            width = displayBreite
+            height = displayBreite
+        }
+        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { _, insets ->
+            val statusBarHeight = insets.getInsets(WindowInsetsCompat.Type.statusBars()).top
+            binding.statusBarPlaceholder.updateLayoutParams { height = statusBarHeight }
+            binding.appBarLayout.updatePadding(top = statusBarHeight)
+            binding.appBarLayout.updateLayoutParams { height = displayBreite }
+            (binding.coverImage.layoutParams as ViewGroup.MarginLayoutParams).apply {
+                topMargin = -statusBarHeight
+                binding.coverImage.layoutParams = this
             }
-            R.id.action_about ->{
-                startActivity(Intent(this@MainActivity, AboutActivity::class.java))
-                return true
-            }
-            else -> super.onOptionsItemSelected(item)
+            insets
         }
     }
-    private fun checkFilter(folgenName : String) : Boolean{
-        return databaseHelper.alreadyAdded(folgen_database, folgenName)
-    }
-    override fun onResume() {
-        super.onResume()
 
-        isFirstStart = sharedPreferences.getInt("first",0)
-        if(isFirstStart != 0 && !hasLoaded){
-           initializeEpisodeLists()
-        }
+    private fun setupCollapsingFade() {
+        val scrimColor = ContextCompat.getColor(this, R.color.colorPrimary)
+        val scrimColorDark = ContextCompat.getColor(this, R.color.colorPrimaryDark)
+        val toolbarBg = scrimColor.toDrawable().apply { alpha = 0 }
+        toolbar.background = toolbarBg
+        val statusBg = scrimColorDark.toDrawable().apply { alpha = 0 }
+        binding.statusBarPlaceholder.background = statusBg
 
-        sharedPreferences = getSharedPreferences(packageName,0)
-        sharedPreferencesEditor = sharedPreferences.edit()
+        binding.appBarLayout.addOnOffsetChangedListener(
+            com.google.android.material.appbar.AppBarLayout.OnOffsetChangedListener { appBar, verticalOffset ->
+                val range = appBar.totalScrollRange
+                if (range == 0) return@OnOffsetChangedListener
+                val scrolled = -verticalOffset
 
-        if (sharedPreferences.getInt("theme_changed",0) == 1) {
-            val intent = intent
-            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-            finish()
-            overridePendingTransition(0, 0)
-            startActivity(intent)
-            overridePendingTransition(0, 0)
+                val dockStart = range * 0.75f
+                val df = ((scrolled - dockStart) / (range - dockStart)).coerceIn(0f, 1f)
+                val a = (df * 255).toInt()
+                toolbarBg.alpha = a
+                statusBg.alpha = a
 
-            sharedPreferencesEditor.putInt("theme_changed",0)
-            sharedPreferencesEditor.apply()
-        }
-    }
-    private fun restoreViewFlipperPostion(){
-        binding.bottomBarViewFlipper.displayedChild = sharedPreferences.getInt("vf_pos",0)
-    }
-    private fun saveViewFlipperPostion(){
-        sharedPreferencesEditor.putInt("vf_pos", binding.bottomBarViewFlipper.displayedChild)
-        sharedPreferencesEditor.apply()
-    }
-    private suspend fun loadEpisodesFromServer(url: String): List<JsonResponse> = withContext(Dispatchers.IO) {
-        val episodeList = ArrayList<JsonResponse>()
-        try {
-            val client = OkHttpClient.Builder().build()
-            val request = Request.Builder().url(url).build()
-            val response = client.newCall(request).execute()
-            if (response.isSuccessful) {
-                val folgenListe = response.body()?.string()
-                if (!folgenListe.isNullOrEmpty()) {
-                    val jsonObject = JSONObject(folgenListe)
-                    val jsonArray = jsonObject.optJSONArray("folgen")
-                    if (jsonArray != null) {
-                        for (i in 0 until jsonArray.length()) {
-                            val jsonObject = jsonArray.getJSONObject(i)
-                            episodeList.add(JsonResponse(
-                                name = jsonObject.optString("name"),
-                                beschreibung = jsonObject.optString("beschreibung"),
-                                spotify = jsonObject.optString("spotify"),
-                                nummer = jsonObject.optString("nummer"),
-                                type = ""
-                            ))
-                        }
+                val headerStart = range * 0.95f
+                val hf = ((scrolled - headerStart) / (range - headerStart)).coerceIn(0f, 1f)
+                binding.headerInfo.alpha = 1f - hf
+                if (headerFullHeight > 0) {
+                    binding.headerInfo.updateLayoutParams {
+                        height = (headerFullHeight * (1f - hf)).toInt()
                     }
                 }
+
+                isCollapsed = df >= 1f
+                toolbar.title = if (isCollapsed) collapsedTitle else ""
+                playMenuItem?.isVisible = playAvailable && isCollapsed
             }
-        } catch (e: IOException) {
-            Log.e("MainActivity", "Error loading episodes from server: ", e)
-        }
-        episodeList
+        )
     }
-    private fun initializeEpisodeLists() {
-        lifecycleScope.launch {
-            val updateList = sharedPreferences.getBoolean("update_list", false)
-            if (updateList && networkUtils.isConnected(this@MainActivity)) {
-                val episodesDDF = async { loadEpisodesFromServer(getString(R.string.base_url) + "folgen.json") }
-                val episodesDD = async { loadEpisodesFromServer(getString(R.string.base_url) + "folgen_diedrei.json") }
-                val episodesKids = async { loadEpisodesFromServer(getString(R.string.base_url) + "folgen_kids.json") }
-                val episodesSonderfolgen = async { loadEpisodesFromServer(getString(R.string.base_url) + "sonderfolgen_ddf.json") }
-                val episodesHoerbuecher = async { loadEpisodesFromServer(getString(R.string.base_url) + "hoerbuecher.json") }
 
-                episodeListDDF.addAll(episodesDDF.await())
-                episodeListDD.addAll(episodesDD.await())
-                episodeListKids.addAll(episodesKids.await())
-                episodeListSonderfolgen.addAll(episodesSonderfolgen.await())
-                episodeListHoerbuecher.addAll(episodesHoerbuecher.await())
-            } else {
-                episodeListDDF.addAll(loadEpisodesFromAssets("offline_list.txt"))
-                episodeListDD.addAll(loadEpisodesFromAssets("offline_list_dd.txt"))
-                episodeListKids.addAll(loadEpisodesFromAssets("offline_list_kids.txt"))
-                episodeListSonderfolgen.addAll(loadEpisodesFromAssets("offline_list_sonderfolgen_ddf.txt"))
-                episodeListHoerbuecher.addAll(loadEpisodesFromAssets("offline_list_hoerbuecher.txt"))
-            }
-
-            lifecycleScope.launch {
-                withContext(Dispatchers.IO) {
-                    apiCall()
-                }
-            }
-
-            if(sharedPreferences.getInt("initialEpisodesLength",0) == 0){
-                sharedPreferencesEditor.putInt("minD",1)
-                sharedPreferencesEditor.putInt("maxD", episodeListDDF.size)
-                sharedPreferencesEditor.putInt("minKD",1)
-                sharedPreferencesEditor.putInt("maxKD", episodeListKids.size)
-
-                sharedPreferencesEditor.putInt("min",1)
-                sharedPreferencesEditor.putInt("max", episodeListDDF.size)
-
-                sharedPreferencesEditor.putInt("minDr3i",1)
-                sharedPreferencesEditor.putInt("maxDr3i", 8)
-
-                sharedPreferencesEditor.putInt("minK",1)
-                sharedPreferencesEditor.putInt("maxK", episodeListKids.size)
-                sharedPreferencesEditor.putInt("initialEpisodesLength", 123)
-                sharedPreferencesEditor.apply()
-            }else{
-                sharedPreferencesEditor.putInt("minD",1)
-                sharedPreferencesEditor.putInt("maxD", episodeListDDF.size)
-                sharedPreferencesEditor.putInt("minKD",1)
-                sharedPreferencesEditor.putInt("maxKD", episodeListKids.size)
-                sharedPreferencesEditor.apply()
-            }
+    private fun setupFabInsets() {
+        val fabMargin = (10 * resources.displayMetrics.density).toInt()
+        ViewCompat.setOnApplyWindowInsetsListener(binding.fabReload) { v, insets ->
+            val nav = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom
+            v.updateLayoutParams<ViewGroup.MarginLayoutParams> { bottomMargin = nav + fabMargin }
+            insets
         }
-        hasLoaded = true
+        ViewCompat.setOnApplyWindowInsetsListener(binding.fabFilter) { v, insets ->
+            val nav = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom
+            v.updateLayoutParams<ViewGroup.MarginLayoutParams> {
+                bottomMargin = nav + fabMargin + (66 * resources.displayMetrics.density).toInt()
+            }
+            insets
+        }
     }
-    private fun updateSliderMaxValue(){
-        //Wenn der Nutzer wenn von Offline zu Online wechselt wurden die Slider Max Werte nicht angepasst, dies geschieht nun.
-        val maxKidsSlider = sharedPreferences.getInt("maxKD", 0)
-        val maxDDFSlider = sharedPreferences.getInt("maxD", 0)
-
-        val maxKidsListe = episodeListKids.size
-        val maxDDFListe = episodeListDDF.size
-
-        if(maxDDFSlider != maxDDFListe){
-            sharedPreferencesEditor.putInt("maxD", episodeListDDF.size)
-            sharedPreferencesEditor.apply()
+    private fun sendAnalyticsCall() {
+        try {
+            AnalyticsTracker.track()
+        } catch (e: Exception) {
+            Log.e("MainActivity", "Critical error in sendAnalyticsCall: " + e.message)
         }
-        if(maxKidsSlider != maxKidsListe){
-            sharedPreferencesEditor.putInt("maxKD", episodeListKids.size)
-            sharedPreferencesEditor.apply()
-        }
-
-    }
-    private fun loadEpisodesFromAssets(filename: String): List<JsonResponse> {
-        val episodeList = ArrayList<JsonResponse>()
-        val folgenListe = assets.open(filename).bufferedReader().use(BufferedReader::readText)
-        val jsonObject = JSONObject(folgenListe)
-        val jsonArray = jsonObject.optJSONArray("folgen")
-        if (jsonArray != null) {
-            for (i in 0 until jsonArray.length()) {
-                val jsonObject = jsonArray.getJSONObject(i)
-                episodeList.add(JsonResponse(
-                    name = jsonObject.optString("name"),
-                    beschreibung = jsonObject.optString("beschreibung"),
-                    spotify = jsonObject.optString("spotify"),
-                    nummer = jsonObject.optString("nummer"),
-                    type = ""
-                ))
-            }
-        }
-        return episodeList
     }
 }
-
-

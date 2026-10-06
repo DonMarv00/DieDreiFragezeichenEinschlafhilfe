@@ -19,3 +19,25 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+# --- kotlinx.serialization (Sicherheitsnetz; Consumer-Rules decken das meiste schon) ---
+-keepattributes RuntimeVisibleAnnotations,AnnotationDefault
+
+-if @kotlinx.serialization.Serializable class **
+-keepclassmembers class <1> {
+    static <1>$Companion Companion;
+}
+-if @kotlinx.serialization.Serializable class ** {
+    static **$Companion Companion;
+}
+-keepclassmembers class <1>$Companion {
+    kotlinx.serialization.KSerializer serializer(...);
+}
+-keepclassmembers class **$$serializer {
+    *** descriptor;
+}
+
+# --- OkHttp / Okio: nur Warnungen unterdrücken ---
+-dontwarn okhttp3.**
+-dontwarn okio.**
+-dontwarn org.conscrypt.**

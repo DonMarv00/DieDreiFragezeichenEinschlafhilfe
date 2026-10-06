@@ -1,324 +1,170 @@
 package de.msdevs.einschlafhilfe
 
-
-import android.R
 import android.content.Intent
-import android.content.SharedPreferences
-import android.content.res.ColorStateList
-import android.graphics.Color
+import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.widget.Button
-import android.widget.ImageView
 import android.widget.RelativeLayout
-import android.widget.TextView
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.widget.Toolbar
-import com.google.android.material.materialswitch.MaterialSwitch
-import com.google.android.material.slider.RangeSlider
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updateLayoutParams
+import androidx.core.view.updatePadding
+import androidx.preference.Preference
+import androidx.preference.PreferenceFragmentCompat
+import androidx.preference.PreferenceManager
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import de.msdevs.einschlafhilfe.databinding.ActivitySettingsBinding
-import de.msdevs.einschlafhilfe.utils.Utility
+import de.msdevs.einschlafhilfe.dialog.AnonymousStatisticsDialog
+import androidx.core.net.toUri
 
+class SettingsActivity : AppCompatActivity() {
 
-class SettingsActivity : BaseActivity(true) {
-
-    private lateinit var binding : ActivitySettingsBinding
-    private lateinit var switchSpotify : MaterialSwitch
-    private lateinit var switchUpdatelist : MaterialSwitch
-    private lateinit var sharedPreferences: SharedPreferences
-    private lateinit var sharedPreferencesEditor: SharedPreferences.Editor
-    private lateinit var rangeSlider : RangeSlider
-    private lateinit var rangeSliderKids : RangeSlider
-    private lateinit var tvStart : TextView
-    private lateinit var tvStartK : TextView
-    private lateinit var tvEnd: TextView
-    private lateinit var tvEndK : TextView
-    private lateinit var selectedTheme : String
-    private lateinit var ivCheckJustus : ImageView
-    private lateinit var ivCheckBob : ImageView
-    private lateinit var ivCheckPeter : ImageView
-    private lateinit var rlJustus : RelativeLayout
-    private lateinit var rlBob : RelativeLayout
-    private lateinit var rlPeter: RelativeLayout
-    private lateinit var btnFilter : Button
-    private lateinit var toolbar: Toolbar
-    private lateinit var rangeSliderDr3i: RangeSlider
-    private lateinit var tvStartDr3i : TextView
-    private lateinit var tvEndDr3i: TextView
+    private lateinit var binding: ActivitySettingsBinding
+    /*
+       Copyright 2017 - 2026 by Marvin Stelter
+     */
 
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         binding = ActivitySettingsBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
-        toolbarDesign()
+        setContentView(binding.root)
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        iniViews()
+        setupStatusBarForAndroid()
 
-        switchSpotify.isChecked = sharedPreferences.getBoolean("spotify",false)
-        switchUpdatelist.isChecked = sharedPreferences.getBoolean("update_list",false)
+        binding.toolbar.setNavigationOnClickListener { finish() }
 
-
-        switchSpotify.setOnCheckedChangeListener { _, isChecked ->
-            sharedPreferencesEditor.putBoolean("spotify",isChecked)
-            sharedPreferencesEditor.apply()
+        ViewCompat.setOnApplyWindowInsetsListener(binding.appBarLayout) { v, insets ->
+            val top = insets.getInsets(WindowInsetsCompat.Type.systemBars()).top
+            v.updatePadding(top = top)
+            insets
         }
-        switchUpdatelist.setOnCheckedChangeListener { _, isChecked ->
-            sharedPreferencesEditor.putBoolean("update_list",isChecked)
-            sharedPreferencesEditor.apply()
-        }
-
-
-        val x = sharedPreferences.getInt("min",0).toFloat()
-        val y = sharedPreferences.getInt("max",0).toFloat()
-        val xD = sharedPreferences.getInt("minD",0).toFloat()
-        val yD = sharedPreferences.getInt("maxD",0).toFloat()
-        Log.e("SettingsActivity", "x="+ x + " y=" + y)
-
-        rangeSlider.valueFrom = xD
-        rangeSlider.valueTo = yD
-
-        rangeSlider.values = listOf(x,y)
-
-        tvStart.text = x.toString().floatToInt().toString()
-        tvEnd.text = y.toString().floatToInt().toString()
-
-
-        val xK = sharedPreferences.getInt("minK",0).toFloat()
-        val yK = sharedPreferences.getInt("maxK",0).toFloat()
-        val xKD = sharedPreferences.getInt("minKD",0).toFloat()
-        val yKD = sharedPreferences.getInt("maxKD",0).toFloat()
-
-        rangeSliderKids.valueFrom = xKD
-        rangeSliderKids.valueTo = yKD
-
-        rangeSliderKids.values = listOf(xK,yK)
-
-        tvStartK.text = xK.toString().floatToInt().toString()
-        tvEndK.text = yK.toString().floatToInt().toString()
-
-
-        val xDr3i = sharedPreferences.getInt("minDr3i",0).toFloat()
-        val yDr3i  = sharedPreferences.getInt("maxDr3i",0).toFloat()
-
-        rangeSliderDr3i.values = listOf(xDr3i,yDr3i)
-
-        tvStartDr3i.text = xDr3i.toString().floatToInt().toString()
-        tvEndDr3i.text = yDr3i.toString().floatToInt().toString()
-
-        rangeSlider.addOnSliderTouchListener(object : RangeSlider.OnSliderTouchListener{
-            override fun onStartTrackingTouch(slider: RangeSlider) {
-                val values = rangeSlider.values
-                tvStart.text =  values[0].toString().floatToInt().toString()
-                tvEnd.text = values[1].toString().floatToInt().toString()
-
-            }
-
-            override fun onStopTrackingTouch(slider: RangeSlider) {
-                val values = rangeSlider.values
-                tvStart.text =  values[0].toString().floatToInt().toString()
-                tvEnd.text = values[1].toString().floatToInt().toString()
-
-                sharedPreferencesEditor.putInt("min",values[0].toInt())
-                sharedPreferencesEditor.putInt("max",values[1].toInt())
-                sharedPreferencesEditor.apply()
-            }
-        })
-        rangeSliderKids.addOnSliderTouchListener(object : RangeSlider.OnSliderTouchListener{
-            override fun onStartTrackingTouch(slider: RangeSlider) {
-                val values = rangeSliderKids.values
-                tvStartK.text =  values[0].toString().floatToInt().toString()
-                tvEndK.text = values[1].toString().floatToInt().toString()
-
-            }
-
-            override fun onStopTrackingTouch(slider: RangeSlider) {
-                val values = rangeSliderKids.values
-                tvStartK.text =  values[0].toString().floatToInt().toString()
-                tvEndK.text = values[1].toString().floatToInt().toString()
-
-                sharedPreferencesEditor.putInt("minK",values[0].toInt())
-                sharedPreferencesEditor.putInt("maxK",values[1].toInt())
-                sharedPreferencesEditor.apply()
-            }
-        })
-        rangeSliderDr3i.addOnSliderTouchListener(object : RangeSlider.OnSliderTouchListener{
-            override fun onStartTrackingTouch(slider: RangeSlider) {
-                val values = rangeSliderDr3i.values
-                tvStartDr3i.text =  values[0].toString().floatToInt().toString()
-                tvEndDr3i.text = values[1].toString().floatToInt().toString()
-
-            }
-
-            override fun onStopTrackingTouch(slider: RangeSlider) {
-                val values = rangeSliderDr3i.values
-                tvStartDr3i.text =  values[0].toString().floatToInt().toString()
-                tvEndDr3i.text = values[1].toString().floatToInt().toString()
-
-                sharedPreferencesEditor.putInt("minDr3i",values[0].toInt())
-                sharedPreferencesEditor.putInt("maxDr3i",values[1].toInt())
-                sharedPreferencesEditor.apply()
-            }
-        })
-
-        btnFilter.setOnClickListener {
-            startActivity(Intent(this@SettingsActivity, FilterActivity::class.java))
+        ViewCompat.setOnApplyWindowInsetsListener(binding.settingsContainer) { v, insets ->
+            val bottom = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom
+            v.updatePadding(bottom = bottom)
+            insets
         }
 
-
-        rlJustus.setOnClickListener{
-            selectedTheme = "justus"
-            loadThemeSettings()
-
-            Utility.setTheme(applicationContext, 4);
-            recreateActivity();
-        }
-        rlBob.setOnClickListener{
-            selectedTheme = "bob"
-            loadThemeSettings()
-
-            Utility.setTheme(applicationContext, 2);
-            recreateActivity();
-        }
-        rlPeter.setOnClickListener{
-            selectedTheme = "peter"
-            loadThemeSettings()
-
-            Utility.setTheme(applicationContext, 3);
-            recreateActivity();
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.settings_container, SettingsFragment())
+                .commit()
         }
     }
-    fun iniViews(){
-        sharedPreferences = getSharedPreferences(packageName,0)
-        sharedPreferencesEditor = sharedPreferences.edit()
-        selectedTheme = sharedPreferences.getString("selected_theme","").toString()
 
-        switchSpotify = binding.swUseSpotify
-        switchUpdatelist = binding.swUpdateList
+    class SettingsFragment : PreferenceFragmentCompat() {
 
-        rangeSlider = binding.rangeSlider
-        rangeSliderKids = binding.rangeSliderKids
-        tvStart = binding.tvStart
-        tvStartK = binding.tvStartKids
-        tvEnd = binding.tvEnd
-        tvEndK = binding.tvEndKids
-        ivCheckJustus = binding.ivCheckJustus
-        ivCheckPeter = binding.ivCheckPeter
-        ivCheckBob = binding.ivCheckBob
+        override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+            setPreferencesFromResource(R.xml.preferences_settings, rootKey)
 
-        btnFilter = binding.btnFilter
+            val providerPref = findPreference<Preference>("streaming_provider")
+            providerPref?.summary = currentProviderLabel()
+            providerPref?.setOnPreferenceClickListener {
+                showProviderDialog(providerPref)
+                true
+            }
 
-        rlJustus = binding.rlJustus
-        rlBob = binding.rlBob
-        rlPeter = binding.rlPeter
+            findPreference<Preference>("licenses")?.setOnPreferenceClickListener {
+                startActivity(Intent(requireContext(), AboutLibrariesActivity::class.java))
+                true
+            }
 
-        rangeSliderDr3i = binding.rangeSliderDr3i
-        tvStartDr3i = binding.tvStartDr3i
-        tvEndDr3i = binding.tvEndDr3i
+            findPreference<Preference>("contact")?.setOnPreferenceClickListener {
+                val intent = Intent(Intent.ACTION_SENDTO).apply {
+                    data = Uri.parse("mailto:")
+                    putExtra(Intent.EXTRA_EMAIL, arrayOf("contact@citroncode.com"))
+                    putExtra(Intent.EXTRA_SUBJECT, "Kontaktanfrage: DDF Folgenauswahl")
+                    putExtra(Intent.EXTRA_TEXT, "Deine Nachricht hier...")
+                }
+                startActivity(intent)
+                true
+            }
 
-        loadThemeSettings()
-        changeViewThemes()
-    }
-    fun loadThemeSettings(){
-        sharedPreferencesEditor.putString("selected_theme",selectedTheme)
-        sharedPreferencesEditor.putInt("theme_changed",1)
-        sharedPreferencesEditor.apply()
-
-        if(selectedTheme.length == 0 || selectedTheme == "bob"){
-            ivCheckBob.visibility = View.VISIBLE
-            ivCheckPeter.visibility = View.GONE
-            ivCheckJustus.visibility = View.GONE
-        }else if(selectedTheme == "justus"){
-            ivCheckJustus.visibility = View.VISIBLE
-            ivCheckPeter.visibility = View.GONE
-            ivCheckBob.visibility = View.GONE
-        }else if(selectedTheme == "peter"){
-            ivCheckPeter.visibility = View.VISIBLE
-            ivCheckBob.visibility = View.GONE
-            ivCheckJustus.visibility = View.GONE
-        }
-    }
-    fun String.floatToInt(): Int {
-        return this.toFloat().toInt()
-    }
-    override fun onSupportNavigateUp(): Boolean {
-        finish()
-        return true
-    }
-    fun recreateActivity() {
-        val intent = intent
-        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-        finish()
-        overridePendingTransition(0, 0)
-        startActivity(intent)
-        overridePendingTransition(0, 0)
-
-    }
-    fun changeViewThemes(){
-        if(Utility.getTheme(this) == 4){
-            val thumbTintSelector = ColorStateList(
-                arrayOf(
-                    intArrayOf(android.R.attr.state_checked),
-                    intArrayOf(-android.R.attr.state_checked)
-                ),
-                intArrayOf(
-                    Color.parseColor("#000000"),
-                    Color.parseColor("#938F99")
+            findPreference<Preference>("privacy")?.setOnPreferenceClickListener {
+                startActivity(
+                    Intent(
+                        Intent.ACTION_VIEW,
+                        "https://citroncode.com/index.php?app=ddf-einschlafhilfe&privacy=1".toUri()
+                    )
                 )
-            )
-            switchUpdatelist.thumbTintList = thumbTintSelector
-            switchSpotify.thumbTintList = thumbTintSelector
+                true
+            }
 
-        }else if(Utility.getTheme(this) == 2  ||  selectedTheme.length == 0){
-            val thumbTintSelector = ColorStateList(
-                arrayOf(
-                    intArrayOf(android.R.attr.state_checked),
-                    intArrayOf(-android.R.attr.state_checked)
-                ),
-                intArrayOf(
-                    Color.parseColor("#d50000"),
-                    Color.parseColor("#938F99")
+            findPreference<Preference>("anonymous_statistics")?.setOnPreferenceClickListener {
+                AnonymousStatisticsDialog.show(requireContext())
+                true
+            }
+
+            findPreference<Preference>("datasource")?.setOnPreferenceClickListener {
+                startActivity(
+                    Intent(
+                        Intent.ACTION_VIEW,
+                        "https://creativecommons.org/licenses/by/4.0/legalcode.de".toUri()
+                    )
                 )
-            )
-            switchUpdatelist.thumbTintList = thumbTintSelector
-            switchSpotify.thumbTintList = thumbTintSelector
-        }else if(Utility.getTheme(this) == 3){
-            val thumbTintSelector = ColorStateList(
-                arrayOf(
-                    intArrayOf(android.R.attr.state_checked),
-                    intArrayOf(-android.R.attr.state_checked)
-                ),
-                intArrayOf(
-                    Color.parseColor("#0048FF"),
-                    Color.parseColor("#938F99")
-                )
-            )
-            switchUpdatelist.thumbTintList = thumbTintSelector
-            switchSpotify.thumbTintList = thumbTintSelector
+                true
+            }
         }
 
+        private fun currentProviderLabel(): String {
+            val prefs = PreferenceManager.getDefaultSharedPreferences(requireContext())
+            val value = prefs.getString("streaming_provider", "ask") ?: "ask"
+            val entries = resources.getStringArray(R.array.streaming_provider_entries)
+            val values = resources.getStringArray(R.array.streaming_provider_values)
+            val idx = values.indexOf(value).coerceAtLeast(0)
+            return entries[idx]
+        }
+
+        private fun showProviderDialog(pref: Preference) {
+            val entries = resources.getStringArray(R.array.streaming_provider_entries)
+            val values = resources.getStringArray(R.array.streaming_provider_values)
+            val prefs = PreferenceManager.getDefaultSharedPreferences(requireContext())
+            val current = prefs.getString("streaming_provider", "ask") ?: "ask"
+            val checked = values.indexOf(current).coerceAtLeast(0)
+
+            MaterialAlertDialogBuilder(requireContext(), R.style.MyAlertDialogTheme)
+                .setTitle(R.string.pref_streaming_provider_title)
+                .setSingleChoiceItems(entries, checked) { dialog, which ->
+                    prefs.edit().putString("streaming_provider", values[which]).apply()
+                    pref.summary = entries[which]
+                    dialog.dismiss()
+                }
+                .setNegativeButton(android.R.string.cancel, null)
+                .show()
+        }
     }
-    private fun toolbarDesign() {
-        toolbar = binding.toolbar
-        setSupportActionBar(toolbar)
 
-        supportActionBar?.setDisplayHomeAsUpEnabled(true);
-        supportActionBar?.setDisplayShowHomeEnabled(true);
+    private fun setupStatusBarForAndroid() {
+        val parentView = findViewById<RelativeLayout>(R.id.rl_settings)
+        val placeHolder: View = parentView.findViewById(R.id.android15statusBarPlaceHolder_settings)
+        placeHolder.visibility = View.VISIBLE
 
-        val nav = toolbar.navigationIcon
-        if (Utility.getTheme(applicationContext) <= 2) {
-            toolbar.setTitleTextColor(Color.WHITE)
-            nav?.setTint(Color.WHITE)
-        } else if (Utility.getTheme(applicationContext) == 3) {
-            toolbar.setTitleTextColor(Color.WHITE)
-            nav?.setTint(Color.WHITE)
-        } else if (Utility.getTheme(applicationContext) == 4) {
-            toolbar.setTitleTextColor(Color.BLACK)
-            nav?.setTint(Color.BLACK)
+        // Immer Dark Mode → keine hellen StatusBar-Icons
+        WindowCompat.getInsetsController(window, window.decorView).apply {
+            isAppearanceLightStatusBars = false
+        }
+
+        ViewCompat.setOnApplyWindowInsetsListener(parentView) { v, insets ->
+            val bars = insets.getInsets(
+                WindowInsetsCompat.Type.systemBars() or
+                        WindowInsetsCompat.Type.displayCutout()
+            )
+            placeHolder.updateLayoutParams {
+                height = bars.top
+            }
+
+            v.updatePadding(
+                left = bars.left,
+                right = bars.right,
+                bottom = bars.bottom
+            )
+
+            WindowInsetsCompat.CONSUMED
         }
     }
 }
-
